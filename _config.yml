@@ -1,0 +1,23 @@
+# Keep internal files in Git, but omit them from the GitHub Pages/Jekyll site.
+exclude:
+  - AGENTS.md
+  - "**/AGENTS.md"
+  - README.md
+  - "**/README.md"
+  - "프로젝트.md"
+  - docs/
+  - .idea/
+  - .agents/
+  - .codex/
+  - .github/
+  # Preserve Jekyll 3's default exclusions when overriding exclude.
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
