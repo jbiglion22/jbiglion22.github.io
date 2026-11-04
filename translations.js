@@ -1,0 +1,631 @@
+// Shared localized copy; app facts were verified against the sources in AGENTS.md.
+const text = {
+  "ko": {
+    "collection": "앱 컬렉션",
+    "discover": "당신의 다음 앱을 만나보세요",
+    "nav": "앱 모아보기",
+    "tag": "JBIGLION22 · APPS",
+    "title": "작은 아이디어,\n손안의 가능성.",
+    "intro": "응원부터 기기 비교, 회로 계산과 미술 탐색까지.\n관심 있는 앱을 고르고, 앱 홈페이지에서 더 알아보세요.",
+    "browse": "앱 둘러보기",
+    "list": "만나볼 수 있는 앱",
+    "listNote": "각 앱의 이야기는 앱 홈페이지에서 이어집니다.",
+    "visit": "앱 홈페이지",
+    "footer": "각자의 쓰임을 가진 앱들, 하나의 공간에서.",
+    "top": "맨 위로",
+    "names": [
+      "폰전광판",
+      "폰스펙",
+      "저항계산기",
+      "미술사노트"
+    ],
+    "descs": [
+      "문구와 색상, 움직임을 꾸며 휴대폰을 응원용 LED 전광판으로 바꿔보세요.",
+      "스마트폰을 검색하고 크기와 주요 사양을 나란히 비교해보세요.",
+      "색띠와 SMD 코드를 읽고, 회로 계산부터 보유 저항 조합 찾기까지.",
+      "서양 미술사의 사조·작가·작품을 탐색하고, 소장 미술관과 관람노트를 살펴보세요."
+    ],
+    "categories": [
+      "응원 · LED 메시지",
+      "스마트폰 · 사양 비교",
+      "전자회로 · 계산 도구",
+      "미술 · 탐색과 기록"
+    ]
+  },
+  "en": {
+    "collection": "App collection",
+    "discover": "Find your next app",
+    "nav": "Our apps",
+    "tag": "JBIGLION22 · APPS",
+    "title": "Small ideas.\nEveryday possibilities.",
+    "intro": "Messages, phone comparisons, circuits and art.\nFind an app and explore its own home.",
+    "browse": "Explore apps",
+    "list": "Meet the apps",
+    "listNote": "Every app has its own story. Continue on its homepage.",
+    "visit": "App homepage",
+    "footer": "Different apps. A place to find them all.",
+    "top": "Back to top",
+    "names": [
+      "Phone LED Board",
+      "Phone Spec",
+      "Resistor Calculator",
+      "Art History Note"
+    ],
+    "descs": [
+      "Turn your phone into a cheering LED board with custom text, colors and motion.",
+      "Search smartphones and compare their sizes and key specifications side by side.",
+      "Decode color bands and SMD codes, calculate circuits and find resistor combinations.",
+      "Explore Western art movements, artists and works, with museum information and visit notes."
+    ],
+    "categories": [
+      "Cheers · LED messages",
+      "Smartphones · Comparisons",
+      "Electronics · Calculations",
+      "Art · Explore and collect"
+    ]
+  },
+  "vi": {
+    "collection": "Bộ sưu tập ứng dụng",
+    "discover": "Khám phá ứng dụng tiếp theo",
+    "nav": "Ứng dụng",
+    "tag": "JBIGLION22 · APPS",
+    "title": "Ý tưởng nhỏ.\nKhả năng mới.",
+    "intro": "Từ lời cổ vũ đến so sánh điện thoại, mạch điện và mỹ thuật.\nChọn ứng dụng và khám phá trang chủ riêng.",
+    "browse": "Khám phá ứng dụng",
+    "list": "Gặp gỡ các ứng dụng",
+    "listNote": "Mỗi ứng dụng có câu chuyện riêng. Tìm hiểu thêm tại trang chủ.",
+    "visit": "Trang chủ ứng dụng",
+    "footer": "Nhiều ứng dụng. Một nơi để khám phá.",
+    "top": "Lên đầu trang",
+    "names": [
+      "Bảng LED điện thoại",
+      "Phone Spec",
+      "Máy tính điện trở",
+      "Ghi chú lịch sử mỹ thuật"
+    ],
+    "descs": [
+      "Biến điện thoại thành bảng LED cổ vũ với lời nhắn, màu sắc và chuyển động tùy chỉnh.",
+      "Tìm điện thoại và so sánh kích thước cùng thông số kỹ thuật cạnh nhau.",
+      "Đọc vòng màu, mã SMD, tính mạch điện và tìm cách kết hợp các điện trở.",
+      "Khám phá trào lưu, họa sĩ, tác phẩm phương Tây, bảo tàng và ghi chú tham quan."
+    ],
+    "categories": [
+      "Cổ vũ · Lời nhắn LED",
+      "Điện thoại · So sánh",
+      "Điện tử · Tính toán",
+      "Mỹ thuật · Khám phá và ghi chép"
+    ]
+  },
+  "hi": {
+    "collection": "ऐप संग्रह",
+    "discover": "अपना अगला ऐप खोजें",
+    "nav": "हमारे ऐप",
+    "tag": "JBIGLION22 · APPS",
+    "title": "छोटे विचार।\nनई संभावनाएँ।",
+    "intro": "संदेश, फ़ोन की तुलना, सर्किट और कला।\nअपनी पसंद का ऐप चुनें और उसकी वेबसाइट पर जानें।",
+    "browse": "ऐप देखें",
+    "list": "हमारे ऐप से मिलें",
+    "listNote": "हर ऐप की अपनी कहानी है। उसकी वेबसाइट पर आगे जानें।",
+    "visit": "ऐप की वेबसाइट",
+    "footer": "अलग-अलग काम के ऐप, एक ही जगह।",
+    "top": "ऊपर जाएँ",
+    "names": [
+      "फ़ोन LED बोर्ड",
+      "फ़ोन स्पेक",
+      "रेज़िस्टर कैलकुलेटर",
+      "कला इतिहास नोट"
+    ],
+    "descs": [
+      "अपने संदेश, रंग और गति के साथ फ़ोन को LED बोर्ड बनाएँ।",
+      "स्मार्टफ़ोन खोजें और उनके आकार व मुख्य विशेषताओं की साथ-साथ तुलना करें।",
+      "रंग बैंड और SMD कोड पढ़ें, सर्किट की गणना करें और रेज़िस्टर संयोजन खोजें।",
+      "पश्चिमी कला के आंदोलनों, कलाकारों और कृतियों को संग्रहालय की जानकारी और यात्रा नोट के साथ जानें।"
+    ],
+    "categories": [
+      "उत्साह · LED संदेश",
+      "स्मार्टफ़ोन · तुलना",
+      "इलेक्ट्रॉनिक्स · गणना",
+      "कला · खोज और नोट"
+    ]
+  },
+  "id": {
+    "collection": "Koleksi aplikasi",
+    "discover": "Temukan aplikasi berikutnya",
+    "nav": "Aplikasi kami",
+    "tag": "JBIGLION22 · APPS",
+    "title": "Ide kecil.\nBanyak kemungkinan.",
+    "intro": "Pesan, perbandingan ponsel, rangkaian, dan seni.\nPilih aplikasi dan jelajahi situsnya.",
+    "browse": "Jelajahi aplikasi",
+    "list": "Kenali aplikasinya",
+    "listNote": "Setiap aplikasi punya cerita. Lanjutkan di situs masing-masing.",
+    "visit": "Situs aplikasi",
+    "footer": "Beragam aplikasi, satu tempat untuk menemukannya.",
+    "top": "Kembali ke atas",
+    "names": [
+      "Papan LED Ponsel",
+      "Spesifikasi Ponsel",
+      "Kalkulator Resistor",
+      "Catatan Sejarah Seni"
+    ],
+    "descs": [
+      "Ubah ponsel menjadi papan LED dengan teks, warna, dan gerakan pilihan Anda.",
+      "Cari ponsel dan bandingkan ukuran serta spesifikasi utamanya secara berdampingan.",
+      "Baca gelang warna dan kode SMD, hitung rangkaian, dan temukan kombinasi resistor.",
+      "Jelajahi aliran, seniman, dan karya seni Barat, beserta informasi museum dan catatan kunjungan."
+    ],
+    "categories": [
+      "Dukungan · Pesan LED",
+      "Ponsel · Perbandingan",
+      "Elektronika · Perhitungan",
+      "Seni · Jelajah dan catatan"
+    ]
+  },
+  "ja": {
+    "collection": "アプリコレクション",
+    "discover": "次のお気に入りを見つけよう",
+    "nav": "アプリ一覧",
+    "title": "小さなアイデア。\n広がる可能性。",
+    "intro": "応援、スマートフォン比較、回路計算、アートまで。\n気になるアプリを選んで、公式サイトをご覧ください。",
+    "browse": "アプリを見る",
+    "list": "アプリをご紹介",
+    "listNote": "それぞれのアプリの続きは、各アプリのサイトで。",
+    "visit": "アプリのサイトへ",
+    "footer": "さまざまな用途のアプリを、一か所に。",
+    "top": "トップへ",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "LED電光掲示板",
+      "スマートフォン仕様比較",
+      "抵抗計算機",
+      "美術史ノート"
+    ],
+    "descs": [
+      "文字・色・動きをカスタマイズして、スマートフォンを応援用のLED電光掲示板に。",
+      "スマートフォンを検索し、サイズや主な仕様を並べて比較できます。",
+      "カラーコードやSMDコードの読み取り、回路計算、手持ちの抵抗の組み合わせ検索に。",
+      "西洋美術の流派・画家・作品を探索し、所蔵美術館や鑑賞ノートを確認できます。"
+    ],
+    "categories": [
+      "応援 · LEDメッセージ",
+      "スマートフォン · 比較",
+      "電子回路 · 計算",
+      "美術 · 探索と記録"
+    ]
+  },
+  "fr": {
+    "collection": "Collection d’applications",
+    "discover": "Découvrez votre prochaine application",
+    "nav": "Nos applications",
+    "title": "De petites idées.\nDe nouvelles possibilités.",
+    "intro": "Messages, téléphones, circuits et art.\nChoisissez une application et découvrez son site.",
+    "browse": "Explorer les applications",
+    "list": "Découvrez les applications",
+    "listNote": "Chaque application a son histoire. Retrouvez-la sur son site.",
+    "visit": "Site de l’application",
+    "footer": "Des applications variées, réunies au même endroit.",
+    "top": "Retour en haut",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "Panneau LED",
+      "Comparateur de smartphones",
+      "Calculateur de résistances",
+      "Carnet d’histoire de l’art"
+    ],
+    "descs": [
+      "Transformez votre téléphone en panneau LED avec du texte, des couleurs et des mouvements personnalisés.",
+      "Recherchez des smartphones et comparez leurs dimensions et leurs principales caractéristiques.",
+      "Décodez les bandes de couleur et les codes CMS, calculez vos circuits et trouvez des combinaisons de résistances.",
+      "Explorez les courants, les artistes et les œuvres de l’art occidental, avec les musées et vos notes de visite."
+    ],
+    "categories": [
+      "Encouragements · Messages LED",
+      "Smartphones · Comparaison",
+      "Électronique · Calculs",
+      "Art · Découverte et notes"
+    ]
+  },
+  "de": {
+    "collection": "App-Sammlung",
+    "discover": "Entdecke deine nächste App",
+    "nav": "Unsere Apps",
+    "title": "Kleine Ideen.\nNeue Möglichkeiten.",
+    "intro": "Nachrichten, Smartphones, Schaltungen und Kunst.\nWähle eine App und entdecke ihre Website.",
+    "browse": "Apps entdecken",
+    "list": "Unsere Apps im Überblick",
+    "listNote": "Jede App hat ihre eigene Geschichte. Mehr dazu auf ihrer Website.",
+    "visit": "Zur App-Website",
+    "footer": "Verschiedene Apps, an einem Ort vereint.",
+    "top": "Nach oben",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "LED-Laufschrift",
+      "Smartphone-Vergleich",
+      "Widerstandsrechner",
+      "Notizen zur Kunstgeschichte"
+    ],
+    "descs": [
+      "Verwandle dein Smartphone mit eigenen Texten, Farben und Bewegungen in eine LED-Anzeige zum Anfeuern.",
+      "Suche Smartphones und vergleiche ihre Größe und wichtigsten technischen Daten nebeneinander.",
+      "Entschlüssle Farbringe und SMD-Codes, berechne Schaltungen und finde Widerstandskombinationen.",
+      "Entdecke westliche Kunstströmungen, Künstler und Werke sowie Museen und Besuchsnotizen."
+    ],
+    "categories": [
+      "Anfeuern · LED-Nachrichten",
+      "Smartphones · Vergleich",
+      "Elektronik · Berechnungen",
+      "Kunst · Entdecken und festhalten"
+    ]
+  },
+  "ru": {
+    "collection": "Коллекция приложений",
+    "discover": "Найдите новое приложение",
+    "nav": "Наши приложения",
+    "title": "Маленькие идеи.\nНовые возможности.",
+    "intro": "Сообщения, смартфоны, электрические цепи и искусство.\nВыберите приложение и посетите его сайт.",
+    "browse": "Посмотреть приложения",
+    "list": "Знакомьтесь с приложениями",
+    "listNote": "У каждого приложения своя история. Продолжение — на его сайте.",
+    "visit": "Сайт приложения",
+    "footer": "Разные приложения — в одном месте.",
+    "top": "Наверх",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "LED-табло",
+      "Сравнение смартфонов",
+      "Калькулятор резисторов",
+      "Заметки по истории искусства"
+    ],
+    "descs": [
+      "Превратите телефон в LED-табло: настройте текст, цвет и движение для поддержки любимой команды.",
+      "Ищите смартфоны и сравнивайте их размеры и основные характеристики.",
+      "Расшифровывайте цветовую маркировку и SMD-коды, рассчитывайте цепи и подбирайте сочетания резисторов.",
+      "Изучайте направления, художников и произведения западного искусства, музеи и заметки о посещениях."
+    ],
+    "categories": [
+      "Поддержка · LED-сообщения",
+      "Смартфоны · Сравнение",
+      "Электроника · Расчёты",
+      "Искусство · Изучение и заметки"
+    ]
+  },
+  "zh-hans": {
+    "collection": "应用合集",
+    "discover": "发现你的下一款应用",
+    "nav": "应用一览",
+    "title": "小小创意，\n更多可能。",
+    "intro": "从应援消息、手机对比，到电路计算与艺术探索。\n选择感兴趣的应用，前往其网站了解更多。",
+    "browse": "探索应用",
+    "list": "认识这些应用",
+    "listNote": "每款应用都有自己的故事，更多内容请前往各自的网站。",
+    "visit": "应用网站",
+    "footer": "用途各异的应用，汇聚一处。",
+    "top": "返回顶部",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "手机LED字幕",
+      "手机参数对比",
+      "电阻计算器",
+      "艺术史笔记"
+    ],
+    "descs": [
+      "自定义文字、颜色和滚动效果，把手机变成应援LED字幕屏。",
+      "搜索智能手机，并排比较机身尺寸与主要参数。",
+      "识别色环与SMD代码，计算电路并查找电阻组合。",
+      "探索西方艺术流派、艺术家与作品，查看收藏博物馆并记录参观。"
+    ],
+    "categories": [
+      "应援 · LED消息",
+      "智能手机 · 参数对比",
+      "电子电路 · 计算工具",
+      "艺术 · 探索与记录"
+    ]
+  },
+  "zh-hant": {
+    "collection": "應用程式集",
+    "discover": "發現你的下一款應用程式",
+    "nav": "應用程式一覽",
+    "title": "小小創意，\n更多可能。",
+    "intro": "從應援訊息、手機比較，到電路計算與藝術探索。\n選擇感興趣的應用程式，前往其網站了解更多。",
+    "browse": "探索應用程式",
+    "list": "認識這些應用程式",
+    "listNote": "每款應用程式都有自己的故事，更多內容請前往各自的網站。",
+    "visit": "應用程式網站",
+    "footer": "用途各異的應用程式，匯聚一處。",
+    "top": "返回頂端",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "手機LED字幕",
+      "手機規格比較",
+      "電阻計算機",
+      "藝術史筆記"
+    ],
+    "descs": [
+      "自訂文字、顏色和捲動效果，把手機變成應援LED字幕螢幕。",
+      "搜尋智慧型手機，並排比較機身尺寸與主要規格。",
+      "辨識色環與SMD代碼，計算電路並尋找電阻組合。",
+      "探索西方藝術流派、藝術家與作品，查看典藏博物館並記錄參觀。"
+    ],
+    "categories": [
+      "應援 · LED訊息",
+      "智慧型手機 · 規格比較",
+      "電子電路 · 計算工具",
+      "藝術 · 探索與記錄"
+    ]
+  },
+  "ar": {
+    "collection": "مجموعة التطبيقات",
+    "discover": "اكتشف تطبيقك القادم",
+    "nav": "تطبيقاتنا",
+    "title": "أفكار صغيرة.\nإمكانات جديدة.",
+    "intro": "رسائل ومقارنة هواتف ودوائر كهربائية وفن.\nاختر تطبيقًا واستكشف موقعه.",
+    "browse": "استكشف التطبيقات",
+    "list": "تعرّف على التطبيقات",
+    "listNote": "لكل تطبيق قصته. تابعها على موقعه الخاص.",
+    "visit": "موقع التطبيق",
+    "footer": "تطبيقات لاستخدامات مختلفة، في مكان واحد.",
+    "top": "العودة إلى الأعلى",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "لوحة LED للهاتف",
+      "مقارنة مواصفات الهواتف",
+      "حاسبة المقاومات",
+      "ملاحظات تاريخ الفن"
+    ],
+    "descs": [
+      "حوّل هاتفك إلى لوحة LED للتشجيع مع نص وألوان وحركة تختارها.",
+      "ابحث عن الهواتف الذكية وقارن أحجامها ومواصفاتها الرئيسية جنبًا إلى جنب.",
+      "اقرأ حلقات الألوان ورموز SMD واحسب الدوائر وابحث عن تركيبات المقاومات.",
+      "استكشف تيارات الفن الغربي وفنانيه وأعماله، مع معلومات المتاحف وملاحظات الزيارة."
+    ],
+    "categories": [
+      "تشجيع · رسائل LED",
+      "هواتف ذكية · مقارنة",
+      "إلكترونيات · حسابات",
+      "فن · استكشاف وتدوين"
+    ]
+  },
+  "my": {
+    "collection": "အက်ပ်စုစည်းမှု",
+    "discover": "သင့်နောက်ထပ်အက်ပ်ကို ရှာဖွေပါ",
+    "nav": "အက်ပ်များ",
+    "title": "အတွေးသေးသေး။\nဖြစ်နိုင်ခြေအသစ်များ။",
+    "intro": "စာတို၊ ဖုန်းနှိုင်းယှဉ်မှု၊ လျှပ်စစ်ပတ်လမ်းနှင့် အနုပညာ။\nနှစ်သက်ရာအက်ပ်ကို ရွေးပြီး ၎င်း၏ဝက်ဘ်ဆိုက်တွင် လေ့လာပါ။",
+    "browse": "အက်ပ်များကို ကြည့်ရန်",
+    "list": "အက်ပ်များနှင့် မိတ်ဆက်ခြင်း",
+    "listNote": "အက်ပ်တစ်ခုစီအကြောင်းကို သက်ဆိုင်ရာဝက်ဘ်ဆိုက်တွင် ဆက်လက်လေ့လာပါ။",
+    "visit": "အက်ပ်ဝက်ဘ်ဆိုက်",
+    "footer": "အသုံးဝင်ပုံမတူသော အက်ပ်များကို တစ်နေရာတည်းတွင်။",
+    "top": "အပေါ်သို့",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "ဖုန်း LED စာတန်း",
+      "ဖုန်းအချက်အလက် နှိုင်းယှဉ်မှု",
+      "ရီစစ္စတာ တွက်စက်",
+      "အနုပညာသမိုင်း မှတ်စု"
+    ],
+    "descs": [
+      "စာသား၊ အရောင်နှင့် လှုပ်ရှားမှုကို စိတ်ကြိုက်ပြင်ပြီး ဖုန်းကို အားပေးရန် LED စာတန်းအဖြစ် သုံးပါ။",
+      "စမတ်ဖုန်းများကို ရှာပြီး အရွယ်အစားနှင့် အဓိကအချက်အလက်များကို ယှဉ်ကြည့်ပါ။",
+      "အရောင်ကွင်းနှင့် SMD ကုဒ်များကို ဖတ်ပြီး ပတ်လမ်းတွက်ချက်မှုနှင့် ရီစစ္စတာ ပေါင်းစပ်မှုများကို ရှာပါ။",
+      "အနောက်တိုင်းအနုပညာ၏ ခေတ်ရေစီးကြောင်း၊ ပန်းချီဆရာ၊ လက်ရာနှင့် ပြတိုက်များကို လေ့လာပြီး လည်ပတ်မှတ်စု ရေးပါ။"
+    ],
+    "categories": [
+      "အားပေးမှု · LED စာတို",
+      "စမတ်ဖုန်း · နှိုင်းယှဉ်မှု",
+      "အီလက်ထရွန်းနစ် · တွက်ချက်မှု",
+      "အနုပညာ · လေ့လာမှတ်သားမှု"
+    ]
+  },
+  "th": {
+    "collection": "คอลเลกชันแอป",
+    "discover": "ค้นพบแอปถัดไปของคุณ",
+    "nav": "แอปของเรา",
+    "title": "ไอเดียเล็ก ๆ\nความเป็นไปได้ใหม่ ๆ",
+    "intro": "ข้อความ เปรียบเทียบมือถือ คำนวณวงจร และศิลปะ\nเลือกแอปที่สนใจ แล้วไปสำรวจเว็บไซต์ของแอป",
+    "browse": "สำรวจแอป",
+    "list": "ทำความรู้จักแอป",
+    "listNote": "แต่ละแอปมีเรื่องราวของตัวเอง อ่านต่อได้ที่เว็บไซต์ของแอป",
+    "visit": "เว็บไซต์ของแอป",
+    "footer": "แอปหลากหลายประโยชน์ รวมไว้ในที่เดียว",
+    "top": "กลับด้านบน",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "ป้ายไฟ LED มือถือ",
+      "เปรียบเทียบสเปกมือถือ",
+      "เครื่องคำนวณตัวต้านทาน",
+      "บันทึกประวัติศาสตร์ศิลปะ"
+    ],
+    "descs": [
+      "เปลี่ยนมือถือเป็นป้ายไฟ LED สำหรับเชียร์ พร้อมปรับข้อความ สี และการเคลื่อนไหว",
+      "ค้นหาสมาร์ตโฟน แล้วเปรียบเทียบขนาดและสเปกหลักแบบเคียงข้างกัน",
+      "อ่านแถบสีและรหัส SMD คำนวณวงจร และค้นหาการจัดชุดตัวต้านทาน",
+      "สำรวจยุคศิลปะ ศิลปิน และผลงานตะวันตก พร้อมข้อมูลพิพิธภัณฑ์และบันทึกการเข้าชม"
+    ],
+    "categories": [
+      "เชียร์ · ข้อความ LED",
+      "สมาร์ตโฟน · เปรียบเทียบ",
+      "อิเล็กทรอนิกส์ · คำนวณ",
+      "ศิลปะ · สำรวจและบันทึก"
+    ]
+  },
+  "es": {
+    "collection": "Colección de apps",
+    "discover": "Descubre tu próxima app",
+    "nav": "Nuestras apps",
+    "tag": "JBIGLION22 · APPS",
+    "title": "Pequeñas ideas.\nNuevas posibilidades.",
+    "intro": "Mensajes, comparación de teléfonos, circuitos y arte.\nElige una app y descubre su sitio web.",
+    "browse": "Explorar apps",
+    "list": "Conoce las apps",
+    "listNote": "Cada app tiene su historia. Continúa en su sitio web.",
+    "visit": "Sitio web de la app",
+    "footer": "Apps con distintos propósitos, en un solo lugar.",
+    "top": "Volver arriba",
+    "names": [
+      "Letrero LED",
+      "Comparador de teléfonos",
+      "Calculadora de resistencias",
+      "Notas de historia del arte"
+    ],
+    "descs": [
+      "Convierte tu teléfono en un letrero LED con texto, colores y movimiento a tu gusto.",
+      "Busca teléfonos y compara su tamaño y sus especificaciones principales lado a lado.",
+      "Lee bandas de colores y códigos SMD, calcula circuitos y encuentra combinaciones de resistencias.",
+      "Explora movimientos, artistas y obras del arte occidental, con museos y notas de visita."
+    ],
+    "categories": [
+      "Apoyo · Mensajes LED",
+      "Teléfonos · Comparación",
+      "Electrónica · Cálculos",
+      "Arte · Explora y anota"
+    ]
+  },
+  "pt": {
+    "collection": "Coleção de apps",
+    "discover": "Encontre uma nova app",
+    "nav": "Nossos apps",
+    "title": "Pequenas ideias.\nNovas possibilidades.",
+    "intro": "Mensagens, comparação de smartphones, circuitos e arte.\nExplore o site de cada app e descubra mais.",
+    "browse": "Explorar apps",
+    "list": "Conheça os apps",
+    "listNote": "Cada app tem a sua história. Saiba mais no site de cada uma.",
+    "visit": "Site do app",
+    "footer": "Apps com diferentes propostas, em um só lugar.",
+    "top": "Voltar ao topo",
+    "tag": "JBIGLION22 · APPS",
+    "names": [
+      "Painel LED",
+      "Comparador de smartphones",
+      "Calculadora de resistências",
+      "Notas de história da arte"
+    ],
+    "descs": [
+      "Transforme o smartphone num painel LED com texto, cores e movimento personalizados.",
+      "Pesquise smartphones e compare as dimensões e as principais especificações lado a lado.",
+      "Leia códigos de cores e SMD, calcule circuitos e encontre combinações de resistências.",
+      "Explore movimentos, artistas e obras da arte ocidental, com informações sobre museus e notas de visita."
+    ],
+    "categories": [
+      "Apoio · Mensagens LED",
+      "Smartphones · Comparação",
+      "Circuitos · Cálculos",
+      "Arte · Exploração e notas"
+    ]
+  }
+};
+const siteTitles = {
+  "en": "jbiglion22’s Apps",
+  "ko": "jbiglion22의 앱 소개",
+  "vi": "Ứng dụng của jbiglion22",
+  "hi": "jbiglion22 के ऐप",
+  "id": "Aplikasi jbiglion22",
+  "ja": "jbiglion22のアプリ紹介",
+  "fr": "Les applications de jbiglion22",
+  "de": "Die Apps von jbiglion22",
+  "ru": "Приложения jbiglion22",
+  "zh-hans": "jbiglion22 的应用介绍",
+  "zh-hant": "jbiglion22 的應用程式介紹",
+  "ar": "تطبيقات jbiglion22",
+  "my": "jbiglion22 ၏ အက်ပ်များ",
+  "th": "แอปของ jbiglion22",
+  "es": "Apps de jbiglion22",
+  "pt": "Apps de jbiglion22"
+};
+const extraText = {
+  "ko": {
+    "languageLabel": "언어 선택",
+    "gallery": "서로 다른 네 가지 가능성",
+    "galleryNote": "작은 도구부터 새로운 발견까지",
+    "noscript": "앱 홈페이지로 이동하려면 아래 링크를 선택하세요."
+  },
+  "en": {
+    "languageLabel": "Select language",
+    "gallery": "Four ways to explore",
+    "galleryNote": "Little tools. New discoveries.",
+    "noscript": "Choose an app homepage below."
+  },
+  "vi": {
+    "languageLabel": "Chọn ngôn ngữ",
+    "gallery": "Bốn cách để khám phá",
+    "galleryNote": "Công cụ nhỏ. Khám phá mới.",
+    "noscript": "Chọn trang chủ ứng dụng bên dưới."
+  },
+  "hi": {
+    "languageLabel": "भाषा चुनें",
+    "gallery": "खोजने के चार रास्ते",
+    "galleryNote": "छोटे उपकरण। नई खोजें।",
+    "noscript": "नीचे ऐप की वेबसाइट चुनें।"
+  },
+  "id": {
+    "languageLabel": "Pilih bahasa",
+    "gallery": "Empat cara menjelajah",
+    "galleryNote": "Alat kecil. Penemuan baru.",
+    "noscript": "Pilih situs aplikasi di bawah ini."
+  },
+  "ja": {
+    "languageLabel": "言語を選択",
+    "gallery": "4つの発見への入り口",
+    "galleryNote": "小さな道具。新しい発見。",
+    "noscript": "下のリンクからアプリのサイトをご覧ください。"
+  },
+  "fr": {
+    "languageLabel": "Choisir la langue",
+    "gallery": "Quatre pistes à explorer",
+    "galleryNote": "De petits outils. De nouvelles découvertes.",
+    "noscript": "Choisissez le site d’une application ci-dessous."
+  },
+  "de": {
+    "languageLabel": "Sprache wählen",
+    "gallery": "Vier Wege zum Entdecken",
+    "galleryNote": "Kleine Werkzeuge. Neue Entdeckungen.",
+    "noscript": "Wähle unten eine App-Website aus."
+  },
+  "ru": {
+    "languageLabel": "Выбрать язык",
+    "gallery": "Четыре пути к открытиям",
+    "galleryNote": "Маленькие инструменты. Новые открытия.",
+    "noscript": "Выберите сайт приложения ниже."
+  },
+  "zh-hans": {
+    "languageLabel": "选择语言",
+    "gallery": "四种探索的可能",
+    "galleryNote": "小巧工具，全新发现。",
+    "noscript": "请在下方选择应用网站。"
+  },
+  "zh-hant": {
+    "languageLabel": "選擇語言",
+    "gallery": "四種探索的可能",
+    "galleryNote": "小巧工具，全新發現。",
+    "noscript": "請在下方選擇應用程式網站。"
+  },
+  "ar": {
+    "languageLabel": "اختر اللغة",
+    "gallery": "أربع طرق للاستكشاف",
+    "galleryNote": "أدوات صغيرة. اكتشافات جديدة.",
+    "noscript": "اختر موقع أحد التطبيقات أدناه."
+  },
+  "my": {
+    "languageLabel": "ဘာသာစကား ရွေးရန်",
+    "gallery": "လေ့လာရန် နည်းလမ်းလေးမျိုး",
+    "galleryNote": "ကိရိယာငယ်များ။ ရှာဖွေတွေ့ရှိမှုအသစ်များ။",
+    "noscript": "အောက်တွင် အက်ပ်ဝက်ဘ်ဆိုက်ကို ရွေးပါ။"
+  },
+  "th": {
+    "languageLabel": "เลือกภาษา",
+    "gallery": "สี่เส้นทางสู่การค้นพบ",
+    "galleryNote": "เครื่องมือเล็ก ๆ การค้นพบใหม่ ๆ",
+    "noscript": "เลือกเว็บไซต์ของแอปด้านล่าง"
+  },
+  "es": {
+    "languageLabel": "Seleccionar idioma",
+    "gallery": "Cuatro formas de explorar",
+    "galleryNote": "Pequeñas herramientas. Nuevos descubrimientos.",
+    "noscript": "Elige el sitio web de una app."
+  },
+  "pt": {
+    "languageLabel": "Selecionar idioma",
+    "gallery": "Quatro formas de explorar",
+    "galleryNote": "Pequenas ferramentas. Novas descobertas.",
+    "noscript": "Escolha o site de um app abaixo."
+  }
+};

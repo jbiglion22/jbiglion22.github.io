@@ -1,13 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>jbiglion22’s Apps</title><link rel="icon" href="icons/favicon.svg"><link rel="stylesheet" href="css/styles.css">
+<script src="languages.js"></script>
 <script>
-const supported = ['en', 'ko', 'vi', 'hi', 'id', 'es-mx'];
-let selected = 'en';
-for (const preference of navigator.languages || [navigator.language || 'en']) {
-  const locale = preference.toLowerCase();
-  const base = locale.split('-')[0];
-  const candidate = supported.includes(locale) ? locale : base === 'es' ? 'es-mx' : base === 'in' ? 'id' : base;
-  if (supported.includes(candidate)) { selected = candidate; break; }
-}
+const selected = resolveSiteLanguage(navigator.languages || [navigator.language || 'en']);
 location.replace('index-' + selected + '.html' + location.search + location.hash);
-</script></head><body><main class="language-fallback"><h1>jbiglion22’s Apps</h1><p>Choose your language</p><nav><a href="index-en.html" lang="en">English</a> · <a href="index-ko.html" lang="ko">한국어</a> · <a href="index-vi.html" lang="vi">Tiếng Việt</a> · <a href="index-hi.html" lang="hi">हिन्दी</a> · <a href="index-id.html" lang="id">Bahasa Indonesia</a> · <a href="index-es-mx.html" lang="es-MX">Español (México)</a></nav></main></body></html>
+</script></head><body><main class="language-fallback"><h1>jbiglion22’s Apps</h1><p>Choose your language</p><nav><a href="index-en.html" lang="en" dir="ltr">English</a><a href="index-ko.html" lang="ko" dir="ltr">한국어</a><a href="index-ar.html" lang="ar" dir="rtl">العربية</a><a href="index-my.html" lang="my" dir="ltr">မြန်မာ</a><a href="index-zh-hans.html" lang="zh-Hans" dir="ltr">简体中文</a><a href="index-zh-hant.html" lang="zh-Hant" dir="ltr">繁體中文</a><a href="index-fr.html" lang="fr" dir="ltr">Français</a><a href="index-de.html" lang="de" dir="ltr">Deutsch</a><a href="index-hi.html" lang="hi" dir="ltr">हिन्दी</a><a href="index-id.html" lang="id" dir="ltr">Bahasa Indonesia</a><a href="index-ja.html" lang="ja" dir="ltr">日本語</a><a href="index-pt.html" lang="pt" dir="ltr">Português</a><a href="index-ru.html" lang="ru" dir="ltr">Русский</a><a href="index-es.html" lang="es" dir="ltr">Español</a><a href="index-th.html" lang="th" dir="ltr">ไทย</a><a href="index-vi.html" lang="vi" dir="ltr">Tiếng Việt</a></nav></main></body></html>
