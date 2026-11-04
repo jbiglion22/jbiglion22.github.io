@@ -68,3 +68,27 @@
 - 모바일 헤더에서 긴 제목을 표시할 수 있도록 제목 크기와 줄바꿈을 조정했다.
 - 검증: JavaScript 문법, 네 HTML의 title 및 세 언어 공통 화면의 사이트 이름 확인. 실제 브라우저 시각 검증은 수행하지 않았다.
 - README.md와 프로젝트.md 및 사용자 작업 중인 ads.txt는 수정하지 않았다. 커밋·푸시·배포는 수행하지 않았다.
+
+
+## 홈페이지 디자인 정리 (2026-11-05)
+
+- 밝은 회색 배경, 남색 글자, 라임 포인트로 색상과 타이포그래피를 정리했다. 첫 화면에 두 앱을 상징하는 CSS 그래픽을 추가하고, 앱 카드의 여백·테두리·그림자·홈페이지 이동 표시를 개선했다. 그래픽은 실제 앱 스크린샷이 아니다.
+- `css/styles.css`를 현재 앱 목록 구조에 필요한 스타일로 재작성하여 예전 데모 관련 미사용 규칙을 제거했다. 모바일 단일 열, 키보드 포커스, 동작 줄이기 설정을 유지했다.
+- `app.js`에 세 언어의 새 제목 문구와 컬렉션 안내를 반영했다. 사이트명과 기존 앱 홈페이지 URL, 언어 자동 이동은 유지했다.
+- 검증: localhost 서버와 브라우저로 한국어 데스크톱(1280px)·모바일, 영어 전환, 베트남어 모바일(390px)을 확인했다. 측정한 데스크톱·모바일에서 가로 넘침이 없었다. JavaScript 문법과 각 언어 렌더링 및 홈페이지 링크도 확인했다.
+- 참고: 전체 네트워크 인터페이스에 서버를 여는 시도는 자동 승인 검토에서 거절되어 localhost 전용 서버로 검증했다. 미리보기 서버는 종료했다.
+- README.md, 프로젝트.md, 광고 정보 파일, 배포 제외 설정은 수정하지 않았다. 커밋·푸시·배포는 수행하지 않았다.
+
+## 앱 4종 및 공식 정보 반영 (2026-11-05)
+
+- 변경된 프로젝트.md에 따라 저항계산기와 미술사노트를 추가했다. 각 앱의 별도 홈페이지와 Google Play 페이지를 브라우저로 직접 열어 설명을 대조했다. 검색 도구의 직접 열기는 실패했지만 브라우저에서는 8개 페이지 모두 확인했다.
+- 세 언어의 카드 설명을 확인된 기능으로 갱신했다: 폰전광판의 LED 응원 문구 꾸미기, 폰스펙의 스마트폰 크기·사양 비교, 저항계산기의 색띠·SMD·회로 계산·보유 저항 조합, 미술사노트의 사조·작가·작품·미술관 및 관람노트.
+- 확인 출처(각 행의 홈페이지와 Google Play 모두 2026-11-05 열람):
+  - 폰전광판: https://jbiglion22.github.io/phonebanner_home/ / https://play.google.com/store/apps/details?id=com.phonensoft.phonebanner&hl=ko
+  - 폰스펙: https://jbiglion22.github.io/phonespec_home/ / https://play.google.com/store/apps/details?id=com.phonensoft.phonespec&hl=ko
+  - 저항계산기: https://jbiglion22.github.io/resistorcalculator_home/ / https://play.google.com/store/apps/details?id=com.phonensoft.resistorcalculator&hl=ko
+  - 미술사노트: https://jbiglion22.github.io/arthistorynote_home/ / https://play.google.com/store/apps/details?id=com.phonensoft.arthistorynote&hl=ko
+- app.js의 앱 배열·번역·카드 그래픽을 확장하고 앱 개수를 동적으로 표시했다. css/styles.css에 새 앱 카드 스타일을 추가했고 icons/resistorcalculator.svg, icons/arthistorynote.svg를 만들었다. 그림은 사이트용 추상 일러스트이며 실제 스크린샷이나 공식 앱 아이콘을 복사한 것이 아니다.
+- 기존 앱 홈페이지로 연결하는 목적을 유지하며 별도 앱 홈페이지를 만들지 않았다. 홈페이지 목록의 베트남어 지원은 각 앱 자체의 베트남어 지원을 의미하지 않는다.
+- 검증: JavaScript 문법, 세 언어의 4개 카드·URL·아이콘 경로·언어 전환·동적 개수 검사 통과. 브라우저에서 데스크톱 카드 배치, 영어·베트남어 전환 및 390px 모바일의 가로 넘침 없음 확인. 미리보기 서버 종료.
+- README.md와 프로젝트.md 및 광고 파일·배포 설정은 수정하지 않았다. 커밋·푸시·배포는 수행하지 않았다.
