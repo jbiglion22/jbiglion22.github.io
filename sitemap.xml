@@ -234,4 +234,39 @@
     <xhtml:link rel="alternate" hreflang="vi" href="https://jbiglion22.github.io/index-vi.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jbiglion22.github.io/"/>
   </url>
+  <url>
+    <loc>https://jbiglion22.github.io/phonebanner_home/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/phonespec_home/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/resistorcalculator_home/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/arthistorynote_home/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/koreanstudy_home/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/snapstudy_cbible_home/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/phonecheck_home/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

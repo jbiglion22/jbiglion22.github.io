@@ -143,7 +143,7 @@
 
 ## 사이트맵 (2026-11-05)
 
-- Google Search Console 제출용으로 루트에 `sitemap.xml`을 직접 작성했다. `index.html`과 12개 언어 페이지(13개 URL)를 포함하며 각 URL에 12개 언어와 x-default의 hreflang 연결을 넣었다. `_config.yml`에서 제외되지 않으므로 GitHub Pages가 그대로 제공한다.
+- Google Search Console 제출용으로 루트에 `sitemap.xml`을 직접 작성했다. `index.html`, 12개 언어 페이지, 7개 앱 홈페이지(`.../<앱>_home/`, 총 20개 URL)를 포함하며 언어 페이지 URL에는 12개 언어와 x-default의 hreflang 연결을 넣었다(앱 홈페이지에는 없음). `_config.yml`에서 제외되지 않으므로 GitHub Pages가 그대로 제공한다.
 - 일부러 뺀 것: 영어로 넘기는 호환용 리디렉션 페이지(`index-ar/my/hi/th/es-mx/pt-br.html`). 자동 생성 플러그인(jekyll-sitemap)은 이 페이지들까지 포함하므로 쓰지 않았다.
-- 유지 규칙: 언어를 추가·삭제하면 `sitemap.xml`도 함께 고친다. 각 앱 홈페이지는 별도 저장소의 사이트라 이 사이트맵에 넣지 않는다. `lastmod`는 작성일(2026-11-05)로 고정되어 있어 내용이 크게 바뀌면 갱신한다.
-- 검증: XML 형식과 URL 13개, 참조한 HTML 파일의 존재를 확인했다. 배포 후 `/sitemap.xml` 접근과 Search Console 제출은 미완료다. 커밋·푸시는 수행하지 않았다.
+- 유지 규칙: 언어를 추가·삭제하면 `sitemap.xml`도 함께 고친다. 앱을 추가하면 앱 홈페이지 URL도 `sitemap.xml`에 추가한다. 앱 홈페이지는 별도 저장소의 사이트이며, 그 사이트의 내용은 이 저장소에서 관리하지 않는다. 앱 홈페이지 URL은 같은 도메인(jbiglion22.github.io)이라 이 사이트맵에 넣을 수 있다. `lastmod`는 작성일(2026-11-05)로 고정되어 있어 내용이 크게 바뀌면 갱신한다.
+- 검증: XML 형식과 URL 20개, 언어 HTML 파일의 존재를 확인했다. 배포 후 `/sitemap.xml` 접근과 Search Console 제출은 미완료다. 커밋·푸시는 수행하지 않았다.
