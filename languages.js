@@ -2,22 +2,18 @@
 const languageNames = {
   "en": "English",
   "ko": "한국어",
-  "ar": "العربية",
-  "my": "မြန်မာ",
   "zh-hans": "简体中文",
   "zh-hant": "繁體中文",
   "fr": "Français",
   "de": "Deutsch",
-  "hi": "हिन्दी",
   "id": "Bahasa Indonesia",
   "ja": "日本語",
   "pt": "Português",
   "ru": "Русский",
   "es": "Español",
-  "th": "ไทย",
   "vi": "Tiếng Việt"
 };
-const languageTags = {"en": "en", "ko": "ko", "ar": "ar", "my": "my", "zh-hans": "zh-Hans", "zh-hant": "zh-Hant", "fr": "fr", "de": "de", "hi": "hi", "id": "id", "ja": "ja", "pt": "pt", "ru": "ru", "es": "es", "th": "th", "vi": "vi"};
+const languageTags = {"en": "en", "ko": "ko", "zh-hans": "zh-Hans", "zh-hant": "zh-Hant", "fr": "fr", "de": "de", "id": "id", "ja": "ja", "pt": "pt", "ru": "ru", "es": "es", "vi": "vi"};
 
 function resolveSiteLanguage(preferences) {
   for (const preference of preferences) {
