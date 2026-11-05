@@ -139,3 +139,37 @@ html[lang=my] .portal-art { bottom: 65px; }
   html[lang=ru] .directory-hero h1,html[lang=fr] .directory-hero h1,html[lang=de] .directory-hero h1,html[lang=pt] .directory-hero h1 { font-size: clamp(32px,8.5vw,43px); }
 }
 html[dir=rtl] .hero-index>span,html[dir=rtl] .showcase-heading>span:last-child { direction: ltr; unicode-bidi: isolate; }
+
+/* Added apps: Korean Study, Catholic Bible Quiz, PhoneCheck. Symbolic illustrations, not app screenshots. */
+.koreanstudy .app-art { background: #e4eafb; }.koreanstudy .app-art:before { border-color: #c3d0f3; }.koreanstudy .app-art:after { border-color: #d5def6; }
+.snapstudy_cbible .app-art { background: #f1e6d8; }.snapstudy_cbible .app-art:before { border-color: #e0cdb4; }.snapstudy_cbible .app-art:after { border-color: #e9dac5; }
+.phonecheck .app-art { background: #e2f0fb; }.phonecheck .app-art:before { border-color: #bddcf5; }.phonecheck .app-art:after { border-color: #d1e7f8; }
+.portal-koreanstudy { background: #dbe4fa; border-color: #c9d6f5; }
+.portal-snapstudy_cbible { background: #efe2d0; border-color: #e3d0b8; }
+.portal-phonecheck { background: #d9ecfb; border-color: #c4e0f5; }
+.korean-art { position: relative; z-index: 1; width: 190px; height: 190px; border-radius: 28px; background: #2347c5; color: #fff; display: grid; place-items: center; transform: rotate(-7deg); box-shadow: 0 16px 30px #2347c533; }
+.korean-art b { font: 700 104px/1 'Noto Sans KR','Malgun Gothic',sans-serif; margin-top: -14px; }
+.korean-art span { position: absolute; bottom: 16px; font: 600 15px 'Noto Sans KR','Malgun Gothic',sans-serif; letter-spacing: 6px; color: #d3dcf7; }
+.korean-art i { position: absolute; top: 14px; right: 16px; width: 14px; height: 14px; border-radius: 50%; background: #f2b233; }
+.bible-art { position: relative; z-index: 1; display: grid; place-items: center; transform: rotate(6deg); }
+.bible-book { position: relative; width: 150px; height: 200px; border-radius: 8px 14px 14px 8px; background: #8b4513; box-shadow: 8px 8px 0 #c8956c, 0 18px 30px #8b451333; display: grid; place-items: center; }
+.bible-book:before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 3px; background: #6b3410; }
+.bible-cross { position: relative; width: 46px; height: 62px; margin-top: -26px; }
+.bible-cross:before,.bible-cross:after { content: ''; position: absolute; background: #e2bd62; border-radius: 3px; }
+.bible-cross:before { left: 20px; top: 0; width: 6px; height: 62px; }
+.bible-cross:after { left: 0; top: 16px; width: 46px; height: 6px; }
+.bible-book em { position: absolute; bottom: 22px; font: 700 15px/1 monospace; font-style: normal; letter-spacing: 2px; color: #f3dfc3; }
+.check-art { position: relative; z-index: 1; width: 150px; height: 235px; border: 6px solid #0f1b2d; border-radius: 26px; background: #fff; padding: 22px 14px 0; transform: rotate(9deg) translateY(14px); box-shadow: 0 16px 30px #0f1b2d22; }
+.check-art:before { content: ''; position: absolute; top: 7px; left: calc(50% - 13px); width: 26px; height: 5px; border-radius: 9px; background: #0f1b2d; }
+.check-art>span { display: block; font: 700 11px sans-serif; color: #0a84ff; margin-bottom: 12px; text-align: center; }
+.check-art p { display: flex; align-items: center; gap: 8px; margin: 0 0 11px; }
+.check-art p i { flex: 1; height: 8px; border-radius: 6px; background: #d9e6f4; }
+.check-art p u { text-decoration: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #20c997; color: #fff; font: 700 13px sans-serif; }
+.portal-art .korean-art { transform: rotate(-8deg) scale(.88); }
+.portal-art .bible-art { transform: rotate(7deg) scale(.88); }
+.portal-art .check-art { transform: rotate(10deg) scale(.86); }
+/* An odd number of apps: let the last item span the full row. */
+.app-grid>.app-card:last-child:nth-child(odd) { grid-column: 1/-1; }
+.app-grid>.app-card:last-child:nth-child(odd) .app-art { height: 240px; }
+.portal-grid>.app-portal:last-child:nth-child(odd) { grid-column: 1/-1; min-height: 150px; }
+@media(max-width:760px) { .app-grid { grid-template-columns: minmax(0,1fr); }.app-grid>.app-card:last-child:nth-child(odd) .app-art { height: 285px; } }

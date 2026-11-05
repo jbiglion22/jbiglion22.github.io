@@ -17,19 +17,28 @@ const text = {
       "폰전광판",
       "폰스펙",
       "저항계산기",
-      "미술사노트"
+      "미술사노트",
+      "한국어 학습",
+      "가톨릭 성경 퀴즈",
+      "폰체크"
     ],
     "descs": [
       "문구와 색상, 움직임을 꾸며 휴대폰을 응원용 LED 전광판으로 바꿔보세요.",
       "스마트폰을 검색하고 크기와 주요 사양을 나란히 비교해보세요.",
       "색띠와 SMD 코드를 읽고, 회로 계산부터 보유 저항 조합 찾기까지.",
-      "서양 미술사의 사조·작가·작품을 탐색하고, 소장 미술관과 관람노트를 살펴보세요."
+      "서양 미술사의 사조·작가·작품을 탐색하고, 소장 미술관과 관람노트를 살펴보세요.",
+      "획순 따라쓰기로 한글을 익히고, 생활 단어와 10가지 상황별 회화까지 차근차근 배워보세요.",
+      "매일 퀴즈로 가톨릭 성경을 익히고, 장·절 출처와 해설, 오답노트로 복습하세요.",
+      "센서, 화면·터치, 소리·진동, 배터리, 카메라, 네트워크를 점검하고 결과를 기록해 비교하세요."
     ],
     "categories": [
       "응원 · LED 메시지",
       "스마트폰 · 사양 비교",
       "전자회로 · 계산 도구",
-      "미술 · 탐색과 기록"
+      "미술 · 탐색과 기록",
+      "언어 학습 · 한글과 회화",
+      "성경 · 매일 퀴즈",
+      "휴대폰 · 기능 점검"
     ]
   },
   "en": {
@@ -49,19 +58,28 @@ const text = {
       "Phone LED Board",
       "Phone Spec",
       "Resistor Calculator",
-      "Art History Note"
+      "Art History Note",
+      "Korean Study",
+      "Catholic Bible Quiz",
+      "PhoneCheck"
     ],
     "descs": [
       "Turn your phone into a cheering LED board with custom text, colors and motion.",
       "Search smartphones and compare their sizes and key specifications side by side.",
       "Decode color bands and SMD codes, calculate circuits and find resistor combinations.",
-      "Explore Western art movements, artists and works, with museum information and visit notes."
+      "Explore Western art movements, artists and works, with museum information and visit notes.",
+      "Learn Korean from Hangul stroke order to everyday words and real-life conversations.",
+      "Learn the Catholic Bible with daily quizzes, verse references, explanations and a mistakes notebook.",
+      "Check your phone's sensors, screen, sound, battery, camera and network, then compare results over time."
     ],
     "categories": [
       "Cheers · LED messages",
       "Smartphones · Comparisons",
       "Electronics · Calculations",
-      "Art · Explore and collect"
+      "Art · Explore and collect",
+      "Language learning · Korean",
+      "Bible · Daily quiz",
+      "Phone · Diagnostics"
     ]
   },
   "vi": {
@@ -81,19 +99,28 @@ const text = {
       "Bảng LED điện thoại",
       "Phone Spec",
       "Máy tính điện trở",
-      "Ghi chú lịch sử mỹ thuật"
+      "Ghi chú lịch sử mỹ thuật",
+      "Học tiếng Hàn",
+      "Đố vui Kinh Thánh Công giáo",
+      "PhoneCheck"
     ],
     "descs": [
       "Biến điện thoại thành bảng LED cổ vũ với lời nhắn, màu sắc và chuyển động tùy chỉnh.",
       "Tìm điện thoại và so sánh kích thước cùng thông số kỹ thuật cạnh nhau.",
       "Đọc vòng màu, mã SMD, tính mạch điện và tìm cách kết hợp các điện trở.",
-      "Khám phá trào lưu, họa sĩ, tác phẩm phương Tây, bảo tàng và ghi chú tham quan."
+      "Khám phá trào lưu, họa sĩ, tác phẩm phương Tây, bảo tàng và ghi chú tham quan.",
+      "Học tiếng Hàn từ nét viết Hangul đến từ vựng đời thường và hội thoại thực tế.",
+      "Học Kinh Thánh Công giáo qua câu đố mỗi ngày, có chú thích chương – câu, giải thích và sổ câu sai.",
+      "Kiểm tra cảm biến, màn hình, âm thanh, pin, camera và mạng của điện thoại, rồi so sánh kết quả theo thời gian."
     ],
     "categories": [
       "Cổ vũ · Lời nhắn LED",
       "Điện thoại · So sánh",
       "Điện tử · Tính toán",
-      "Mỹ thuật · Khám phá và ghi chép"
+      "Mỹ thuật · Khám phá và ghi chép",
+      "Học ngôn ngữ · Tiếng Hàn",
+      "Kinh Thánh · Đố vui hằng ngày",
+      "Điện thoại · Kiểm tra"
     ]
   },
   "hi": {
@@ -113,19 +140,28 @@ const text = {
       "फ़ोन LED बोर्ड",
       "फ़ोन स्पेक",
       "रेज़िस्टर कैलकुलेटर",
-      "कला इतिहास नोट"
+      "कला इतिहास नोट",
+      "कोरियाई भाषा सीखें",
+      "कैथोलिक बाइबिल क्विज़",
+      "PhoneCheck"
     ],
     "descs": [
       "अपने संदेश, रंग और गति के साथ फ़ोन को LED बोर्ड बनाएँ।",
       "स्मार्टफ़ोन खोजें और उनके आकार व मुख्य विशेषताओं की साथ-साथ तुलना करें।",
       "रंग बैंड और SMD कोड पढ़ें, सर्किट की गणना करें और रेज़िस्टर संयोजन खोजें।",
-      "पश्चिमी कला के आंदोलनों, कलाकारों और कृतियों को संग्रहालय की जानकारी और यात्रा नोट के साथ जानें।"
+      "पश्चिमी कला के आंदोलनों, कलाकारों और कृतियों को संग्रहालय की जानकारी और यात्रा नोट के साथ जानें।",
+      "हंगुल लिखने के क्रम से लेकर रोज़मर्रा के शब्दों और असली बातचीत तक कोरियाई सीखें।",
+      "रोज़ाना क्विज़ से कैथोलिक बाइबिल सीखें, अध्याय-पद के संदर्भ, व्याख्या और गलत उत्तरों की नोटबुक के साथ।",
+      "अपने फ़ोन के सेंसर, स्क्रीन, आवाज़, बैटरी, कैमरा और नेटवर्क जाँचें, और नतीजों की समय के साथ तुलना करें।"
     ],
     "categories": [
       "उत्साह · LED संदेश",
       "स्मार्टफ़ोन · तुलना",
       "इलेक्ट्रॉनिक्स · गणना",
-      "कला · खोज और नोट"
+      "कला · खोज और नोट",
+      "भाषा सीखना · कोरियाई",
+      "बाइबिल · रोज़ का क्विज़",
+      "फ़ोन · जाँच"
     ]
   },
   "id": {
@@ -145,19 +181,28 @@ const text = {
       "Papan LED Ponsel",
       "Spesifikasi Ponsel",
       "Kalkulator Resistor",
-      "Catatan Sejarah Seni"
+      "Catatan Sejarah Seni",
+      "Belajar Bahasa Korea",
+      "Kuis Alkitab Katolik",
+      "PhoneCheck"
     ],
     "descs": [
       "Ubah ponsel menjadi papan LED dengan teks, warna, dan gerakan pilihan Anda.",
       "Cari ponsel dan bandingkan ukuran serta spesifikasi utamanya secara berdampingan.",
       "Baca gelang warna dan kode SMD, hitung rangkaian, dan temukan kombinasi resistor.",
-      "Jelajahi aliran, seniman, dan karya seni Barat, beserta informasi museum dan catatan kunjungan."
+      "Jelajahi aliran, seniman, dan karya seni Barat, beserta informasi museum dan catatan kunjungan.",
+      "Belajar bahasa Korea dari urutan goresan Hangul hingga kosakata sehari-hari dan percakapan nyata.",
+      "Pelajari Alkitab Katolik lewat kuis harian, lengkap dengan rujukan pasal-ayat, penjelasan, dan catatan jawaban salah.",
+      "Periksa sensor, layar, suara, baterai, kamera, dan jaringan ponsel Anda, lalu bandingkan hasilnya dari waktu ke waktu."
     ],
     "categories": [
       "Dukungan · Pesan LED",
       "Ponsel · Perbandingan",
       "Elektronika · Perhitungan",
-      "Seni · Jelajah dan catatan"
+      "Seni · Jelajah dan catatan",
+      "Belajar bahasa · Korea",
+      "Alkitab · Kuis harian",
+      "Ponsel · Pemeriksaan"
     ]
   },
   "ja": {
@@ -177,19 +222,28 @@ const text = {
       "LED電光掲示板",
       "スマートフォン仕様比較",
       "抵抗計算機",
-      "美術史ノート"
+      "美術史ノート",
+      "韓国語学習",
+      "カトリック聖書クイズ",
+      "PhoneCheck"
     ],
     "descs": [
       "文字・色・動きをカスタマイズして、スマートフォンを応援用のLED電光掲示板に。",
       "スマートフォンを検索し、サイズや主な仕様を並べて比較できます。",
       "カラーコードやSMDコードの読み取り、回路計算、手持ちの抵抗の組み合わせ検索に。",
-      "西洋美術の流派・画家・作品を探索し、所蔵美術館や鑑賞ノートを確認できます。"
+      "西洋美術の流派・画家・作品を探索し、所蔵美術館や鑑賞ノートを確認できます。",
+      "ハングルの書き順から日常の単語、場面別の会話まで、韓国語を順に学べます。",
+      "毎日のクイズでカトリック聖書に親しめます。章・節の出典、解説、間違えた問題のノート付き。",
+      "センサー、画面、音、バッテリー、カメラ、ネットワークを点検し、結果を記録して比較できます。"
     ],
     "categories": [
       "応援 · LEDメッセージ",
       "スマートフォン · 比較",
       "電子回路 · 計算",
-      "美術 · 探索と記録"
+      "美術 · 探索と記録",
+      "語学学習 · 韓国語",
+      "聖書 · 毎日のクイズ",
+      "スマートフォン · 点検"
     ]
   },
   "fr": {
@@ -209,19 +263,28 @@ const text = {
       "Panneau LED",
       "Comparateur de smartphones",
       "Calculateur de résistances",
-      "Carnet d’histoire de l’art"
+      "Carnet d’histoire de l’art",
+      "Apprendre le coréen",
+      "Quiz biblique catholique",
+      "PhoneCheck"
     ],
     "descs": [
       "Transformez votre téléphone en panneau LED avec du texte, des couleurs et des mouvements personnalisés.",
       "Recherchez des smartphones et comparez leurs dimensions et leurs principales caractéristiques.",
       "Décodez les bandes de couleur et les codes CMS, calculez vos circuits et trouvez des combinaisons de résistances.",
-      "Explorez les courants, les artistes et les œuvres de l’art occidental, avec les musées et vos notes de visite."
+      "Explorez les courants, les artistes et les œuvres de l’art occidental, avec les musées et vos notes de visite.",
+      "Apprenez le coréen, de l'ordre des traits du hangul au vocabulaire quotidien et aux conversations réelles.",
+      "Découvrez la Bible catholique avec des quiz quotidiens, des références chapitre-verset, des explications et un carnet d'erreurs.",
+      "Testez les capteurs, l'écran, le son, la batterie, l'appareil photo et le réseau de votre téléphone, puis comparez les résultats."
     ],
     "categories": [
       "Encouragements · Messages LED",
       "Smartphones · Comparaison",
       "Électronique · Calculs",
-      "Art · Découverte et notes"
+      "Art · Découverte et notes",
+      "Langues · Coréen",
+      "Bible · Quiz quotidien",
+      "Téléphone · Diagnostic"
     ]
   },
   "de": {
@@ -241,19 +304,28 @@ const text = {
       "LED-Laufschrift",
       "Smartphone-Vergleich",
       "Widerstandsrechner",
-      "Notizen zur Kunstgeschichte"
+      "Notizen zur Kunstgeschichte",
+      "Koreanisch lernen",
+      "Katholisches Bibel-Quiz",
+      "PhoneCheck"
     ],
     "descs": [
       "Verwandle dein Smartphone mit eigenen Texten, Farben und Bewegungen in eine LED-Anzeige zum Anfeuern.",
       "Suche Smartphones und vergleiche ihre Größe und wichtigsten technischen Daten nebeneinander.",
       "Entschlüssle Farbringe und SMD-Codes, berechne Schaltungen und finde Widerstandskombinationen.",
-      "Entdecke westliche Kunstströmungen, Künstler und Werke sowie Museen und Besuchsnotizen."
+      "Entdecke westliche Kunstströmungen, Künstler und Werke sowie Museen und Besuchsnotizen.",
+      "Koreanisch lernen: von der Strichfolge des Hangul über Alltagswörter bis zu echten Gesprächen.",
+      "Die katholische Bibel mit täglichen Quizfragen entdecken – mit Kapitel-und-Vers-Angaben, Erklärungen und Fehlerheft.",
+      "Sensoren, Display, Ton, Akku, Kamera und Netzwerk Ihres Handys prüfen und die Ergebnisse im Zeitverlauf vergleichen."
     ],
     "categories": [
       "Anfeuern · LED-Nachrichten",
       "Smartphones · Vergleich",
       "Elektronik · Berechnungen",
-      "Kunst · Entdecken und festhalten"
+      "Kunst · Entdecken und festhalten",
+      "Sprachenlernen · Koreanisch",
+      "Bibel · Tagesquiz",
+      "Handy · Diagnose"
     ]
   },
   "ru": {
@@ -273,19 +345,28 @@ const text = {
       "LED-табло",
       "Сравнение смартфонов",
       "Калькулятор резисторов",
-      "Заметки по истории искусства"
+      "Заметки по истории искусства",
+      "Изучение корейского",
+      "Католическая Библия: квиз",
+      "PhoneCheck"
     ],
     "descs": [
       "Превратите телефон в LED-табло: настройте текст, цвет и движение для поддержки любимой команды.",
       "Ищите смартфоны и сравнивайте их размеры и основные характеристики.",
       "Расшифровывайте цветовую маркировку и SMD-коды, рассчитывайте цепи и подбирайте сочетания резисторов.",
-      "Изучайте направления, художников и произведения западного искусства, музеи и заметки о посещениях."
+      "Изучайте направления, художников и произведения западного искусства, музеи и заметки о посещениях.",
+      "Учите корейский: от порядка написания хангыля до повседневных слов и живых диалогов.",
+      "Изучайте католическую Библию в ежедневных викторинах: со ссылками на главы и стихи, пояснениями и тетрадью ошибок.",
+      "Проверьте датчики, экран, звук, батарею, камеру и сеть телефона и сравнивайте результаты со временем."
     ],
     "categories": [
       "Поддержка · LED-сообщения",
       "Смартфоны · Сравнение",
       "Электроника · Расчёты",
-      "Искусство · Изучение и заметки"
+      "Искусство · Изучение и заметки",
+      "Языки · Корейский",
+      "Библия · Ежедневный квиз",
+      "Телефон · Диагностика"
     ]
   },
   "zh-hans": {
@@ -305,19 +386,28 @@ const text = {
       "手机LED字幕",
       "手机参数对比",
       "电阻计算器",
-      "艺术史笔记"
+      "艺术史笔记",
+      "韩语学习",
+      "天主教圣经问答",
+      "PhoneCheck"
     ],
     "descs": [
       "自定义文字、颜色和滚动效果，把手机变成应援LED字幕屏。",
       "搜索智能手机，并排比较机身尺寸与主要参数。",
       "识别色环与SMD代码，计算电路并查找电阻组合。",
-      "探索西方艺术流派、艺术家与作品，查看收藏博物馆并记录参观。"
+      "探索西方艺术流派、艺术家与作品，查看收藏博物馆并记录参观。",
+      "从韩文笔顺到日常词汇和情景会话，循序渐进学习韩语。",
+      "通过每日问答熟悉天主教圣经，附章节出处、解析和错题本。",
+      "检测手机的传感器、屏幕、声音、电池、摄像头和网络，并记录结果以便对比。"
     ],
     "categories": [
       "应援 · LED消息",
       "智能手机 · 参数对比",
       "电子电路 · 计算工具",
-      "艺术 · 探索与记录"
+      "艺术 · 探索与记录",
+      "语言学习 · 韩语",
+      "圣经 · 每日问答",
+      "手机 · 检测"
     ]
   },
   "zh-hant": {
@@ -337,19 +427,28 @@ const text = {
       "手機LED字幕",
       "手機規格比較",
       "電阻計算機",
-      "藝術史筆記"
+      "藝術史筆記",
+      "韓語學習",
+      "天主教聖經問答",
+      "PhoneCheck"
     ],
     "descs": [
       "自訂文字、顏色和捲動效果，把手機變成應援LED字幕螢幕。",
       "搜尋智慧型手機，並排比較機身尺寸與主要規格。",
       "辨識色環與SMD代碼，計算電路並尋找電阻組合。",
-      "探索西方藝術流派、藝術家與作品，查看典藏博物館並記錄參觀。"
+      "探索西方藝術流派、藝術家與作品，查看典藏博物館並記錄參觀。",
+      "從韓文筆順到日常詞彙與情境會話，循序漸進學習韓語。",
+      "透過每日問答熟悉天主教聖經，附章節出處、解析與錯題本。",
+      "檢測手機的感測器、螢幕、聲音、電池、相機與網路，並記錄結果以便比較。"
     ],
     "categories": [
       "應援 · LED訊息",
       "智慧型手機 · 規格比較",
       "電子電路 · 計算工具",
-      "藝術 · 探索與記錄"
+      "藝術 · 探索與記錄",
+      "語言學習 · 韓語",
+      "聖經 · 每日問答",
+      "手機 · 檢測"
     ]
   },
   "ar": {
@@ -369,19 +468,28 @@ const text = {
       "لوحة LED للهاتف",
       "مقارنة مواصفات الهواتف",
       "حاسبة المقاومات",
-      "ملاحظات تاريخ الفن"
+      "ملاحظات تاريخ الفن",
+      "تعلّم الكورية",
+      "اختبار الكتاب المقدس الكاثوليكي",
+      "PhoneCheck"
     ],
     "descs": [
       "حوّل هاتفك إلى لوحة LED للتشجيع مع نص وألوان وحركة تختارها.",
       "ابحث عن الهواتف الذكية وقارن أحجامها ومواصفاتها الرئيسية جنبًا إلى جنب.",
       "اقرأ حلقات الألوان ورموز SMD واحسب الدوائر وابحث عن تركيبات المقاومات.",
-      "استكشف تيارات الفن الغربي وفنانيه وأعماله، مع معلومات المتاحف وملاحظات الزيارة."
+      "استكشف تيارات الفن الغربي وفنانيه وأعماله، مع معلومات المتاحف وملاحظات الزيارة.",
+      "تعلّم الكورية من ترتيب كتابة حروف الهانغول إلى المفردات اليومية والمحادثات الواقعية.",
+      "تعرّف على الكتاب المقدس الكاثوليكي عبر أسئلة يومية، مع مراجع الإصحاح والآية وشروحات ودفتر للأخطاء.",
+      "افحص مستشعرات هاتفك وشاشته وصوته وبطاريته وكاميرته وشبكته، ثم قارن النتائج بمرور الوقت."
     ],
     "categories": [
       "تشجيع · رسائل LED",
       "هواتف ذكية · مقارنة",
       "إلكترونيات · حسابات",
-      "فن · استكشاف وتدوين"
+      "فن · استكشاف وتدوين",
+      "تعلّم اللغات · الكورية",
+      "الكتاب المقدس · اختبار يومي",
+      "الهاتف · فحص"
     ]
   },
   "my": {
@@ -401,19 +509,28 @@ const text = {
       "ဖုန်း LED စာတန်း",
       "ဖုန်းအချက်အလက် နှိုင်းယှဉ်မှု",
       "ရီစစ္စတာ တွက်စက်",
-      "အနုပညာသမိုင်း မှတ်စု"
+      "အနုပညာသမိုင်း မှတ်စု",
+      "ကိုရီးယားဘာသာ သင်ယူခြင်း",
+      "ကက်သလစ် သမ္မာကျမ်း မေးခွန်းများ",
+      "PhoneCheck"
     ],
     "descs": [
       "စာသား၊ အရောင်နှင့် လှုပ်ရှားမှုကို စိတ်ကြိုက်ပြင်ပြီး ဖုန်းကို အားပေးရန် LED စာတန်းအဖြစ် သုံးပါ။",
       "စမတ်ဖုန်းများကို ရှာပြီး အရွယ်အစားနှင့် အဓိကအချက်အလက်များကို ယှဉ်ကြည့်ပါ။",
       "အရောင်ကွင်းနှင့် SMD ကုဒ်များကို ဖတ်ပြီး ပတ်လမ်းတွက်ချက်မှုနှင့် ရီစစ္စတာ ပေါင်းစပ်မှုများကို ရှာပါ။",
-      "အနောက်တိုင်းအနုပညာ၏ ခေတ်ရေစီးကြောင်း၊ ပန်းချီဆရာ၊ လက်ရာနှင့် ပြတိုက်များကို လေ့လာပြီး လည်ပတ်မှတ်စု ရေးပါ။"
+      "အနောက်တိုင်းအနုပညာ၏ ခေတ်ရေစီးကြောင်း၊ ပန်းချီဆရာ၊ လက်ရာနှင့် ပြတိုက်များကို လေ့လာပြီး လည်ပတ်မှတ်စု ရေးပါ။",
+      "ဟန်ဂူးလ် ရေးအစီအစဉ်မှ နေ့စဉ်သုံးစကားလုံးများနှင့် လက်တွေ့စကားပြောအထိ ကိုရီးယားဘာသာကို အဆင့်ဆင့် သင်ယူပါ။",
+      "နေ့စဉ် မေးခွန်းများဖြင့် ကက်သလစ် သမ္မာကျမ်းကို လေ့လာပါ။ အခန်း-အပိုဒ် ကိုးကားချက်၊ ရှင်းလင်းချက်နှင့် အမှားမှတ်စုတို့ ပါဝင်သည်။",
+      "ဖုန်း၏ အာရုံခံကိရိယာများ၊ ဖန်သားပြင်၊ အသံ၊ ဘက်ထရီ၊ ကင်မရာနှင့် ကွန်ရက်ကို စစ်ဆေးပြီး ရလဒ်များကို နှိုင်းယှဉ်ပါ။"
     ],
     "categories": [
       "အားပေးမှု · LED စာတို",
       "စမတ်ဖုန်း · နှိုင်းယှဉ်မှု",
       "အီလက်ထရွန်းနစ် · တွက်ချက်မှု",
-      "အနုပညာ · လေ့လာမှတ်သားမှု"
+      "အနုပညာ · လေ့လာမှတ်သားမှု",
+      "ဘာသာစကား သင်ယူမှု · ကိုရီးယား",
+      "သမ္မာကျမ်း · နေ့စဉ် မေးခွန်း",
+      "ဖုန်း · စစ်ဆေးမှု"
     ]
   },
   "th": {
@@ -433,19 +550,28 @@ const text = {
       "ป้ายไฟ LED มือถือ",
       "เปรียบเทียบสเปกมือถือ",
       "เครื่องคำนวณตัวต้านทาน",
-      "บันทึกประวัติศาสตร์ศิลปะ"
+      "บันทึกประวัติศาสตร์ศิลปะ",
+      "เรียนภาษาเกาหลี",
+      "ควิซพระคัมภีร์คาทอลิก",
+      "PhoneCheck"
     ],
     "descs": [
       "เปลี่ยนมือถือเป็นป้ายไฟ LED สำหรับเชียร์ พร้อมปรับข้อความ สี และการเคลื่อนไหว",
       "ค้นหาสมาร์ตโฟน แล้วเปรียบเทียบขนาดและสเปกหลักแบบเคียงข้างกัน",
       "อ่านแถบสีและรหัส SMD คำนวณวงจร และค้นหาการจัดชุดตัวต้านทาน",
-      "สำรวจยุคศิลปะ ศิลปิน และผลงานตะวันตก พร้อมข้อมูลพิพิธภัณฑ์และบันทึกการเข้าชม"
+      "สำรวจยุคศิลปะ ศิลปิน และผลงานตะวันตก พร้อมข้อมูลพิพิธภัณฑ์และบันทึกการเข้าชม",
+      "เรียนภาษาเกาหลีตั้งแต่ลำดับการเขียนฮันกึล คำศัพท์ในชีวิตประจำวัน ไปจนถึงบทสนทนาในสถานการณ์จริง",
+      "เรียนรู้พระคัมภีร์คาทอลิกด้วยควิซรายวัน พร้อมที่มาบท-ข้อ คำอธิบาย และสมุดบันทึกข้อที่ตอบผิด",
+      "ตรวจเซนเซอร์ หน้าจอ เสียง แบตเตอรี่ กล้อง และเครือข่ายของโทรศัพท์ แล้วเปรียบเทียบผลตามเวลา"
     ],
     "categories": [
       "เชียร์ · ข้อความ LED",
       "สมาร์ตโฟน · เปรียบเทียบ",
       "อิเล็กทรอนิกส์ · คำนวณ",
-      "ศิลปะ · สำรวจและบันทึก"
+      "ศิลปะ · สำรวจและบันทึก",
+      "เรียนภาษา · เกาหลี",
+      "พระคัมภีร์ · ควิซรายวัน",
+      "โทรศัพท์ · ตรวจสอบ"
     ]
   },
   "es": {
@@ -465,19 +591,28 @@ const text = {
       "Letrero LED",
       "Comparador de teléfonos",
       "Calculadora de resistencias",
-      "Notas de historia del arte"
+      "Notas de historia del arte",
+      "Aprende coreano",
+      "Quiz de la Biblia católica",
+      "PhoneCheck"
     ],
     "descs": [
       "Convierte tu teléfono en un letrero LED con texto, colores y movimiento a tu gusto.",
       "Busca teléfonos y compara su tamaño y sus especificaciones principales lado a lado.",
       "Lee bandas de colores y códigos SMD, calcula circuitos y encuentra combinaciones de resistencias.",
-      "Explora movimientos, artistas y obras del arte occidental, con museos y notas de visita."
+      "Explora movimientos, artistas y obras del arte occidental, con museos y notas de visita.",
+      "Aprende coreano desde el orden de los trazos del hangul hasta el vocabulario cotidiano y conversaciones reales.",
+      "Conoce la Biblia católica con quizzes diarios, citas de capítulo y versículo, explicaciones y un cuaderno de errores.",
+      "Revisa los sensores, la pantalla, el sonido, la batería, la cámara y la red de tu teléfono, y compara los resultados."
     ],
     "categories": [
       "Apoyo · Mensajes LED",
       "Teléfonos · Comparación",
       "Electrónica · Cálculos",
-      "Arte · Explora y anota"
+      "Arte · Explora y anota",
+      "Idiomas · Coreano",
+      "Biblia · Quiz diario",
+      "Teléfono · Diagnóstico"
     ]
   },
   "pt": {
@@ -497,19 +632,28 @@ const text = {
       "Painel LED",
       "Comparador de smartphones",
       "Calculadora de resistências",
-      "Notas de história da arte"
+      "Notas de história da arte",
+      "Aprender coreano",
+      "Quiz da Bíblia Católica",
+      "PhoneCheck"
     ],
     "descs": [
       "Transforme o smartphone num painel LED com texto, cores e movimento personalizados.",
       "Pesquise smartphones e compare as dimensões e as principais especificações lado a lado.",
       "Leia códigos de cores e SMD, calcule circuitos e encontre combinações de resistências.",
-      "Explore movimentos, artistas e obras da arte ocidental, com informações sobre museus e notas de visita."
+      "Explore movimentos, artistas e obras da arte ocidental, com informações sobre museus e notas de visita.",
+      "Aprenda coreano da ordem dos traços do hangul ao vocabulário do dia a dia e a conversas reais.",
+      "Conheça a Bíblia Católica com quizzes diários, referências de capítulo e versículo, explicações e caderno de erros.",
+      "Verifique sensores, display, som, bateria, câmera e rede do seu smartphone e compare os resultados ao longo do tempo."
     ],
     "categories": [
       "Apoio · Mensagens LED",
       "Smartphones · Comparação",
       "Circuitos · Cálculos",
-      "Arte · Exploração e notas"
+      "Arte · Exploração e notas",
+      "Idiomas · Coreano",
+      "Bíblia · Quiz diário",
+      "Smartphones · Diagnóstico"
     ]
   }
 };
@@ -534,97 +678,97 @@ const siteTitles = {
 const extraText = {
   "ko": {
     "languageLabel": "언어 선택",
-    "gallery": "서로 다른 네 가지 가능성",
+    "gallery": "서로 다른 가능성",
     "galleryNote": "작은 도구부터 새로운 발견까지",
     "noscript": "앱 홈페이지로 이동하려면 아래 링크를 선택하세요."
   },
   "en": {
     "languageLabel": "Select language",
-    "gallery": "Four ways to explore",
+    "gallery": "Ways to explore",
     "galleryNote": "Little tools. New discoveries.",
     "noscript": "Choose an app homepage below."
   },
   "vi": {
     "languageLabel": "Chọn ngôn ngữ",
-    "gallery": "Bốn cách để khám phá",
+    "gallery": "Nhiều cách để khám phá",
     "galleryNote": "Công cụ nhỏ. Khám phá mới.",
     "noscript": "Chọn trang chủ ứng dụng bên dưới."
   },
   "hi": {
     "languageLabel": "भाषा चुनें",
-    "gallery": "खोजने के चार रास्ते",
+    "gallery": "खोजने के कई रास्ते",
     "galleryNote": "छोटे उपकरण। नई खोजें।",
     "noscript": "नीचे ऐप की वेबसाइट चुनें।"
   },
   "id": {
     "languageLabel": "Pilih bahasa",
-    "gallery": "Empat cara menjelajah",
+    "gallery": "Banyak cara menjelajah",
     "galleryNote": "Alat kecil. Penemuan baru.",
     "noscript": "Pilih situs aplikasi di bawah ini."
   },
   "ja": {
     "languageLabel": "言語を選択",
-    "gallery": "4つの発見への入り口",
+    "gallery": "さまざまな発見への入り口",
     "galleryNote": "小さな道具。新しい発見。",
     "noscript": "下のリンクからアプリのサイトをご覧ください。"
   },
   "fr": {
     "languageLabel": "Choisir la langue",
-    "gallery": "Quatre pistes à explorer",
+    "gallery": "Des pistes à explorer",
     "galleryNote": "De petits outils. De nouvelles découvertes.",
     "noscript": "Choisissez le site d’une application ci-dessous."
   },
   "de": {
     "languageLabel": "Sprache wählen",
-    "gallery": "Vier Wege zum Entdecken",
+    "gallery": "Viele Wege zum Entdecken",
     "galleryNote": "Kleine Werkzeuge. Neue Entdeckungen.",
     "noscript": "Wähle unten eine App-Website aus."
   },
   "ru": {
     "languageLabel": "Выбрать язык",
-    "gallery": "Четыре пути к открытиям",
+    "gallery": "Пути к открытиям",
     "galleryNote": "Маленькие инструменты. Новые открытия.",
     "noscript": "Выберите сайт приложения ниже."
   },
   "zh-hans": {
     "languageLabel": "选择语言",
-    "gallery": "四种探索的可能",
+    "gallery": "多种探索的可能",
     "galleryNote": "小巧工具，全新发现。",
     "noscript": "请在下方选择应用网站。"
   },
   "zh-hant": {
     "languageLabel": "選擇語言",
-    "gallery": "四種探索的可能",
+    "gallery": "多種探索的可能",
     "galleryNote": "小巧工具，全新發現。",
     "noscript": "請在下方選擇應用程式網站。"
   },
   "ar": {
     "languageLabel": "اختر اللغة",
-    "gallery": "أربع طرق للاستكشاف",
+    "gallery": "طرق متعددة للاستكشاف",
     "galleryNote": "أدوات صغيرة. اكتشافات جديدة.",
     "noscript": "اختر موقع أحد التطبيقات أدناه."
   },
   "my": {
     "languageLabel": "ဘာသာစကား ရွေးရန်",
-    "gallery": "လေ့လာရန် နည်းလမ်းလေးမျိုး",
+    "gallery": "လေ့လာရန် နည်းလမ်းများစွာ",
     "galleryNote": "ကိရိယာငယ်များ။ ရှာဖွေတွေ့ရှိမှုအသစ်များ။",
     "noscript": "အောက်တွင် အက်ပ်ဝက်ဘ်ဆိုက်ကို ရွေးပါ။"
   },
   "th": {
     "languageLabel": "เลือกภาษา",
-    "gallery": "สี่เส้นทางสู่การค้นพบ",
+    "gallery": "หลากเส้นทางสู่การค้นพบ",
     "galleryNote": "เครื่องมือเล็ก ๆ การค้นพบใหม่ ๆ",
     "noscript": "เลือกเว็บไซต์ของแอปด้านล่าง"
   },
   "es": {
     "languageLabel": "Seleccionar idioma",
-    "gallery": "Cuatro formas de explorar",
+    "gallery": "Formas de explorar",
     "galleryNote": "Pequeñas herramientas. Nuevos descubrimientos.",
     "noscript": "Elige el sitio web de una app."
   },
   "pt": {
     "languageLabel": "Selecionar idioma",
-    "gallery": "Quatro formas de explorar",
+    "gallery": "Formas de explorar",
     "galleryNote": "Pequenas ferramentas. Novas descobertas.",
     "noscript": "Escolha o site de um app abaixo."
   }
