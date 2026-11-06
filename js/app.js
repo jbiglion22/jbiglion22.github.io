@@ -1,46 +1,148 @@
-// Existing app homepages are maintained separately from this directory site.
+// To add an app: add one line to `apps`, add its entry to every language in js/translations.js,
+// add its link to the <noscript> list of each index-*.html, and add its homepage to sitemap.xml.
+// App homepages are maintained separately from this directory site.
+const groups = ['learn', 'phone', 'calc'];
 const apps = [
-  {id:'phonebanner', homepage:'https://jbiglion22.github.io/phonebanner_home/', packageId:'com.phonensoft.phonebanner', icon:'icons/favicon.svg'},
-  {id:'phonespec', homepage:'https://jbiglion22.github.io/phonespec_home/', packageId:'com.phonensoft.phonespec', icon:'icons/phonespec.svg'},
-  {id:'resistorcalculator', homepage:'https://jbiglion22.github.io/resistorcalculator_home/', packageId:'com.phonensoft.resistorcalculator', icon:'icons/resistorcalculator.svg'},
-  {id:'arthistorynote', homepage:'https://jbiglion22.github.io/arthistorynote_home/', packageId:'com.phonensoft.arthistorynote', icon:'icons/arthistorynote.svg'},
-  {id:'koreanstudy', homepage:'https://jbiglion22.github.io/koreanstudy_home/', packageId:'com.phonensoft.koreanstudy', icon:'icons/koreanstudy.svg'},
-  {id:'snapstudy_cbible', homepage:'https://jbiglion22.github.io/snapstudy_cbible_home/', packageId:'com.phonensoft.snapstudy_cbible', icon:'icons/snapstudy_cbible.svg'},
-  {id:'phonecheck', homepage:'https://jbiglion22.github.io/phonecheck_home/', packageId:'com.phonensoft.phonecheck', icon:'icons/phonecheck.svg'},
-  {id:'wifideadzone', homepage:'https://jbiglion22.github.io/wifideadzone_home/', packageId:'com.phonensoft.wifideadzone', icon:'icons/wifideadzone.svg'},
-  {id:'stockcalculator', homepage:'https://jbiglion22.github.io/stockcalculator_home/', packageId:'com.phonensoft.stockcalculator', icon:'icons/stockcalculator.svg'}
+  {id: 'koreanstudy', symbol: 'Ko', group: 'learn'},
+  {id: 'snapstudy_cbible', symbol: 'Bq', group: 'learn'},
+  {id: 'arthistorynote', symbol: 'Ar', group: 'learn'},
+  {id: 'phonecheck', symbol: 'Pc', group: 'phone'},
+  {id: 'phonespec', symbol: 'Ps', group: 'phone'},
+  {id: 'phonebanner', symbol: 'Pb', group: 'phone'},
+  {id: 'wifideadzone', symbol: 'Wf', group: 'phone'},
+  {id: 'resistorcalculator', symbol: 'Rc', group: 'calc'},
+  {id: 'stockcalculator', symbol: 'Sc', group: 'calc'}
 ];
-// Apps are shown in groups. Translation arrays stay indexed by the order of `apps`.
-const groups = [
-  {ids:['koreanstudy','snapstudy_cbible','arthistorynote']},
-  {ids:['phonecheck','phonespec','phonebanner','wifideadzone']},
-  {ids:['resistorcalculator','stockcalculator']}
-];
-const lang = document.documentElement.lang.toLowerCase();
-const t = {...(text[lang] || text.en), ...(extraText[lang] || extraText.en)};
-const siteTitle = siteTitles[lang] || siteTitles.en;
-const route = app => app.homepage;
-const header = `<header id="top"><a class="brand" href="index-${lang}.html"><span class="studio-mark" aria-hidden="true">j.</span><span class="site-title"><bdi>${siteTitle}</bdi></span></a><nav aria-label="${t.nav}"><a href="index-${lang}.html#apps">${t.nav}</a></nav><div class="language-control"><span aria-hidden="true">◎</span><select id="language" aria-label="${t.languageLabel}">${Object.entries(languageNames).map(([code,name])=>`<option value="${code}" lang="${languageTags[code]}" dir="ltr">${name}</option>`).join('')}</select></div></header>`;
-const footer = `<footer><div><a class="brand" href="index-${lang}.html"><bdi>${siteTitle}</bdi></a><p>${t.footer}</p></div><a href="#top">${t.top} ↑</a><p class="copyright">© <bdi>${new Date().getFullYear()} jbiglion22</bdi></p></footer>`;
-const artwork = {
-  phonebanner: '<div class="mini-board">HELLO<span>••••••••••••</span></div>',
-  phonespec: '<div class="spec-device"><span>Phone Spec</span><i></i><i></i><i></i><b>≡</b></div>',
-  resistorcalculator: '<div class="resistor-art"><span class="resistor-wire"></span><div class="resistor-body"><i></i><i></i><i></i><i></i></div><span class="resistor-value">4.7 kΩ <small>±5%</small></span></div>',
-  arthistorynote: '<div class="art-frame"><div class="abstract-work"><i></i><b></b><span></span></div><span class="frame-caption">ART HISTORY / NOTES</span></div>',
-  koreanstudy: '<div class="korean-art"><b>한</b><span>ㄱ ㄴ ㄷ ㄹ</span><i></i></div>',
-  snapstudy_cbible: '<div class="bible-art"><div class="bible-book"><span class="bible-cross"></span><em>Q&amp;A</em></div></div>',
-  phonecheck: '<div class="check-art"><span>PhoneCheck</span><p><i></i><u>✓</u></p><p><i></i><u>✓</u></p><p><i></i><u>✓</u></p></div>',
-  wifideadzone: '<div class="wifi-art"><div class="wifi-plan"><i class="r1">A</i><i class="r2">B</i><i class="r3">C</i><i class="r4">D</i></div><svg class="wifi-signal" viewBox="0 0 48 40"><path d="M4 16a28 28 0 0 1 40 0M11 24a18 18 0 0 1 26 0M18 32a8 8 0 0 1 12 0" fill="none" stroke="#1b8fb0" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="38" r="2.5" fill="#1b8fb0"/></svg></div>',
-  stockcalculator: '<div class="stock-art"><span>AVG PRICE</span><b>65,000</b><svg viewBox="0 0 160 60"><polyline points="4,50 34,38 62,44 94,22 124,28 156,8" fill="none" stroke="#3ddc97" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><em>+10%</em></div>'
-};
-const indexOf = id => apps.findIndex(a => a.id === id);
-const displayOrder = groups.flatMap(g => g.ids);
-const card = (app,i,n) => `<a class="app-card ${app.id}" href="${route(app)}" target="_blank" rel="noopener noreferrer"><div class="app-art" aria-hidden="true">${artwork[app.id]}<span class="art-number">${String(n+1).padStart(2,'0')}</span></div><div class="app-card-body"><div class="app-identity"><img src="${app.icon}" width="48" height="48" alt=""><div><p class="app-category">${t.categories[i]}</p><h4>${t.names[i]}</h4></div></div><p>${t.descs[i]}</p><span class="app-card-link">${t.visit}<span class="sr-only"> ${t.newWindow}</span><span class="round-arrow" aria-hidden="true">↗</span></span></div></a>`;
-const cards = groups.map((g,gi)=>`<div class="app-group"><h3 class="group-title"><span>${t.groups[gi]}</span><small>${String(g.ids.length).padStart(2,'0')}</small></h3><div class="app-grid">${g.ids.map(id=>card(apps[indexOf(id)],indexOf(id),displayOrder.indexOf(id))).join('')}</div></div>`).join('');
-const showcase = `<aside class="collection-showcase" aria-label="${t.gallery}"><div class="showcase-heading"><span>${t.collection}</span><span>01—${String(apps.length).padStart(2,'0')}</span></div><div class="portal-grid">${displayOrder.map((id,n)=>{const i=indexOf(id),app=apps[i];return `<a class="app-portal portal-${app.id}" href="${app.homepage}" target="_blank" rel="noopener noreferrer" aria-label="${t.names[i]} · ${t.visit} ${t.newWindow}"><span class="portal-number" aria-hidden="true">${String(n+1).padStart(2,'0')}</span><span class="portal-art" aria-hidden="true">${artwork[app.id]}</span><span class="portal-name">${t.names[i]}<span aria-hidden="true">↗</span></span></a>`}).join('')}</div><p class="showcase-footnote"><span aria-hidden="true">✳</span>${t.galleryNote}</p></aside>`;
-const hub = `<main id="main"><section class="directory-hero"><div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span>${t.tag}</p><h1>${t.title.replace('\n','<br>')}</h1><div class="directory-intro"><p>${t.intro.replace('\n','<br>')}</p><a href="#apps" class="primary-link">${t.browse} <span aria-hidden="true">↘</span></a></div><p class="hero-index"><span>01—${String(apps.length).padStart(2,'0')}</span> ${t.collection}</p></div>${showcase}</section><section id="apps" class="app-directory"><div class="directory-heading"><div><p class="eyebrow">${t.discover}</p><h2>${t.list}<span class="collection-count">${String(apps.length).padStart(2,'0')}</span></h2></div><p>${t.listNote}</p></div><div class="app-groups">${cards}</div></section></main>`;
 
-document.getElementById('site').innerHTML = header + hub + footer;
+const lang = document.documentElement.lang.toLowerCase();
+const t = translations[lang] || translations.en;
+const appText = id => t.apps[id] || translations.en.apps[id];
+const pad = n => String(n).padStart(2, '0');
+const homepage = id => `https://jbiglion22.github.io/${id}_home/`;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// Numbers follow the display order, so they stay continuous as groups change.
+const ordered = groups.flatMap(g => apps.filter(a => a.group === g));
+const tile = (app, i) => {
+  const a = appText(app.id);
+  return `<a class="tile g-${app.group}" href="${homepage(app.id)}" target="_blank" rel="noopener noreferrer" data-id="${app.id}">
+    <span class="tile-no" aria-hidden="true">${pad(i + 1)}</span>
+    <span class="tile-arrow" aria-hidden="true">↗</span>
+    <span class="tile-sym" aria-hidden="true">${app.symbol}</span>
+    <div class="tile-head">
+      <h3>${a.name}</h3>
+      <p class="tile-tag">${a.tag}</p>
+    </div>
+    <p class="tile-desc">${a.desc}</p>
+    <span class="sr-only">${t.visit} ${t.newWindow}</span>
+  </a>`;
+};
+const nextSlot = `<div class="tile tile-next"><span class="tile-sym" aria-hidden="true">?</span><div class="tile-head"><strong>${t.next}</strong></div><p class="tile-desc">${t.nextNote}</p></div>`;
+
+const sections = groups.map((g, gi) => {
+  const list = ordered.filter(a => a.group === g);
+  const isLast = gi === groups.length - 1;
+  return `<section class="group" data-group="${g}" aria-labelledby="title-${g}">
+    <h2 id="title-${g}" class="group-title"><i class="swatch g-${g}" aria-hidden="true"></i>${t.groups[g]}<small>${pad(list.length)}</small></h2>
+    <div class="table">${list.map(a => tile(a, ordered.indexOf(a))).join('')}${isLast ? nextSlot : ''}</div>
+  </section>`;
+}).join('');
+
+const chip = (id, label, count, swatch) => `<button type="button" class="chip" data-filter="${id}" aria-pressed="false">${swatch ? `<i class="swatch g-${id}" aria-hidden="true"></i>` : ''}${label}<small>${count}</small></button>`;
+
+document.getElementById('site').innerHTML = `
+<header class="top" id="top">
+  <a class="brand" href="index-${lang}.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>${t.siteTitle}</bdi></a>
+  <label class="lang"><span class="sr-only">${t.languageLabel}</span><select id="language">${Object.entries(languageNames).map(([code, name]) => `<option value="${code}" lang="${languageTags[code]}">${name}</option>`).join('')}</select></label>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>${t.title.replace('\n', '<br>')}</h1>
+      <p>${t.intro.replace('\n', ' <br>')}</p>
+      <div class="hero-actions">
+        <button type="button" class="pick" id="pick"><span aria-hidden="true">⚄</span> ${t.pick}</button>
+        <span class="pick-result" id="pick-result" role="status"></span>
+      </div>
+    </div>
+    <div class="element" aria-hidden="true">
+      <span class="tile-no">${pad(apps.length)}</span>
+      <span class="element-sym">J</span>
+      <span class="element-name">${t.siteTitle}</span>
+      <span class="element-count">${t.count.replace('{n}', apps.length)}</span>
+    </div>
+  </section>
+  <section class="apps" id="apps">
+    <div class="chips" role="group" aria-label="${t.filterLabel}">
+      ${chip('all', t.all, apps.length)}
+      ${groups.map(g => chip(g, t.groups[g], apps.filter(a => a.group === g).length, true)).join('')}
+    </div>
+    ${sections}
+  </section>
+</main>
+<footer class="foot">
+  <p>${t.footer}</p>
+  <a href="#top">${t.top} ↑</a>
+  <p class="copyright">© <bdi>${new Date().getFullYear()} jbiglion22</bdi></p>
+</footer>`;
+
 const language = document.getElementById('language');
 language.value = lang;
-language.addEventListener('change', () => { window.location.href = `index-${language.value}.html` + window.location.hash; });
+language.addEventListener('change', () => { window.location.href = `index-${language.value}.html${window.location.hash}`; });
+
+// Group filter: the group is kept in the address (for example index-ko.html#learn) so it can be shared.
+const chips = [...document.querySelectorAll('.chip')];
+const groupEls = [...document.querySelectorAll('.group')];
+const tiles = [...document.querySelectorAll('a.tile')];
+const result = document.getElementById('pick-result');
+const clearPick = () => {
+  tiles.forEach(el => el.classList.remove('picked', 'lit'));
+  result.textContent = '';
+};
+const setFilter = (id, updateAddress) => {
+  clearPick();
+  chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.filter === id)));
+  groupEls.forEach(g => { g.hidden = id !== 'all' && g.dataset.group !== id; });
+  if (!updateAddress) return;
+  try { history.replaceState(null, '', id === 'all' ? window.location.pathname + window.location.search : `#${id}`); } catch (e) { /* Address update is optional. */ }
+};
+chips.forEach(c => c.addEventListener('click', () => setFilter(c.dataset.filter, true)));
+const fromHash = () => { const h = window.location.hash.slice(1); return groups.includes(h) ? h : 'all'; };
+setFilter(fromHash(), false);
+window.addEventListener('hashchange', () => setFilter(fromHash(), false));
+
+// "Surprise me": a light runs across the visible squares and stops on one app.
+const pickButton = document.getElementById('pick');
+let lastPick = null;
+const land = el => {
+  tiles.forEach(x => x.classList.remove('lit'));
+  el.classList.add('picked');
+  lastPick = el;
+  result.textContent = t.picked.replace('{name}', appText(el.dataset.id).name);
+  pickButton.disabled = false;
+  const box = el.getBoundingClientRect();
+  if (box.top < 0 || box.bottom > window.innerHeight) el.scrollIntoView({block: 'center', behavior: reduceMotion.matches ? 'auto' : 'smooth'});
+  el.focus({preventScroll: true});
+};
+pickButton.addEventListener('click', () => {
+  clearPick();
+  const visible = tiles.filter(el => !el.closest('.group').hidden);
+  if (!visible.length) return;
+  const options = visible.length > 1 ? visible.filter(el => el !== lastPick) : visible;
+  const chosen = options[Math.floor(Math.random() * options.length)];
+  if (reduceMotion.matches || visible.length < 2) { land(chosen); return; }
+  pickButton.disabled = true;
+  let step = 0;
+  const steps = 14;
+  let previous = null;
+  const run = () => {
+    if (previous) previous.classList.remove('lit');
+    if (step >= steps) { land(chosen); return; }
+    const others = visible.filter(el => el !== previous);
+    previous = others[Math.floor(Math.random() * others.length)];
+    previous.classList.add('lit');
+    step += 1;
+    setTimeout(run, 50 + step * step * 1.1);
+  };
+  run();
+});
