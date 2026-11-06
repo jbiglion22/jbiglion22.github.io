@@ -6,12 +6,15 @@ const apps = [
   {id:'arthistorynote', homepage:'https://jbiglion22.github.io/arthistorynote_home/', packageId:'com.phonensoft.arthistorynote', icon:'icons/arthistorynote.svg'},
   {id:'koreanstudy', homepage:'https://jbiglion22.github.io/koreanstudy_home/', packageId:'com.phonensoft.koreanstudy', icon:'icons/koreanstudy.svg'},
   {id:'snapstudy_cbible', homepage:'https://jbiglion22.github.io/snapstudy_cbible_home/', packageId:'com.phonensoft.snapstudy_cbible', icon:'icons/snapstudy_cbible.svg'},
-  {id:'phonecheck', homepage:'https://jbiglion22.github.io/phonecheck_home/', packageId:'com.phonensoft.phonecheck', icon:'icons/phonecheck.svg'}
+  {id:'phonecheck', homepage:'https://jbiglion22.github.io/phonecheck_home/', packageId:'com.phonensoft.phonecheck', icon:'icons/phonecheck.svg'},
+  {id:'wifideadzone', homepage:'https://jbiglion22.github.io/wifideadzone_home/', packageId:'com.phonensoft.wifideadzone', icon:'icons/wifideadzone.svg'},
+  {id:'stockcalculator', homepage:'https://jbiglion22.github.io/stockcalculator_home/', packageId:'com.phonensoft.stockcalculator', icon:'icons/stockcalculator.svg'}
 ];
 // Apps are shown in groups. Translation arrays stay indexed by the order of `apps`.
 const groups = [
   {ids:['koreanstudy','snapstudy_cbible','arthistorynote']},
-  {ids:['phonecheck','phonespec','phonebanner','resistorcalculator']}
+  {ids:['phonecheck','phonespec','phonebanner','wifideadzone']},
+  {ids:['resistorcalculator','stockcalculator']}
 ];
 const lang = document.documentElement.lang.toLowerCase();
 const t = {...(text[lang] || text.en), ...(extraText[lang] || extraText.en)};
@@ -26,13 +29,15 @@ const artwork = {
   arthistorynote: '<div class="art-frame"><div class="abstract-work"><i></i><b></b><span></span></div><span class="frame-caption">ART HISTORY / NOTES</span></div>',
   koreanstudy: '<div class="korean-art"><b>한</b><span>ㄱ ㄴ ㄷ ㄹ</span><i></i></div>',
   snapstudy_cbible: '<div class="bible-art"><div class="bible-book"><span class="bible-cross"></span><em>Q&amp;A</em></div></div>',
-  phonecheck: '<div class="check-art"><span>PhoneCheck</span><p><i></i><u>✓</u></p><p><i></i><u>✓</u></p><p><i></i><u>✓</u></p></div>'
+  phonecheck: '<div class="check-art"><span>PhoneCheck</span><p><i></i><u>✓</u></p><p><i></i><u>✓</u></p><p><i></i><u>✓</u></p></div>',
+  wifideadzone: '<div class="wifi-art"><div class="wifi-plan"><i class="r1">A</i><i class="r2">B</i><i class="r3">C</i><i class="r4">D</i></div><svg class="wifi-signal" viewBox="0 0 48 40"><path d="M4 16a28 28 0 0 1 40 0M11 24a18 18 0 0 1 26 0M18 32a8 8 0 0 1 12 0" fill="none" stroke="#1b8fb0" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="38" r="2.5" fill="#1b8fb0"/></svg></div>',
+  stockcalculator: '<div class="stock-art"><span>AVG PRICE</span><b>65,000</b><svg viewBox="0 0 160 60"><polyline points="4,50 34,38 62,44 94,22 124,28 156,8" fill="none" stroke="#3ddc97" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><em>+10%</em></div>'
 };
 const indexOf = id => apps.findIndex(a => a.id === id);
 const displayOrder = groups.flatMap(g => g.ids);
-const card = (app,i,n) => `<a class="app-card ${app.id}" href="${route(app)}"><div class="app-art" aria-hidden="true">${artwork[app.id]}<span class="art-number">${String(n+1).padStart(2,'0')}</span></div><div class="app-card-body"><div class="app-identity"><img src="${app.icon}" width="48" height="48" alt=""><div><p class="app-category">${t.categories[i]}</p><h4>${t.names[i]}</h4></div></div><p>${t.descs[i]}</p><span class="app-card-link">${t.visit}<span class="round-arrow" aria-hidden="true">↗</span></span></div></a>`;
+const card = (app,i,n) => `<a class="app-card ${app.id}" href="${route(app)}" target="_blank" rel="noopener noreferrer"><div class="app-art" aria-hidden="true">${artwork[app.id]}<span class="art-number">${String(n+1).padStart(2,'0')}</span></div><div class="app-card-body"><div class="app-identity"><img src="${app.icon}" width="48" height="48" alt=""><div><p class="app-category">${t.categories[i]}</p><h4>${t.names[i]}</h4></div></div><p>${t.descs[i]}</p><span class="app-card-link">${t.visit}<span class="sr-only"> ${t.newWindow}</span><span class="round-arrow" aria-hidden="true">↗</span></span></div></a>`;
 const cards = groups.map((g,gi)=>`<div class="app-group"><h3 class="group-title"><span>${t.groups[gi]}</span><small>${String(g.ids.length).padStart(2,'0')}</small></h3><div class="app-grid">${g.ids.map(id=>card(apps[indexOf(id)],indexOf(id),displayOrder.indexOf(id))).join('')}</div></div>`).join('');
-const showcase = `<aside class="collection-showcase" aria-label="${t.gallery}"><div class="showcase-heading"><span>${t.collection}</span><span>01—${String(apps.length).padStart(2,'0')}</span></div><div class="portal-grid">${displayOrder.map((id,n)=>{const i=indexOf(id),app=apps[i];return `<a class="app-portal portal-${app.id}" href="${app.homepage}" aria-label="${t.names[i]} · ${t.visit}"><span class="portal-number" aria-hidden="true">${String(n+1).padStart(2,'0')}</span><span class="portal-art" aria-hidden="true">${artwork[app.id]}</span><span class="portal-name">${t.names[i]}<span aria-hidden="true">↗</span></span></a>`}).join('')}</div><p class="showcase-footnote"><span aria-hidden="true">✳</span>${t.galleryNote}</p></aside>`;
+const showcase = `<aside class="collection-showcase" aria-label="${t.gallery}"><div class="showcase-heading"><span>${t.collection}</span><span>01—${String(apps.length).padStart(2,'0')}</span></div><div class="portal-grid">${displayOrder.map((id,n)=>{const i=indexOf(id),app=apps[i];return `<a class="app-portal portal-${app.id}" href="${app.homepage}" target="_blank" rel="noopener noreferrer" aria-label="${t.names[i]} · ${t.visit} ${t.newWindow}"><span class="portal-number" aria-hidden="true">${String(n+1).padStart(2,'0')}</span><span class="portal-art" aria-hidden="true">${artwork[app.id]}</span><span class="portal-name">${t.names[i]}<span aria-hidden="true">↗</span></span></a>`}).join('')}</div><p class="showcase-footnote"><span aria-hidden="true">✳</span>${t.galleryNote}</p></aside>`;
 const hub = `<main id="main"><section class="directory-hero"><div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span>${t.tag}</p><h1>${t.title.replace('\n','<br>')}</h1><div class="directory-intro"><p>${t.intro.replace('\n','<br>')}</p><a href="#apps" class="primary-link">${t.browse} <span aria-hidden="true">↘</span></a></div><p class="hero-index"><span>01—${String(apps.length).padStart(2,'0')}</span> ${t.collection}</p></div>${showcase}</section><section id="apps" class="app-directory"><div class="directory-heading"><div><p class="eyebrow">${t.discover}</p><h2>${t.list}<span class="collection-count">${String(apps.length).padStart(2,'0')}</span></h2></div><p>${t.listNote}</p></div><div class="app-groups">${cards}</div></section></main>`;
 
 document.getElementById('site').innerHTML = header + hub + footer;

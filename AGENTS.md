@@ -147,3 +147,14 @@
 - 일부러 뺀 것: 영어로 넘기는 호환용 리디렉션 페이지(`index-ar/my/hi/th/es-mx/pt-br.html`). 자동 생성 플러그인(jekyll-sitemap)은 이 페이지들까지 포함하므로 쓰지 않았다.
 - 유지 규칙: 언어를 추가·삭제하면 `sitemap.xml`도 함께 고친다. 앱을 추가하면 앱 홈페이지 URL도 `sitemap.xml`에 추가한다. 앱 홈페이지는 별도 저장소의 사이트이며, 그 사이트의 내용은 이 저장소에서 관리하지 않는다. 앱 홈페이지 URL은 같은 도메인(jbiglion22.github.io)이라 이 사이트맵에 넣을 수 있다. `lastmod`는 작성일(2026-11-05)로 고정되어 있어 내용이 크게 바뀌면 갱신한다.
 - 검증: XML 형식과 URL 20개, 언어 HTML 파일의 존재를 확인했다. 배포 후 `/sitemap.xml` 접근과 Search Console 제출은 미완료다. 커밋·푸시는 수행하지 않았다.
+
+## 제목 변경·js 폴더·앱 9종·새 창 링크 (2026-11-06)
+
+- 최신 프로젝트.md 기준: 한국어 제목은 `J's 앱 소개`(ASCII 작은따옴표)이다. 다른 언어는 같은 구조로 번역했다: 영어 `J’s Apps`, 베트남어 `Ứng dụng của J`, 인도네시아어 `Aplikasi J`, 일본어 `Jのアプリ紹介`, 프랑스어 `Les applications de J`, 독일어 `Die Apps von J`, 러시아어 `Приложения J`, 중국어 간체 `J 的应用介绍`, 번체 `J 的應用程式介紹`, 스페인어·포르투갈어 `Apps de J`. 이전 `jbiglion22…` 제목 규칙은 대체한다. 상단 작은 문구 `JBIGLION22 · APPS`와 저작권 `© 연도 jbiglion22`는 제목이 아니라 제작자 표기로 보고 바꾸지 않았다.
+- `js/` 폴더: `app.js`, `languages.js`, `translations.js`를 `js/`로 옮겼다(git mv). 모든 HTML의 `<script src>`를 `js/…`로 고쳤다. 이전 파일 구조(루트의 app.js 등)를 설명한 앞선 기록은 이 경로로 대체한다.
+- 새 창 링크: 소개하는 앱 홈페이지 링크(카드, 첫 화면 갤러리, JavaScript 미사용 목록)는 `target="_blank" rel="noopener noreferrer"`로 연다. 화면 낭독기용으로 카드에는 `sr-only` 안내문, 갤러리에는 `aria-label` 안내문을 넣었다(문구는 `translations.js` `extraText`의 `newWindow`, 12개 언어). 같은 사이트 내부 이동(언어 전환, 위로 가기)은 새 창을 쓰지 않는다.
+- 앱 추가: WiFi DeadZone(`com.phonensoft.wifideadzone`)과 주식 매매 계산기(`com.phonensoft.stockcalculator`)를 추가해 총 9개 앱이다. 홈페이지(`.../wifideadzone_home/`, `.../stockcalculator_home/`)와 Google Play 한국어 페이지를 2026-11-06에 직접 열어 확인했다. WiFi DeadZone은 평면도 위에서 방마다 와이파이 신호를 재고 사각지대를 색으로 보여 주며 공유기 이동 전후를 비교한다(인터넷 속도 측정 앱이 아님). 주식 매매 계산기는 물타기 평균 단가·매매 수익률·목표 매도가·손절 가격 등을 수수료·세금 반영으로 계산한다. 투자 권유나 수익 보장 표현은 쓰지 않았다. 앱 이름은 한국어에서 Play 표기(`와이파이 사각지대 찾기`, `주식 매매 계산기`)를 쓰고, WiFi DeadZone은 다른 언어에서 `WiFi DeadZone`을 쓴다. 일러스트는 사이트용이며 실제 앱 화면이 아니다.
+- 프로젝트.md 앱목록의 마지막 줄 `Korean Study(com.phonensoft.koreanstudy, …/koreanstudy_home/)`는 `한국어학습`과 패키지 ID·주소가 같은 중복이라 따로 추가하지 않았다(중복 카드 방지). 의도된 별도 앱이면 사용자가 확인해야 한다.
+- 그룹: 앱이 9개가 되어 3그룹으로 조정했다. 배움과 탐구(한국어학습·가톨릭성경퀴즈·미술사노트), 휴대폰(폰체크·폰스펙·폰전광판·WiFi DeadZone), 계산 도구(저항계산기·주식 매매 계산기). `js/app.js`의 `groups`와 `translations.js` `extraText`의 `groups`(3개 제목)를 함께 고친다. 번역 배열(names/descs/categories)은 `apps` 배열의 순서(끝에 추가)를 따른다.
+- sitemap.xml: 새 앱 홈페이지 2개를 추가해 총 22개 URL이고 `lastmod`를 2026-11-06으로 갱신했다. 프로젝트.md 지침대로 홈페이지를 바꿀 때마다 `sitemap.xml`도 함께 고친다.
+- 검증: 12개 언어에서 제목·카드 9개·갤러리 9개·그룹 3개·새 창 속성·`sr-only` 안내·언어 선택 12개·`undefined` 없음·가로 넘침 없음(320px), JavaScript 미사용 목록 링크와 `index.html` 제목·`js/` 경로, sitemap 22개 URL, 콘솔 오류 없음을 확인했다. 한국어 데스크톱·390px 모바일 화면을 눈으로 확인했다. 새 번역은 원어민 감수를 받지 않았다. 커밋·푸시·배포는 수행하지 않았다.

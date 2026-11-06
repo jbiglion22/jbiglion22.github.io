@@ -158,3 +158,23 @@ html[lang=ru] .directory-hero h1,html[lang=fr] .directory-hero h1,html[lang=de] 
 .group-title { display: flex; align-items: center; gap: 14px; margin: 0 0 22px; font-size: 19px; font-weight: 650; letter-spacing: -.4px; }
 .group-title:after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .group-title small { order: 3; font: 600 10px monospace; letter-spacing: 1px; color: var(--muted); }
+
+/* Visually hidden text for screen readers (e.g. "opens in a new window"). */
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* WiFi DeadZone and Stock Calculator: symbolic illustrations, not app screenshots. */
+.wifideadzone .app-art { background: #dff1f0; }.wifideadzone .app-art:before { border-color: #bfe0e0; }.wifideadzone .app-art:after { border-color: #d0e9e8; }
+.stockcalculator .app-art { background: #e3ece6; }.stockcalculator .app-art:before { border-color: #c5d8cb; }.stockcalculator .app-art:after { border-color: #d5e3d9; }
+.portal-wifideadzone { background: #d6eeee; border-color: #c2e1e1; }
+.portal-stockcalculator { background: #dde9e0; border-color: #cbdcd0; }
+.wifi-art { position: relative; z-index: 1; width: 230px; height: 170px; transform: rotate(-6deg); }
+.wifi-plan { position: absolute; inset: 0; display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr 1fr; gap: 5px; padding: 8px; background: #fff; border: 3px solid #35566b; border-radius: 10px; box-shadow: 0 16px 30px #1d3c5122; }
+.wifi-plan i { display: grid; place-items: center; border-radius: 5px; font: 700 15px sans-serif; font-style: normal; color: #fff; }
+.wifi-plan .r1 { background: #2fb67c; }.wifi-plan .r2 { background: #8ccf5a; }.wifi-plan .r3 { background: #f0b43c; }.wifi-plan .r4 { background: #e4574f; }
+.wifi-signal { position: absolute; top: -34px; right: -14px; width: 58px; height: 48px; }
+.stock-art { position: relative; z-index: 1; width: 190px; padding: 20px 18px 16px; border-radius: 22px; background: #17283b; color: #e8f1f8; transform: rotate(8deg); box-shadow: 0 16px 30px #17283b33; }
+.stock-art span { font: 600 10px monospace; letter-spacing: 2px; color: #8da6bb; }
+.stock-art b { display: block; font: 700 34px/1.2 monospace; margin: 4px 0 10px; }
+.stock-art svg { display: block; width: 100%; height: 60px; }
+.stock-art em { position: absolute; top: 16px; right: 14px; font: 700 12px monospace; font-style: normal; color: #3ddc97; background: #1f3e38; padding: 3px 8px; border-radius: 99px; }
+.portal-art .wifi-art { transform: rotate(-6deg) scale(.88); }
+.portal-art .stock-art { transform: rotate(8deg) scale(.88); }

@@ -20,7 +20,9 @@ const text = {
       "미술사노트",
       "한국어 학습",
       "가톨릭 성경 퀴즈",
-      "폰체크"
+      "폰체크",
+      "와이파이 사각지대 찾기",
+      "주식 매매 계산기"
     ],
     "descs": [
       "문구와 색상, 움직임을 꾸며 휴대폰을 응원용 LED 전광판으로 바꿔보세요.",
@@ -29,7 +31,9 @@ const text = {
       "서양 미술사의 사조·작가·작품을 탐색하고, 소장 미술관과 관람노트를 살펴보세요.",
       "획순 따라쓰기로 한글을 익히고, 생활 단어와 10가지 상황별 회화까지 차근차근 배워보세요.",
       "매일 퀴즈로 가톨릭 성경을 익히고, 장·절 출처와 해설, 오답노트로 복습하세요.",
-      "센서, 화면·터치, 소리·진동, 배터리, 카메라, 네트워크를 점검하고 결과를 기록해 비교하세요."
+      "센서, 화면·터치, 소리·진동, 배터리, 카메라, 네트워크를 점검하고 결과를 기록해 비교하세요.",
+      "방마다 와이파이 신호를 재고, 평면도 위에서 사각지대를 색으로 찾아보세요. 공유기를 옮긴 뒤 전후 비교도 가능합니다.",
+      "물타기 평균 단가, 매매 수익률, 목표 매도가, 손절 가격을 수수료와 세금까지 반영해 계산합니다."
     ],
     "categories": [
       "응원 · LED 메시지",
@@ -38,7 +42,9 @@ const text = {
       "미술 · 탐색과 기록",
       "언어 학습 · 한글과 회화",
       "성경 · 매일 퀴즈",
-      "휴대폰 · 기능 점검"
+      "휴대폰 · 기능 점검",
+      "와이파이 · 신호 진단",
+      "주식 · 계산 도구"
     ]
   },
   "en": {
@@ -61,7 +67,9 @@ const text = {
       "Art History Note",
       "Korean Study",
       "Catholic Bible Quiz",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Stock Trade Calculator"
     ],
     "descs": [
       "Turn your phone into a cheering LED board with custom text, colors and motion.",
@@ -70,7 +78,9 @@ const text = {
       "Explore Western art movements, artists and works, with museum information and visit notes.",
       "Learn Korean from Hangul stroke order to everyday words and real-life conversations.",
       "Learn the Catholic Bible with daily quizzes, verse references, explanations and a mistakes notebook.",
-      "Check your phone's sensors, screen, sound, battery, camera and network, then compare results over time."
+      "Check your phone's sensors, screen, sound, battery, camera and network, then compare results over time.",
+      "Measure Wi-Fi signal in each room and spot dead zones by color on your floor plan, then compare before and after moving your router.",
+      "Calculate your average cost after buying more, trade returns, target sell prices and stop-loss prices, with fees and taxes included."
     ],
     "categories": [
       "Cheers · LED messages",
@@ -79,7 +89,9 @@ const text = {
       "Art · Explore and collect",
       "Language learning · Korean",
       "Bible · Daily quiz",
-      "Phone · Diagnostics"
+      "Phone · Diagnostics",
+      "Wi-Fi · Signal check",
+      "Stocks · Calculators"
     ]
   },
   "vi": {
@@ -102,7 +114,9 @@ const text = {
       "Ghi chú lịch sử mỹ thuật",
       "Học tiếng Hàn",
       "Đố vui Kinh Thánh Công giáo",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Máy tính giao dịch cổ phiếu"
     ],
     "descs": [
       "Biến điện thoại thành bảng LED cổ vũ với lời nhắn, màu sắc và chuyển động tùy chỉnh.",
@@ -111,7 +125,9 @@ const text = {
       "Khám phá trào lưu, họa sĩ, tác phẩm phương Tây, bảo tàng và ghi chú tham quan.",
       "Học tiếng Hàn từ nét viết Hangul đến từ vựng đời thường và hội thoại thực tế.",
       "Học Kinh Thánh Công giáo qua câu đố mỗi ngày, có chú thích chương – câu, giải thích và sổ câu sai.",
-      "Kiểm tra cảm biến, màn hình, âm thanh, pin, camera và mạng của điện thoại, rồi so sánh kết quả theo thời gian."
+      "Kiểm tra cảm biến, màn hình, âm thanh, pin, camera và mạng của điện thoại, rồi so sánh kết quả theo thời gian.",
+      "Đo tín hiệu Wi-Fi từng phòng, tìm vùng sóng yếu bằng màu trên sơ đồ nhà và so sánh trước – sau khi dời router.",
+      "Tính giá vốn trung bình khi mua thêm, lợi suất giao dịch, giá bán mục tiêu và giá cắt lỗ, có tính cả phí và thuế."
     ],
     "categories": [
       "Cổ vũ · Lời nhắn LED",
@@ -120,7 +136,9 @@ const text = {
       "Mỹ thuật · Khám phá và ghi chép",
       "Học ngôn ngữ · Tiếng Hàn",
       "Kinh Thánh · Đố vui hằng ngày",
-      "Điện thoại · Kiểm tra"
+      "Điện thoại · Kiểm tra",
+      "Wi-Fi · Kiểm tra tín hiệu",
+      "Cổ phiếu · Công cụ tính"
     ]
   },
   "id": {
@@ -143,7 +161,9 @@ const text = {
       "Catatan Sejarah Seni",
       "Belajar Bahasa Korea",
       "Kuis Alkitab Katolik",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Kalkulator Perdagangan Saham"
     ],
     "descs": [
       "Ubah ponsel menjadi papan LED dengan teks, warna, dan gerakan pilihan Anda.",
@@ -152,7 +172,9 @@ const text = {
       "Jelajahi aliran, seniman, dan karya seni Barat, beserta informasi museum dan catatan kunjungan.",
       "Belajar bahasa Korea dari urutan goresan Hangul hingga kosakata sehari-hari dan percakapan nyata.",
       "Pelajari Alkitab Katolik lewat kuis harian, lengkap dengan rujukan pasal-ayat, penjelasan, dan catatan jawaban salah.",
-      "Periksa sensor, layar, suara, baterai, kamera, dan jaringan ponsel Anda, lalu bandingkan hasilnya dari waktu ke waktu."
+      "Periksa sensor, layar, suara, baterai, kamera, dan jaringan ponsel Anda, lalu bandingkan hasilnya dari waktu ke waktu.",
+      "Ukur sinyal Wi-Fi di setiap ruangan, temukan titik mati lewat warna pada denah, lalu bandingkan sebelum dan sesudah memindahkan router.",
+      "Hitung harga rata-rata setelah beli tambahan, imbal hasil transaksi, harga jual target, dan harga stop-loss, lengkap dengan biaya dan pajak."
     ],
     "categories": [
       "Dukungan · Pesan LED",
@@ -161,7 +183,9 @@ const text = {
       "Seni · Jelajah dan catatan",
       "Belajar bahasa · Korea",
       "Alkitab · Kuis harian",
-      "Ponsel · Pemeriksaan"
+      "Ponsel · Pemeriksaan",
+      "Wi-Fi · Cek sinyal",
+      "Saham · Alat hitung"
     ]
   },
   "ja": {
@@ -184,7 +208,9 @@ const text = {
       "美術史ノート",
       "韓国語学習",
       "カトリック聖書クイズ",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "株式売買計算機"
     ],
     "descs": [
       "文字・色・動きをカスタマイズして、スマートフォンを応援用のLED電光掲示板に。",
@@ -193,7 +219,9 @@ const text = {
       "西洋美術の流派・画家・作品を探索し、所蔵美術館や鑑賞ノートを確認できます。",
       "ハングルの書き順から日常の単語、場面別の会話まで、韓国語を順に学べます。",
       "毎日のクイズでカトリック聖書に親しめます。章・節の出典、解説、間違えた問題のノート付き。",
-      "センサー、画面、音、バッテリー、カメラ、ネットワークを点検し、結果を記録して比較できます。"
+      "センサー、画面、音、バッテリー、カメラ、ネットワークを点検し、結果を記録して比較できます。",
+      "部屋ごとにWi-Fiの電波を測り、間取り図上で電波の弱い場所を色で確認。ルーターを動かした前後の比較もできます。",
+      "買い増し後の平均取得単価、売買の損益率、目標売却価格、損切り価格を、手数料と税金を含めて計算できます。"
     ],
     "categories": [
       "応援 · LEDメッセージ",
@@ -202,7 +230,9 @@ const text = {
       "美術 · 探索と記録",
       "語学学習 · 韓国語",
       "聖書 · 毎日のクイズ",
-      "スマートフォン · 点検"
+      "スマートフォン · 点検",
+      "Wi-Fi · 電波チェック",
+      "株式 · 計算ツール"
     ]
   },
   "fr": {
@@ -225,7 +255,9 @@ const text = {
       "Carnet d’histoire de l’art",
       "Apprendre le coréen",
       "Quiz biblique catholique",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Calculateur d’opérations boursières"
     ],
     "descs": [
       "Transformez votre téléphone en panneau LED avec du texte, des couleurs et des mouvements personnalisés.",
@@ -234,7 +266,9 @@ const text = {
       "Explorez les courants, les artistes et les œuvres de l’art occidental, avec les musées et vos notes de visite.",
       "Apprenez le coréen, de l'ordre des traits du hangul au vocabulaire quotidien et aux conversations réelles.",
       "Découvrez la Bible catholique avec des quiz quotidiens, des références chapitre-verset, des explications et un carnet d'erreurs.",
-      "Testez les capteurs, l'écran, le son, la batterie, l'appareil photo et le réseau de votre téléphone, puis comparez les résultats."
+      "Testez les capteurs, l'écran, le son, la batterie, l'appareil photo et le réseau de votre téléphone, puis comparez les résultats.",
+      "Mesurez le signal Wi-Fi pièce par pièce, repérez les zones mortes par couleur sur le plan et comparez avant et après le déplacement du routeur.",
+      "Calculez le prix de revient moyen après un achat supplémentaire, le rendement des opérations, le prix de vente cible et le stop-loss, frais et taxes inclus."
     ],
     "categories": [
       "Encouragements · Messages LED",
@@ -243,7 +277,9 @@ const text = {
       "Art · Découverte et notes",
       "Langues · Coréen",
       "Bible · Quiz quotidien",
-      "Téléphone · Diagnostic"
+      "Téléphone · Diagnostic",
+      "Wi-Fi · Diagnostic du signal",
+      "Bourse · Calculateurs"
     ]
   },
   "de": {
@@ -266,7 +302,9 @@ const text = {
       "Notizen zur Kunstgeschichte",
       "Koreanisch lernen",
       "Katholisches Bibel-Quiz",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Aktienhandel-Rechner"
     ],
     "descs": [
       "Verwandle dein Smartphone mit eigenen Texten, Farben und Bewegungen in eine LED-Anzeige zum Anfeuern.",
@@ -275,7 +313,9 @@ const text = {
       "Entdecke westliche Kunstströmungen, Künstler und Werke sowie Museen und Besuchsnotizen.",
       "Koreanisch lernen: von der Strichfolge des Hangul über Alltagswörter bis zu echten Gesprächen.",
       "Die katholische Bibel mit täglichen Quizfragen entdecken – mit Kapitel-und-Vers-Angaben, Erklärungen und Fehlerheft.",
-      "Sensoren, Display, Ton, Akku, Kamera und Netzwerk Ihres Handys prüfen und die Ergebnisse im Zeitverlauf vergleichen."
+      "Sensoren, Display, Ton, Akku, Kamera und Netzwerk Ihres Handys prüfen und die Ergebnisse im Zeitverlauf vergleichen.",
+      "Messen Sie das WLAN-Signal in jedem Raum, erkennen Sie Funklöcher farbig im Grundriss und vergleichen Sie vor und nach dem Verschieben des Routers.",
+      "Berechnen Sie den Durchschnittskurs nach Nachkäufen, die Rendite von Trades, Kursziel und Stop-Loss – inklusive Gebühren und Steuern."
     ],
     "categories": [
       "Anfeuern · LED-Nachrichten",
@@ -284,7 +324,9 @@ const text = {
       "Kunst · Entdecken und festhalten",
       "Sprachenlernen · Koreanisch",
       "Bibel · Tagesquiz",
-      "Handy · Diagnose"
+      "Handy · Diagnose",
+      "WLAN · Signalprüfung",
+      "Aktien · Rechner"
     ]
   },
   "ru": {
@@ -307,7 +349,9 @@ const text = {
       "Заметки по истории искусства",
       "Изучение корейского",
       "Католическая Библия: квиз",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Калькулятор сделок с акциями"
     ],
     "descs": [
       "Превратите телефон в LED-табло: настройте текст, цвет и движение для поддержки любимой команды.",
@@ -316,7 +360,9 @@ const text = {
       "Изучайте направления, художников и произведения западного искусства, музеи и заметки о посещениях.",
       "Учите корейский: от порядка написания хангыля до повседневных слов и живых диалогов.",
       "Изучайте католическую Библию в ежедневных викторинах: со ссылками на главы и стихи, пояснениями и тетрадью ошибок.",
-      "Проверьте датчики, экран, звук, батарею, камеру и сеть телефона и сравнивайте результаты со временем."
+      "Проверьте датчики, экран, звук, батарею, камеру и сеть телефона и сравнивайте результаты со временем.",
+      "Измеряйте сигнал Wi-Fi в каждой комнате, находите мёртвые зоны по цветам на плане и сравнивайте результаты до и после перестановки роутера.",
+      "Рассчитывайте среднюю цену после докупки, доходность сделок, целевую цену продажи и стоп-лосс с учётом комиссий и налогов."
     ],
     "categories": [
       "Поддержка · LED-сообщения",
@@ -325,7 +371,9 @@ const text = {
       "Искусство · Изучение и заметки",
       "Языки · Корейский",
       "Библия · Ежедневный квиз",
-      "Телефон · Диагностика"
+      "Телефон · Диагностика",
+      "Wi-Fi · Проверка сигнала",
+      "Акции · Калькуляторы"
     ]
   },
   "zh-hans": {
@@ -348,7 +396,9 @@ const text = {
       "艺术史笔记",
       "韩语学习",
       "天主教圣经问答",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "股票买卖计算器"
     ],
     "descs": [
       "自定义文字、颜色和滚动效果，把手机变成应援LED字幕屏。",
@@ -357,7 +407,9 @@ const text = {
       "探索西方艺术流派、艺术家与作品，查看收藏博物馆并记录参观。",
       "从韩文笔顺到日常词汇和情景会话，循序渐进学习韩语。",
       "通过每日问答熟悉天主教圣经，附章节出处、解析和错题本。",
-      "检测手机的传感器、屏幕、声音、电池、摄像头和网络，并记录结果以便对比。"
+      "检测手机的传感器、屏幕、声音、电池、摄像头和网络，并记录结果以便对比。",
+      "逐个房间测量 Wi‑Fi 信号，在平面图上用颜色找出信号盲区，并对比移动路由器前后的变化。",
+      "计算加仓后的平均成本、交易收益率、目标卖出价和止损价，并计入手续费和税费。"
     ],
     "categories": [
       "应援 · LED消息",
@@ -366,7 +418,9 @@ const text = {
       "艺术 · 探索与记录",
       "语言学习 · 韩语",
       "圣经 · 每日问答",
-      "手机 · 检测"
+      "手机 · 检测",
+      "Wi‑Fi · 信号检测",
+      "股票 · 计算工具"
     ]
   },
   "zh-hant": {
@@ -389,7 +443,9 @@ const text = {
       "藝術史筆記",
       "韓語學習",
       "天主教聖經問答",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "股票買賣計算器"
     ],
     "descs": [
       "自訂文字、顏色和捲動效果，把手機變成應援LED字幕螢幕。",
@@ -398,7 +454,9 @@ const text = {
       "探索西方藝術流派、藝術家與作品，查看典藏博物館並記錄參觀。",
       "從韓文筆順到日常詞彙與情境會話，循序漸進學習韓語。",
       "透過每日問答熟悉天主教聖經，附章節出處、解析與錯題本。",
-      "檢測手機的感測器、螢幕、聲音、電池、相機與網路，並記錄結果以便比較。"
+      "檢測手機的感測器、螢幕、聲音、電池、相機與網路，並記錄結果以便比較。",
+      "逐一測量各房間的 Wi‑Fi 訊號，在平面圖上用顏色找出訊號死角，並比較移動路由器前後的變化。",
+      "計算加碼後的平均成本、交易報酬率、目標賣出價與停損價，並計入手續費與稅金。"
     ],
     "categories": [
       "應援 · LED訊息",
@@ -407,7 +465,9 @@ const text = {
       "藝術 · 探索與記錄",
       "語言學習 · 韓語",
       "聖經 · 每日問答",
-      "手機 · 檢測"
+      "手機 · 檢測",
+      "Wi‑Fi · 訊號檢測",
+      "股票 · 計算工具"
     ]
   },
   "es": {
@@ -430,7 +490,9 @@ const text = {
       "Notas de historia del arte",
       "Aprende coreano",
       "Quiz de la Biblia católica",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Calculadora de operaciones bursátiles"
     ],
     "descs": [
       "Convierte tu teléfono en un letrero LED con texto, colores y movimiento a tu gusto.",
@@ -439,7 +501,9 @@ const text = {
       "Explora movimientos, artistas y obras del arte occidental, con museos y notas de visita.",
       "Aprende coreano desde el orden de los trazos del hangul hasta el vocabulario cotidiano y conversaciones reales.",
       "Conoce la Biblia católica con quizzes diarios, citas de capítulo y versículo, explicaciones y un cuaderno de errores.",
-      "Revisa los sensores, la pantalla, el sonido, la batería, la cámara y la red de tu teléfono, y compara los resultados."
+      "Revisa los sensores, la pantalla, el sonido, la batería, la cámara y la red de tu teléfono, y compara los resultados.",
+      "Mide la señal Wi-Fi de cada habitación, detecta las zonas sin cobertura por colores en el plano y compara antes y después de mover el router.",
+      "Calcula el precio medio tras comprar más, la rentabilidad de tus operaciones, el precio de venta objetivo y el stop loss, con comisiones e impuestos."
     ],
     "categories": [
       "Apoyo · Mensajes LED",
@@ -448,7 +512,9 @@ const text = {
       "Arte · Explora y anota",
       "Idiomas · Coreano",
       "Biblia · Quiz diario",
-      "Teléfono · Diagnóstico"
+      "Teléfono · Diagnóstico",
+      "Wi-Fi · Diagnóstico de señal",
+      "Bolsa · Calculadoras"
     ]
   },
   "pt": {
@@ -471,7 +537,9 @@ const text = {
       "Notas de história da arte",
       "Aprender coreano",
       "Quiz da Bíblia Católica",
-      "PhoneCheck"
+      "PhoneCheck",
+      "WiFi DeadZone",
+      "Calculadora de negociação de ações"
     ],
     "descs": [
       "Transforme o smartphone num painel LED com texto, cores e movimento personalizados.",
@@ -480,7 +548,9 @@ const text = {
       "Explore movimentos, artistas e obras da arte ocidental, com informações sobre museus e notas de visita.",
       "Aprenda coreano da ordem dos traços do hangul ao vocabulário do dia a dia e a conversas reais.",
       "Conheça a Bíblia Católica com quizzes diários, referências de capítulo e versículo, explicações e caderno de erros.",
-      "Verifique sensores, display, som, bateria, câmera e rede do seu smartphone e compare os resultados ao longo do tempo."
+      "Verifique sensores, display, som, bateria, câmera e rede do seu smartphone e compare os resultados ao longo do tempo.",
+      "Meça o sinal de Wi-Fi em cada ambiente, encontre zonas sem sinal por cores na planta e compare antes e depois de mover o router.",
+      "Calcule o preço médio após comprar mais, o retorno das operações, o preço de venda alvo e o stop loss, incluindo taxas e impostos."
     ],
     "categories": [
       "Apoio · Mensagens LED",
@@ -489,105 +559,119 @@ const text = {
       "Arte · Exploração e notas",
       "Idiomas · Coreano",
       "Bíblia · Quiz diário",
-      "Smartphones · Diagnóstico"
+      "Smartphones · Diagnóstico",
+      "Wi-Fi · Diagnóstico de sinal",
+      "Ações · Calculadoras"
     ]
   }
 };
 const siteTitles = {
-  "en": "jbiglion22’s Apps",
-  "ko": "jbiglion22의 앱 소개",
-  "vi": "Ứng dụng của jbiglion22",
-  "id": "Aplikasi jbiglion22",
-  "ja": "jbiglion22のアプリ紹介",
-  "fr": "Les applications de jbiglion22",
-  "de": "Die Apps von jbiglion22",
-  "ru": "Приложения jbiglion22",
-  "zh-hans": "jbiglion22 的应用介绍",
-  "zh-hant": "jbiglion22 的應用程式介紹",
-  "es": "Apps de jbiglion22",
-  "pt": "Apps de jbiglion22"
+  "en": "J’s Apps",
+  "ko": "J's 앱 소개",
+  "vi": "Ứng dụng của J",
+  "id": "Aplikasi J",
+  "ja": "Jのアプリ紹介",
+  "fr": "Les applications de J",
+  "de": "Die Apps von J",
+  "ru": "Приложения J",
+  "zh-hans": "J 的应用介绍",
+  "zh-hant": "J 的應用程式介紹",
+  "es": "Apps de J",
+  "pt": "Apps de J"
 };
 const extraText = {
   "ko": {
     "languageLabel": "언어 선택",
-    "groups": ["배움과 탐구", "휴대폰과 생활 도구"],
+    "groups": ["배움과 탐구", "휴대폰", "계산 도구"],
+    "newWindow": "(새 창에서 열기)",
     "gallery": "서로 다른 가능성",
     "galleryNote": "작은 도구부터 새로운 발견까지",
     "noscript": "앱 홈페이지로 이동하려면 아래 링크를 선택하세요."
   },
   "en": {
     "languageLabel": "Select language",
-    "groups": ["Learn & explore", "Phone & everyday tools"],
+    "groups": ["Learn & explore", "Phone", "Calculators"],
+    "newWindow": "(opens in a new window)",
     "gallery": "Ways to explore",
     "galleryNote": "Little tools. New discoveries.",
     "noscript": "Choose an app homepage below."
   },
   "vi": {
     "languageLabel": "Chọn ngôn ngữ",
-    "groups": ["Học tập & khám phá", "Điện thoại & công cụ"],
+    "groups": ["Học tập & khám phá", "Điện thoại", "Công cụ tính toán"],
+    "newWindow": "(mở trong cửa sổ mới)",
     "gallery": "Nhiều cách để khám phá",
     "galleryNote": "Công cụ nhỏ. Khám phá mới.",
     "noscript": "Chọn trang chủ ứng dụng bên dưới."
   },
   "id": {
     "languageLabel": "Pilih bahasa",
-    "groups": ["Belajar & jelajah", "Ponsel & alat bantu"],
+    "groups": ["Belajar & jelajah", "Ponsel", "Alat hitung"],
+    "newWindow": "(dibuka di jendela baru)",
     "gallery": "Banyak cara menjelajah",
     "galleryNote": "Alat kecil. Penemuan baru.",
     "noscript": "Pilih situs aplikasi di bawah ini."
   },
   "ja": {
     "languageLabel": "言語を選択",
-    "groups": ["学びと発見", "スマートフォンとツール"],
+    "groups": ["学びと発見", "スマートフォン", "計算ツール"],
+    "newWindow": "（新しいウィンドウで開く）",
     "gallery": "さまざまな発見への入り口",
     "galleryNote": "小さな道具。新しい発見。",
     "noscript": "下のリンクからアプリのサイトをご覧ください。"
   },
   "fr": {
     "languageLabel": "Choisir la langue",
-    "groups": ["Apprendre et explorer", "Téléphone et outils"],
+    "groups": ["Apprendre et explorer", "Téléphone", "Calculateurs"],
+    "newWindow": "(s’ouvre dans une nouvelle fenêtre)",
     "gallery": "Des pistes à explorer",
     "galleryNote": "De petits outils. De nouvelles découvertes.",
     "noscript": "Choisissez le site d’une application ci-dessous."
   },
   "de": {
     "languageLabel": "Sprache wählen",
-    "groups": ["Lernen & Entdecken", "Handy & Werkzeuge"],
+    "groups": ["Lernen & Entdecken", "Handy", "Rechner"],
+    "newWindow": "(öffnet in neuem Fenster)",
     "gallery": "Viele Wege zum Entdecken",
     "galleryNote": "Kleine Werkzeuge. Neue Entdeckungen.",
     "noscript": "Wähle unten eine App-Website aus."
   },
   "ru": {
     "languageLabel": "Выбрать язык",
-    "groups": ["Учёба и открытия", "Телефон и инструменты"],
+    "groups": ["Учёба и открытия", "Телефон", "Калькуляторы"],
+    "newWindow": "(откроется в новом окне)",
     "gallery": "Пути к открытиям",
     "galleryNote": "Маленькие инструменты. Новые открытия.",
     "noscript": "Выберите сайт приложения ниже."
   },
   "zh-hans": {
     "languageLabel": "选择语言",
-    "groups": ["学习与探索", "手机与实用工具"],
+    "groups": ["学习与探索", "手机", "计算工具"],
+    "newWindow": "（在新窗口打开）",
     "gallery": "多种探索的可能",
     "galleryNote": "小巧工具，全新发现。",
     "noscript": "请在下方选择应用网站。"
   },
   "zh-hant": {
     "languageLabel": "選擇語言",
-    "groups": ["學習與探索", "手機與實用工具"],
+    "groups": ["學習與探索", "手機", "計算工具"],
+    "newWindow": "（在新視窗開啟）",
     "gallery": "多種探索的可能",
     "galleryNote": "小巧工具，全新發現。",
     "noscript": "請在下方選擇應用程式網站。"
   },
   "es": {
     "languageLabel": "Seleccionar idioma",
-    "groups": ["Aprender y explorar", "Teléfono y herramientas"],
+    "groups": ["Aprender y explorar", "Teléfono", "Calculadoras"],
+    "newWindow": "(se abre en una ventana nueva)",
     "gallery": "Formas de explorar",
     "galleryNote": "Pequeñas herramientas. Nuevos descubrimientos.",
     "noscript": "Elige el sitio web de una app."
   },
   "pt": {
     "languageLabel": "Selecionar idioma",
-    "groups": ["Aprender e explorar", "Telefone e ferramentas"],
+    "groups": ["Aprender e explorar", "Telefone", "Calculadoras"],
+    "newWindow": "(abre em nova janela)",
     "gallery": "Formas de explorar",
     "galleryNote": "Pequenas ferramentas. Novas descobertas.",
     "noscript": "Escolha o site de um app abaixo."
