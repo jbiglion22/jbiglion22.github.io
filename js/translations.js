@@ -12,9 +12,11 @@ const translations = {
     "languageLabel": "Select language",
     "footer": "Different apps. A place to find them all.",
     "groups": {
-      "learn": "Learn & explore",
+      "learn": "Language & culture",
+      "science": "Math & science",
       "phone": "Phone",
-      "calc": "Calculators"
+      "money": "Stocks & investing",
+      "play": "Play & relax"
     },
     "apps": {
       "phonebanner": {
@@ -61,6 +63,51 @@ const translations = {
         "name": "Stock Trade Calculator",
         "tag": "Stocks · Calculators",
         "desc": "Calculate your average cost after buying more, trade returns, target sell prices and stop-loss prices, with fees and taxes included."
+      },
+      "chemnote": {
+        "name": "Chemistry Note",
+        "tag": "Chemistry · Reference & calculator",
+        "desc": "The periodic table, ions and formulas, balanced reactions, a step-by-step calculator and 3D molecules in one app."
+      },
+      "physicsnote": {
+        "name": "CSAT Physics Formula Note",
+        "tag": "Physics · Korean CSAT",
+        "desc": "Review physics concepts and formulas for Korea’s CSAT, with symbols, units and when each formula applies."
+      },
+      "mathnote": {
+        "name": "Math Formula Note",
+        "tag": "Math · Formula reference",
+        "desc": "Korean high school math formulas with symbol meanings, derivations, worked examples and common mistakes."
+      },
+      "mathlab": {
+        "name": "Math Lab",
+        "tag": "Math · Hands-on experiments",
+        "desc": "Move graphs, shapes, probability and sequences yourself and discover the rules of math."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "CSAT Korean History",
+        "tag": "Korean history · Exam prep",
+        "desc": "Memorize Korean history for Korea’s CSAT with key-term cards, quick quizzes, spaced review and past exam analysis."
+      },
+      "englishproverbs": {
+        "name": "English Proverbs Dictionary",
+        "tag": "English · Proverbs",
+        "desc": "Learn English proverbs with Korean meanings, example sentences and pronunciation, then practice with cards and quizzes."
+      },
+      "stocksimulation": {
+        "name": "Stock Simulator",
+        "tag": "Stocks · Practice investing",
+        "desc": "Compare seven investing methods in a virtual market and practice trading without real money."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Puzzle · Light & color",
+        "desc": "Bend red, green and blue beams with mirrors, mix them and light every crystal across 120 stages."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Relaxing · Snow globe",
+        "desc": "Watch snow fall in a little winter world. Shake it, decorate your own globe and use focus and rest timers."
       }
     }
   },
@@ -75,9 +122,11 @@ const translations = {
     "languageLabel": "언어 선택",
     "footer": "각자의 쓰임을 가진 앱들, 하나의 공간에서.",
     "groups": {
-      "learn": "배움과 탐구",
+      "learn": "언어와 교양",
+      "science": "수학과 과학",
       "phone": "휴대폰",
-      "calc": "계산 도구"
+      "money": "주식과 투자",
+      "play": "휴식과 놀이"
     },
     "apps": {
       "phonebanner": {
@@ -86,7 +135,7 @@ const translations = {
         "desc": "문구와 색상, 움직임을 꾸며 휴대폰을 응원용 LED 전광판으로 바꿔보세요."
       },
       "phonespec": {
-        "name": "폰스펙",
+        "name": "폰스펙 비교",
         "tag": "스마트폰 · 사양 비교",
         "desc": "스마트폰을 검색하고 크기와 주요 사양을 나란히 비교해보세요."
       },
@@ -124,6 +173,51 @@ const translations = {
         "name": "주식 매매 계산기",
         "tag": "주식 · 계산 도구",
         "desc": "물타기 평균 단가, 매매 수익률, 목표 매도가, 손절 가격을 수수료와 세금까지 반영해 계산합니다."
+      },
+      "chemnote": {
+        "name": "화학노트",
+        "tag": "화학 · 참고서와 계산기",
+        "desc": "주기율표, 이온·화학식, 화학 반응, 풀이 과정을 보여 주는 계산기, 3D 분자 구조를 한 앱에서 살펴보세요."
+      },
+      "physicsnote": {
+        "name": "수능 물리 공식 노트",
+        "tag": "물리 · 수능 공식 정리",
+        "desc": "수능 물리의 개념과 공식을 기호·단위·적용 조건과 함께 정리하고 즐겨찾기와 메모로 복습하세요."
+      },
+      "mathnote": {
+        "name": "수학공식노트",
+        "tag": "수학 · 공식 사전",
+        "desc": "고등 수학 공식마다 기호의 뜻, 유도 과정, 대표 예제, 자주 하는 실수를 함께 정리한 공식 사전입니다."
+      },
+      "mathlab": {
+        "name": "수학 실험실",
+        "tag": "수학 · 직접 해 보는 실험",
+        "desc": "함수 그래프, 도형, 확률, 수열을 직접 움직이며 수학의 규칙을 발견해 보세요."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "수능 한국사",
+        "tag": "한국사 · 수능 암기",
+        "desc": "핵심어 카드와 확인 퀴즈로 외우고, 간격 복습과 수능 기출 분석으로 한국사를 다지세요."
+      },
+      "englishproverbs": {
+        "name": "영어 속담 사전",
+        "tag": "영어 · 속담 학습",
+        "desc": "영어 속담의 뜻과 예문, 발음을 살펴보고 카드와 퀴즈로 익혀 보세요."
+      },
+      "stocksimulation": {
+        "name": "주식 시뮬레이터",
+        "tag": "주식 · 모의 투자",
+        "desc": "가상 시장에서 7가지 투자 방법의 결과를 비교하고, 실제 돈 없이 매매를 연습하세요."
+      },
+      "chromaray": {
+        "name": "크로마 레이",
+        "tag": "퍼즐 · 빛과 색",
+        "desc": "거울로 빨강·초록·파랑 빛을 꺾고 섞어 크리스털을 밝히는 120단계 퍼즐 게임입니다."
+      },
+      "snowglobe": {
+        "name": "스노우 볼",
+        "tag": "힐링 · 스노우볼",
+        "desc": "유리볼 속 겨울 마을에 눈이 내려요. 흔들어 눈보라를 일으키고, 직접 꾸미고, 집중·휴식 타이머도 써 보세요."
       }
     }
   },
@@ -138,9 +232,11 @@ const translations = {
     "languageLabel": "Chọn ngôn ngữ",
     "footer": "Nhiều ứng dụng. Một nơi để khám phá.",
     "groups": {
-      "learn": "Học tập & khám phá",
+      "learn": "Ngôn ngữ & văn hóa",
+      "science": "Toán & khoa học",
       "phone": "Điện thoại",
-      "calc": "Công cụ tính toán"
+      "money": "Chứng khoán & đầu tư",
+      "play": "Giải trí & thư giãn"
     },
     "apps": {
       "phonebanner": {
@@ -187,6 +283,51 @@ const translations = {
         "name": "Máy tính giao dịch cổ phiếu",
         "tag": "Cổ phiếu · Công cụ tính",
         "desc": "Tính giá vốn trung bình khi mua thêm, lợi suất giao dịch, giá bán mục tiêu và giá cắt lỗ, có tính cả phí và thuế."
+      },
+      "chemnote": {
+        "name": "Sổ tay Hóa học",
+        "tag": "Hóa học · Tra cứu & tính toán",
+        "desc": "Bảng tuần hoàn, ion và công thức, phương trình phản ứng, máy tính có lời giải từng bước và mô hình phân tử 3D trong một ứng dụng."
+      },
+      "physicsnote": {
+        "name": "Sổ tay công thức Vật lý CSAT",
+        "tag": "Vật lý · Kỳ thi CSAT Hàn Quốc",
+        "desc": "Ôn khái niệm và công thức vật lý cho kỳ thi CSAT của Hàn Quốc, kèm ký hiệu, đơn vị và điều kiện áp dụng."
+      },
+      "mathnote": {
+        "name": "Sổ tay công thức Toán",
+        "tag": "Toán · Tra cứu công thức",
+        "desc": "Công thức toán THPT Hàn Quốc kèm ý nghĩa ký hiệu, cách suy ra, ví dụ mẫu và lỗi thường gặp."
+      },
+      "mathlab": {
+        "name": "Phòng thí nghiệm Toán",
+        "tag": "Toán · Thực hành",
+        "desc": "Tự tay thay đổi đồ thị, hình học, xác suất và dãy số để khám phá quy luật toán học."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "Lịch sử Hàn Quốc CSAT",
+        "tag": "Lịch sử Hàn Quốc · Ôn thi",
+        "desc": "Ghi nhớ lịch sử Hàn Quốc cho kỳ thi CSAT bằng thẻ từ khóa, câu đố kiểm tra, ôn tập ngắt quãng và phân tích đề thi các năm."
+      },
+      "englishproverbs": {
+        "name": "Từ điển tục ngữ tiếng Anh",
+        "tag": "Tiếng Anh · Tục ngữ",
+        "desc": "Học tục ngữ tiếng Anh qua nghĩa tiếng Hàn, câu ví dụ và phát âm, rồi luyện tập bằng thẻ và câu đố."
+      },
+      "stocksimulation": {
+        "name": "Mô phỏng chứng khoán",
+        "tag": "Chứng khoán · Đầu tư thử",
+        "desc": "So sánh 7 phương pháp đầu tư trong thị trường ảo và luyện giao dịch mà không cần tiền thật."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Giải đố · Ánh sáng & màu sắc",
+        "desc": "Dùng gương bẻ tia đỏ, xanh lá và xanh dương, pha màu để thắp sáng mọi viên pha lê qua 120 màn chơi."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Thư giãn · Quả cầu tuyết",
+        "desc": "Ngắm tuyết rơi trong một thế giới mùa đông nhỏ. Lắc để có bão tuyết, tự trang trí quả cầu và dùng hẹn giờ tập trung, nghỉ ngơi."
       }
     }
   },
@@ -201,9 +342,11 @@ const translations = {
     "languageLabel": "Pilih bahasa",
     "footer": "Beragam aplikasi, satu tempat untuk menemukannya.",
     "groups": {
-      "learn": "Belajar & jelajah",
+      "learn": "Bahasa & budaya",
+      "science": "Matematika & sains",
       "phone": "Ponsel",
-      "calc": "Alat hitung"
+      "money": "Saham & investasi",
+      "play": "Main & santai"
     },
     "apps": {
       "phonebanner": {
@@ -250,6 +393,51 @@ const translations = {
         "name": "Kalkulator Perdagangan Saham",
         "tag": "Saham · Alat hitung",
         "desc": "Hitung harga rata-rata setelah beli tambahan, imbal hasil transaksi, harga jual target, dan harga stop-loss, lengkap dengan biaya dan pajak."
+      },
+      "chemnote": {
+        "name": "Catatan Kimia",
+        "tag": "Kimia · Referensi & kalkulator",
+        "desc": "Tabel periodik, ion dan rumus, persamaan reaksi, kalkulator dengan langkah penyelesaian, dan molekul 3D dalam satu aplikasi."
+      },
+      "physicsnote": {
+        "name": "Catatan Rumus Fisika CSAT",
+        "tag": "Fisika · Ujian CSAT Korea",
+        "desc": "Ulangi konsep dan rumus fisika untuk ujian CSAT Korea, lengkap dengan simbol, satuan, dan kapan rumus berlaku."
+      },
+      "mathnote": {
+        "name": "Catatan Rumus Matematika",
+        "tag": "Matematika · Referensi rumus",
+        "desc": "Rumus matematika SMA Korea dengan arti simbol, penurunan rumus, contoh soal, dan kesalahan umum."
+      },
+      "mathlab": {
+        "name": "Lab Matematika",
+        "tag": "Matematika · Eksperimen langsung",
+        "desc": "Gerakkan grafik, bangun, peluang, dan barisan sendiri untuk menemukan aturan matematika."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "Sejarah Korea CSAT",
+        "tag": "Sejarah Korea · Persiapan ujian",
+        "desc": "Hafalkan sejarah Korea untuk ujian CSAT dengan kartu kata kunci, kuis singkat, pengulangan berjarak, dan analisis soal ujian sebelumnya."
+      },
+      "englishproverbs": {
+        "name": "Kamus Peribahasa Inggris",
+        "tag": "Bahasa Inggris · Peribahasa",
+        "desc": "Pelajari peribahasa Inggris lewat arti dalam bahasa Korea, contoh kalimat, dan pelafalan, lalu berlatih dengan kartu dan kuis."
+      },
+      "stocksimulation": {
+        "name": "Simulator Saham",
+        "tag": "Saham · Latihan investasi",
+        "desc": "Bandingkan 7 metode investasi di pasar virtual dan latih jual beli tanpa uang sungguhan."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Teka-teki · Cahaya & warna",
+        "desc": "Belokkan sinar merah, hijau, dan biru dengan cermin, campur warnanya, dan nyalakan setiap kristal di 120 tahap."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Santai · Bola salju",
+        "desc": "Nikmati salju yang turun di dunia musim dingin mungil. Guncang, hias bola salju sendiri, dan pakai timer fokus dan istirahat."
       }
     }
   },
@@ -264,9 +452,11 @@ const translations = {
     "languageLabel": "Seleccionar idioma",
     "footer": "Apps con distintos propósitos, en un solo lugar.",
     "groups": {
-      "learn": "Aprender y explorar",
+      "learn": "Idiomas y cultura",
+      "science": "Matemáticas y ciencias",
       "phone": "Teléfono",
-      "calc": "Calculadoras"
+      "money": "Bolsa e inversión",
+      "play": "Juego y relajación"
     },
     "apps": {
       "phonebanner": {
@@ -313,6 +503,51 @@ const translations = {
         "name": "Calculadora de operaciones bursátiles",
         "tag": "Bolsa · Calculadoras",
         "desc": "Calcula el precio medio tras comprar más, la rentabilidad de tus operaciones, el precio de venta objetivo y el stop loss, con comisiones e impuestos."
+      },
+      "chemnote": {
+        "name": "Notas de Química",
+        "tag": "Química · Consulta y calculadora",
+        "desc": "Tabla periódica, iones y fórmulas, reacciones ajustadas, una calculadora con pasos y moléculas en 3D en una sola app."
+      },
+      "physicsnote": {
+        "name": "Fórmulas de Física CSAT",
+        "tag": "Física · Examen CSAT de Corea",
+        "desc": "Repasa conceptos y fórmulas de física para el examen CSAT de Corea, con símbolos, unidades y cuándo se aplica cada fórmula."
+      },
+      "mathnote": {
+        "name": "Fórmulas de Matemáticas",
+        "tag": "Matemáticas · Consulta de fórmulas",
+        "desc": "Fórmulas de matemáticas de secundaria de Corea con el significado de los símbolos, deducciones, ejemplos y errores comunes."
+      },
+      "mathlab": {
+        "name": "Laboratorio de Matemáticas",
+        "tag": "Matemáticas · Experimentos",
+        "desc": "Mueve gráficas, figuras, probabilidades y sucesiones para descubrir las reglas de las matemáticas."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "Historia de Corea CSAT",
+        "tag": "Historia de Corea · Examen",
+        "desc": "Memoriza la historia de Corea para el CSAT con tarjetas de palabras clave, cuestionarios, repaso espaciado y análisis de exámenes anteriores."
+      },
+      "englishproverbs": {
+        "name": "Diccionario de refranes en inglés",
+        "tag": "Inglés · Refranes",
+        "desc": "Aprende refranes en inglés con su significado en coreano, ejemplos y pronunciación, y practica con tarjetas y cuestionarios."
+      },
+      "stocksimulation": {
+        "name": "Simulador de Bolsa",
+        "tag": "Bolsa · Práctica de inversión",
+        "desc": "Compara 7 métodos de inversión en un mercado virtual y practica operaciones sin dinero real."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Rompecabezas · Luz y color",
+        "desc": "Desvía rayos rojos, verdes y azules con espejos, mezcla los colores y enciende cada cristal en 120 niveles."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Relajación · Bola de nieve",
+        "desc": "Mira caer la nieve en un pequeño mundo invernal. Agítala, decora tu propia bola y usa temporizadores para concentrarte y descansar."
       }
     }
   },
@@ -327,9 +562,11 @@ const translations = {
     "languageLabel": "Selecionar idioma",
     "footer": "Apps com diferentes propostas, em um só lugar.",
     "groups": {
-      "learn": "Aprender e explorar",
+      "learn": "Idiomas e cultura",
+      "science": "Matemática e ciências",
       "phone": "Telefone",
-      "calc": "Calculadoras"
+      "money": "Ações e investimentos",
+      "play": "Jogos e relaxamento"
     },
     "apps": {
       "phonebanner": {
@@ -376,6 +613,51 @@ const translations = {
         "name": "Calculadora de negociação de ações",
         "tag": "Ações · Calculadoras",
         "desc": "Calcule o preço médio após comprar mais, o retorno das operações, o preço de venda alvo e o stop loss, incluindo taxas e impostos."
+      },
+      "chemnote": {
+        "name": "Notas de Química",
+        "tag": "Química · Consulta e calculadora",
+        "desc": "Tabela periódica, íons e fórmulas, reações balanceadas, uma calculadora com passo a passo e moléculas em 3D num só app."
+      },
+      "physicsnote": {
+        "name": "Fórmulas de Física CSAT",
+        "tag": "Física · Exame CSAT da Coreia",
+        "desc": "Revise conceitos e fórmulas de física para o exame CSAT da Coreia, com símbolos, unidades e quando cada fórmula se aplica."
+      },
+      "mathnote": {
+        "name": "Fórmulas de Matemática",
+        "tag": "Matemática · Consulta de fórmulas",
+        "desc": "Fórmulas de matemática pré-universitária da Coreia com o significado dos símbolos, deduções, exemplos e erros comuns."
+      },
+      "mathlab": {
+        "name": "Laboratório de Matemática",
+        "tag": "Matemática · Experiências",
+        "desc": "Mova gráficos, figuras, probabilidades e sequências e descubra as regras da matemática."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "História da Coreia CSAT",
+        "tag": "História da Coreia · Exame",
+        "desc": "Memorize a história da Coreia para o CSAT com cartões de palavras-chave, questionários, revisão espaçada e análise de provas anteriores."
+      },
+      "englishproverbs": {
+        "name": "Dicionário de provérbios em inglês",
+        "tag": "Inglês · Provérbios",
+        "desc": "Aprenda provérbios em inglês com o significado em coreano, exemplos e pronúncia, e pratique com cartões e questionários."
+      },
+      "stocksimulation": {
+        "name": "Simulador de Ações",
+        "tag": "Ações · Prática de investimento",
+        "desc": "Compare 7 métodos de investimento num mercado virtual e pratique operações sem dinheiro real."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Quebra-cabeça · Luz e cor",
+        "desc": "Desvie feixes vermelhos, verdes e azuis com espelhos, misture as cores e acenda cada cristal em 120 fases."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Relaxamento · Globo de neve",
+        "desc": "Veja a neve cair num pequeno mundo de inverno. Agite, decore o seu próprio globo e use temporizadores de foco e descanso."
       }
     }
   },
@@ -390,9 +672,11 @@ const translations = {
     "languageLabel": "选择语言",
     "footer": "用途各异的应用，汇聚一处。",
     "groups": {
-      "learn": "学习与探索",
+      "learn": "语言与人文",
+      "science": "数学与科学",
       "phone": "手机",
-      "calc": "计算工具"
+      "money": "股票与投资",
+      "play": "休闲与游戏"
     },
     "apps": {
       "phonebanner": {
@@ -439,6 +723,51 @@ const translations = {
         "name": "股票买卖计算器",
         "tag": "股票 · 计算工具",
         "desc": "计算加仓后的平均成本、交易收益率、目标卖出价和止损价，并计入手续费和税费。"
+      },
+      "chemnote": {
+        "name": "化学笔记",
+        "tag": "化学 · 查询与计算",
+        "desc": "元素周期表、离子与化学式、配平的反应方程式、带解题步骤的计算器和3D分子结构，尽在一个应用。"
+      },
+      "physicsnote": {
+        "name": "韩国高考物理公式笔记",
+        "tag": "物理 · 韩国高考",
+        "desc": "为韩国高考（修能）整理物理概念和公式，附符号、单位和适用条件。"
+      },
+      "mathnote": {
+        "name": "数学公式笔记",
+        "tag": "数学 · 公式词典",
+        "desc": "韩国高中数学公式词典，附符号含义、推导过程、例题和常见错误。"
+      },
+      "mathlab": {
+        "name": "数学实验室",
+        "tag": "数学 · 动手实验",
+        "desc": "亲手拖动函数图像、几何图形、概率和数列，发现数学规律。"
+      },
+      "snapstudy_koreanhistory": {
+        "name": "韩国高考韩国史",
+        "tag": "韩国史 · 备考",
+        "desc": "用关键词卡片、小测验、间隔复习和历年真题分析，记住韩国高考的韩国史。"
+      },
+      "englishproverbs": {
+        "name": "英语谚语词典",
+        "tag": "英语 · 谚语",
+        "desc": "通过韩语释义、例句和发音学习英语谚语，再用卡片和测验练习。"
+      },
+      "stocksimulation": {
+        "name": "股票模拟器",
+        "tag": "股票 · 模拟投资",
+        "desc": "在虚拟市场中比较7种投资方法，无需真钱即可练习买卖。"
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "解谜 · 光与色",
+        "desc": "用镜子折射红、绿、蓝光，混合颜色，点亮120个关卡中的每颗水晶。"
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "放松 · 雪景球",
+        "desc": "看雪花在小小的冬日世界里飘落。摇一摇、装饰自己的雪景球，还能使用专注与休息计时器。"
       }
     }
   },
@@ -453,9 +782,11 @@ const translations = {
     "languageLabel": "選擇語言",
     "footer": "用途各異的應用程式，匯聚一處。",
     "groups": {
-      "learn": "學習與探索",
+      "learn": "語言與人文",
+      "science": "數學與科學",
       "phone": "手機",
-      "calc": "計算工具"
+      "money": "股票與投資",
+      "play": "休閒與遊戲"
     },
     "apps": {
       "phonebanner": {
@@ -502,6 +833,51 @@ const translations = {
         "name": "股票買賣計算器",
         "tag": "股票 · 計算工具",
         "desc": "計算加碼後的平均成本、交易報酬率、目標賣出價與停損價，並計入手續費與稅金。"
+      },
+      "chemnote": {
+        "name": "化學筆記",
+        "tag": "化學 · 查詢與計算",
+        "desc": "元素週期表、離子與化學式、平衡的反應方程式、附解題步驟的計算機和3D分子結構，全在一個應用程式。"
+      },
+      "physicsnote": {
+        "name": "韓國修能物理公式筆記",
+        "tag": "物理 · 韓國修能考試",
+        "desc": "為韓國修能考試整理物理概念與公式，附符號、單位和適用條件。"
+      },
+      "mathnote": {
+        "name": "數學公式筆記",
+        "tag": "數學 · 公式辭典",
+        "desc": "韓國高中數學公式辭典，附符號意義、推導過程、例題與常見錯誤。"
+      },
+      "mathlab": {
+        "name": "數學實驗室",
+        "tag": "數學 · 動手實驗",
+        "desc": "親手拖動函數圖形、幾何圖形、機率與數列，發現數學規律。"
+      },
+      "snapstudy_koreanhistory": {
+        "name": "韓國修能韓國史",
+        "tag": "韓國史 · 備考",
+        "desc": "用關鍵詞卡片、小測驗、間隔複習與歷屆試題分析，記住韓國修能的韓國史。"
+      },
+      "englishproverbs": {
+        "name": "英語諺語辭典",
+        "tag": "英語 · 諺語",
+        "desc": "透過韓文釋義、例句與發音學習英語諺語，再用卡片和測驗練習。"
+      },
+      "stocksimulation": {
+        "name": "股票模擬器",
+        "tag": "股票 · 模擬投資",
+        "desc": "在虛擬市場中比較7種投資方法，不用真錢也能練習買賣。"
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "解謎 · 光與色彩",
+        "desc": "用鏡子折射紅、綠、藍光，混合顏色，點亮120個關卡中的每顆水晶。"
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "放鬆 · 雪花球",
+        "desc": "看雪花在小小的冬日世界裡飄落。搖一搖、裝飾自己的雪花球，還能使用專注與休息計時器。"
       }
     }
   },
@@ -516,9 +892,11 @@ const translations = {
     "languageLabel": "Выбрать язык",
     "footer": "Разные приложения — в одном месте.",
     "groups": {
-      "learn": "Учёба и открытия",
+      "learn": "Языки и культура",
+      "science": "Математика и науки",
       "phone": "Телефон",
-      "calc": "Калькуляторы"
+      "money": "Акции и инвестиции",
+      "play": "Игры и отдых"
     },
     "apps": {
       "phonebanner": {
@@ -565,6 +943,51 @@ const translations = {
         "name": "Калькулятор сделок с акциями",
         "tag": "Акции · Калькуляторы",
         "desc": "Рассчитывайте среднюю цену после докупки, доходность сделок, целевую цену продажи и стоп-лосс с учётом комиссий и налогов."
+      },
+      "chemnote": {
+        "name": "Заметки по химии",
+        "tag": "Химия · Справочник и калькулятор",
+        "desc": "Периодическая таблица, ионы и формулы, уравнения реакций, калькулятор с пошаговым решением и 3D-модели молекул в одном приложении."
+      },
+      "physicsnote": {
+        "name": "Формулы физики для CSAT",
+        "tag": "Физика · Корейский экзамен CSAT",
+        "desc": "Повторяйте понятия и формулы физики для корейского экзамена CSAT: обозначения, единицы и условия применения."
+      },
+      "mathnote": {
+        "name": "Формулы математики",
+        "tag": "Математика · Справочник формул",
+        "desc": "Формулы корейской школьной математики: смысл обозначений, вывод, примеры и типичные ошибки."
+      },
+      "mathlab": {
+        "name": "Математическая лаборатория",
+        "tag": "Математика · Эксперименты",
+        "desc": "Двигайте графики, фигуры, вероятности и последовательности и сами открывайте законы математики."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "История Кореи для CSAT",
+        "tag": "История Кореи · Подготовка к экзамену",
+        "desc": "Запоминайте историю Кореи для экзамена CSAT с карточками ключевых слов, тестами, интервальным повторением и разбором прошлых экзаменов."
+      },
+      "englishproverbs": {
+        "name": "Словарь английских пословиц",
+        "tag": "Английский · Пословицы",
+        "desc": "Изучайте английские пословицы с переводом на корейский, примерами и произношением и тренируйтесь с карточками и тестами."
+      },
+      "stocksimulation": {
+        "name": "Симулятор акций",
+        "tag": "Акции · Учебные инвестиции",
+        "desc": "Сравнивайте 7 способов инвестирования на виртуальном рынке и тренируйтесь торговать без реальных денег."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Головоломка · Свет и цвет",
+        "desc": "Направляйте красные, зелёные и синие лучи зеркалами, смешивайте цвета и зажигайте все кристаллы в 120 уровнях."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Отдых · Снежный шар",
+        "desc": "Смотрите, как падает снег в маленьком зимнем мире. Встряхните шар, украсьте свой и пользуйтесь таймерами для работы и отдыха."
       }
     }
   },
@@ -579,9 +1002,11 @@ const translations = {
     "languageLabel": "言語を選択",
     "footer": "さまざまな用途のアプリを、一か所に。",
     "groups": {
-      "learn": "学びと発見",
+      "learn": "語学と教養",
+      "science": "数学と科学",
       "phone": "スマートフォン",
-      "calc": "計算ツール"
+      "money": "株式と投資",
+      "play": "遊びとリラックス"
     },
     "apps": {
       "phonebanner": {
@@ -628,6 +1053,51 @@ const translations = {
         "name": "株式売買計算機",
         "tag": "株式 · 計算ツール",
         "desc": "買い増し後の平均取得単価、売買の損益率、目標売却価格、損切り価格を、手数料と税金を含めて計算できます。"
+      },
+      "chemnote": {
+        "name": "化学ノート",
+        "tag": "化学 · 調べる・計算する",
+        "desc": "周期表、イオンと化学式、係数をそろえた反応式、解き方つきの計算機、3D分子モデルをひとつのアプリに。"
+      },
+      "physicsnote": {
+        "name": "韓国修能 物理公式ノート",
+        "tag": "物理 · 韓国の大学入試",
+        "desc": "韓国の大学入試（修能）向けに、物理の概念と公式を記号・単位・使う条件とあわせて整理できます。"
+      },
+      "mathnote": {
+        "name": "数学公式ノート",
+        "tag": "数学 · 公式辞典",
+        "desc": "韓国の高校数学の公式を、記号の意味、導出、例題、よくある間違いとともにまとめた公式辞典です。"
+      },
+      "mathlab": {
+        "name": "数学ラボ",
+        "tag": "数学 · 手を動かす実験",
+        "desc": "関数のグラフ、図形、確率、数列を自分で動かして、数学のきまりを見つけられます。"
+      },
+      "snapstudy_koreanhistory": {
+        "name": "韓国修能 韓国史",
+        "tag": "韓国史 · 試験対策",
+        "desc": "韓国の大学入試に向けて、キーワードカード、確認クイズ、間隔反復、過去問分析で韓国史を覚えます。"
+      },
+      "englishproverbs": {
+        "name": "英語ことわざ辞典",
+        "tag": "英語 · ことわざ",
+        "desc": "韓国語の意味、例文、発音で英語のことわざを学び、カードとクイズで練習できます。"
+      },
+      "stocksimulation": {
+        "name": "株式シミュレーター",
+        "tag": "株式 · 投資の練習",
+        "desc": "仮想市場で7つの投資方法の結果を比べ、実際のお金を使わずに売買を練習できます。"
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "パズル · 光と色",
+        "desc": "鏡で赤・緑・青の光を曲げて色を混ぜ、120ステージのクリスタルをすべて光らせます。"
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "癒やし · スノードーム",
+        "desc": "小さな冬の世界に降る雪を眺めるアプリ。振って吹雪を起こしたり、自分だけのドームを飾ったりでき、集中・休憩タイマーも使えます。"
       }
     }
   },
@@ -642,9 +1112,11 @@ const translations = {
     "languageLabel": "Choisir la langue",
     "footer": "Des applications variées, réunies au même endroit.",
     "groups": {
-      "learn": "Apprendre et explorer",
+      "learn": "Langues et culture",
+      "science": "Maths et sciences",
       "phone": "Téléphone",
-      "calc": "Calculateurs"
+      "money": "Bourse et investissement",
+      "play": "Jeux et détente"
     },
     "apps": {
       "phonebanner": {
@@ -691,6 +1163,51 @@ const translations = {
         "name": "Calculateur d’opérations boursières",
         "tag": "Bourse · Calculateurs",
         "desc": "Calculez le prix de revient moyen après un achat supplémentaire, le rendement des opérations, le prix de vente cible et le stop-loss, frais et taxes inclus."
+      },
+      "chemnote": {
+        "name": "Notes de chimie",
+        "tag": "Chimie · Référence et calculatrice",
+        "desc": "Tableau périodique, ions et formules, réactions équilibrées, calculatrice avec étapes et molécules en 3D dans une seule appli."
+      },
+      "physicsnote": {
+        "name": "Formules de physique CSAT",
+        "tag": "Physique · Examen CSAT coréen",
+        "desc": "Révisez les notions et formules de physique pour l’examen coréen CSAT, avec symboles, unités et conditions d’application."
+      },
+      "mathnote": {
+        "name": "Formules de maths",
+        "tag": "Maths · Référence de formules",
+        "desc": "Formules de maths du lycée coréen, avec le sens des symboles, les démonstrations, des exemples et les erreurs fréquentes."
+      },
+      "mathlab": {
+        "name": "Labo de maths",
+        "tag": "Maths · Expériences",
+        "desc": "Manipulez graphiques, figures, probabilités et suites pour découvrir les règles des maths."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "Histoire de la Corée CSAT",
+        "tag": "Histoire de la Corée · Révisions",
+        "desc": "Mémorisez l’histoire de la Corée pour le CSAT avec des cartes de mots-clés, des quiz, la répétition espacée et l’analyse des examens passés."
+      },
+      "englishproverbs": {
+        "name": "Dictionnaire de proverbes anglais",
+        "tag": "Anglais · Proverbes",
+        "desc": "Apprenez des proverbes anglais avec leur sens en coréen, des exemples et la prononciation, puis entraînez-vous avec des cartes et des quiz."
+      },
+      "stocksimulation": {
+        "name": "Simulateur boursier",
+        "tag": "Bourse · S’entraîner à investir",
+        "desc": "Comparez 7 méthodes d’investissement sur un marché virtuel et entraînez-vous sans argent réel."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Puzzle · Lumière et couleur",
+        "desc": "Déviez des rayons rouges, verts et bleus avec des miroirs, mélangez les couleurs et allumez chaque cristal sur 120 niveaux."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Détente · Boule à neige",
+        "desc": "Regardez la neige tomber sur un petit monde d’hiver. Secouez-la, décorez votre propre boule et utilisez les minuteurs de concentration et de pause."
       }
     }
   },
@@ -705,9 +1222,11 @@ const translations = {
     "languageLabel": "Sprache wählen",
     "footer": "Verschiedene Apps, an einem Ort vereint.",
     "groups": {
-      "learn": "Lernen & Entdecken",
+      "learn": "Sprache und Kultur",
+      "science": "Mathe und Naturwissenschaften",
       "phone": "Handy",
-      "calc": "Rechner"
+      "money": "Aktien und Geldanlage",
+      "play": "Spiel und Entspannung"
     },
     "apps": {
       "phonebanner": {
@@ -754,6 +1273,51 @@ const translations = {
         "name": "Aktienhandel-Rechner",
         "tag": "Aktien · Rechner",
         "desc": "Berechnen Sie den Durchschnittskurs nach Nachkäufen, die Rendite von Trades, Kursziel und Stop-Loss – inklusive Gebühren und Steuern."
+      },
+      "chemnote": {
+        "name": "Chemie-Notizen",
+        "tag": "Chemie · Nachschlagen und Rechnen",
+        "desc": "Periodensystem, Ionen und Formeln, ausgeglichene Reaktionen, ein Rechner mit Lösungsweg und 3D-Moleküle in einer App."
+      },
+      "physicsnote": {
+        "name": "CSAT-Physikformeln",
+        "tag": "Physik · Koreanische CSAT-Prüfung",
+        "desc": "Physikbegriffe und -formeln für die koreanische CSAT-Prüfung wiederholen – mit Symbolen, Einheiten und Anwendungsbedingungen."
+      },
+      "mathnote": {
+        "name": "Mathe-Formelsammlung",
+        "tag": "Mathe · Formeln nachschlagen",
+        "desc": "Formeln der koreanischen Oberstufenmathematik mit Symbolbedeutung, Herleitung, Beispielaufgaben und typischen Fehlern."
+      },
+      "mathlab": {
+        "name": "Mathe-Labor",
+        "tag": "Mathe · Selbst ausprobieren",
+        "desc": "Graphen, Figuren, Wahrscheinlichkeiten und Folgen selbst bewegen und die Regeln der Mathematik entdecken."
+      },
+      "snapstudy_koreanhistory": {
+        "name": "Koreanische Geschichte CSAT",
+        "tag": "Koreanische Geschichte · Prüfung",
+        "desc": "Koreanische Geschichte für den CSAT lernen – mit Schlagwortkarten, Quiz, verteilter Wiederholung und Analyse früherer Prüfungen."
+      },
+      "englishproverbs": {
+        "name": "Englische Sprichwörter",
+        "tag": "Englisch · Sprichwörter",
+        "desc": "Englische Sprichwörter mit koreanischer Bedeutung, Beispielsätzen und Aussprache lernen und mit Karten und Quiz üben."
+      },
+      "stocksimulation": {
+        "name": "Aktien-Simulator",
+        "tag": "Aktien · Investieren üben",
+        "desc": "Sieben Anlagemethoden in einem virtuellen Markt vergleichen und ohne echtes Geld handeln üben."
+      },
+      "chromaray": {
+        "name": "Chroma Ray",
+        "tag": "Rätsel · Licht und Farbe",
+        "desc": "Rote, grüne und blaue Strahlen mit Spiegeln lenken, Farben mischen und in 120 Levels jeden Kristall zum Leuchten bringen."
+      },
+      "snowglobe": {
+        "name": "Snow Globe",
+        "tag": "Entspannung · Schneekugel",
+        "desc": "Schnee in einer kleinen Winterwelt fallen sehen. Schütteln, eine eigene Kugel gestalten und Timer für Fokus und Pausen nutzen."
       }
     }
   }
