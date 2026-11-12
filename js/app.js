@@ -9,7 +9,7 @@ const tabsWrap = document.querySelector('.tabs-wrap');
 const tabs = [...document.querySelectorAll('.tab')];
 const groupEls = [...document.querySelectorAll('.group')];
 const groups = groupEls.map(g => g.dataset.group);
-tabsWrap.hidden = false;
+if (tabsWrap) tabsWrap.hidden = false;
 
 // Group filter: the group is kept in the address (for example index-ko.html#learn) so it can be shared.
 const setFilter = (id, updateAddress) => {
@@ -22,14 +22,17 @@ const setFilter = (id, updateAddress) => {
   if (!updateAddress) return;
   try { history.replaceState(null, '', id === 'all' ? window.location.pathname + window.location.search : `#${id}`); } catch (e) { /* Address update is optional. */ }
 };
-tabs.forEach(b => b.addEventListener('click', () => setFilter(b.dataset.filter, true)));
 const fromHash = () => {
   const h = window.location.hash.slice(1);
   const g = hashAliases[h] || h;
   return groups.includes(g) ? g : 'all';
 };
-setFilter(fromHash(), false);
-window.addEventListener('hashchange', () => setFilter(fromHash(), false));
+// Only the app list pages have the filter; the About page does not.
+if (tabs.length) {
+  tabs.forEach(b => b.addEventListener('click', () => setFilter(b.dataset.filter, true)));
+  setFilter(fromHash(), false);
+  window.addEventListener('hashchange', () => setFilter(fromHash(), false));
+}
 
 // A tile in the intro board shows all groups, then scrolls to that app and briefly marks it.
 document.querySelectorAll('.tile').forEach(tile => tile.addEventListener('click', e => {
@@ -46,14 +49,16 @@ document.querySelectorAll('.tile').forEach(tile => tile.addEventListener('click'
 
 // Language menu: keep the address hash (group filter) when switching, close on outside click or Escape.
 const langMenu = document.querySelector('details.lang');
-langMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  const h = window.location.hash;
-  if (h) a.href = a.getAttribute('href').split('#')[0] + h;
-}));
-document.addEventListener('click', e => { if (langMenu.open && !langMenu.contains(e.target)) langMenu.open = false; });
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && langMenu.open) { langMenu.open = false; langMenu.querySelector('summary').focus(); }
-});
+if (langMenu) {
+  langMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    const h = window.location.hash;
+    if (h) a.href = a.getAttribute('href').split('#')[0] + h;
+  }));
+  document.addEventListener('click', e => { if (langMenu.open && !langMenu.contains(e.target)) langMenu.open = false; });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && langMenu.open) { langMenu.open = false; langMenu.querySelector('summary').focus(); }
+  });
+}
 
 const year = document.querySelector('.year');
 if (year) year.textContent = new Date().getFullYear();

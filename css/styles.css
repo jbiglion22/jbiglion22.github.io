@@ -60,6 +60,10 @@ button, select { font: inherit; color: inherit; }
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; }
 .brand { display: inline-flex; align-items: center; gap: 10px; min-width: 0; font-weight: 650; letter-spacing: -.01em; }
 .brand-mark { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 8px; background: var(--ink); color: var(--bg); font-size: 15px; font-weight: 700; }
+.top-end { display: flex; align-items: center; gap: 14px; flex: none; }
+.top-link { color: var(--muted); font-size: 14px; font-weight: 550; white-space: nowrap; }
+.top-link:hover { color: var(--ink); }
+
 /* Language menu: plain links, so it works without JavaScript */
 .lang { position: relative; flex: none; }
 .lang summary { display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); font-size: 14px; cursor: pointer; list-style: none; user-select: none; }
@@ -118,6 +122,24 @@ html:is([lang=ko], [lang=ja], [lang=zh-Hans], [lang=zh-Hant]) .hero h1 { line-he
 
 /* Footer */
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; padding: 22px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.foot-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* About page */
+.prose { width: min(100% - 48px, 760px); margin-inline: auto; padding: 40px 0 72px; }
+.prose h1 { font-size: clamp(30px, 4vw, 44px); font-weight: 650; line-height: 1.2; letter-spacing: -.025em; }
+.prose-lead { margin-top: 18px; color: var(--muted); font-size: 18px; line-height: 1.6; }
+.prose-section { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); }
+.prose h2 { font-size: 20px; font-weight: 650; letter-spacing: -.01em; }
+.prose-section > p { margin-top: 12px; font-size: 16px; line-height: 1.75; }
+.about-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.about-groups li { padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.about-groups h3 { display: flex; align-items: center; gap: 9px; margin: 0; font-size: 16px; font-weight: 650; }
+.about-groups h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.about-groups p { margin-top: 8px; font-size: 14.5px; line-height: 1.6; }
+.about-groups .about-apps { color: var(--muted); font-size: 13.5px; }
+.text-link { font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.prose-back { margin-top: 48px; }
 
 @media (max-width: 1080px) {
   .app-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -143,6 +165,14 @@ html:is([lang=ko], [lang=ja], [lang=zh-Hans], [lang=zh-Hant]) .hero h1 { line-he
   .tab { flex: none; }
   .app-list { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .app { padding: 16px; }
+  .top-end { gap: 10px; }
+  /* When the site name, About link and language menu do not fit on one line, the menu row moves below. */
+  .top { flex-wrap: wrap; row-gap: 10px; }
+  .brand { white-space: nowrap; }
+  .top-end { margin-left: auto; }
+  .prose { width: min(100% - 40px, 760px); padding-top: 24px; }
+  .prose-lead { font-size: 17px; }
+  .about-groups { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

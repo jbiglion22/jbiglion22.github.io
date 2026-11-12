@@ -1,4 +1,4 @@
-"""Build the language pages, index.html and sitemap.xml from data/site.json.
+"""Build the language pages, About pages, index.html and sitemap.xml from data/site.json.
 
 The page content is written straight into the HTML so it can be read without JavaScript
 (search engines, ad reviewers, readers with scripts off). js/app.js only adds the group
@@ -36,36 +36,87 @@ def homepage(site, app_id):
     return f'{site["baseUrl"]}{app_id}_home/'
 
 
-def hreflang_links(site, indent='  '):
-    lines = [f'{indent}<link rel="alternate" hreflang="{lang["tag"]}" href="index-{lang["code"]}.html">'
-             for lang in site['languages'] if lang['code'] in site['indexed']]
-    lines.append(f'{indent}<link rel="alternate" hreflang="x-default" href="index.html">')
+def by_group(site):
+    return {g: [a for a in site['apps'] if a['group'] == g] for g in site['groups']}
+
+
+def about_page_for(site, code):
+    return f'about-{code}.html' if code in site['about'] else 'about-en.html'
+
+
+def hreflang_links(site, page='index', default='index.html', codes=None, indent='  '):
+    codes = codes if codes is not None else site['indexed']
+    lines = [f'{indent}<link rel="alternate" hreflang="{lang["tag"]}" href="{page}-{lang["code"]}.html">'
+             for lang in site['languages'] if lang['code'] in codes]
+    lines.append(f'{indent}<link rel="alternate" hreflang="x-default" href="{default}">')
     return '\n'.join(lines)
 
 
+def head(t, title, description, extra):
+    return f'''<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="description" content="{esc(description)}">
+{extra}
+  <title>{esc(title)}</title>
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>'''
+
+
+def header(site, code, menu):
+    """menu: list of (language, href) shown in the language menu."""
+    t = site['text'][code]
+    name = next(l['name'] for l in site['languages'] if l['code'] == code)
+    current = ' aria-current="page"'
+    items = '\n'.join(
+        f'        <li><a href="{href}" lang="{l["tag"]}" hreflang="{l["tag"]}"'
+        f'{current if l["code"] == code else ""}>{esc(l["name"])}</a></li>'
+        for l, href in menu)
+    about_lang = code if code in site['about'] else 'en'
+    about_attrs = '' if about_lang == code else ' hreflang="en"'
+    return f'''<a class="skip" href="#main">{esc(t["skip"])}</a>
+<header class="top" id="top">
+  <a class="brand" href="index-{code}.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>{esc(t["siteTitle"])}</bdi></a>
+  <div class="top-end">
+    <a class="top-link" href="{about_page_for(site, code)}"{about_attrs}>{esc(t["aboutLabel"])}</a>
+    <details class="lang">
+      <summary aria-label="{esc(t["languageLabel"])}: {esc(name)}">{esc(name)}</summary>
+      <ul class="lang-menu">
+{items}
+      </ul>
+    </details>
+  </div>
+</header>'''
+
+
+def footer(site, code, year):
+    t = site['text'][code]
+    return f'''<footer class="foot">
+  <p>{esc(t["footer"])}</p>
+  <p class="foot-links"><a href="index-{code}.html">{esc(t["siteTitle"])}</a><a href="{about_page_for(site, code)}">{esc(t["aboutLabel"])}</a><span class="copyright">© <bdi><span class="year">{year}</span> jbiglion22</bdi></span></p>
+</footer>'''
+
+
 def build_page(site, lang, year):
-    t = site['text'][lang['code']]
     code = lang['code']
-    indexed = code in site['indexed']
+    t = site['text'][code]
     groups = site['groups']
     apps = site['apps']
-    by_group = {g: [a for a in apps if a['group'] == g] for g in groups}
+    grouped = by_group(site)
 
-    head_extra = hreflang_links(site) if indexed else '  <meta name="robots" content="noindex, follow">'
-
-    current = ' aria-current="page"'
-    lang_items = '\n'.join(
-        f'        <li><a href="index-{l["code"]}.html" lang="{l["tag"]}" hreflang="{l["tag"]}"'
-        f'{current if l["code"] == code else ""}>{esc(l["name"])}</a></li>'
-        for l in site['languages'])
+    extra = hreflang_links(site) if code in site['indexed'] else '  <meta name="robots" content="noindex, follow">'
+    menu = [(l, f'index-{l["code"]}.html') for l in site['languages']]
 
     tiles = ''.join(
         f'<a class="tile g-{a["group"]}" href="#app-{a["id"]}" data-app="{a["id"]}" tabindex="-1" '
         f'title="{esc(app_text(site, code, a["id"])["name"])}">{icon_markup(a, 22)}</a>'
-        for g in groups for a in by_group[g])
+        for g in groups for a in grouped[g])
 
     tabs = [f'        <button type="button" class="tab" data-filter="all" aria-pressed="true">{esc(t["all"])}<span class="tab-count">{len(apps)}</span></button>']
-    tabs += [f'        <button type="button" class="tab" data-filter="{g}" aria-pressed="false">{esc(t["groups"][g])}<span class="tab-count">{len(by_group[g])}</span></button>'
+    tabs += [f'        <button type="button" class="tab" data-filter="{g}" aria-pressed="false">{esc(t["groups"][g])}<span class="tab-count">{len(grouped[g])}</span></button>'
              for g in groups]
 
     def card(a):
@@ -84,9 +135,9 @@ def build_page(site, lang, year):
         </li>'''
 
     sections = '\n'.join(f'''    <section class="group" data-group="{g}" aria-labelledby="title-{g}">
-      <h2 id="title-{g}" class="group-title"><span class="group-dot g-{g}" aria-hidden="true"></span>{esc(t["groups"][g])}<span class="group-count">{len(by_group[g])}</span></h2>
+      <h2 id="title-{g}" class="group-title"><span class="group-dot g-{g}" aria-hidden="true"></span>{esc(t["groups"][g])}<span class="group-count">{len(grouped[g])}</span></h2>
       <ul class="app-list">
-{chr(10).join(card(a) for a in by_group[g])}
+{chr(10).join(card(a) for a in grouped[g])}
       </ul>
     </section>''' for g in groups)
 
@@ -94,28 +145,9 @@ def build_page(site, lang, year):
     return f'''<!doctype html>
 <!-- Generated by tools/build_pages.py from data/site.json. Edit the data, then run the script. -->
 <html lang="{lang["tag"]}" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f7f4">
-  <meta name="description" content="{esc(t["intro"])}">
-{head_extra}
-  <title>{esc(t["siteTitle"])}</title>
-  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/app.js" defer></script>
-</head>
+{head(t, t["siteTitle"], t["intro"], extra)}
 <body>
-<a class="skip" href="#main">{esc(t["skip"])}</a>
-<header class="top" id="top">
-  <a class="brand" href="index-{code}.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>{esc(t["siteTitle"])}</bdi></a>
-  <details class="lang">
-    <summary aria-label="{esc(t["languageLabel"])}: {esc(lang["name"])}">{esc(lang["name"])}</summary>
-    <ul class="lang-menu">
-{lang_items}
-    </ul>
-  </details>
-</header>
+{header(site, code, menu)}
 <main id="main">
   <section class="hero">
     <div class="hero-text">
@@ -133,10 +165,58 @@ def build_page(site, lang, year):
 {sections}
   </section>
 </main>
-<footer class="foot">
-  <p>{esc(t["footer"])}</p>
-  <p class="copyright">© <bdi><span class="year">{year}</span> jbiglion22</bdi></p>
-</footer>
+{footer(site, code, year)}
+</body>
+</html>
+'''
+
+
+def build_about(site, lang, year):
+    code = lang['code']
+    t = site['text'][code]
+    a = site['about'][code]
+    grouped = by_group(site)
+    about_codes = [l['code'] for l in site['languages'] if l['code'] in site['about']]
+    extra = hreflang_links(site, page='about', default='about-en.html', codes=about_codes)
+    menu = [(l, f'about-{l["code"]}.html') for l in site['languages'] if l['code'] in site['about']]
+    dev = site['developer']
+
+    def paragraph(text):
+        text = text.replace('{count}', str(len(site['apps']))).replace('{groups}', str(len(site['groups'])))
+        return f'    <p>{esc(text)}</p>'
+
+    parts = []
+    for s in a['sections']:
+        block = [f'  <section class="prose-section">', f'    <h2>{esc(s["h"])}</h2>']
+        block += [paragraph(p) for p in s['p']]
+        if 'groups' in s:
+            block.append('    <ul class="about-groups">')
+            for g in site['groups']:
+                names = ', '.join(app_text(site, code, x['id'])['name'] for x in grouped[g])
+                block.append(f'''      <li>
+        <h3><span class="group-dot g-{g}" aria-hidden="true"></span><a href="index-{code}.html#{g}">{esc(t["groups"][g])}</a><span class="group-count">{len(grouped[g])}</span></h3>
+        <p>{esc(s["groups"][g])}</p>
+        <p class="about-apps">{esc(names)}</p>
+      </li>''')
+            block.append('    </ul>')
+        if 'link' in s:
+            block.append(f'    <p><a class="text-link" href="{esc(dev["playUrl"])}" target="_blank" rel="noopener noreferrer">{esc(s["link"])} ↗<span class="sr-only"> {esc(t["newWindow"])}</span></a></p>')
+        block.append('  </section>')
+        parts.append('\n'.join(block))
+
+    return f'''<!doctype html>
+<!-- Generated by tools/build_pages.py from data/site.json. Edit the data, then run the script. -->
+<html lang="{lang["tag"]}" dir="ltr">
+{head(t, f'{a["title"]} · {t["siteTitle"]}', a["description"], extra)}
+<body>
+{header(site, code, menu)}
+<main id="main" class="prose">
+  <h1>{esc(a["title"])}</h1>
+  <p class="prose-lead">{esc(a["lead"])}</p>
+{chr(10).join(parts)}
+  <p class="prose-back"><a class="text-link" href="index-{code}.html">← {esc(a["back"])}</a></p>
+</main>
+{footer(site, code, year)}
 </body>
 </html>
 '''
@@ -165,7 +245,7 @@ def build_entry(site):
   </script>
 </head>
 <body>
-<main class="language-fallback"><h1>{esc(en["siteTitle"])}</h1><p>Choose your language</p><nav>{nav}</nav></main>
+<main class="language-fallback"><h1>{esc(en["siteTitle"])}</h1><p>Choose your language</p><nav>{nav}</nav><p><a href="about-en.html">{esc(en["aboutLabel"])}</a></p></main>
 </body>
 </html>
 '''
@@ -173,17 +253,22 @@ def build_entry(site):
 
 def build_sitemap(site, lastmod):
     base = site['baseUrl']
-    alternates = ''.join(
-        f'    <xhtml:link rel="alternate" hreflang="{l["tag"]}" href="{base}index-{l["code"]}.html"/>\n'
-        for l in site['languages'] if l['code'] in site['indexed'])
-    alternates += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{base}"/>\n'
+
+    def alternates(page, default, codes):
+        out = ''.join(f'    <xhtml:link rel="alternate" hreflang="{l["tag"]}" href="{base}{page}-{l["code"]}.html"/>\n'
+                      for l in site['languages'] if l['code'] in codes)
+        return out + f'    <xhtml:link rel="alternate" hreflang="x-default" href="{base}{default}"/>\n'
 
     def url(loc, priority, alt=''):
         return f'  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <priority>{priority}</priority>\n{alt}  </url>\n'
 
-    body = url(base, '1.0', alternates)
-    body += ''.join(url(f'{base}index-{l["code"]}.html', '0.8', alternates)
+    index_alt = alternates('index', '', site['indexed'])
+    about_codes = [l['code'] for l in site['languages'] if l['code'] in site['about']]
+    about_alt = alternates('about', 'about-en.html', about_codes)
+    body = url(base, '1.0', index_alt)
+    body += ''.join(url(f'{base}index-{l["code"]}.html', '0.8', index_alt)
                     for l in site['languages'] if l['code'] in site['indexed'])
+    body += ''.join(url(f'{base}about-{c}.html', '0.5', about_alt) for c in about_codes)
     order = [a for g in site['groups'] for a in site['apps'] if a['group'] == g]
     body += ''.join(url(homepage(site, a['id']), '0.7') for a in order)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -195,6 +280,7 @@ def check(site):
     codes = [l['code'] for l in site['languages']]
     assert set(codes) == set(site['text']), 'every language needs a text entry'
     assert set(site['indexed']) <= set(codes)
+    assert 'en' in site['about'] and set(site['about']) <= set(codes)
     ids = [a['id'] for a in site['apps']]
     assert len(ids) == len(set(ids)), 'duplicate app id'
     for a in site['apps']:
@@ -202,6 +288,11 @@ def check(site):
         assert a['id'] in site['text']['en']['apps'], f'English text missing for {a["id"]}'
     for code, t in site['text'].items():
         assert set(t['groups']) == set(site['groups']), f'group names missing in {code}'
+        assert t.get('aboutLabel'), f'aboutLabel missing in {code}'
+    for code, a in site['about'].items():
+        for s in a['sections']:
+            if 'groups' in s:
+                assert set(s['groups']) == set(site['groups']), f'About group text missing in {code}'
     # js/languages.js (used by index.html for the automatic redirect) must list the same languages.
     lj = (ROOT / 'js' / 'languages.js').read_text(encoding='utf8')
     for c in codes:
@@ -221,9 +312,11 @@ def main():
     year = datetime.date.today().year
     for lang in site['languages']:
         write(ROOT / f'index-{lang["code"]}.html', build_page(site, lang, year))
+        if lang['code'] in site['about']:
+            write(ROOT / f'about-{lang["code"]}.html', build_about(site, lang, year))
     write(ROOT / 'index.html', build_entry(site))
     write(ROOT / 'sitemap.xml', build_sitemap(site, args.lastmod))
-    print(f'Built {len(site["languages"])} language pages, index.html and sitemap.xml '
+    print(f'Built {len(site["languages"])} language pages, {len(site["about"])} About pages, index.html and sitemap.xml '
           f'({len(site["apps"])} apps, indexed: {", ".join(site["indexed"])}).')
 
 

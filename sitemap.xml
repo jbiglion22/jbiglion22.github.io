@@ -25,6 +25,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jbiglion22.github.io/"/>
   </url>
   <url>
+    <loc>https://jbiglion22.github.io/about-en.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jbiglion22.github.io/about-en.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://jbiglion22.github.io/about-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jbiglion22.github.io/about-en.html"/>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/about-ko.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jbiglion22.github.io/about-en.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://jbiglion22.github.io/about-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jbiglion22.github.io/about-en.html"/>
+  </url>
+  <url>
     <loc>https://jbiglion22.github.io/koreanstudy_home/</loc>
     <lastmod>2026-11-13</lastmod>
     <priority>0.7</priority>
