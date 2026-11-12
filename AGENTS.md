@@ -215,3 +215,12 @@
 - 헤더에 소개 링크, 푸터에 사이트 이름·소개 링크를 추가했다. 720px 이하에서 한 줄에 들어가지 않으면 소개 링크와 언어 메뉴가 사이트 이름 아래 줄 오른쪽으로 내려간다. `js/app.js`는 필터가 없는 소개 페이지에서도 동작하도록 요소 확인을 넣었다.
 - sitemap.xml: 소개 페이지 2개(en·ko hreflang, x-default는 about-en)를 추가해 23개 URL이다.
 - 검증: 소개 페이지 두 언어·필터 없는 페이지에서 콘솔 오류 없음, 언어 메뉴·그룹 링크(`index-ko.html#learn` 등)·Play 개발자 링크(새 창), 6개 페이지의 헤더·푸터 소개 링크와 hreflang·noindex, 7개 페이지의 320px·390px 헤더 배치와 가로 넘침 없음. 한국어 소개 1280px·390px을 눈으로 확인했다. 배포본은 확인하지 않았다. 커밋·푸시는 하지 않았다.
+
+## 언어를 영어·한국어 2개로 축소 (2026-11-13)
+
+- 사용자 요청과 최신 프로젝트.md(제작 언어: 영어·한국어, 베트남어·인도네시아어·스페인어·포르투갈어·중국어 간체/번체·러시아어·일본어·프랑스어·독일어는 "제작할 것이기는 하나 일단 제작하지 않을 언어")에 따라 10개 언어를 삭제했다. 앞선 "12개 언어"와 "검색 대상만 영어·한국어(noindex)" 기록은 이 항목으로 대체한다.
+- `data/site.json`의 `languages`·`text`에서 10개 언어를 지웠다. 지운 번역(앱 이름·설명·그룹 이름 등)은 Git 기록(예: 커밋 702435a의 `data/site.json`)에 있으니 나중에 언어를 다시 만들 때 가져오면 된다. 언어를 다시 넣으려면 `languages`, `text.<언어>`, `js/languages.js`를 함께 고치고 `redirects`에서 그 언어를 뺀 뒤 스크립트를 실행한다. `about`에 넣으면 소개 페이지도 생긴다.
+- `js/languages.js`는 영어·한국어만 있고, 브라우저 언어가 한국어(ko, ko-KR 등)면 한국어, 그 밖에는 영어로 보낸다.
+- 예전 주소: `data/site.json`의 `redirects`(삭제한 10개 언어와 예전 ar·my·hi·th·es-mx·pt-br)를 `tools/build_pages.py`가 `index-en.html`로 보내는 noindex 연결 페이지로 만든다(쿼리·해시 유지, JavaScript 없을 때 meta refresh). 예전 es-mx·pt-br은 이제 영어로 간다.
+- CSS의 일본어·중국어 제목 줄 간격 규칙은 한국어만 남겼다. sitemap.xml은 그대로 23개 URL이다.
+- 검증: 영어·한국어 페이지 카드 18개·언어 메뉴 2개, `index-fr.html?x=1#science`→`index-en.html?x=1#science`, zh-hant·pt-br·ar 주소의 영어 이동과 해시 유지, `index.html#learn`→`index-ko.html#learn`, 브라우저 언어 해석(ko-KR→ko, ja-JP,ko→ko, fr·zh-TW·en-GB→en), 320px 가로 넘침 없음, 콘솔 오류 없음. 영어 1280px 화면을 눈으로 확인했다. 배포본은 확인하지 않았다. 커밋·푸시는 하지 않았다.

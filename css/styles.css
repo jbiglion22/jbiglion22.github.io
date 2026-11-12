@@ -79,7 +79,7 @@ button, select { font: inherit; color: inherit; }
 /* Intro: text and a board of every app icon */
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 48px; padding: 48px 0 52px; }
 .hero h1 { font-size: clamp(32px, 4.4vw, 54px); font-weight: 650; line-height: 1.12; letter-spacing: -.03em; }
-html:is([lang=ko], [lang=ja], [lang=zh-Hans], [lang=zh-Hant]) .hero h1 { line-height: 1.24; letter-spacing: -.02em; }
+html[lang=ko] .hero h1 { line-height: 1.24; letter-spacing: -.02em; }
 .hero p { max-width: 50ch; margin-top: 18px; color: var(--muted); font-size: 17px; }
 .board { display: grid; grid-template-columns: repeat(6, 52px); gap: 10px; padding: 18px; border: 1px solid var(--line); border-radius: 24px; background: var(--card); box-shadow: var(--shadow); }
 .tile { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; transition: transform .18s; }
