@@ -194,3 +194,15 @@
 - `translations.js`에 12개 언어의 그룹 5개와 새 앱 9개(name/tag/desc)를 넣었다. 각 `index-*.html`의 noscript 목록을 그룹 순서의 18개 링크로 바꾸고 theme-color를 `#f7f7f4`로 맞췄다.
 - sitemap.xml: 앱 홈페이지 18개를 그룹 순서로 넣어 총 31개 URL, `lastmod` 2026-11-11.
 - 검증: 12개 언어(320px)에서 카드 18개·그룹 5개·탭 6개·아이콘 판 18개·새 창 속성·주소 형식·가로 넘침 없음·이름 잘림 없음·`undefined` 없음. 탭 필터와 주소, `#calc` 연결, 아이콘 판 클릭 후 이동·포커스, 콘솔 오류 없음. 한국어 1280px·390px, 독일어 390px 다크 모드를 눈으로 확인. 새 앱 9개 홈페이지 200 응답 확인. 새 번역은 원어민 감수를 받지 않았다. 실제 기기와 배포본은 확인하지 않았다. 커밋·푸시는 수행하지 않았다.
+
+## 본문을 HTML에 직접 쓰기·검색 대상 언어 정리 (2026-11-13)
+
+- 배경: 애드센스 검토에서 "가치가 별로 없는 콘텐츠"로 거절됐다. 사용자와 정한 개선 중 (3) 본문을 JavaScript 없이 HTML에 직접 넣기, (4) 언어 정리를 먼저 했다. 다음 순서는 (2) 사이트 소개·연락처·개인정보처리방침 같은 기본 페이지이며 사용자와 다시 논의하기로 했다. (1) 주제 글 작성은 아직이다.
+- 데이터 단일 원본: `data/site.json`(앱·그룹·아이콘·12개 언어 문구·검색 대상 언어). `js/translations.js`는 삭제했다. 앞 기록의 "translations.js에 추가" 설명은 모두 `data/site.json`의 `text.<언어>`로 대체한다.
+- 생성 스크립트: `python tools/build_pages.py`(표준 라이브러리만 사용, Python 3.14에서 확인). `index-<언어>.html` 12개, `index.html`, `sitemap.xml`을 만든다. 생성된 HTML을 직접 고치지 말고 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정할 수 있다(기본은 오늘). 스크립트는 그룹·앱·영어 문구 누락과 `js/languages.js` 언어 목록 불일치를 검사한다. 호환용 리디렉션 페이지(ar/my/hi/th/es-mx/pt-br)는 만들지 않으며 그대로 둔다.
+- 앱 추가 방법(최신): `data/site.json`의 `apps`에 `{id, group, icon}` 추가, 각 언어 `text.<언어>.apps`에 `{name, tag, desc}` 추가(없으면 영어 사용), `python tools/build_pages.py` 실행. noscript 목록과 sitemap은 스크립트가 만든다. 그룹 추가는 `groups`와 각 언어 `groups` 이름, `css/styles.css` 색을 함께 넣는다.
+- `js/app.js`는 화면을 그리지 않고 동작만 더한다: 그룹 필터(JavaScript가 있을 때만 버튼 표시, `#calc`→money), 아이콘 판 클릭 이동, 언어 메뉴(바깥 클릭·Esc로 닫기, 언어를 바꿀 때 그룹 주소 유지), 저작권 연도. JavaScript가 없어도 앱 18개와 언어 링크가 모두 보이고 아이콘 판은 `#app-<id>`로 이동한다.
+- 언어 선택은 `<select>` 대신 `<details>` 링크 메뉴다(JavaScript 없이 동작, 언어 페이지끼리 링크로 연결).
+- 언어 정리: 프로젝트.md가 12개 언어 제작을 요구하므로 페이지는 지우지 않았다. 대신 검색 대상(`indexed`)을 영어·한국어로 줄였다. 나머지 10개 페이지는 `noindex, follow`이고 hreflang이 없다. 영어·한국어·`index.html`에는 en·ko·x-default hreflang만 있다. sitemap.xml은 `/`, 영어·한국어 페이지, 앱 홈페이지 18개로 총 21개 URL이다. 다른 언어에도 충분한 글이 생기면 `indexed`에 추가하고 스크립트를 다시 실행한다.
+- `_config.yml` 제외 목록에 `data/`, `tools/`를 추가했다(생성된 HTML만 배포).
+- 검증: JavaScript 없이 본문을 읽었을 때 한국어 약 1,900자·영어 약 3,700자의 앱 설명이 HTML에 들어 있음. 스크립트를 막은 iframe에서 카드 18개 표시·필터 숨김. 12개 언어(320px, `#calc`)에서 카드 18개·money 그룹만 표시·언어 링크 12개·가로 넘침 없음·새 창 속성, noindex는 10개 언어에만, hreflang은 영어·한국어에만. 언어 메뉴 열고 닫기, 일본어 선택 시 `#science` 유지, `index.html#learn`→`index-ko.html#learn`, 콘솔 오류 없음. 한국어 1280px(메뉴 열림)과 러시아어 390px을 눈으로 확인. 배포본, 실제 기기, 애드센스 재검토는 확인하지 않았다. 커밋·푸시는 하지 않았다.

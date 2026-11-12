@@ -60,8 +60,17 @@ button, select { font: inherit; color: inherit; }
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; }
 .brand { display: inline-flex; align-items: center; gap: 10px; min-width: 0; font-weight: 650; letter-spacing: -.01em; }
 .brand-mark { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 8px; background: var(--ink); color: var(--bg); font-size: 15px; font-weight: 700; }
-.lang select { max-width: 170px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); font-size: 14px; cursor: pointer; }
-.lang select option { color: #16181b; background: #fff; }
+/* Language menu: plain links, so it works without JavaScript */
+.lang { position: relative; flex: none; }
+.lang summary { display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); font-size: 14px; cursor: pointer; list-style: none; user-select: none; }
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: ''; width: 6px; height: 6px; margin-top: -3px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); opacity: .6; }
+.lang[open] summary::after { margin-top: 3px; transform: rotate(-135deg); }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 5; min-width: 180px; max-height: min(70vh, 460px); overflow-y: auto; padding: 6px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); box-shadow: var(--shadow); }
+.lang-menu a { display: block; padding: 7px 10px; border-radius: 7px; font-size: 14px; }
+.lang-menu a:hover { background: var(--bg); }
+.lang-menu a[aria-current=page] { font-weight: 650; }
+.lang-menu a[aria-current=page]::after { content: ' ✓'; color: var(--muted); }
 
 /* Intro: text and a board of every app icon */
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 48px; padding: 48px 0 52px; }

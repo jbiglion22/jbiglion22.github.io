@@ -6,6 +6,9 @@ exclude:
   - "**/README.md"
   - "프로젝트.md"
   - docs/
+  # Source data and the page build script (the generated index-*.html files are published).
+  - data/
+  - tools/
   - .idea/
   - .agents/
   - .codex/
