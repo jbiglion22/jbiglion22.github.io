@@ -256,7 +256,7 @@ def build_about(site, lang, year):
                 names = ', '.join(app_text(site, code, x['id'])['name'] for x in grouped[g])
                 cover = group_cover(site, g)
                 cover_html = f'\n        <img class="about-cover" src="{cover}" alt="" loading="lazy">' if cover else ''
-                block.append(f'''      <li class="g-card-{g}">{cover_html}
+                block.append(f'''      <li>{cover_html}
         <h3><span class="group-dot g-{g}" aria-hidden="true"></span><a href="index-{code}.html#{g}">{esc(t["groups"][g])}</a><span class="group-count">{len(grouped[g])}</span></h3>
         <p>{esc(t["groupDesc"][g])}</p>
         <p class="about-apps">{esc(names)}</p>

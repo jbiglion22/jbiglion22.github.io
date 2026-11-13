@@ -13,7 +13,7 @@
 이 아래는 AI가 관리하는 현재 상태 기록이다. 지시가 바뀌거나 더 이상 맞지 않는 내용은 덧붙이지 말고 고치거나 지운다(`공통지침.md`). 마지막 정리: 2026-11-13.
 
 ## 사람이 쓰는 문서 (AI가 수정하지 않음)
-- `공통지침.md`, `README.md`, `프로젝트.md`. 기본사항이 말하는 `프로젝트지침.md`는 2026-11-13 현재 저장소에 없고 `프로젝트.md`가 그 역할을 한다. 생기면 그 파일을 따른다.
+- `공통지침.md`, `README.md`, `프로젝트.md`.
 - 커밋 메시지는 한국어로 쓴다. pull·push는 사용자가 하라고 할 때만 한다. 사용자의 자동 도구가 "COM-PC01" 같은 커밋을 만들거나 푸시하는 일이 있으니 작업 전에 `git status`를 확인한다.
 
 ## 사이트 성격
@@ -26,16 +26,17 @@
 
 ## 언어
 - 영어(en)·한국어(ko)만 만든다(프로젝트.md). 영어는 미국식 철자, 여러 나라 사람이 이해하기 쉬운 표현.
-- 예전 언어 주소(`index-zh-hans/zh-hant/fr/de/id/ja/pt/ru/es/vi/ar/my/hi/th/es-mx/pt-br.html`)는 `index-en.html`로 보내는 noindex 연결 페이지다(쿼리·해시 유지). 지운 번역은 Git 기록(커밋 702435a의 `data/site.json`)에 있다.
+- 2026-11-13에 지운 10개 언어의 예전 주소(`index-zh-hans/zh-hant/fr/de/id/ja/pt/ru/es/vi.html`)는 `index-en.html`로 보내는 noindex 연결 페이지다(쿼리·해시 유지). 사이트맵에 있던 주소라 검색 결과에서 빠질 때까지 남겨 둔다. Search Console에서 더 이상 보이지 않으면 `redirects`에서 지우고 파일도 삭제해도 된다. 더 오래된 `index-ar/my/hi/th/es-mx/pt-br.html`은 정리 요청(2026-11-13)으로 삭제했다(404). 지운 번역은 Git 기록(커밋 702435a의 `data/site.json`)에 있다.
 - 언어를 다시 만들 때: `data/site.json`의 `languages`·`text.<언어>`·(필요하면 `about.<언어>`)와 `js/languages.js`를 함께 고치고 `redirects`에서 그 언어를 뺀 뒤 생성 스크립트를 실행한다.
 
 ## 파일 구조와 생성 방법
 - 원본 데이터: `data/site.json` — 앱(`apps`: id·group·icon), 그룹(`groups`), 언어별 문구(`text.<언어>`: 사이트 제목·소개·그룹 이름과 설명·앱 이름/분류/설명 등), 소개 페이지(`about`), 연결 페이지 목록(`redirects`).
-- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). `index-en.html`, `index-ko.html`, `about-en.html`, `about-ko.html`, 연결 페이지 16개, `index.html`, `sitemap.xml`을 만든다. **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
+- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). `index-en.html`, `index-ko.html`, `about-en.html`, `about-ko.html`, 연결 페이지 10개, `index.html`, `sitemap.xml`을 만든다. **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
 - 본문은 HTML에 직접 들어간다(JavaScript 없이도 읽힘, 애드센스·검색 대응). `js/app.js`는 그룹 필터(`#learn`처럼 주소에 남음, 예전 `#calc`→money), 아이콘 판 클릭 이동, 언어 메뉴(`<details>` 링크), 저작권 연도만 담당한다. `js/languages.js`는 `index.html`의 자동 언어 이동(한국어면 ko, 그 밖에는 en)에 쓴다.
 - `css/styles.css`: 색 토큰과 그룹 색 5쌍(라이트·다크), 예비 색 1쌍. 1080px 초과 3열, 720px 초과 2열, 그 이하 1열. 720px 이하에서 헤더 메뉴는 필요하면 다음 줄로 내려간다.
 - `_config.yml`의 exclude: 내부 문서(AGENTS.md, README.md, 프로젝트.md, 공통지침.md, 프로젝트지침.md, 이미지요청.md), `data/`, `tools/`, `자료실/` 등은 배포하지 않는다.
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
+- `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
 - `sitemap.xml`: `/`, 영어·한국어 메인, 소개 페이지 2개, 앱 홈페이지 18개(총 23개). 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다(프로젝트.md 요구).
 
 ## 앱과 그룹 (18개, 5개 그룹)

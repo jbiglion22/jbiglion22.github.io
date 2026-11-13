@@ -201,9 +201,7 @@ html[lang=ko] .hero h1 { line-height: 1.24; letter-spacing: -.02em; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
-/* Pages without JavaScript and the language entry page */
-.language-fallback, noscript main { display: block; width: min(100% - 40px, 720px); margin: 40px auto; }
+/* Language entry page (index.html), shown only if the automatic redirect does not run */
+.language-fallback { display: block; width: min(100% - 40px, 720px); margin: 40px auto; }
 .language-fallback nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .language-fallback nav a { padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px; }
-noscript a { text-decoration: underline; }
-noscript li { margin: 8px 0; }

@@ -1,0 +1,2 @@
+# IDE settings stay on each PC and are not shared through Git.
+.idea/
