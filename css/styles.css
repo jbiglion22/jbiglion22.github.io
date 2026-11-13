@@ -324,6 +324,7 @@ h1, h2, h3 { margin: 0; }
 .body li + li { margin-top: 4px; }
 .body strong { font-weight: 650; }
 .body a { text-decoration: underline; text-underline-offset: 3px; }
+.body code { padding: 1px 6px; border-radius: 6px; background: var(--line); font-family: ui-monospace, Consolas, monospace; font-size: .92em; }
 .body table { width: 100%; margin-top: 18px; border-collapse: collapse; overflow: hidden; border-radius: 12px; background: var(--card); box-shadow: 0 0 0 1px var(--line); font-size: 15px; }
 .body th, .body td { padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .body th { background: var(--bg); font-weight: 650; }
