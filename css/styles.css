@@ -98,7 +98,21 @@ html[lang=ko] .hero h1 { line-height: 1.24; letter-spacing: -.02em; }
 /* Groups and app cards */
 .group { padding-top: 28px; }
 .group[hidden] { display: none; }
-.group-title { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: 18px; font-weight: 650; letter-spacing: -.01em; }
+.group-head { display: flex; align-items: center; gap: 18px; margin-bottom: 16px; }
+.group-cover { flex: none; width: 128px; aspect-ratio: 16 / 10; border-radius: 14px; object-fit: cover; box-shadow: var(--shadow); }
+.group-title { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 650; letter-spacing: -.01em; }
+.group-desc { max-width: 70ch; margin-top: 4px; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+
+/* Illustrations (optional: shown only when the image files exist, see 이미지요청.md) */
+.hero.has-art { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+.hero.has-art .board { grid-template-columns: repeat(9, 40px); gap: 7px; margin-top: 30px; padding: 12px; border-radius: 18px; justify-self: start; width: max-content; }
+.hero.has-art .tile { width: 40px; height: 40px; border-radius: 11px; }
+.hero.has-art .tile svg { width: 19px; height: 19px; }
+.hero-art { margin: 0; }
+.hero-art img, .prose-art img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 28px; background: var(--card); box-shadow: var(--shadow); }
+.prose-art { margin: 32px 0 0; }
+.prose-art img { aspect-ratio: 16 / 9; border-radius: 24px; }
+.about-cover { display: block; width: 100%; aspect-ratio: 16 / 9; margin-bottom: 14px; border-radius: 12px; object-fit: cover; }
 .group-dot { width: 10px; height: 10px; border-radius: 3px; }
 .group-dot.g-learn { background: var(--learn-fg); }
 .group-dot.g-science { background: var(--science-fg); }
@@ -150,6 +164,8 @@ html[lang=ko] .hero h1 { line-height: 1.24; letter-spacing: -.02em; }
 @media (max-width: 860px) {
   .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .board { justify-self: start; }
+  .hero.has-art { grid-template-columns: minmax(0, 1fr); }
+  .hero-art img { aspect-ratio: 16 / 10; border-radius: 22px; }
 }
 @media (max-width: 720px) {
   .top, .hero, .apps, .foot { width: min(100% - 40px, 1180px); }
@@ -170,7 +186,13 @@ html[lang=ko] .hero h1 { line-height: 1.24; letter-spacing: -.02em; }
   .top { flex-wrap: wrap; row-gap: 10px; }
   .brand { white-space: nowrap; }
   .top-end { margin-left: auto; }
+  .hero.has-art .board { grid-template-columns: repeat(9, minmax(0, 1fr)); width: 100%; gap: 6px; padding: 10px; }
+  .hero.has-art .tile { width: auto; height: auto; }
+  .group-head { gap: 14px; }
+  .group-cover { width: 84px; border-radius: 12px; }
+  .group-desc { font-size: 14px; }
   .prose { width: min(100% - 40px, 760px); padding-top: 24px; }
+  .prose-art img { border-radius: 18px; }
   .prose-lead { font-size: 17px; }
   .about-groups { grid-template-columns: minmax(0, 1fr); }
 }

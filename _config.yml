@@ -5,6 +5,11 @@ exclude:
   - README.md
   - "**/README.md"
   - "프로젝트.md"
+  - "이미지요청.md"
+  - "공통지침.md"
+  - "프로젝트지침.md"
+  # Working files: generated pictures are processed into images/ before they are used.
+  - "자료실/"
   - docs/
   # Source data and the page build script (the generated index-*.html files are published).
   - data/

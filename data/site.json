@@ -3,7 +3,8 @@
     "Single source for the language pages and sitemap.xml. After editing, run: python tools/build_pages.py",
     "apps: id must match the homepage folder https://jbiglion22.github.io/<id>_home/. icon is the inside of a 24x24 line icon drawn for this site (not the official icon). Optional image: \"images/name.png\".",
     "about: the About page (about-<lang>.html) exists only for the languages listed here. Other languages link to about-en.html.",
-    "redirects: old language addresses (index-<code>.html) that now only send visitors to index-en.html. Removed languages are in Git history (for example commit 702435a) if they are added again."
+    "redirects: old language addresses (index-<code>.html) that now only send visitors to index-en.html. Removed languages are in Git history (for example commit 702435a) if they are added again.",
+    "images: pictures are optional. tools/build_pages.py uses images/<name>.webp|png|jpg only when the file exists (see 이미지요청.md for names). App icons: images/apps/<id>.png."
   ],
   "baseUrl": "https://jbiglion22.github.io/",
   "indexed": [
@@ -232,7 +233,15 @@
           "desc": "Watch snow fall in a little winter world. Shake it, decorate your own globe and use focus and rest timers."
         }
       },
-      "aboutLabel": "About"
+      "aboutLabel": "About",
+      "groupDesc": {
+        "learn": "Learn Korean and English expressions, Korean history for the CSAT, Western art history and the Catholic Bible with cards, quizzes and notes",
+        "science": "Math and physics formulas, chemistry calculations, hands-on function and shape experiments, and resistor calculations",
+        "phone": "Check your phone, compare smartphone specs, show a cheering LED board and find Wi-Fi dead zones at home",
+        "money": "Work out average cost and returns on stock trades, and compare investing methods in a virtual market",
+        "play": "A puzzle game about bending and mixing light, and a relaxing snow globe to watch"
+      },
+      "imageNote": "Illustrations set the mood and are not actual app screens."
     },
     "ko": {
       "siteTitle": "J's 앱 소개",
@@ -344,96 +353,86 @@
           "desc": "유리볼 속 겨울 마을에 눈이 내려요. 흔들어 눈보라를 일으키고, 직접 꾸미고, 집중·휴식 타이머도 써 보세요."
         }
       },
-      "aboutLabel": "사이트 소개"
+      "aboutLabel": "사이트 소개",
+      "groupDesc": {
+        "learn": "한국어와 영어 표현, 수능 한국사, 서양 미술사, 가톨릭 성경을 카드·퀴즈·노트로 익히는 앱",
+        "science": "수학·물리 공식 정리, 화학 계산, 함수와 도형 실험, 전자 회로 저항 계산을 돕는 앱",
+        "phone": "휴대폰 상태 점검, 스마트폰 사양 비교, 응원용 전광판, 집 안 와이파이 신호 확인 앱",
+        "money": "주식 매매 단가와 수익률 계산, 가상 시장에서 투자 방법을 비교하는 모의 투자 앱",
+        "play": "빛을 꺾고 섞어 푸는 퍼즐 게임과 눈 내리는 스노우볼을 감상하는 힐링 앱"
+      },
+      "imageNote": "일러스트는 분위기를 전하기 위한 그림이며 실제 앱 화면이 아닙니다."
     }
-  },
-  "developer": {
-    "name": "J.Biglion",
-    "playUrl": "https://play.google.com/store/apps/dev?id=8320755612182629002"
   },
   "about": {
     "ko": {
       "title": "사이트 소개",
-      "description": "J's 앱 소개는 Google Play에 J.Biglion이라는 이름으로 앱을 내고 있는 개발자 J의 Android 앱을 한곳에 모은 사이트입니다.",
-      "lead": "J's 앱 소개는 Google Play에 J.Biglion이라는 이름으로 앱을 내고 있는 개발자 J가 만든 Android 앱을 한곳에 모아 둔 사이트입니다.",
+      "description": "J's 앱 소개는 공부, 휴대폰 관리, 계산, 휴식에 쓸 만한 작은 Android 앱을 모아 소개하는 사이트입니다.",
+      "lead": "J's 앱 소개는 공부할 때, 휴대폰을 살필 때, 무언가를 계산하거나 잠깐 쉬고 싶을 때 쓸 만한 작은 Android 앱을 모아 소개하는 사이트입니다.",
       "sections": [
         {
           "h": "이 사이트에서 하는 일",
           "p": [
-            "앱마다 무엇을 하는 앱인지 짧게 소개하고, 자세한 설명이 있는 각 앱의 홈페이지로 안내합니다. 앱 홈페이지에서는 화면과 기능 설명을 보고 Google Play로 이동할 수 있습니다.",
-            "앱은 대부분 한 가지 일에 집중한 작은 앱입니다. 공부할 때 꺼내 보는 노트, 휴대폰을 점검하는 도구, 계산기, 잠깐 쉬어 가는 게임처럼 쓰임새가 분명한 앱을 만들고 있습니다."
+            "앱마다 무엇을 하는 앱인지 짧게 소개하고, 자세한 설명이 있는 각 앱의 홈페이지로 안내합니다. 앱 홈페이지에서 화면과 기능을 살펴본 뒤 Google Play로 이동할 수 있습니다.",
+            "소개하는 앱은 대부분 한 가지 일에 집중한 작은 앱입니다. 공부할 때 꺼내 보는 노트, 휴대폰을 점검하는 도구, 계산기, 잠깐 쉬어 가는 게임처럼 쓰임새가 분명한 앱을 모았습니다."
           ]
         },
         {
-          "h": "만들고 있는 앱",
+          "h": "소개하는 앱",
           "p": [
-            "지금 소개하는 앱은 {count}개이며, 쓰임새에 따라 {groups}개 그룹으로 나누었습니다. 앱이 늘어나면 그룹도 다시 나눕니다."
+            "지금 소개하는 앱은 {count}개이며, 쓰임새에 따라 {groups}개 그룹으로 나누었습니다. 소개하는 앱이 늘어나면 그룹도 다시 나눕니다."
           ],
-          "groups": {
-            "learn": "한국어와 영어 표현, 수능 한국사, 서양 미술사, 가톨릭 성경을 카드·퀴즈·노트로 익히는 앱",
-            "science": "수학·물리 공식 정리, 화학 계산, 함수와 도형 실험, 전자 회로 저항 계산을 돕는 앱",
-            "phone": "휴대폰 상태 점검, 스마트폰 사양 비교, 응원용 전광판, 집 안 와이파이 신호 확인 앱",
-            "money": "주식 매매 단가와 수익률 계산, 가상 시장에서 투자 방법을 비교하는 모의 투자 앱",
-            "play": "빛을 꺾고 섞어 푸는 퍼즐 게임과 눈 내리는 스노우볼을 감상하는 힐링 앱"
-          }
+          "groups": true
         },
         {
           "h": "앱 정보는 이렇게 씁니다",
           "p": [
-            "이 사이트의 앱 설명은 각 앱의 홈페이지와 Google Play 설명을 직접 확인해 썼습니다. 앱은 업데이트로 기능이 바뀔 수 있으니, 최신 내용은 각 앱의 홈페이지와 Google Play에서 확인해 주세요.",
-            "이 사이트는 12개 언어로 볼 수 있지만, 앱마다 지원하는 언어는 다릅니다. 수능 물리 공식 노트, 수능 한국사, 수학공식노트처럼 한국 수능을 준비하는 학생을 위한 앱도 있습니다.",
-            "목록의 아이콘은 이 사이트에서 앱을 구분하기 위해 그린 그림이며, 실제 앱 아이콘이나 화면이 아닙니다."
+            "앱 설명은 각 앱의 홈페이지와 Google Play 설명을 직접 확인해 씁니다. 앱은 업데이트로 기능이 바뀔 수 있으니, 최신 내용은 각 앱의 홈페이지와 Google Play에서 확인해 주세요.",
+            "이 사이트는 한국어와 영어로 볼 수 있지만, 앱마다 지원하는 언어는 다릅니다. 수능 물리 공식 노트, 수능 한국사, 수학공식노트처럼 한국 수능을 준비하는 학생을 위한 앱도 있습니다.",
+            "사이트에 쓰인 일러스트와 목록의 아이콘은 분위기를 전하고 앱을 구분하기 위한 그림이며, 실제 앱 화면이 아닙니다."
           ]
         },
         {
           "h": "문의",
           "p": [
-            "앱에 대한 문의는 각 앱의 Google Play 페이지에 있는 개발자 연락처를 이용해 주세요. Google Play의 개발자 페이지에서 J.Biglion의 앱을 모두 볼 수 있습니다."
-          ],
-          "link": "Google Play에서 J.Biglion의 앱 보기"
+            "앱에 대한 문의는 각 앱의 Google Play 페이지에 있는 개발자 연락처를 이용해 주세요."
+          ]
         }
       ],
       "back": "앱 목록으로 돌아가기"
     },
     "en": {
       "title": "About this site",
-      "description": "J’s Apps brings together the Android apps made by J, a developer who publishes on Google Play as J.Biglion.",
-      "lead": "J’s Apps brings together the Android apps made by J, a developer who publishes on Google Play as J.Biglion.",
+      "description": "J’s Apps brings together small Android apps that are handy for studying, looking after your phone, working things out and taking a break.",
+      "lead": "J’s Apps brings together small Android apps that come in handy when you study, look after your phone, need to work something out or just want a short break.",
       "sections": [
         {
           "h": "What this site does",
           "p": [
-            "It gives a short introduction to each app and points you to that app’s own homepage, where you can see more details and screens and go on to Google Play.",
-            "Most of the apps are small and focused on one job: a study notebook, a tool to check your phone, a calculator or a quick game to take a break."
+            "It gives a short introduction to each app and points you to that app’s own homepage, where you can see its screens and features and go on to Google Play.",
+            "Most of the apps here are small and focused on one job: a study notebook, a tool to check your phone, a calculator or a quick game to take a break."
           ]
         },
         {
           "h": "The apps",
           "p": [
-            "There are {count} apps here, sorted into {groups} groups by what they are for. The groups change as new apps arrive."
+            "There are {count} apps here, sorted into {groups} groups by what they are for. The groups change as more apps are added."
           ],
-          "groups": {
-            "learn": "Apps for learning Korean and English expressions, Korean history for the CSAT, Western art history and the Catholic Bible with cards, quizzes and notes",
-            "science": "Apps for math and physics formulas, chemistry calculations, hands-on function and shape experiments, and resistor calculations",
-            "phone": "Apps to check your phone, compare smartphone specs, show a cheering LED board and find Wi-Fi dead zones at home",
-            "money": "A stock trade calculator for average cost and returns, and a simulator to compare investing methods in a virtual market",
-            "play": "A puzzle game about bending and mixing light, and a relaxing snow globe app"
-          }
+          "groups": true
         },
         {
           "h": "How the app information is written",
           "p": [
-            "The descriptions on this site are written after checking each app’s homepage and its Google Play listing. Apps change with updates, so please see each app’s homepage and Google Play for the latest details.",
-            "You can read this site in 12 languages, but each app supports its own set of languages. Some apps, such as the CSAT physics, Korean history and math formula apps, are made for students preparing for Korea’s CSAT.",
-            "The icons in the list are drawn for this site to tell the apps apart. They are not the official app icons or screenshots."
+            "Each description is written after checking the app’s homepage and its Google Play listing. Apps change with updates, so please see each app’s homepage and Google Play for the latest details.",
+            "You can read this site in Korean and English, but each app supports its own set of languages. Some apps, such as the CSAT physics, Korean history and math formula apps, are made for students preparing for Korea’s CSAT.",
+            "The illustrations and list icons on this site set the mood and tell the apps apart. They are not actual app screens."
           ]
         },
         {
           "h": "Contact",
           "p": [
-            "For questions about an app, please use the developer contact on that app’s Google Play page. You can see all of J.Biglion’s apps on the developer page on Google Play."
-          ],
-          "link": "See J.Biglion’s apps on Google Play"
+            "For questions about an app, please use the developer contact on that app’s Google Play page."
+          ]
         }
       ],
       "back": "Back to the app list"
