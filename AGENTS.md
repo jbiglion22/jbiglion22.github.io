@@ -27,8 +27,8 @@
 
 ## 언어
 - 영어(en)·한국어(ko)만 만든다(프로젝트.md). 영어는 미국식 철자, 여러 나라 사람이 이해하기 쉬운 표현.
-- 2026-11-13에 지운 10개 언어의 예전 주소(`index-zh-hans/zh-hant/fr/de/id/ja/pt/ru/es/vi.html`)는 `index-en.html`로 보내는 noindex 연결 페이지다(쿼리·해시 유지). 사이트맵에 있던 주소라 검색 결과에서 빠질 때까지 남겨 둔다. Search Console에서 더 이상 보이지 않으면 `redirects`에서 지우고 파일도 삭제해도 된다. 더 오래된 `index-ar/my/hi/th/es-mx/pt-br.html`은 정리 요청(2026-11-13)으로 삭제했다(404). 지운 번역은 Git 기록(커밋 702435a의 `data/site.json`)에 있다.
-- 언어를 다시 만들 때: `data/site.json`의 `languages`·`text.<언어>`·(필요하면 `about.<언어>`)와 `js/languages.js`를 함께 고치고 `redirects`에서 그 언어를 뺀 뒤 생성 스크립트를 실행한다.
+- 예전 언어 주소(`index-zh-hans/zh-hant/fr/de/id/ja/pt/ru/es/vi/ar/my/hi/th/es-mx/pt-br.html`)는 사용자 요청(2026-11-13, "사용하지 않는 HTML 삭제")으로 연결 페이지까지 모두 삭제했다(404). `redirects`는 빈 목록이며, 다시 필요하면 목록에 언어 코드를 넣고 스크립트를 실행하면 영어로 보내는 noindex 페이지가 생긴다. 지운 번역은 Git 기록(커밋 702435a의 `data/site.json`)에 있다.
+- 언어를 다시 만들 때: `data/site.json`의 `languages`·`text.<언어>`·(필요하면 `about.<언어>`)와 `js/languages.js`를 함께 고친 뒤 생성 스크립트를 실행한다.
 
 ## 블로그 (한국어)
 - 주소: 홈 `/index-ko.html`(추천 글·최신 글 10개·카테고리 카드), 전체 글 `/posts/`, 카테고리 `/category/<그룹 id>/`, 일반 글 `/posts/<slug>/`, 앱 소개 글 `/apps/<앱 id>/`, 한국어 앱 목록 `/apps/`(예전 index-ko의 앱 목록 디자인, 앱을 누르면 앱 소개 글로 이동).
@@ -38,12 +38,12 @@
 - 주제(topic)는 카테고리 안의 작은 분류이며 카테고리 페이지에서 주제 버튼으로 거를 수 있다(JavaScript가 있을 때만 버튼 표시). "앱 소개" 버튼은 앱 소개 글만 보여 준다.
 - 출시일 출처: Google Play 페이지 데이터의 두 날짜 중 이른 날짜(다른 하나는 업데이트 날짜, 2026-11-13 확인). Play 화면의 "출시일" 표기를 직접 본 것은 아니므로 사용자가 정확한 날짜를 알려 주면 고친다. 수능 한국사 2026-09-16, 가톨릭 성경 퀴즈 2026-02-14, 폰스펙 비교 2026-08-25 등 18개 모두 `content/apps/*.html`의 date에 있다.
 - 일반 글(2026-11-13 현재 3편): 저항 색띠 읽는 법(science, 추천 글), 와이파이 사각지대 줄이는 법(phone), 영어 속담 15개(learn). 일반 글의 작성일은 실제 작성일 근처의 적당한 날짜(사용자 지시). 사실 확인이 필요한 수치는 일반적으로 알려진 기준만 쓰고 "대략" 등으로 표시했다.
-- 글 그림: `image`가 없으면 카테고리(그룹) 그림을 대신 쓴다. 글 3편의 대표 그림을 이미지요청.md에 요청 중이다(`post-<slug>.png`). 받으면 1280×720 WebP로 `images/posts/<slug>.webp`에 저장하고 글 머리말에 `image: images/posts/<slug>.webp`를 넣는다.
+- 글 그림: 머리말 `image`가 없으면 카테고리(그룹) 그림을 대신 쓴다. 글 대표 그림은 1280×720 WebP로 `images/posts/<slug>.webp`에 두고 머리말에 `image: images/posts/<slug>.webp`를 넣는다. 2026-11-13 일반 글 3편 모두 대표 그림 반영 완료(원본 PNG는 반영 후 삭제, Git에 커밋된 적 없음).
 - 애드센스 재신청 전 남은 일: 글을 15~20편 이상 쌓기(1,500자 이상, 정확하고 쓸모 있게, 초안은 AI·검토는 사용자), 개인정보처리방침·문의 페이지(공개 이메일 결정 대기). 페이지 넘김(쪽 번호)은 아직 없다. 카테고리 글이 많아지면 추가한다.
 
 ## 파일 구조와 생성 방법
 - 원본 데이터: `data/site.json` — 앱(`apps`: id·group·icon), 그룹(`groups`), 언어별 문구(`text.<언어>`: 사이트 제목·소개·그룹 이름과 설명·앱 이름/분류/설명 등), 소개 페이지(`about`), 연결 페이지 목록(`redirects`).
-- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). 블로그 전체(`index-ko.html`, `posts/`, `category/`, `apps/`), `index-en.html`, `about-en.html`, `about-ko.html`, 연결 페이지 10개, `index.html`, `sitemap.xml`을 만든다. 생성 페이지는 `/css/…`처럼 사이트 루트 기준 주소를 쓴다(하위 폴더 페이지 때문). **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
+- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). 블로그 전체(`index-ko.html`, `posts/`, `category/`, `apps/`), `index-en.html`, `about-en.html`, `about-ko.html`, `index.html`, `sitemap.xml`을 만든다. 생성 페이지는 `/css/…`처럼 사이트 루트 기준 주소를 쓴다(하위 폴더 페이지 때문). **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
 - 본문은 HTML에 직접 들어간다(JavaScript 없이도 읽힘, 애드센스·검색 대응). `js/app.js`는 앱 목록의 그룹 필터(`#learn`처럼 주소에 남음, 예전 `#calc`→money), 아이콘 판 클릭 이동, 블로그 주제 버튼, 언어 메뉴(`<details>` 링크), 저작권 연도만 담당한다. `js/languages.js`는 `index.html`의 자동 언어 이동(한국어면 ko, 그 밖에는 en)에 쓴다.
 - `css/styles.css`: 색 토큰과 그룹 색 5쌍(라이트·다크), 예비 색 1쌍. 1080px 초과 3열, 720px 초과 2열, 그 이하 1열. 720px 이하에서 헤더 메뉴는 필요하면 다음 줄로 내려간다.
 - `_config.yml`의 exclude: 내부 문서(AGENTS.md, README.md, 프로젝트.md, 공통지침.md, 프로젝트지침.md, 이미지요청.md), `data/`, `tools/`, `content/`, `자료실/` 등은 배포하지 않는다.
@@ -67,8 +67,8 @@
   - `images/hero.webp` 메인 첫 화면(1200×800, 3:2), `images/about.webp` 소개 페이지(1280×720), `images/og-image.jpg` 공유 미리보기(1200×630, og:image), `images/group-<그룹>.webp` 그룹 그림(800×500), `images/apps/<id>.*` 실제 앱 아이콘.
   - 그룹 그림은 5개 그룹 모두 있을 때만 쓰인다(`group_cover`). 하나라도 없으면 모든 그룹이 그림 없이 나온다.
 - 요청 절차(`공통지침.md`): `이미지요청.md`에 요청을 쓰면 ChatGPT가 `자료실/제작-이미지/`(아이콘은 `자료실/제작-아이콘/`)에 만든다. 이미지요청.md 맨 위에 "ChatGPT는 이미지요청.md 파일을 수정하면 안 된다"를 둔다. 요청한 AI가 결과를 확인해 쓴 뒤 그 요청을 이미지요청.md에서 지운다.
-- 처리 방법: 글자·로고·실제 기기 모양이 없는지 확인 → Pillow(12.2 설치됨)로 가운데를 용도 비율로 잘라 줄이고 WebP(품질 82, og-image는 JPEG)로 `images/`에 저장 → 생성 스크립트 실행 → 이미지요청.md에서 그 요청 삭제. 원본 PNG는 `자료실/제작-이미지/`에 남긴다(배포 제외). 사용자가 원본 PNG를 `images/`에 복사해 두기도 하니, 원본과 같은지 확인하고 지운다.
-- 2026-11-13 반영 완료: hero, about, og-image, group-learn·science·phone·money·play 모두 사용 중이며 이미지요청.md에 남은 요청은 없다. 처음 받은 `group-money.png`에 휴식과 놀이 그림이 들어 있어 그것을 `images/group-play.webp`로 썼고, 그 원본 PNG는 다시 받은 주식 그림으로 덮어써져 `자료실`에 남아 있지 않다(사이트용 WebP만 있음). 새 그룹이 생기면 그 그룹 그림을 요청해야 그룹 그림이 계속 표시된다(`group_cover`는 모든 그룹에 그림이 있어야 표시).
+- 처리 방법: 글자·로고·실제 기기 모양이 없는지 확인 → Pillow(12.2 설치됨)로 가운데를 용도 비율로 잘라 줄이고 WebP(품질 82, og-image는 JPEG)로 `images/`에 저장 → 생성 스크립트 실행 → 이미지요청.md에서 그 요청 삭제. 사용자가 원본 PNG를 `images/`에 복사해 두기도 하니, 원본과 같은지 확인하고 지운다. 사이트에 반영한 뒤에는 원본 PNG를 `자료실/`에서 지운다(사용자 요청 2026-11-13: 사용하지 않는 이미지 삭제). 지금까지의 원본은 Git 기록(커밋 b0b4bc2)에 있다.
+- 2026-11-13 반영 완료: hero, about, og-image, group-learn·science·phone·money·play 모두 사용 중이며 이미지요청.md에 남은 요청은 없다. 처음 받은 `group-money.png`에 휴식과 놀이 그림이 들어 있어 그것을 `images/group-play.webp`로 썼고, 반영한 그림의 원본 PNG는 정리 요청으로 `자료실`에서 지웠다(Git 기록에는 있음, 휴식과 놀이 원본은 덮어써져 기록에도 없음). 새 그룹이 생기면 그 그룹 그림을 요청해야 그룹 그림이 계속 표시된다(`group_cover`는 모든 그룹에 그림이 있어야 표시).
 - 앱 아이콘은 ChatGPT로 만들지 않는다. 사용자가 실제 앱 아이콘(512×512)을 `images/apps/<id>.png`로 넣으면 선 아이콘 대신 쓰인다. 일부만 넣으면 섞여 보이므로 한꺼번에 넣기를 권했다.
 - 확인: 실제 그림으로 메인·소개 페이지를 1280px·390px·320px, 라이트·다크 모드에서 보았다(넘침 없음, 그림 6장씩 모두 로드, 그룹 그림 5장 표시).
 

@@ -3,9 +3,9 @@
     "Single source for the language pages and sitemap.xml. After editing, run: python tools/build_pages.py",
     "apps: id must match the homepage folder https://jbiglion22.github.io/<id>_home/. icon is the inside of a 24x24 line icon drawn for this site (not the official icon). Optional image: \"images/name.png\".",
     "about: the About page (about-<lang>.html) exists only for the languages listed here. Other languages link to about-en.html.",
-    "redirects: old language addresses (index-<code>.html) that now only send visitors to index-en.html. Removed languages are in Git history (for example commit 702435a) if they are added again.",
     "images: pictures are optional. tools/build_pages.py uses images/<name>.webp|png|jpg only when the file exists (see 이미지요청.md for names). App icons: images/apps/<id>.png.",
-    "blog: Korean blog settings. Category ids must equal the app group ids. Posts live in content/posts/ and content/apps/ (see tools/blog.py)."
+    "blog: Korean blog settings. Category ids must equal the app group ids. Posts live in content/posts/ and content/apps/ (see tools/blog.py).",
+    "redirects: old language addresses (index-<code>.html) that should forward to index-en.html. Empty since 2026-11-13: the old pages were deleted on request."
   ],
   "baseUrl": "https://jbiglion22.github.io/",
   "indexed": [
@@ -439,18 +439,7 @@
       "back": "Back to the app list"
     }
   },
-  "redirects": [
-    "zh-hans",
-    "zh-hant",
-    "fr",
-    "de",
-    "id",
-    "ja",
-    "pt",
-    "ru",
-    "es",
-    "vi"
-  ],
+  "redirects": [],
   "blog": {
     "categories": [
       {
