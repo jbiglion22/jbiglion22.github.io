@@ -14,6 +14,7 @@ exclude:
   # Source data and the page build script (the generated index-*.html files are published).
   - data/
   - tools/
+  - content/
   - .idea/
   - .agents/
   - .codex/

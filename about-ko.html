@@ -18,29 +18,42 @@
   <meta property="og:image" content="https://jbiglion22.github.io/images/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <title>사이트 소개 · J's 앱 소개</title>
-  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/app.js" defer></script>
+  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로</a>
-<header class="top" id="top">
-  <a class="brand" href="index-ko.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>J's 앱 소개</bdi></a>
-  <div class="top-end">
-    <a class="top-link" href="about-ko.html">사이트 소개</a>
-    <details class="lang">
-      <summary aria-label="언어 선택: 한국어">한국어</summary>
-      <ul class="lang-menu">
-        <li><a href="about-en.html" lang="en" hreflang="en">English</a></li>
-        <li><a href="about-ko.html" lang="ko" hreflang="ko" aria-current="page">한국어</a></li>
-      </ul>
-    </details>
+<header class="site-head" id="top">
+  <div class="wrap">
+    <div class="site-head-row">
+      <a class="brand" href="/index-ko.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>J's 앱 소개</bdi></a>
+      <div class="top-end">
+        <a class="top-link" href="/about-ko.html" class="on" aria-current="page">사이트 소개</a>
+        <details class="lang">
+          <summary aria-label="언어 선택: 한국어">한국어</summary>
+          <ul class="lang-menu">
+            <li><a href="/about-en.html" lang="en" hreflang="en">English</a></li>
+            <li><a href="#" lang="ko" aria-current="page">한국어</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+    <nav class="menu" aria-label="카테고리">
+      <a href="/index-ko.html">홈</a>
+      <a href="/category/science/">수학·과학 노트</a>
+      <a href="/category/learn/">언어·교양</a>
+      <a href="/category/phone/">휴대폰 활용</a>
+      <a href="/category/money/">생활 계산</a>
+      <a href="/category/play/">쉬어 가기</a>
+      <a href="/apps/" class="apps-link">앱 ↗</a>
+    </nav>
   </div>
 </header>
 <main id="main" class="prose">
   <h1>사이트 소개</h1>
   <p class="prose-lead">J's 앱 소개는 공부할 때, 휴대폰을 살필 때, 무언가를 계산하거나 잠깐 쉬고 싶을 때 쓸 만한 작은 Android 앱을 모아 소개하는 사이트입니다.</p>
-  <figure class="prose-art"><img src="images/about.webp" alt="" fetchpriority="high"><figcaption class="sr-only">일러스트는 분위기를 전하기 위한 그림이며 실제 앱 화면이 아닙니다.</figcaption></figure>
+  <figure class="prose-art"><img src="/images/about.webp" alt="" fetchpriority="high"><figcaption class="sr-only">일러스트는 분위기를 전하기 위한 그림이며 실제 앱 화면이 아닙니다.</figcaption></figure>
   <section class="prose-section">
     <h2>이 사이트에서 하는 일</h2>
     <p>앱마다 무엇을 하는 앱인지 짧게 소개하고, 자세한 설명이 있는 각 앱의 홈페이지로 안내합니다. 앱 홈페이지에서 화면과 기능을 살펴본 뒤 Google Play로 이동할 수 있습니다.</p>
@@ -51,32 +64,32 @@
     <p>지금 소개하는 앱은 18개이며, 쓰임새에 따라 5개 그룹으로 나누었습니다. 소개하는 앱이 늘어나면 그룹도 다시 나눕니다.</p>
     <ul class="about-groups">
       <li>
-        <img class="about-cover" src="images/group-learn.webp" alt="" loading="lazy">
-        <h3><span class="group-dot g-learn" aria-hidden="true"></span><a href="index-ko.html#learn">언어와 교양</a><span class="group-count">5</span></h3>
+        <img class="about-cover" src="/images/group-learn.webp" alt="" loading="lazy">
+        <h3><span class="group-dot g-learn" aria-hidden="true"></span><a href="/category/learn/">언어와 교양</a><span class="group-count">5</span></h3>
         <p>한국어와 영어 표현, 수능 한국사, 서양 미술사, 가톨릭 성경을 카드·퀴즈·노트로 익히는 앱</p>
         <p class="about-apps">한국어 학습, 영어 속담 사전, 수능 한국사, 미술사노트, 가톨릭 성경 퀴즈</p>
       </li>
       <li>
-        <img class="about-cover" src="images/group-science.webp" alt="" loading="lazy">
-        <h3><span class="group-dot g-science" aria-hidden="true"></span><a href="index-ko.html#science">수학과 과학</a><span class="group-count">5</span></h3>
+        <img class="about-cover" src="/images/group-science.webp" alt="" loading="lazy">
+        <h3><span class="group-dot g-science" aria-hidden="true"></span><a href="/category/science/">수학과 과학</a><span class="group-count">5</span></h3>
         <p>수학·물리 공식 정리, 화학 계산, 함수와 도형 실험, 전자 회로 저항 계산을 돕는 앱</p>
         <p class="about-apps">수학공식노트, 수학 실험실, 수능 물리 공식 노트, 화학노트, 저항계산기</p>
       </li>
       <li>
-        <img class="about-cover" src="images/group-phone.webp" alt="" loading="lazy">
-        <h3><span class="group-dot g-phone" aria-hidden="true"></span><a href="index-ko.html#phone">휴대폰</a><span class="group-count">4</span></h3>
+        <img class="about-cover" src="/images/group-phone.webp" alt="" loading="lazy">
+        <h3><span class="group-dot g-phone" aria-hidden="true"></span><a href="/category/phone/">휴대폰</a><span class="group-count">4</span></h3>
         <p>휴대폰 상태 점검, 스마트폰 사양 비교, 응원용 전광판, 집 안 와이파이 신호 확인 앱</p>
         <p class="about-apps">폰체크, 폰스펙 비교, 폰전광판, 와이파이 사각지대 찾기</p>
       </li>
       <li>
-        <img class="about-cover" src="images/group-money.webp" alt="" loading="lazy">
-        <h3><span class="group-dot g-money" aria-hidden="true"></span><a href="index-ko.html#money">주식과 투자</a><span class="group-count">2</span></h3>
+        <img class="about-cover" src="/images/group-money.webp" alt="" loading="lazy">
+        <h3><span class="group-dot g-money" aria-hidden="true"></span><a href="/category/money/">주식과 투자</a><span class="group-count">2</span></h3>
         <p>주식 매매 단가와 수익률 계산, 가상 시장에서 투자 방법을 비교하는 모의 투자 앱</p>
         <p class="about-apps">주식 매매 계산기, 주식 시뮬레이터</p>
       </li>
       <li>
-        <img class="about-cover" src="images/group-play.webp" alt="" loading="lazy">
-        <h3><span class="group-dot g-play" aria-hidden="true"></span><a href="index-ko.html#play">휴식과 놀이</a><span class="group-count">2</span></h3>
+        <img class="about-cover" src="/images/group-play.webp" alt="" loading="lazy">
+        <h3><span class="group-dot g-play" aria-hidden="true"></span><a href="/category/play/">휴식과 놀이</a><span class="group-count">2</span></h3>
         <p>빛을 꺾고 섞어 푸는 퍼즐 게임과 눈 내리는 스노우볼을 감상하는 힐링 앱</p>
         <p class="about-apps">크로마 레이, 스노우 볼</p>
       </li>
@@ -92,11 +105,11 @@
     <h2>문의</h2>
     <p>앱에 대한 문의는 각 앱의 Google Play 페이지에 있는 개발자 연락처를 이용해 주세요.</p>
   </section>
-  <p class="prose-back"><a class="text-link" href="index-ko.html">← 앱 목록으로 돌아가기</a></p>
+  <p class="prose-back"><a class="text-link" href="/index-ko.html">← 앱 목록으로 돌아가기</a></p>
 </main>
-<footer class="foot">
-  <p>각자의 쓰임을 가진 앱들, 하나의 공간에서.</p>
-  <p class="foot-links"><a href="index-ko.html">J's 앱 소개</a><a href="about-ko.html">사이트 소개</a><span class="copyright">© <bdi><span class="year">2026</span> jbiglion22</bdi></span></p>
+<footer class="wrap blog-foot">
+  <nav><a href="/index-ko.html">홈</a><a href="/apps/">앱</a><a href="/about-ko.html">사이트 소개</a></nav>
+  <span>© <bdi><span class="year">2026</span> jbiglion22</bdi></span>
 </footer>
 </body>
 </html>

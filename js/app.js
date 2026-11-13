@@ -60,5 +60,21 @@ if (langMenu) {
   });
 }
 
+// Blog: topic buttons above a post list (category pages, all posts). Without JavaScript every post is shown.
+document.querySelectorAll('.subtopics').forEach(box => {
+  const list = box.parentElement.querySelector('[data-filterable]');
+  if (!list) return;
+  box.hidden = false;
+  const buttons = [...box.querySelectorAll('.topic')];
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const value = button.dataset.topic;
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    list.querySelectorAll('.post').forEach(post => {
+      const match = value === 'all' || (value === 'kind:app' ? post.dataset.kind === 'app' : post.dataset.topic === value);
+      post.hidden = !match;
+    });
+  }));
+});
+
 const year = document.querySelector('.year');
 if (year) year.textContent = new Date().getFullYear();

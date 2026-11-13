@@ -4,7 +4,8 @@
     "apps: id must match the homepage folder https://jbiglion22.github.io/<id>_home/. icon is the inside of a 24x24 line icon drawn for this site (not the official icon). Optional image: \"images/name.png\".",
     "about: the About page (about-<lang>.html) exists only for the languages listed here. Other languages link to about-en.html.",
     "redirects: old language addresses (index-<code>.html) that now only send visitors to index-en.html. Removed languages are in Git history (for example commit 702435a) if they are added again.",
-    "images: pictures are optional. tools/build_pages.py uses images/<name>.webp|png|jpg only when the file exists (see 이미지요청.md for names). App icons: images/apps/<id>.png."
+    "images: pictures are optional. tools/build_pages.py uses images/<name>.webp|png|jpg only when the file exists (see 이미지요청.md for names). App icons: images/apps/<id>.png.",
+    "blog: Korean blog settings. Category ids must equal the app group ids. Posts live in content/posts/ and content/apps/ (see tools/blog.py)."
   ],
   "baseUrl": "https://jbiglion22.github.io/",
   "indexed": [
@@ -246,7 +247,7 @@
     "ko": {
       "siteTitle": "J's 앱 소개",
       "title": "일상을 돕는\n작은 앱들",
-      "intro": "관심 가는 앱을 골라 각 앱의 홈페이지에서 자세히 살펴보세요.",
+      "intro": "관심 가는 앱을 골라 앱 소개 글과 각 앱의 홈페이지에서 자세히 살펴보세요.",
       "skip": "본문으로",
       "languageLabel": "언어 선택",
       "filterLabel": "그룹별로 보기",
@@ -449,5 +450,77 @@
     "ru",
     "es",
     "vi"
-  ]
+  ],
+  "blog": {
+    "categories": [
+      {
+        "id": "science",
+        "name": "수학·과학 노트",
+        "short": "공식과 계산을 예시로 정리",
+        "desc": "공식은 왜 그렇게 생겼는지, 계산은 어떤 순서로 하는지. 수학, 물리, 화학, 전자 회로를 예시와 함께 차근차근 정리합니다."
+      },
+      {
+        "id": "learn",
+        "name": "언어·교양",
+        "short": "표현과 교양을 쉽게",
+        "desc": "한국어와 영어 표현, 한국사, 미술, 성경처럼 알아 두면 좋은 지식을 쉽게 풀어 정리합니다."
+      },
+      {
+        "id": "phone",
+        "name": "휴대폰 활용",
+        "short": "점검·비교·와이파이",
+        "desc": "휴대폰 점검, 기종 비교, 집 안 와이파이처럼 휴대폰을 더 잘 쓰는 데 필요한 정보를 정리합니다."
+      },
+      {
+        "id": "money",
+        "name": "생활 계산",
+        "short": "숫자를 계산하는 방법",
+        "desc": "평균 단가, 수익률, 수수료처럼 생활 속 숫자를 계산하는 방법을 정리합니다. 투자 권유가 아닌 계산 방법 안내입니다."
+      },
+      {
+        "id": "play",
+        "name": "쉬어 가기",
+        "short": "잠깐 쉬어 가는 이야기",
+        "desc": "잠깐 쉬어 가며 읽을 만한 이야기와, 머리를 식혀 주는 앱을 소개합니다."
+      }
+    ],
+    "homeLabel": "홈",
+    "appsLabel": "앱",
+    "menuLabel": "카테고리",
+    "categoryLabel": "카테고리",
+    "categoriesLabel": "카테고리",
+    "homeDescription": "공부, 휴대폰, 계산, 휴식에 쓸 만한 작은 앱들과, 그 주제를 쉽게 풀어 쓴 글을 모았습니다.",
+    "featuredLabel": "추천 글",
+    "readLabel": "글 읽기",
+    "latestLabel": "최신 글",
+    "allPostsLabel": "전체 글",
+    "allPostsIntro": "이 사이트의 모든 글과 앱 소개 글을 최신순으로 모았습니다.",
+    "appsTitle": "소개하는 앱",
+    "appsIntro": "공부, 휴대폰, 계산, 휴식에 쓸 만한 작은 앱들",
+    "allAppsLabel": "앱 모두 보기",
+    "catAppsTitle": "이 주제와 함께 쓰기 좋은 앱",
+    "catAppsNote": "앱을 누르면 앱 소개 글로 이동합니다",
+    "postsLabel": "글",
+    "newestFirst": "최신순",
+    "allLabel": "전체",
+    "topicLabel": "주제",
+    "appPostLabel": "앱 소개",
+    "writtenLabel": "작성일",
+    "releaseNote": "앱 출시일",
+    "tocLabel": "이 글의 목차",
+    "relatedAppLabel": "이 글과 관련된 앱",
+    "appPostLink": "앱 소개 글 보기",
+    "olderLabel": "이전 글",
+    "newerLabel": "다음 글",
+    "prevAppLabel": "이전 앱",
+    "nextAppLabel": "다음 앱",
+    "moreInCategory": "{category}의 다른 글",
+    "otherApps": "같은 카테고리의 다른 앱",
+    "readTogether": "함께 읽으면 좋은 글",
+    "ctaTitle": "{app} 홈페이지에서 더 보기",
+    "ctaText": "화면과 자세한 사용법을 보고 Google Play로 이동할 수 있습니다.",
+    "ctaButton": "앱 홈페이지",
+    "updateNote": "앱 기능은 업데이트로 바뀔 수 있습니다. 최신 내용은 앱 홈페이지와 Google Play에서 확인해 주세요.",
+    "homeCount": 10
+  }
 }

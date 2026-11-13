@@ -1,4 +1,5 @@
-"""Build the language pages, About pages, index.html and sitemap.xml from data/site.json.
+"""Build the site from data/site.json and content/: the Korean blog (see tools/blog.py),
+the app lists, About pages, index.html, old-address redirects and sitemap.xml.
 
 The page content is written straight into the HTML so it can be read without JavaScript
 (search engines, ad reviewers, readers with scripts off). js/app.js only adds the group
@@ -12,8 +13,12 @@ import datetime
 import html
 import json
 import pathlib
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+BLOG = None  # set in main(): the tools/blog.py Blog instance
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import blog  # noqa: E402  (tools/blog.py)
 IMAGE_EXTENSIONS = ('webp', 'png', 'jpg', 'jpeg')
 
 
@@ -33,6 +38,13 @@ def group_cover(site, group):
     return None
 
 
+NEW_WINDOW = ' target="_blank" rel="noopener noreferrer"'
+
+
+def group_href(code, group):
+    return f'/category/{group}/' if code == 'ko' else f'/index-{code}.html#{group}'
+
+
 def esc(text):
     # Attributes are always double-quoted, so apostrophes (J's) can stay as they are.
     return html.escape(text, quote=False).replace('"', '&quot;')
@@ -41,7 +53,7 @@ def esc(text):
 def icon_markup(app, size):
     image = app.get('image') or find_image(f'apps/{app["id"]}')
     if image:
-        return f'<img src="{esc(image)}" width="{size * 2}" height="{size * 2}" alt="" loading="lazy">'
+        return f'<img src="/{esc(image)}" width="{size * 2}" height="{size * 2}" alt="" loading="lazy">'
     return (f'<svg viewBox="0 0 24 24" width="{size}" height="{size}" fill="none" stroke="currentColor" '
             f'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{app["icon"]}</svg>')
 
@@ -96,14 +108,17 @@ def head(t, title, description, extra, share=''):
 {extra}
 {share}
   <title>{esc(title)}</title>
-  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/app.js" defer></script>
+  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/app.js" defer></script>
 </head>'''
 
 
 def header(site, code, menu):
-    """menu: list of (language, href) shown in the language menu."""
+    """menu: list of (language, href) shown in the language menu. Korean pages use the blog header."""
+    if code == 'ko':
+        en = next((href for l, href in menu if l['code'] == 'en'), '/index-en.html')
+        return BLOG.header(site.get('_active'), en)
     t = site['text'][code]
     name = next(l['name'] for l in site['languages'] if l['code'] == code)
     current = ' aria-current="page"'
@@ -115,9 +130,9 @@ def header(site, code, menu):
     about_attrs = '' if about_lang == code else ' hreflang="en"'
     return f'''<a class="skip" href="#main">{esc(t["skip"])}</a>
 <header class="top" id="top">
-  <a class="brand" href="index-{code}.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>{esc(t["siteTitle"])}</bdi></a>
+  <a class="brand" href="/index-{code}.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>{esc(t["siteTitle"])}</bdi></a>
   <div class="top-end">
-    <a class="top-link" href="{about_page_for(site, code)}"{about_attrs}>{esc(t["aboutLabel"])}</a>
+    <a class="top-link" href="/{about_page_for(site, code)}"{about_attrs}>{esc(t["aboutLabel"])}</a>
     <details class="lang">
       <summary aria-label="{esc(t["languageLabel"])}: {esc(name)}">{esc(name)}</summary>
       <ul class="lang-menu">
@@ -129,10 +144,12 @@ def header(site, code, menu):
 
 
 def footer(site, code, year):
+    if code == 'ko':
+        return BLOG.footer(year)
     t = site['text'][code]
     return f'''<footer class="foot">
   <p>{esc(t["footer"])}</p>
-  <p class="foot-links"><a href="index-{code}.html">{esc(t["siteTitle"])}</a><a href="{about_page_for(site, code)}">{esc(t["aboutLabel"])}</a><span class="copyright">© <bdi><span class="year">{year}</span> jbiglion22</bdi></span></p>
+  <p class="foot-links"><a href="/index-{code}.html">{esc(t["siteTitle"])}</a><a href="/{about_page_for(site, code)}">{esc(t["aboutLabel"])}</a><span class="copyright">© <bdi><span class="year">{year}</span> jbiglion22</bdi></span></p>
 </footer>'''
 
 
@@ -143,8 +160,10 @@ def build_page(site, lang, year):
     apps = site['apps']
     grouped = by_group(site)
 
-    extra = hreflang_links(site) if code in site['indexed'] else '  <meta name="robots" content="noindex, follow">'
-    menu = [(l, f'index-{l["code"]}.html') for l in site['languages']]
+    # The Korean app list lives at /apps/ (the Korean home is the blog); its apps link to the app posts.
+    korean = code == 'ko'
+    extra = '' if code in site['indexed'] else '  <meta name="robots" content="noindex, follow">'
+    menu = [(l, '/index-en.html' if l['code'] == 'en' else '/apps/') for l in site['languages']]
 
     tiles = ''.join(
         f'<a class="tile g-{a["group"]}" href="#app-{a["id"]}" data-app="{a["id"]}" tabindex="-1" '
@@ -155,24 +174,26 @@ def build_page(site, lang, year):
     tabs += [f'        <button type="button" class="tab" data-filter="{g}" aria-pressed="false">{esc(t["groups"][g])}<span class="tab-count">{len(grouped[g])}</span></button>'
              for g in groups]
 
+    sr_new = f'<span class="sr-only">{esc(t["visit"])} {esc(t["newWindow"])}</span>'
+
     def card(a):
         x = app_text(site, code, a['id'])
         return f'''        <li>
-          <a class="app" id="app-{a["id"]}" href="{homepage(site, a["id"])}" target="_blank" rel="noopener noreferrer">
+          <a class="app" id="app-{a["id"]}" href="{BLOG.app_link(a["id"]) if korean else homepage(site, a["id"])}"{"" if korean else NEW_WINDOW}>
             <span class="app-icon g-{a["group"]}">{icon_markup(a, 24)}</span>
             <span class="app-body">
               <span class="app-name">{esc(x["name"])}</span>
               <span class="app-tag">{esc(x["tag"])}</span>
               <span class="app-desc">{esc(x["desc"])}</span>
             </span>
-            <span class="app-arrow" aria-hidden="true">↗</span>
-            <span class="sr-only">{esc(t["visit"])} {esc(t["newWindow"])}</span>
+            <span class="app-arrow" aria-hidden="true">{"→" if korean else "↗"}</span>
+            {"" if korean else sr_new}
           </a>
         </li>'''
 
     def group_head(g):
         cover = group_cover(site, g)
-        cover_html = f'<img class="group-cover g-{g}" src="{cover}" alt="" loading="lazy">' if cover else ''
+        cover_html = f'<img class="group-cover g-{g}" src="/{cover}" alt="" loading="lazy">' if cover else ''
         desc = t.get('groupDesc', {}).get(g)
         desc_html = f'\n        <p class="group-desc">{esc(desc)}</p>' if desc else ''
         return f'''      <div class="group-head{' has-cover' if cover else ''}">
@@ -199,7 +220,7 @@ def build_page(site, lang, year):
       <p>{esc(t["intro"])}</p>
       {board}
     </div>
-    <figure class="hero-art"><img src="{hero_image}" alt="" fetchpriority="high"><figcaption class="sr-only">{esc(t.get("imageNote", ""))}</figcaption></figure>
+    <figure class="hero-art"><img src="/{hero_image}" alt="" fetchpriority="high"><figcaption class="sr-only">{esc(t.get("imageNote", ""))}</figcaption></figure>
   </section>'''
     else:
         hero = f'''  <section class="hero">
@@ -209,14 +230,16 @@ def build_page(site, lang, year):
     </div>
     {board}
   </section>'''
-    page = f'index-{code}.html'
+    page = 'apps/' if korean else f'index-{code}.html'
+    title = f'{BLOG.cfg["appsTitle"]} · {t["siteTitle"]}' if korean else t['siteTitle']
+    site['_active'] = 'apps'
     return f'''<!doctype html>
 <!-- Generated by tools/build_pages.py from data/site.json. Edit the data, then run the script. -->
 <html lang="{lang["tag"]}" dir="ltr">
-{head(t, t["siteTitle"], t["intro"], extra, share_tags(site, t["siteTitle"], t["siteTitle"], t["intro"], page, lang["tag"]))}
+{head(t, title, t["intro"], extra, share_tags(site, t["siteTitle"], title, t["intro"], page, lang["tag"]))}
 <body>
 {header(site, code, menu)}
-<main id="main">
+<main id="main"{' class="apps-page"' if korean else ''}>
 {hero}
   <section class="apps" id="apps">
     <div class="tabs-wrap" hidden>
@@ -240,7 +263,8 @@ def build_about(site, lang, year):
     grouped = by_group(site)
     about_codes = [l['code'] for l in site['languages'] if l['code'] in site['about']]
     extra = hreflang_links(site, page='about', default='about-en.html', codes=about_codes)
-    menu = [(l, f'about-{l["code"]}.html') for l in site['languages'] if l['code'] in site['about']]
+    menu = [(l, f'/about-{l["code"]}.html') for l in site['languages'] if l['code'] in site['about']]
+    site['_active'] = 'about'
 
     def paragraph(text):
         text = text.replace('{count}', str(len(site['apps']))).replace('{groups}', str(len(site['groups'])))
@@ -255,9 +279,9 @@ def build_about(site, lang, year):
             for g in site['groups']:
                 names = ', '.join(app_text(site, code, x['id'])['name'] for x in grouped[g])
                 cover = group_cover(site, g)
-                cover_html = f'\n        <img class="about-cover" src="{cover}" alt="" loading="lazy">' if cover else ''
+                cover_html = f'\n        <img class="about-cover" src="/{cover}" alt="" loading="lazy">' if cover else ''
                 block.append(f'''      <li>{cover_html}
-        <h3><span class="group-dot g-{g}" aria-hidden="true"></span><a href="index-{code}.html#{g}">{esc(t["groups"][g])}</a><span class="group-count">{len(grouped[g])}</span></h3>
+        <h3><span class="group-dot g-{g}" aria-hidden="true"></span><a href="{group_href(code, g)}">{esc(t["groups"][g])}</a><span class="group-count">{len(grouped[g])}</span></h3>
         <p>{esc(t["groupDesc"][g])}</p>
         <p class="about-apps">{esc(names)}</p>
       </li>''')
@@ -266,7 +290,7 @@ def build_about(site, lang, year):
         parts.append('\n'.join(block))
 
     about_image = find_image('about')
-    art = (f'\n  <figure class="prose-art"><img src="{about_image}" alt="" fetchpriority="high">'
+    art = (f'\n  <figure class="prose-art"><img src="/{about_image}" alt="" fetchpriority="high">'
            f'<figcaption class="sr-only">{esc(t.get("imageNote", ""))}</figcaption></figure>') if about_image else ''
     page = f'about-{code}.html'
     title = f'{a["title"]} · {t["siteTitle"]}'
@@ -280,7 +304,7 @@ def build_about(site, lang, year):
   <h1>{esc(a["title"])}</h1>
   <p class="prose-lead">{esc(a["lead"])}</p>{art}
 {chr(10).join(parts)}
-  <p class="prose-back"><a class="text-link" href="index-{code}.html">← {esc(a["back"])}</a></p>
+  <p class="prose-back"><a class="text-link" href="/index-{code}.html">← {esc(a["back"])}</a></p>
 </main>
 {footer(site, code, year)}
 </body>
@@ -300,7 +324,6 @@ def build_entry(site):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f7f4">
   <meta name="description" content="{esc(en["intro"])}">
-{hreflang_links(site)}
   <title>{esc(en["siteTitle"])}</title>
   <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
@@ -348,12 +371,13 @@ def build_sitemap(site, lastmod):
     def url(loc, priority, alt=''):
         return f'  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <priority>{priority}</priority>\n{alt}  </url>\n'
 
-    index_alt = alternates('index', '', site['indexed'])
     about_codes = [l['code'] for l in site['languages'] if l['code'] in site['about']]
     about_alt = alternates('about', 'about-en.html', about_codes)
-    body = url(base, '1.0', index_alt)
-    body += ''.join(url(f'{base}index-{l["code"]}.html', '0.8', index_alt)
+    body = url(base, '1.0')
+    body += ''.join(url(f'{base}index-{l["code"]}.html', '0.9')
                     for l in site['languages'] if l['code'] in site['indexed'])
+    body += url(f'{base}apps/', '0.8')
+    body += ''.join(url(f'{base}{path}', pr) for path, pr in BLOG.sitemap_urls())
     body += ''.join(url(f'{base}about-{c}.html', '0.5', about_alt) for c in about_codes)
     order = [a for g in site['groups'] for a in site['apps'] if a['group'] == g]
     body += ''.join(url(homepage(site, a['id']), '0.7') for a in order)
@@ -377,6 +401,8 @@ def check(site):
         assert set(t['groups']) == set(site['groups']), f'group names missing in {code}'
         assert t.get('aboutLabel'), f'aboutLabel missing in {code}'
         assert set(t.get('groupDesc', {})) == set(site['groups']), f'groupDesc missing in {code}'
+    cats = [c['id'] for c in site['blog']['categories']]
+    assert sorted(cats) == sorted(site['groups']), 'each app group needs one blog category with the same id'
     # js/languages.js (used by index.html for the automatic redirect) must list the same languages.
     lj = (ROOT / 'js' / 'languages.js').read_text(encoding='utf8')
     for c in codes:
@@ -384,6 +410,7 @@ def check(site):
 
 
 def write(path, text):
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding='utf8', newline='\n')
 
 
@@ -393,16 +420,24 @@ def main():
     args = parser.parse_args()
     site = json.loads((ROOT / 'data' / 'site.json').read_text(encoding='utf8'))
     check(site)
+    global BLOG
+    BLOG = blog.Blog(site, sys.modules[__name__], ROOT)
     year = datetime.date.today().year
     for lang in site['languages']:
-        write(ROOT / f'index-{lang["code"]}.html', build_page(site, lang, year))
+        # Korean: the blog home is index-ko.html and the app list moves to /apps/.
+        target = ROOT / 'apps' / 'index.html' if lang['code'] == 'ko' else ROOT / f'index-{lang["code"]}.html'
+        write(target, build_page(site, lang, year))
         if lang['code'] in site['about']:
             write(ROOT / f'about-{lang["code"]}.html', build_about(site, lang, year))
+    for rel, page in BLOG.pages(year).items():
+        write(ROOT / rel, page)
     redirect = build_redirect(site)
     for code in site.get('redirects', []):
         write(ROOT / f'index-{code}.html', redirect)
     write(ROOT / 'index.html', build_entry(site))
     write(ROOT / 'sitemap.xml', build_sitemap(site, args.lastmod))
+    print(f'Blog: {sum(i["kind"] == "post" for i in BLOG.items)} posts, {sum(i["kind"] == "app" for i in BLOG.items)} app posts, '
+          f'{len(site["blog"]["categories"])} categories.')
     print(f'Built {len(site["languages"])} language pages, {len(site["about"])} About pages, '
           f'{len(site.get("redirects", []))} redirect pages, index.html and sitemap.xml '
           f'({len(site["apps"])} apps, indexed: {", ".join(site["indexed"])}).')

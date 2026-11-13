@@ -4,25 +4,156 @@
     <loc>https://jbiglion22.github.io/</loc>
     <lastmod>2026-11-13</lastmod>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jbiglion22.github.io/index-en.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://jbiglion22.github.io/index-ko.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jbiglion22.github.io/"/>
   </url>
   <url>
     <loc>https://jbiglion22.github.io/index-en.html</loc>
     <lastmod>2026-11-13</lastmod>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jbiglion22.github.io/index-en.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://jbiglion22.github.io/index-ko.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jbiglion22.github.io/"/>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jbiglion22.github.io/index-ko.html</loc>
     <lastmod>2026-11-13</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/</loc>
+    <lastmod>2026-11-13</lastmod>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jbiglion22.github.io/index-en.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://jbiglion22.github.io/index-ko.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jbiglion22.github.io/"/>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/posts/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/category/science/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/category/learn/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/category/phone/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/category/money/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/category/play/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/posts/resistor-color-code/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/posts/wifi-dead-zone-tips/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/posts/english-proverbs-15/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/snowglobe/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/chromaray/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/wifideadzone/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/koreanstudy/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/arthistorynote/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/stocksimulation/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/englishproverbs/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/resistorcalculator/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/mathnote/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/physicsnote/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/chemnote/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/phonebanner/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/stockcalculator/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/phonecheck/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/mathlab/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/snapstudy_koreanhistory/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/phonespec/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/apps/snapstudy_cbible/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jbiglion22.github.io/about-en.html</loc>

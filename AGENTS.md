@@ -18,9 +18,10 @@
 
 ## 사이트 성격
 - `https://jbiglion22.github.io/` (GitHub Pages, Jekyll). 앱들이 있다는 것을 알리고 각 앱의 홈페이지로 안내하는 사이트다. 여기서 바로 다운로드시키지 않는다.
+- 2026-11-13부터 한국어 사이트는 블로그 구조다(애드센스 "가치가 별로 없는 콘텐츠" 거절 대응, 사용자가 목업 2차 + 카테고리 글 한 줄 목록으로 확정). 앱 소개뿐 아니라 앱 주제와 이어지는 실용적인 글을 쌓는다. 영어 사이트는 앱 목록(`index-en.html`)과 소개 페이지만 있다.
 - 앱 홈페이지(`https://jbiglion22.github.io/<id>_home/`)는 별도 저장소에서 관리한다. 이 저장소에 앱 홈페이지를 만들지 않는다.
 - 사이트 제목: 한국어 `J's 앱 소개`(ASCII 작은따옴표), 영어 `J’s Apps`. 저작권 표기 `© 연도 jbiglion22`.
-- 디자인 방향: 차분하고 세련된 앱 디렉터리. 사용자가 "주기율표" 콘셉트를 촌스럽다고 거절했다. 비유나 장치(원소 칸, 뽑기 등)를 넣지 않는다.
+- 디자인 방향: 차분하고 세련된 앱 디렉터리·블로그. 사용자가 "주기율표" 콘셉트를 촌스럽다고 거절했다. 비유나 장치(원소 칸, 뽑기 등)를 넣지 않는다.
 - 소개 문구 방향(사용자 요청, 2026-11-13): 한 개발자의 앱 모음이라는 점을 앞세우지 않고, "쓸 만한 작은 앱들을 모아 소개하는 사이트"라는 느낌으로 쓴다. 다른 개발자의 앱이라고 주장하는 등 사실과 다른 내용은 쓰지 않는다. Google Play 개발자 이름(J.Biglion)과 개발자 페이지 링크는 소개 페이지에서 뺐다.
 - 앱 설명은 각 앱 홈페이지와 Google Play를 직접 확인해 쓴다. 확인되지 않은 기능·평점·이용자 수는 쓰지 않는다. 투자 앱에 투자 권유·수익 보장 표현을 쓰지 않는다.
 
@@ -29,15 +30,26 @@
 - 2026-11-13에 지운 10개 언어의 예전 주소(`index-zh-hans/zh-hant/fr/de/id/ja/pt/ru/es/vi.html`)는 `index-en.html`로 보내는 noindex 연결 페이지다(쿼리·해시 유지). 사이트맵에 있던 주소라 검색 결과에서 빠질 때까지 남겨 둔다. Search Console에서 더 이상 보이지 않으면 `redirects`에서 지우고 파일도 삭제해도 된다. 더 오래된 `index-ar/my/hi/th/es-mx/pt-br.html`은 정리 요청(2026-11-13)으로 삭제했다(404). 지운 번역은 Git 기록(커밋 702435a의 `data/site.json`)에 있다.
 - 언어를 다시 만들 때: `data/site.json`의 `languages`·`text.<언어>`·(필요하면 `about.<언어>`)와 `js/languages.js`를 함께 고치고 `redirects`에서 그 언어를 뺀 뒤 생성 스크립트를 실행한다.
 
+## 블로그 (한국어)
+- 주소: 홈 `/index-ko.html`(추천 글·최신 글 10개·카테고리 카드), 전체 글 `/posts/`, 카테고리 `/category/<그룹 id>/`, 일반 글 `/posts/<slug>/`, 앱 소개 글 `/apps/<앱 id>/`, 한국어 앱 목록 `/apps/`(예전 index-ko의 앱 목록 디자인, 앱을 누르면 앱 소개 글로 이동).
+- 카테고리 5개 = 앱 그룹 5개(id 동일): science 수학·과학 노트, learn 언어·교양, phone 휴대폰 활용, money 생활 계산, play 쉬어 가기. 이름·설명·화면 문구는 `data/site.json`의 `blog`.
+- 사용자 결정 사항: 글은 Markdown이 아니라 **HTML로 직접 쓴다**(설치 없이 여러 PC에서 생성하기 위해). 블로그 글은 한국어만. 홈·카테고리에 글·앱 개수를 표시하지 않는다. 카테고리 글 목록은 한 줄씩(그림 오른쪽). 카테고리 머리 아래에 그 카테고리 앱을 작게 소개하고, 앱 링크는 앱 소개 글로 간다. 글 끝의 관련 앱도 앱 소개 글로 간다. 앱 소개 글 끝에서만 앱 홈페이지로(새 창) 간다. 모든 글에 작성일을 표시하고, 앱 소개 글의 작성일은 앱 출시일이다.
+- 글 원본: `content/posts/<slug>.html`(일반 글), `content/apps/<앱 id>.html`(앱 소개 글, 앱마다 1개). 맨 위 `<!-- -->` 머리말에 `key: value` 한 줄씩: 일반 글은 title·date(YYYY-MM-DD)·category·topic·apps(쉼표)·summary·image(선택)·featured(선택, yes), 앱 소개 글은 app·date·topic·title·summary·image(선택). 그 아래는 본문 HTML이며 `<h2>`가 자동으로 목차가 된다. 쓸 수 있는 꾸밈: `.tip`(색 상자), `.feature-grid`(기능 칸), `.table-wrap`+`table`, `.swatch`. 생성 코드는 `tools/blog.py`.
+- 주제(topic)는 카테고리 안의 작은 분류이며 카테고리 페이지에서 주제 버튼으로 거를 수 있다(JavaScript가 있을 때만 버튼 표시). "앱 소개" 버튼은 앱 소개 글만 보여 준다.
+- 출시일 출처: Google Play 페이지 데이터의 두 날짜 중 이른 날짜(다른 하나는 업데이트 날짜, 2026-11-13 확인). Play 화면의 "출시일" 표기를 직접 본 것은 아니므로 사용자가 정확한 날짜를 알려 주면 고친다. 수능 한국사 2026-09-16, 가톨릭 성경 퀴즈 2026-02-14, 폰스펙 비교 2026-08-25 등 18개 모두 `content/apps/*.html`의 date에 있다.
+- 일반 글(2026-11-13 현재 3편): 저항 색띠 읽는 법(science, 추천 글), 와이파이 사각지대 줄이는 법(phone), 영어 속담 15개(learn). 일반 글의 작성일은 실제 작성일 근처의 적당한 날짜(사용자 지시). 사실 확인이 필요한 수치는 일반적으로 알려진 기준만 쓰고 "대략" 등으로 표시했다.
+- 글 그림: `image`가 없으면 카테고리(그룹) 그림을 대신 쓴다. 글 3편의 대표 그림을 이미지요청.md에 요청 중이다(`post-<slug>.png`). 받으면 1280×720 WebP로 `images/posts/<slug>.webp`에 저장하고 글 머리말에 `image: images/posts/<slug>.webp`를 넣는다.
+- 애드센스 재신청 전 남은 일: 글을 15~20편 이상 쌓기(1,500자 이상, 정확하고 쓸모 있게, 초안은 AI·검토는 사용자), 개인정보처리방침·문의 페이지(공개 이메일 결정 대기). 페이지 넘김(쪽 번호)은 아직 없다. 카테고리 글이 많아지면 추가한다.
+
 ## 파일 구조와 생성 방법
 - 원본 데이터: `data/site.json` — 앱(`apps`: id·group·icon), 그룹(`groups`), 언어별 문구(`text.<언어>`: 사이트 제목·소개·그룹 이름과 설명·앱 이름/분류/설명 등), 소개 페이지(`about`), 연결 페이지 목록(`redirects`).
-- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). `index-en.html`, `index-ko.html`, `about-en.html`, `about-ko.html`, 연결 페이지 10개, `index.html`, `sitemap.xml`을 만든다. **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
-- 본문은 HTML에 직접 들어간다(JavaScript 없이도 읽힘, 애드센스·검색 대응). `js/app.js`는 그룹 필터(`#learn`처럼 주소에 남음, 예전 `#calc`→money), 아이콘 판 클릭 이동, 언어 메뉴(`<details>` 링크), 저작권 연도만 담당한다. `js/languages.js`는 `index.html`의 자동 언어 이동(한국어면 ko, 그 밖에는 en)에 쓴다.
+- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). 블로그 전체(`index-ko.html`, `posts/`, `category/`, `apps/`), `index-en.html`, `about-en.html`, `about-ko.html`, 연결 페이지 10개, `index.html`, `sitemap.xml`을 만든다. 생성 페이지는 `/css/…`처럼 사이트 루트 기준 주소를 쓴다(하위 폴더 페이지 때문). **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
+- 본문은 HTML에 직접 들어간다(JavaScript 없이도 읽힘, 애드센스·검색 대응). `js/app.js`는 앱 목록의 그룹 필터(`#learn`처럼 주소에 남음, 예전 `#calc`→money), 아이콘 판 클릭 이동, 블로그 주제 버튼, 언어 메뉴(`<details>` 링크), 저작권 연도만 담당한다. `js/languages.js`는 `index.html`의 자동 언어 이동(한국어면 ko, 그 밖에는 en)에 쓴다.
 - `css/styles.css`: 색 토큰과 그룹 색 5쌍(라이트·다크), 예비 색 1쌍. 1080px 초과 3열, 720px 초과 2열, 그 이하 1열. 720px 이하에서 헤더 메뉴는 필요하면 다음 줄로 내려간다.
-- `_config.yml`의 exclude: 내부 문서(AGENTS.md, README.md, 프로젝트.md, 공통지침.md, 프로젝트지침.md, 이미지요청.md), `data/`, `tools/`, `자료실/` 등은 배포하지 않는다.
+- `_config.yml`의 exclude: 내부 문서(AGENTS.md, README.md, 프로젝트.md, 공통지침.md, 프로젝트지침.md, 이미지요청.md), `data/`, `tools/`, `content/`, `자료실/` 등은 배포하지 않는다.
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
 - `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
-- `sitemap.xml`: `/`, 영어·한국어 메인, 소개 페이지 2개, 앱 홈페이지 18개(총 23개). 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다(프로젝트.md 요구).
+- `sitemap.xml`: `/`, 영어·한국어 메인, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 소개 페이지 2개, 앱 홈페이지 18개(2026-11-13 기준 51개). 한국어 블로그 홈과 영어 앱 목록은 내용이 달라 hreflang으로 묶지 않는다(소개 페이지만 묶음). 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다(프로젝트.md 요구).
 
 ## 앱과 그룹 (18개, 5개 그룹)
 - learn 언어와 교양: koreanstudy 한국어 학습, englishproverbs 영어 속담 사전, snapstudy_koreanhistory 수능 한국사, arthistorynote 미술사노트, snapstudy_cbible 가톨릭 성경 퀴즈
@@ -48,7 +60,7 @@
 - 앱 `id`는 홈페이지 폴더 이름(`<id>_home`)과 같아야 한다. 패키지 ID와 다를 수 있다(수능 한국사: `com.phonensoft.snapstudykoreanhistory`, 폴더 `snapstudy_koreanhistory_home`).
 - 프로젝트.md의 `Korean Study`는 한국어 학습과 같은 앱이라 따로 넣지 않는다.
 - 참고: 폰체크·크로마 레이 홈페이지에는 "Coming soon" 문구가 남아 있으나 Google Play에 등록되어 있다. 수학 실험실·가톨릭 성경 퀴즈는 Play 설명이 더 최신이라 Play를 따랐다. 물리·한국사·수학공식은 한국 수능 대상이라 영어 설명에 CSAT를 밝혔다.
-- 앱 추가: `apps`에 `{id, group, icon}`(icon은 24×24 선 아이콘 내부 SVG), `text.en/ko.apps`에 `{name, tag, desc}`, 필요하면 그룹 조정(`groups`, 각 언어 `groups`·`groupDesc`, CSS 색). 앱이 늘면 그룹 수와 구성을 다시 검토한다(주식·놀이는 2개뿐). 앱이 30개를 넘어 찾기 어려워지면 검색을 검토한다.
+- 앱 추가: `apps`에 `{id, group, icon}`(icon은 24×24 선 아이콘 내부 SVG), `text.en/ko.apps`에 `{name, tag, desc}`, `content/apps/<id>.html` 앱 소개 글(작성일 = 출시일), 필요하면 그룹 조정(`groups`, 각 언어 `groups`·`groupDesc`, CSS 색). 앱이 늘면 그룹 수와 구성을 다시 검토한다(주식·놀이는 2개뿐). 앱이 30개를 넘어 찾기 어려워지면 검색을 검토한다.
 
 ## 이미지
 - 그림은 선택 사항이다. 생성 스크립트는 `images/` 안에 아래 이름의 파일(`.webp`, `.png`, `.jpg` 순서로 찾음)이 있을 때만 넣고, 없으면 그림 없는 디자인 그대로 만든다.
@@ -67,4 +79,5 @@
 ## 확인 방법
 - 미리보기: 저장소에서 `python -m http.server 8765 --bind 127.0.0.1` 후 `http://127.0.0.1:8765/index-ko.html`. 끝나면 그 서버만 끈다(다른 Python 프로세스를 한꺼번에 끄지 않는다).
 - 확인할 것: 한국어·영어, 320px·390px·1280px, 가로 넘침, 그룹 필터와 주소, 언어 메뉴, 예전 언어 주소 연결, JavaScript를 막아도 카드 18개가 보이는지, 콘솔 오류.
-- 확인하지 못한 것(2026-11-13): 실제 휴대폰, 배포된 사이트, 원어민 번역 감수(영어).
+- 블로그 확인(2026-11-13): 생성된 44개 페이지의 내부 링크·그림 985개 모두 존재, 17개 대표 페이지 320px·390px 넘침 없음, 콘솔 오류 없음, 카테고리 주제 버튼 동작, 홈·카테고리·글·앱 소개 글·앱 목록을 PC와 390px 다크 모드에서 눈으로 확인.
+- 확인하지 못한 것(2026-11-13): 실제 휴대폰, 배포된 사이트, 원어민 번역 감수(영어), 글 내용의 사용자 검토.
