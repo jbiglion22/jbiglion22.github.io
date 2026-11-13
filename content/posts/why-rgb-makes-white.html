@@ -21,10 +21,32 @@ summary: 물감은 섞을수록 어두워지는데 빛은 섞을수록 밝아집
   </tbody>
 </table>
 </div>
+<figure class="chart">
+  <div class="frame">
+    <svg viewBox="0 0 640 300" role="img" aria-label="왼쪽: 검은 바탕에 빨강, 초록, 파랑 빛 원이 겹쳐 노랑, 시안, 마젠타가 생기고 가운데는 흰색. 오른쪽: 흰 바탕에 시안, 마젠타, 노랑 물감 원이 겹쳐 파랑, 빨강, 초록이 생기고 가운데는 검은색에 가까움.">
+      <rect x="10" y="10" width="300" height="240" rx="14" fill="#000"/>
+      <g style="isolation:isolate">
+        <circle cx="122" cy="105" r="66" fill="#ff0000" style="mix-blend-mode:screen"/>
+        <circle cx="198" cy="105" r="66" fill="#00ff00" style="mix-blend-mode:screen"/>
+        <circle cx="160" cy="168" r="66" fill="#0000ff" style="mix-blend-mode:screen"/>
+      </g>
+      <rect x="330" y="10" width="300" height="240" rx="14" fill="#fff" stroke="#ddd"/>
+      <g style="isolation:isolate">
+        <circle cx="442" cy="105" r="66" fill="#00ffff" style="mix-blend-mode:multiply"/>
+        <circle cx="518" cy="105" r="66" fill="#ff00ff" style="mix-blend-mode:multiply"/>
+        <circle cx="480" cy="168" r="66" fill="#ffff00" style="mix-blend-mode:multiply"/>
+      </g>
+      <text class="t" x="160" y="278" text-anchor="middle" font-weight="700">빛 (RGB) · 더할수록 밝아짐</text>
+      <text class="t" x="480" y="278" text-anchor="middle" font-weight="700">잉크 (CMY) · 섞을수록 어두워짐</text>
+    </svg>
+  </div>
+  <figcaption>왼쪽은 빛의 가산 혼합, 오른쪽은 잉크의 감산 혼합입니다. 두 그림은 서로 정반대로 색이 만들어집니다.</figcaption>
+</figure>
 <p>세 빛을 모두 같은 세기로 겹치면 흰색이 되고, 아무 빛도 없으면 검은색이 됩니다. 그래서 빨강(Red), 초록(Green), 파랑(Blue)을 <strong>빛의 삼원색</strong>, 줄여서 RGB라고 부릅니다.</p>
 
 <h2>왜 하필 빨강, 초록, 파랑일까</h2>
 <p>답은 우리 눈에 있습니다. 사람의 망막에는 색을 느끼는 세포(원뿔세포)가 세 종류 있고, 각각 긴 파장(빨강 쪽), 중간 파장(초록 쪽), 짧은 파장(파랑 쪽)의 빛에 잘 반응합니다. 뇌는 이 세 세포가 얼마나 강하게 반응했는지를 비교해 색을 느낍니다.</p>
+<figure class="photo" data-src="images/posts/why-rgb-makes-white-stage.webp" data-alt="흰 벽에 빨강, 초록, 파랑 조명이 겹쳐 가운데가 하얗게 보이는 모습">빨강·초록·파랑 조명을 겹쳐 비추면 겹친 곳마다 새로운 색이 생기고, 세 빛이 모두 겹친 가운데는 하얗게 보입니다.</figure>
 <p>그래서 빨강과 초록 빛을 함께 보여 주면, 실제로 노란 파장의 빛이 없어도 눈은 노란빛을 볼 때와 비슷하게 반응해 노랑으로 느낍니다. 세 가지 빛의 세기만 잘 조절하면 눈이 느낄 수 있는 대부분의 색을 만들 수 있는 이유입니다.</p>
 
 <h2>휴대폰 화면도 같은 원리입니다</h2>
@@ -34,6 +56,25 @@ summary: 물감은 섞을수록 어두워지는데 빛은 섞을수록 밝아집
   <li>흰 바탕은 세 점이 모두 밝게 켜져 있습니다.</li>
   <li>각 점의 밝기를 256단계로 나누면 256 × 256 × 256, 약 1,670만 가지 색을 표시할 수 있습니다.</li>
 </ul>
+<figure class="chart">
+  <div class="frame">
+    <svg viewBox="0 0 640 220" role="img" aria-label="화면의 화소 세 개 도해. 흰색 화소는 빨강, 초록, 파랑 점이 모두 켜져 있고, 노랑 화소는 빨강과 초록만 켜져 있고, 마젠타 화소는 빨강과 파랑만 켜져 있다.">
+      <g>
+        <rect x="40" y="20" width="150" height="150" rx="12" fill="#111"/>
+        <rect x="55" y="35" width="36" height="120" rx="6" fill="#ff3b30"/><rect x="97" y="35" width="36" height="120" rx="6" fill="#34c759"/><rect x="139" y="35" width="36" height="120" rx="6" fill="#2f6bff"/>
+        <rect x="245" y="20" width="150" height="150" rx="12" fill="#111"/>
+        <rect x="260" y="35" width="36" height="120" rx="6" fill="#ff3b30"/><rect x="302" y="35" width="36" height="120" rx="6" fill="#34c759"/><rect x="344" y="35" width="36" height="120" rx="6" fill="#2f6bff" fill-opacity=".12"/>
+        <rect x="450" y="20" width="150" height="150" rx="12" fill="#111"/>
+        <rect x="465" y="35" width="36" height="120" rx="6" fill="#ff3b30"/><rect x="507" y="35" width="36" height="120" rx="6" fill="#34c759" fill-opacity=".12"/><rect x="549" y="35" width="36" height="120" rx="6" fill="#2f6bff"/>
+      </g>
+      <text class="t" x="115" y="200" text-anchor="middle" font-weight="700">흰색 = R + G + B</text>
+      <text class="t" x="320" y="200" text-anchor="middle" font-weight="700">노랑 = R + G</text>
+      <text class="t" x="525" y="200" text-anchor="middle" font-weight="700">마젠타 = R + B</text>
+    </svg>
+  </div>
+  <figcaption>화면의 화소 하나는 빨강·초록·파랑 작은 점으로 이루어집니다. 어떤 점을 얼마나 밝게 켜느냐에 따라 보이는 색이 정해집니다(점의 모양과 배열은 화면 종류마다 다릅니다).</figcaption>
+</figure>
+<figure class="photo" data-src="images/posts/why-rgb-makes-white-pixels.webp" data-alt="화면을 아주 가까이에서 본 빨강, 초록, 파랑 작은 점들">화면을 아주 가까이에서 보면 빨강·초록·파랑의 작은 점들이 촘촘하게 모여 있습니다.</figure>
 <p>웹이나 디자인 프로그램에서 색을 <code>#FFFF00</code>(노랑)처럼 적는 것도 빨강·초록·파랑의 세기를 차례로 적은 것입니다.</p>
 
 <h2>물감과 프린터는 빼면서 색을 만듭니다</h2>

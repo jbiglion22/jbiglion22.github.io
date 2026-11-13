@@ -11,6 +11,11 @@ Header fields (one "key: value" per line inside the first <!-- ... --> comment):
   app posts: app, date (the app's release date), topic, title, summary, image (optional)
 
 Everything after the header comment is the body HTML. <h2> headings get ids and form the table of contents.
+
+Pictures inside a post (photo-like images made on request) are written as
+  <figure class="photo" data-src="images/posts/x.webp" data-alt="what the picture shows">caption</figure>
+The figure is shown only when the file exists, so a requested picture can be placed before it arrives.
+Charts and diagrams are drawn directly as inline SVG/HTML inside <figure class="chart">.
 """
 import re
 
@@ -39,6 +44,21 @@ def parse_source(path, allowed):
 def nice_date(iso):
     y, m, d = iso.split('-')
     return f'{y}. {int(m)}. {int(d)}'
+
+
+def resolve_photos(body, root, esc, ai_label):
+    """Turn <figure class="photo" data-src=... data-alt=...>caption</figure> into an image figure
+    when the file exists, or drop it while the picture has not arrived yet."""
+    def repl(m):
+        attrs, caption = m.group(1), m.group(2).strip()
+        src = re.search(r'data-src="([^"]+)"', attrs).group(1).lstrip('/')
+        alt = re.search(r'data-alt="([^"]*)"', attrs)
+        if not (root / src).exists():
+            return ''
+        return (f'<figure class="photo"><img src="/{src}" alt="{alt.group(1) if alt else ""}" loading="lazy">'
+                f'<figcaption>{caption}<span class="ai-label">{esc(ai_label)}</span></figcaption></figure>')
+
+    return re.sub(r'<figure class="photo"([^>]*)>(.*?)</figure>', repl, body, flags=re.S)
 
 
 def add_heading_ids(body):
@@ -343,7 +363,7 @@ class Blog:
     def post(self, item, year):
         esc, h = self.h.esc, self.h
         cat = self.cats[item['category']]
-        body, toc = add_heading_ids(item['body'])
+        body, toc = add_heading_ids(resolve_photos(item['body'], self.root, esc, self.cfg['aiImageLabel']))
         pool = [i for i in self.items if i['category'] == item['category']]
         older, newer = self.neighbours(item, pool)
         app_cards = '\n'.join(
@@ -381,7 +401,7 @@ class Blog:
         app = self.apps[app_id]
         x = h.app_text(site, 'ko', app_id)
         cat = self.cats[item['category']]
-        body, toc = add_heading_ids(item['body'])
+        body, toc = add_heading_ids(resolve_photos(item['body'], self.root, esc, self.cfg['aiImageLabel']))
         reading = [i for i in self.items if i['kind'] == 'post' and app_id in i['apps']]
         if reading:
             links = ''.join(f'<li><a class="text-link" href="{r["url"]}">{esc(r["title"])}</a></li>' for r in reading)

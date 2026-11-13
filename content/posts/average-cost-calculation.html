@@ -26,6 +26,38 @@ summary: 같은 주식을 여러 번 나눠 샀을 때 평균 단가를 구하�
   </tbody>
 </table>
 </div>
+<figure class="chart">
+  <div class="frame">
+    <svg viewBox="0 0 640 320" role="img" aria-label="세 번 나눠 산 가격과 평균 단가 차트. 매수 가격은 10,000원, 8,000원, 6,000원이고, 그때까지의 평균 단가는 10,000원, 9,000원, 7,500원으로 내려간다.">
+      <g class="grid"><path d="M70 260H610M70 186.7H610M70 113.3H610M70 40H610"/></g>
+      <text class="m" x="62" y="264" text-anchor="end">0</text>
+      <text class="m" x="62" y="191" text-anchor="end">4,000</text>
+      <text class="m" x="62" y="118" text-anchor="end">8,000</text>
+      <text class="m" x="62" y="44" text-anchor="end">12,000</text>
+      <g class="c-bg">
+        <rect x="125" y="76.7" width="70" height="183.3" rx="6"/>
+        <rect x="285" y="113.3" width="70" height="146.7" rx="6"/>
+        <rect x="445" y="150" width="70" height="110" rx="6"/>
+      </g>
+      <text class="m" x="160" y="250" text-anchor="middle">10,000원</text>
+      <text class="m" x="320" y="250" text-anchor="middle">8,000원</text>
+      <text class="m" x="480" y="250" text-anchor="middle">6,000원</text>
+      <polyline points="160,76.7 320,95 480,122.5" fill="none" class="ink-stroke" stroke-width="3"/>
+      <g class="ink-fill"><circle cx="160" cy="76.7" r="6"/><circle cx="320" cy="95" r="6"/><circle cx="480" cy="122.5" r="6"/></g>
+      <text class="t" x="160" y="64" text-anchor="middle" font-weight="700">10,000</text>
+      <text class="t" x="320" y="82" text-anchor="middle" font-weight="700">9,000</text>
+      <text class="t" x="480" y="110" text-anchor="middle" font-weight="700">7,500</text>
+      <text class="t" x="160" y="284" text-anchor="middle">1회 · 10주</text>
+      <text class="t" x="320" y="284" text-anchor="middle">2회 · 10주</text>
+      <text class="t" x="480" y="284" text-anchor="middle">3회 · 20주</text>
+      <rect class="c-bg" x="200" y="300" width="14" height="14" rx="3"/>
+      <text class="m" x="220" y="312">그 회차의 매수 가격</text>
+      <line x1="370" y1="307" x2="396" y2="307" class="ink-stroke" stroke-width="3"/>
+      <text class="m" x="404" y="312">그때까지의 평균 단가</text>
+    </svg>
+  </div>
+  <figcaption>막대는 회차별 매수 가격, 선은 그때까지의 평균 단가입니다. 마지막에 더 많이 산 6,000원 쪽으로 평균이 끌려 내려갑니다.</figcaption>
+</figure>
 <p>가격만 평균 내면 8,000원이지만, 실제 평균 단가는 7,500원입니다. 마지막에 낮은 가격으로 더 많은 수량을 샀기 때문에 평균이 그쪽으로 끌려 내려간 것입니다.</p>
 
 <h2>추가로 사면 평균 단가는 얼마나 바뀔까</h2>
@@ -42,6 +74,29 @@ summary: 같은 주식을 여러 번 나눠 샀을 때 평균 단가를 구하�
   </tbody>
 </table>
 </div>
+<figure class="chart">
+  <div class="frame">
+    <svg viewBox="0 0 640 200" role="img" aria-label="평균 단가 9,000원에 20주를 가진 상태에서 6,000원에 추가로 살 때, 10주를 더 사면 6만 원이 들고 평균 8,000원, 20주는 12만 원으로 7,500원, 40주는 24만 원으로 7,000원이 된다.">
+      <text class="m" x="20" y="24">추가 매수 금액</text>
+      <text class="m" x="620" y="24" text-anchor="end">새 평균 단가</text>
+      <text class="t" x="20" y="62">10주 더</text>
+      <text class="t" x="20" y="116">20주 더</text>
+      <text class="t" x="20" y="170">40주 더</text>
+      <g class="c-bg">
+        <rect x="100" y="42" width="90" height="28" rx="6"/>
+        <rect x="100" y="96" width="180" height="28" rx="6"/>
+        <rect x="100" y="150" width="360" height="28" rx="6"/>
+      </g>
+      <text class="m" x="200" y="62">60,000원</text>
+      <text class="m" x="290" y="116">120,000원</text>
+      <text class="m" x="470" y="170">240,000원</text>
+      <text class="t" x="620" y="62" text-anchor="end" font-weight="700">8,000원</text>
+      <text class="t" x="620" y="116" text-anchor="end" font-weight="700">7,500원</text>
+      <text class="t" x="620" y="170" text-anchor="end" font-weight="700">7,000원</text>
+    </svg>
+  </div>
+  <figcaption>평균 9,000원에 20주를 가진 상태에서 6,000원에 더 살 때. 추가 금액을 두 배씩 늘려도 평균 단가는 1,000원, 1,500원, 2,000원으로 조금씩만 더 내려갑니다.</figcaption>
+</figure>
 <p>표에서 보듯 평균 단가를 많이 낮추려면 그만큼 많은 돈이 더 들어갑니다. 평균 단가가 내려가도 <strong>지금까지의 손실 금액이 줄어드는 것은 아니며</strong>, 투자한 금액이 커진 만큼 가격이 더 내려가면 손실도 커질 수 있다는 점을 함께 계산해 두는 것이 좋습니다.</p>
 
 <h2>수수료와 세금을 넣은 본전 가격</h2>
@@ -54,6 +109,8 @@ summary: 같은 주식을 여러 번 나눠 샀을 때 평균 단가를 구하�
   <li>본전 가격 = 7,501.125 ÷ 0.99785 ≈ 7,517.3원</li>
 </ul>
 <p>이 가정에서는 7,500원이 아니라 약 7,518원 이상에 팔아야 비용을 빼고 손해가 나지 않습니다. 실제 주문은 정해진 가격 단위(호가 단위)로만 낼 수 있으니, 계산값보다 높은 가장 가까운 가격을 고르면 됩니다.</p>
+
+<figure class="photo" data-src="images/posts/average-cost-calculation-photo.webp" data-alt="책상 위의 계산기, 동전, 손으로 그린 선 그래프가 있는 공책">매수 기록은 날짜, 가격, 수량을 한곳에 적어 두면 평균 단가와 본전 가격을 다시 계산하기 쉽습니다.</figure>
 
 <h2>자주 하는 계산 실수</h2>
 <ol>

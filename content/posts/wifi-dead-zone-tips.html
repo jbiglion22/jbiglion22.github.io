@@ -39,6 +39,50 @@ summary: 거실은 잘 되는데 안방만 가면 끊기는 와이파이. 신호
   <li><strong>막힌 곳에서 꺼내기:</strong> 신발장, TV 장식장 안, 두꺼운 가구 뒤는 피합니다. 금속 물체, 거울, 어항과도 떨어뜨립니다.</li>
   <li><strong>안테나 방향 바꿔 보기:</strong> 바깥 안테나가 여러 개라면 일부는 세우고 일부는 비스듬히 눕혀 보는 것도 방법입니다. 집 구조에 따라 효과가 다르므로 바꾼 뒤 다시 확인합니다.</li>
 </ol>
+<figure class="chart">
+  <div class="frame">
+    <svg viewBox="0 0 640 270" role="img" aria-label="같은 집 평면도 두 개. 왼쪽은 공유기가 구석에 있어 신호가 집의 반대쪽까지 닿지 않고, 오른쪽은 공유기가 가운데에 있어 신호가 집 전체에 고르게 퍼진다.">
+      <defs>
+        <clipPath id="planA"><rect x="20" y="20" width="280" height="200" rx="6"/></clipPath>
+        <clipPath id="planB"><rect x="340" y="20" width="280" height="200" rx="6"/></clipPath>
+      </defs>
+      <g clip-path="url(#planA)">
+        <rect class="card-fill" x="20" y="20" width="280" height="200"/>
+        <circle cx="45" cy="195" r="250" fill="#1f5a94" fill-opacity=".08"/>
+        <circle cx="45" cy="195" r="170" fill="#1f5a94" fill-opacity=".14"/>
+        <circle cx="45" cy="195" r="95" fill="#1f5a94" fill-opacity=".22"/>
+      </g>
+      <g clip-path="url(#planB)">
+        <rect class="card-fill" x="340" y="20" width="280" height="200"/>
+        <circle cx="480" cy="120" r="250" fill="#1f5a94" fill-opacity=".08"/>
+        <circle cx="480" cy="120" r="170" fill="#1f5a94" fill-opacity=".14"/>
+        <circle cx="480" cy="120" r="95" fill="#1f5a94" fill-opacity=".22"/>
+      </g>
+      <g class="ink-stroke" fill="none" stroke-width="3">
+        <rect x="20" y="20" width="280" height="200" rx="6"/>
+        <rect x="340" y="20" width="280" height="200" rx="6"/>
+        <path d="M170 20v70M170 130v90M170 120h130M490 20v70M490 130v90M490 120h130"/>
+      </g>
+      <g class="ink-fill">
+        <rect x="33" y="186" width="24" height="14" rx="3"/>
+        <rect x="468" y="111" width="24" height="14" rx="3"/>
+      </g>
+      <text class="m" x="250" y="52" text-anchor="middle">안방</text>
+      <text class="m" x="250" y="175" text-anchor="middle">작은방</text>
+      <text class="m" x="95" y="52" text-anchor="middle">거실</text>
+      <text class="m" x="570" y="52" text-anchor="middle">안방</text>
+      <text class="m" x="570" y="175" text-anchor="middle">작은방</text>
+      <text class="m" x="415" y="52" text-anchor="middle">거실</text>
+      <text class="t" x="160" y="250" text-anchor="middle">공유기가 거실 구석에 있을 때</text>
+      <text class="t" x="480" y="250" text-anchor="middle">집 가운데 쪽으로 옮겼을 때</text>
+    </svg>
+  </div>
+  <figcaption>공유기 위치에 따른 신호 범위 개념도. 진한 색일수록 신호가 강한 곳입니다. 실제 신호는 벽 재질과 구조에 따라 달라집니다.</figcaption>
+</figure>
+<div class="pair">
+  <figure class="photo" data-src="images/posts/wifi-dead-zone-tips-good.webp" data-alt="열린 선반 위 허리 높이에 놓인 공유기">좋은 예: 집 가운데 쪽, 열린 선반 위에 둔 공유기</figure>
+  <figure class="photo" data-src="images/posts/wifi-dead-zone-tips-avoid.webp" data-alt="닫힌 수납장 안에 들어 있는 공유기">피할 예: 닫힌 수납장 안이나 TV 장식장 속</figure>
+</div>
 
 <h2>그래도 약하다면: 채널과 중계기</h2>
 <ul>
@@ -53,4 +97,32 @@ summary: 거실은 잘 되는데 안방만 가면 끊기는 와이파이. 신호
   <li>같은 휴대폰으로, 비슷한 자세로 잽니다. 손으로 감싸 쥐는 방식만 달라도 값이 바뀝니다.</li>
   <li>신호 세기는 보통 dBm이라는 음수로 표시합니다. 0에 가까울수록 강하며, 대략 −50dBm 근처면 매우 좋고, −70dBm보다 낮아지면 영상이나 통화가 끊기기 쉬운 편입니다. 기기마다 차이가 있으니 절대 기준이 아니라 비교용으로 보세요.</li>
 </ul>
+<figure class="chart">
+  <div class="frame">
+    <svg viewBox="0 0 640 130" role="img" aria-label="와이파이 신호 세기 대략적인 기준 막대. −50dBm보다 강하면 매우 좋음, −50에서 −60은 좋음, −60에서 −70은 보통, −70에서 −80은 약함, −80보다 약하면 매우 약함.">
+      <text class="t" x="80" y="30" text-anchor="middle">매우 좋음</text>
+      <text class="t" x="200" y="30" text-anchor="middle">좋음</text>
+      <text class="t" x="320" y="30" text-anchor="middle">보통</text>
+      <text class="t" x="440" y="30" text-anchor="middle">약함</text>
+      <text class="t" x="560" y="30" text-anchor="middle">매우 약함</text>
+      <rect x="20" y="42" width="120" height="30" rx="8" fill="#2e9b4f"/>
+      <rect x="140" y="42" width="120" height="30" fill="#7cbf4f"/>
+      <rect x="260" y="42" width="120" height="30" fill="#e2b33c"/>
+      <rect x="380" y="42" width="120" height="30" fill="#e07b39"/>
+      <rect x="500" y="42" width="120" height="30" rx="8" fill="#d14b4b"/>
+      <rect x="130" y="42" width="20" height="30" fill="#2e9b4f"/>
+      <rect x="490" y="42" width="20" height="30" fill="#e07b39"/>
+      <rect x="140" y="42" width="120" height="30" fill="#7cbf4f"/>
+      <rect x="380" y="42" width="120" height="30" fill="#e07b39"/>
+      <g class="axis"><path d="M140 72v10M260 72v10M380 72v10M500 72v10"/></g>
+      <text class="m" x="140" y="98" text-anchor="middle">−50</text>
+      <text class="m" x="260" y="98" text-anchor="middle">−60</text>
+      <text class="m" x="380" y="98" text-anchor="middle">−70</text>
+      <text class="m" x="500" y="98" text-anchor="middle">−80 dBm</text>
+      <text class="m" x="20" y="122">← 강함 (0에 가까움)</text>
+      <text class="m" x="620" y="122" text-anchor="end">약함 →</text>
+    </svg>
+  </div>
+  <figcaption>와이파이 신호 세기의 대략적인 기준. 휴대폰 기종에 따라 같은 자리에서도 값이 다르게 나오므로, 같은 휴대폰으로 전후를 비교할 때 쓰세요.</figcaption>
+</figure>
 <p>집 평면도 위에서 방마다 신호를 재고 색으로 비교해 주는 앱을 쓰면, 어느 방이 약한지와 공유기를 옮긴 효과를 한눈에 볼 수 있습니다.</p>

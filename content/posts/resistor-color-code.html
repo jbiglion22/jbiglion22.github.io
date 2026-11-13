@@ -17,6 +17,34 @@ featured: yes
   <li><strong>띠 사이 간격을 봅니다.</strong> 마지막 띠(오차)는 다른 띠와 조금 떨어져 그려지는 경우가 많습니다. 간격이 넓은 쪽이 오른쪽입니다.</li>
   <li><strong>부품 끝에 더 가까운 띠가 첫째 띠입니다.</strong> 띠가 한쪽 끝으로 몰려 있다면 그쪽에서 읽기 시작합니다.</li>
 </ol>
+<figure class="chart">
+  <div class="frame">
+    <svg viewBox="0 0 640 230" role="img" aria-label="4색띠 저항 도해: 갈색, 검정, 빨강, 금색 띠가 있고 금색 띠가 조금 떨어져 있다. 왼쪽부터 첫째 숫자 1, 둘째 숫자 0, 곱할 수 100, 오차 ±5%로 읽어 1kΩ ±5%이다.">
+      <text class="m" x="20" y="28">읽는 방향 →</text>
+      <text class="t" x="620" y="28" text-anchor="end" font-weight="700">1kΩ ±5%</text>
+      <line x1="20" y1="110" x2="150" y2="110" stroke="#9ea3a8" stroke-width="6" stroke-linecap="round"/>
+      <line x1="490" y1="110" x2="620" y2="110" stroke="#9ea3a8" stroke-width="6" stroke-linecap="round"/>
+      <rect x="140" y="66" width="360" height="88" rx="44" fill="#e8cfa6"/>
+      <rect x="192" y="66" width="28" height="88" fill="#7b4a26"/>
+      <rect x="246" y="66" width="28" height="88" fill="#1b1b1b"/>
+      <rect x="300" y="66" width="28" height="88" fill="#d33"/>
+      <rect x="414" y="66" width="28" height="88" fill="#c9a227"/>
+      <g class="axis" fill="none">
+        <path d="M206 156v22M260 156v22M314 156v22M428 156v22"/>
+      </g>
+      <text class="t" x="206" y="198" text-anchor="middle">1</text>
+      <text class="t" x="260" y="198" text-anchor="middle">0</text>
+      <text class="t" x="314" y="198" text-anchor="middle">× 100</text>
+      <text class="t" x="428" y="198" text-anchor="middle">±5%</text>
+      <text class="m" x="206" y="220" text-anchor="middle">첫째 숫자</text>
+      <text class="m" x="260" y="220" text-anchor="middle">둘째 숫자</text>
+      <text class="m" x="314" y="220" text-anchor="middle">곱할 수</text>
+      <text class="m" x="428" y="220" text-anchor="middle">오차</text>
+      <text class="m" x="371" y="56" text-anchor="middle">← 간격 →</text>
+    </svg>
+  </div>
+  <figcaption>4색띠 저항 읽는 법. 오차를 나타내는 금색 띠는 다른 띠와 조금 떨어져 있습니다.</figcaption>
+</figure>
 
 <h2>색과 숫자 대응표</h2>
 <p>각 색은 0부터 9까지의 숫자, 곱할 수, 오차를 나타냅니다. 숫자는 "검·갈·빨·주·노·초·파·보·회·흰" 순서로 0부터 9까지입니다.</p>
@@ -57,4 +85,5 @@ featured: yes
   <li><strong>5색띠에서 갈색의 위치:</strong> 정밀 저항은 오차 띠가 갈색(±1%)인 경우가 많아, 양쪽 끝이 모두 갈색일 수 있습니다. 이때는 간격이 넓은 쪽을 오른쪽으로 봅니다.</li>
   <li><strong>금색이 셋째 띠에 있는 경우:</strong> 금색은 곱할 수 × 0.1로도 쓰입니다. 노랑 · 보라 · 금색 · 금색은 47 × 0.1 = 4.7Ω, 오차 ±5%입니다.</li>
 </ul>
+<figure class="photo" data-src="images/posts/resistor-color-code-photo.webp" data-alt="브레드보드에 꽂힌 여러 색띠 저항과 멀티미터 탐침">색띠가 다른 저항 여러 개. 갈색·빨강·주황처럼 비슷한 색은 밝은 곳에서 나란히 놓고 비교하면 구분하기 쉽습니다.</figure>
 <p>읽은 값이 확실하지 않을 때는 멀티미터로 직접 재 보는 것이 가장 정확합니다. 회로에 납땜된 상태에서는 다른 부품의 영향으로 값이 다르게 나올 수 있으니, 가능하면 부품을 뺀 상태에서 잽니다. 색을 고르면 값과 오차 범위를 바로 보여 주는 계산 앱을 함께 쓰면 실수를 줄일 수 있습니다.</p>
