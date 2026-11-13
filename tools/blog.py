@@ -83,6 +83,7 @@ class Blog:
         self.cats = {c['id']: c for c in self.cfg['categories']}
         self.apps = {a['id']: a for a in site['apps']}
         self.items = self.load()
+        self.show_english = 'en' in site.get('published', [])  # language menu only when English is published
 
     # ---------- content ----------
     def load(self):
@@ -113,11 +114,24 @@ class Blog:
         """Apps link to their introduction post when it exists, otherwise to the app homepage."""
         return (self.app_post(app_id) and f'/apps/{app_id}/') or self.h.homepage(self.site, app_id)
 
-    def image_for(self, item):
+    def own_image(self, item):
+        """The post's own cover: the header "image", or by name images/posts/<slug>.* for articles
+        and images/posts/app-<app id>.* for app posts (so a delivered picture needs no header edit)."""
         if item.get('image'):
             return '/' + item['image'].lstrip('/')
-        cover = self.h.find_image(f'group-{item["category"]}')
+        found = self.h.find_image(f'posts/app-{item["slug"]}' if item['kind'] == 'app' else f'posts/{item["slug"]}')
+        return f'/{found}' if found else None
+
+    def image_for(self, item):
+        own = self.own_image(item)
+        if own:
+            return own
+        cover = self.h.find_image(f'group-{item["category"]}')  # fallback until the post's own picture arrives
         return f'/{cover}' if cover else None
+
+    def missing_covers(self):
+        """Posts that still borrow the category picture (reported by the build)."""
+        return [i['url'] for i in self.items if not self.own_image(i)]
 
     # ---------- shared pieces ----------
     def head(self, title, description, path, noindex=False):
@@ -133,14 +147,14 @@ class Blog:
 {share}
   <title>{h.esc(title)}</title>
   <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="/js/app.js" defer></script>
+  <link rel="stylesheet" href="{h.asset("css/styles.css")}">
+  <script src="{h.asset("js/app.js")}" defer></script>
 </head>'''
 
     def header(self, active=None, en_href='/index-en.html'):
         esc, t = self.h.esc, self.t
         cur = ' class="on" aria-current="page"'
-        links = [f'<a href="/index-ko.html"{cur if active == "home" else ""}>{esc(self.cfg["homeLabel"])}</a>']
+        links = [f'<a href="/"{cur if active == "home" else ""}>{esc(self.cfg["homeLabel"])}</a>']
         links += [f'<a href="/category/{c["id"]}/"{cur if active == c["id"] else ""}>{esc(c["name"])}</a>'
                   for c in self.cfg['categories']]
         apps_cls = ' class="apps-link on" aria-current="page"' if active == 'apps' else ' class="apps-link"'
@@ -149,17 +163,10 @@ class Blog:
 <header class="site-head" id="top">
   <div class="wrap">
     <div class="site-head-row">
-      <a class="brand" href="/index-ko.html"><span class="brand-mark" aria-hidden="true">J</span><bdi>{esc(t["siteTitle"])}</bdi></a>
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">J</span><bdi>{esc(t["siteTitle"])}</bdi></a>
       <div class="top-end">
         <a class="top-link" href="/about-ko.html"{cur if active == "about" else ""}>{esc(t["aboutLabel"])}</a>
-        <details class="lang">
-          <summary aria-label="{esc(t["languageLabel"])}: 한국어">한국어</summary>
-          <ul class="lang-menu">
-            <li><a href="{en_href}" lang="en" hreflang="en">English</a></li>
-            <li><a href="#" lang="ko" aria-current="page">한국어</a></li>
-          </ul>
-        </details>
-      </div>
+{self.language_menu(en_href)}      </div>
     </div>
     <nav class="menu" aria-label="{esc(self.cfg["menuLabel"])}">
       {chr(10).join("      " + l if i else l for i, l in enumerate(links))}
@@ -167,10 +174,23 @@ class Blog:
   </div>
 </header>'''
 
+    def language_menu(self, en_href):
+        if not self.show_english:
+            return ''
+        esc, t = self.h.esc, self.t
+        return f'''        <details class="lang">
+          <summary aria-label="{esc(t["languageLabel"])}: 한국어">한국어</summary>
+          <ul class="lang-menu">
+            <li><a href="{en_href}" lang="en" hreflang="en">English</a></li>
+            <li><a href="#" lang="ko" aria-current="page">한국어</a></li>
+          </ul>
+        </details>
+'''
+
     def footer(self, year):
         esc = self.h.esc
         return f'''<footer class="wrap blog-foot">
-  <nav><a href="/index-ko.html">{esc(self.cfg["homeLabel"])}</a><a href="/apps/">{esc(self.cfg["appsLabel"])}</a><a href="/about-ko.html">{esc(self.t["aboutLabel"])}</a></nav>
+  <nav><a href="/">{esc(self.cfg["homeLabel"])}</a><a href="/apps/">{esc(self.cfg["appsLabel"])}</a><a href="/about-ko.html">{esc(self.t["aboutLabel"])}</a></nav>
   <span>© <bdi><span class="year">{year}</span> jbiglion22</bdi></span>
 </footer>'''
 
@@ -264,7 +284,7 @@ class Blog:
   </section>
 </main>'''
         title = self.t['siteTitle']
-        return self.page(title, self.cfg['homeDescription'], '/index-ko.html', 'home', main, year)
+        return self.page(title, self.cfg['homeDescription'], '/', 'home', main, year)
 
     def topic_filter(self, items):
         esc = self.h.esc
@@ -291,7 +311,7 @@ class Blog:
         main = f'''<main id="main" class="wrap">
   <section class="cat-head c-{cat["id"]}">
     <div>
-      <div class="crumb"><a href="/index-ko.html">{esc(self.cfg["homeLabel"])}</a> › {esc(self.cfg["categoryLabel"])}</div>
+      <div class="crumb"><a href="/">{esc(self.cfg["homeLabel"])}</a> › {esc(self.cfg["categoryLabel"])}</div>
       <h1>{esc(cat["name"])}</h1>
       <p>{esc(cat["desc"])}</p>
     </div>
@@ -317,7 +337,7 @@ class Blog:
         esc = self.h.esc
         main = f'''<main id="main" class="wrap">
   <section class="list-page">
-    <div class="crumb"><a href="/index-ko.html">{esc(self.cfg["homeLabel"])}</a></div>
+    <div class="crumb"><a href="/">{esc(self.cfg["homeLabel"])}</a></div>
     <h1>{esc(self.cfg["allPostsLabel"])}</h1>
     <p class="list-intro">{esc(self.cfg["allPostsIntro"])}</p>
 {self.topic_filter(self.items).replace(' role="group"', ' role="group" data-wide')}    <div class="post-list" data-filterable>
@@ -380,7 +400,7 @@ class Blog:
         topic = f' › {esc(item["topic"])}' if item.get('topic') else ''
         main = f'''<main id="main" class="wrap article-wrap">
   <article class="article c-{cat["id"]}">
-    <div class="crumb"><a href="/index-ko.html">{esc(self.cfg["homeLabel"])}</a> › <a href="/category/{cat["id"]}/">{esc(cat["name"])}</a>{topic}</div>
+    <div class="crumb"><a href="/">{esc(self.cfg["homeLabel"])}</a> › <a href="/category/{cat["id"]}/">{esc(cat["name"])}</a>{topic}</div>
     <h1>{esc(item["title"])}</h1>
     <p class="lead">{esc(item["summary"])}</p>
     <div class="meta">{esc(self.cfg["writtenLabel"])} <time datetime="{item["date"]}">{nice_date(item["date"])}</time></div>{self.figure(item)}
@@ -415,7 +435,7 @@ class Blog:
         topic = f' · {esc(item["topic"])}' if item.get('topic') else ''
         main = f'''<main id="main" class="wrap article-wrap">
   <article class="article c-{cat["id"]}">
-    <div class="crumb"><a href="/index-ko.html">{esc(self.cfg["homeLabel"])}</a> › <a href="/category/{cat["id"]}/">{esc(cat["name"])}</a> › {esc(self.cfg["appPostLabel"])}</div>
+    <div class="crumb"><a href="/">{esc(self.cfg["homeLabel"])}</a> › <a href="/category/{cat["id"]}/">{esc(cat["name"])}</a> › {esc(self.cfg["appPostLabel"])}</div>
     <div class="app-hero">
       <span class="big-icon g-{app["group"]}">{h.icon_markup(app, 40)}</span>
       <div>
@@ -443,7 +463,7 @@ class Blog:
     # ---------- output ----------
     def pages(self, year):
         """Return {relative output path: html} for every blog page."""
-        out = {'index-ko.html': self.home(year), 'posts/index.html': self.all_posts(year)}
+        out = {'index.html': self.home(year), 'posts/index.html': self.all_posts(year)}
         for c in self.cfg['categories']:
             out[f'category/{c["id"]}/index.html'] = self.category(c, year)
         for i in self.items:
