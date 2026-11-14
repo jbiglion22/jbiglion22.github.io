@@ -131,13 +131,13 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 
 ## 파일 구조와 생성 방법
 - 원본 데이터: `data/site.json` — 앱(`apps`: id·group·icon), 그룹(`groups`), 언어별 문구(`text.<언어>`: 사이트 제목·소개·그룹 이름과 설명·앱 이름/분류/설명 등), 소개 페이지(`about`), 연결 페이지 목록(`redirects`).
-- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). 블로그 전체(`index.html`, `posts/`, `category/`, `apps/`), 공개 언어의 앱 목록·소개 페이지, 숨긴 주소의 연결 페이지(`index-ko.html`, `index-en.html`, `about-en.html`), `sitemap.xml`을 만든다. 생성 페이지는 `/css/…`처럼 사이트 루트 기준 주소를 쓴다(하위 폴더 페이지 때문). CSS·JS 주소에는 파일 내용으로 만든 버전(`?v=해시`, `asset()`)이 붙어, 고친 뒤 브라우저가 예전 파일을 쓰지 않는다. 본문 차트 SVG는 최소 너비 없이 글 칸 폭에 맞춰 줄어든다(2026-11-13 좁은 휴대폰에서 넘치던 문제 수정). **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
+- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). 블로그 전체 (`index.html`, `posts/`, `category/`, `apps/`), 공개 언어의 앱 목록·소개 페이지, 숨긴 주소의 연결 페이지 (`index-ko.html`, `index-en.html`, `about-en.html`), `sitemap2.xml`을 만든다. 생성 페이지는 `/css/…`처럼 사이트 루트 기준 주소를 쓴다 (하위 폴더 페이지 때문). CSS·JS 주소에는 파일 내용으로 만든 버전 (`?v=해시`, `asset()`)이 붙어, 고친 뒤 브라우저가 예전 파일을 쓰지 않는다. 해시는 줄바꿈을 LF로 맞춘 뒤 계산하므로 `core.autocrlf=true`인 PC에서도 같은 값이 나온다 (2026-11-14 수정, 그전에는 CRLF로 꺼내는 PC에서 값이 달라졌다). 그런 PC에서는 생성 후 내용이 같아도 `git status`에 생성 파일이 "M"으로 보일 수 있는데, 줄바꿈 차이일 뿐이다 (`git diff`가 비어 있으면 무시하거나 `git checkout -- <파일>`로 되돌린다). 본문 차트 SVG는 최소 너비 없이 글 칸 폭에 맞춰 줄어든다 (2026-11-13 좁은 휴대폰에서 넘치던 문제 수정). **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다 (기본 오늘). 스크립트가 누락·불일치를 검사한다.
 - 본문은 HTML에 직접 들어간다(JavaScript 없이도 읽힘, 애드센스·검색 대응). `js/app.js`는 앱 목록의 그룹 필터(`#learn`처럼 주소에 남음, 예전 `#calc`→money), 아이콘 판 클릭 이동, 블로그 주제 버튼, 언어 메뉴(`<details>` 링크), 저작권 연도만 담당한다. 
 - `css/styles.css`: 색 토큰과 그룹 색 5쌍(라이트·다크), 예비 색 1쌍. 1080px 초과 3열, 720px 초과 2열, 그 이하 1열. 720px 이하에서 헤더 메뉴는 필요하면 다음 줄로 내려간다.
 - `_config.yml`의 exclude: 내부 문서(AGENTS.md, README.md, 프로젝트.md, 공통지침.md, 프로젝트지침.md, 이미지요청.md), `data/`, `tools/`, `content/`, `자료실/` 등은 배포하지 않는다.
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
 - `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
-- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 18개(영어 숨김 상태 2026-11-13 기준 50개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다(프로젝트.md 요구).
+- `sitemap2.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 18개 (영어 숨김 상태 2026-11-13 기준 50개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
 
 ## 앱과 그룹 (18개, 5개 그룹)
 - learn 언어와 교양: koreanstudy 한국어 학습, englishproverbs 영어 속담 사전, snapstudy_koreanhistory 수능 한국사, arthistorynote 미술사노트, snapstudy_cbible 가톨릭 성경 퀴즈
