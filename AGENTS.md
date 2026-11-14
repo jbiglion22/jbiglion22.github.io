@@ -136,6 +136,7 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 - `css/styles.css`: 색 토큰과 그룹 색 5쌍(라이트·다크), 예비 색 1쌍. 1080px 초과 3열, 720px 초과 2열, 그 이하 1열. 720px 이하에서 헤더 메뉴는 필요하면 다음 줄로 내려간다.
 - `_config.yml`의 exclude: 내부 문서(AGENTS.md, README.md, 프로젝트.md, 공통지침.md, 프로젝트지침.md, 이미지요청.md), `data/`, `tools/`, `content/`, `자료실/` 등은 배포하지 않는다.
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
+- `robots.txt`(2026-11-14 추가, 직접 쓴 파일이며 생성 스크립트와 무관): 모두 허용 + `Sitemap: https://jbiglion22.github.io/sitemap.xml`. 이 저장소가 도메인 루트라 같은 도메인의 앱 홈페이지(`/<id>_home/`)에도 적용되므로, 막는 줄을 넣을 때 앱 홈페이지가 막히지 않게 한다. noindex 연결 페이지(`index-en.html` 등)는 막지 않는다(막으면 noindex를 읽지 못함). 애드센스 크롤러(Mediapartners-Google)도 막지 않는다. 사이트맵 이름을 바꾸면 이 줄도 고친다.
 - `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
 - `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 18개 (영어 숨김 상태 2026-11-13 기준 50개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
 
