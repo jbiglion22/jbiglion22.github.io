@@ -38,7 +38,7 @@
 - 글 원본: `content/posts/<slug>.html`(일반 글), `content/apps/<앱 id>.html`(앱 소개 글, 앱마다 1개). 맨 위 `<!-- -->` 머리말에 `key: value` 한 줄씩: 일반 글은 title·date(YYYY-MM-DD)·category·topic·apps(쉼표)·summary·image(선택)·featured(선택, yes), 앱 소개 글은 app·date·topic·title·summary·image(선택). 그 아래는 본문 HTML이며 `<h2>`가 자동으로 목차가 된다. 쓸 수 있는 꾸밈: `.tip`(색 상자), `.feature-grid`(기능 칸), `.table-wrap`+`table`, `.swatch`. 생성 코드는 `tools/blog.py`.
 - 주제(topic)는 카테고리 안의 작은 분류이며 카테고리 페이지에서 주제 버튼으로 거를 수 있다(JavaScript가 있을 때만 버튼 표시). "앱 소개" 버튼은 앱 소개 글만 보여 준다.
 - 출시일 출처: Google Play 페이지 데이터의 두 날짜 중 이른 날짜(다른 하나는 업데이트 날짜, 2026-11-13 확인). Play 화면의 "출시일" 표기를 직접 본 것은 아니므로 사용자가 정확한 날짜를 알려 주면 고친다. 수능 한국사 2026-09-16, 가톨릭 성경 퀴즈 2026-02-14, 폰스펙 비교 2026-08-25 등 18개 모두 `content/apps/*.html`의 date에 있다.
-- 글 그림(대표 그림): 모든 글과 앱 소개 글은 자기 대표 그림을 가진다(사용자 지시 2026-11-13: 앱 소개 글이 카테고리 그림을 쓰면 안 되고, 없으면 별도로 만들어 쓴다). 찾는 순서: 머리말 `image` → `images/posts/<slug>.*`(일반 글) 또는 `images/posts/app-<앱 id>.*`(앱 소개 글) → 없으면 임시로 카테고리 그림. 생성 스크립트가 카테고리 그림을 빌려 쓰는 글을 "Note:"로 알려 주므로, 보이면 이미지요청.md로 대표 그림을 요청한다. 대표 그림은 1280×720 WebP. 일반 글 8편은 대표 그림과 본문 사진 반영 완료. 2026-11-14에 쓴 3편(spaced-repetition-review, hangul-principles, prism-rainbow)은 대표 그림 3장·본문 사진 3장을 이미지요청.md로 요청해 둔 상태(받기 전까지 카테고리 그림 사용, 본문 사진은 빠져 보임).
+- 글 그림(대표 그림): 모든 글과 앱 소개 글은 자기 대표 그림을 가진다(사용자 지시 2026-11-13: 앱 소개 글이 카테고리 그림을 쓰면 안 되고, 없으면 별도로 만들어 쓴다). 찾는 순서: 머리말 `image` → `images/posts/<slug>.*`(일반 글) 또는 `images/posts/app-<앱 id>.*`(앱 소개 글) → 없으면 임시로 카테고리 그림. 생성 스크립트가 카테고리 그림을 빌려 쓰는 글을 "Note:"로 알려 주므로, 보이면 이미지요청.md로 대표 그림을 요청한다. 대표 그림은 1280×720 WebP. 일반 글 11편 모두 대표 그림과 본문 사진 반영 완료(2026-11-14), 이미지요청.md에 남은 요청 없음.
 - 2026-11-13 반영 완료: 앱 소개 글 대표 그림 18장(`images/posts/app-<id>.webp`, 1280×720, 그룹 색 배경 일러스트). 이제 모든 글이 자기 대표 그림을 쓰며 생성 시 "Note:" 알림이 없다. 원본 PNG는 반영 후 삭제(커밋된 적 없음).
 - 그림 종류 원칙(사용자 요청 2026-11-13): 사이트 전체 그림(대표·그룹·글 대표 그림)은 파스텔 3D 일러스트를 유지하고, **글 본문에는 성격에 맞게 다양하게** 넣는다. 정확해야 하는 차트·도표·도해는 AI가 본문에 인라인 SVG/HTML로 직접 그린다(`<figure class="chart"><div class="frame"><svg>…</svg></div><figcaption>`; 글자 색은 `.t`·`.m`, 선은 `.grid`·`.axis`, 카테고리 색은 `.c-bg`·`.c-fg`, 단계 도해는 `<div class="steps">`). 현실감이 필요한 사진은 ChatGPT에 사진풍(포토리얼)으로 요청한다.
 - 본문 사진: `<figure class="photo" data-src="images/posts/<파일>.webp" data-alt="설명">캡션</figure>`로 넣으면 파일이 있을 때만 보이고("AI 생성 이미지" 표시 자동), 없으면 빠진다. 두 장을 나란히 두려면 `<div class="pair">`로 감싼다. 본문 사진은 1280×853(3:2) WebP.
@@ -91,9 +91,9 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 | loss-recovery-rate | money | 계산 | stockcalculator | 2026-11-07 | 약 1,450 | 회복 수익률 막대, ±20% 반복 선 차트 | 공책·계산기 |
 | used-phone-checklist | phone | 점검 | phonecheck | 2026-10-30 | 약 1,800 | 점검 5단계 도해 | 흠집 확인·유심 트레이 |
 | led-resistor-ohms-law | science | 전자 회로 | resistorcalculator | 2026-11-14 | 약 1,600 | LED 회로도 | 브레드보드 |
-| spaced-repetition-review | learn | 공부법 | snapstudy_koreanhistory | 2026-10-15 | 약 1,350 | 망각 곡선 개념도, 복습 간격 4단계 | 공부 카드 묶음(요청 중) |
-| hangul-principles | learn | 한국어 | koreanstudy | 2026-11-04 | 약 1,390 | 모음 만들기 도해(자음 획 더하기는 표) | 붓·벼루(요청 중) |
-| prism-rainbow | play | 과학 상식 | chromaray | 2026-11-14 | 약 1,370 | 프리즘 도해, 빗방울 속 빛의 길 | 창가 프리즘(요청 중) |
+| spaced-repetition-review | learn | 공부법 | snapstudy_koreanhistory | 2026-10-15 | 약 1,350 | 망각 곡선 개념도, 복습 간격 4단계 | 공부 카드 묶음 |
+| hangul-principles | learn | 한국어 | koreanstudy | 2026-11-04 | 약 1,390 | 모음 만들기 도해(자음 획 더하기는 표) | 붓·벼루 |
+| prism-rainbow | play | 과학 상식 | chromaray | 2026-11-14 | 약 1,370 | 프리즘 도해, 빗방울 속 빛의 길 | 창가 프리즘 |
 
 카테고리별 일반 글 수: science 2, learn 3, phone 2, money 2, play 2(앱 소개 글 18편은 따로). 다음에는 play·science·phone·money에서 고르게 제안한다.
 
