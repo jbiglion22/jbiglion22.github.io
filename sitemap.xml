@@ -41,17 +41,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jbiglion22.github.io/posts/used-phone-checklist/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://jbiglion22.github.io/posts/led-resistor-ohms-law/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jbiglion22.github.io/posts/loss-recovery-rate/</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.8</priority>
   </url>
@@ -86,6 +76,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jbiglion22.github.io/posts/loss-recovery-rate/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jbiglion22.github.io/apps/chromaray/</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.7</priority>
@@ -94,6 +89,11 @@
     <loc>https://jbiglion22.github.io/apps/wifideadzone/</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/posts/used-phone-checklist/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jbiglion22.github.io/apps/koreanstudy/</loc>

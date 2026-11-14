@@ -66,7 +66,7 @@ apps: resistorcalculator
 summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 알려 주는 글인지 분명하게.
 -->
 ```
-   - date는 쓰는 날(기존 글과 같거나 늦게). category는 science·learn·phone·money·play 중 하나. topic은 아래 "카테고리별 주제 이름"을 재사용하고 새로 만들 때만 새 이름. apps는 관련 앱 id 1~2개. `featured: yes`는 블로그 홈 추천 글 하나에만(지금은 저항 색띠 글).
+   - date는 기본적으로 쓰는 날. 사용자가 날짜를 정해 주면 그 날짜를 쓴다(2026-11-14 사용자 요청으로 새 글 3편을 11-14·11-07·10-30으로 나눔). 관련 글을 링크하는 글은 그 글보다 늦은 날짜로, 앱 관련 글은 앱 출시일보다 늦게 둔다. category는 science·learn·phone·money·play 중 하나. topic은 아래 "카테고리별 주제 이름"을 재사용하고 새로 만들 때만 새 이름. apps는 관련 앱 id 1~2개. `featured: yes`는 블로그 홈 추천 글 하나에만(지금은 저항 색띠 글).
 4. 본문 기준
    - 공백 제외 1,400~2,000자(지금 글들은 1,350~2,000자). 말투는 "~습니다/~입니다". 첫 문단 1~2개로 왜 읽을 만한지 → `<h2>` 소제목 3~5개 → 자주 하는 실수나 정리 → 마지막 문단에서 관련 앱을 한두 문장으로 자연스럽게(광고 문구·과장 금지).
    - 사실만 쓴다. 계산·표·차트의 숫자는 Python으로 검산한다. 일반적 기준이면 "대략", 가정이면 "예시"라고 밝힌다. 돈 관련 글은 첫머리에 `.tip`으로 "계산 방법 안내이며 투자 권유가 아님"을 넣는다. 다른 글을 베끼지 않는다.
@@ -88,8 +88,8 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 | english-proverbs-15 | learn | 영어 | englishproverbs | 2026-11-11 | 약 2,000 | 카드 학습 4단계 | 공부 카드 |
 | average-cost-calculation | money | 계산 | stockcalculator, stocksimulation | 2026-11-13 | 약 1,850 | 평균 단가 차트 2개 | 책상 |
 | why-rgb-makes-white | play | 과학 상식 | chromaray | 2026-11-13 | 약 1,400 | 빛·잉크 색 섞기, 화면 화소 | RGB 조명, 화면 확대 |
-| loss-recovery-rate | money | 계산 | stockcalculator | 2026-11-14 | 약 1,450 | 회복 수익률 막대, ±20% 반복 선 차트 | 공책·계산기 |
-| used-phone-checklist | phone | 점검 | phonecheck | 2026-11-14 | 약 1,800 | 점검 5단계 도해 | 흠집 확인·유심 트레이 |
+| loss-recovery-rate | money | 계산 | stockcalculator | 2026-11-07 | 약 1,450 | 회복 수익률 막대, ±20% 반복 선 차트 | 공책·계산기 |
+| used-phone-checklist | phone | 점검 | phonecheck | 2026-10-30 | 약 1,800 | 점검 5단계 도해 | 흠집 확인·유심 트레이 |
 | led-resistor-ohms-law | science | 전자 회로 | resistorcalculator | 2026-11-14 | 약 1,600 | LED 회로도 | 브레드보드 |
 
 카테고리별 일반 글 수: science 2, learn 1, phone 2, money 2, play 1(앱 소개 글 18편은 따로). 다음에는 learn·play부터 제안한다.
