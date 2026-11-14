@@ -41,6 +41,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jbiglion22.github.io/posts/prism-rainbow/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jbiglion22.github.io/posts/led-resistor-ohms-law/</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.8</priority>
@@ -86,6 +91,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jbiglion22.github.io/posts/hangul-principles/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jbiglion22.github.io/apps/wifideadzone/</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.7</priority>
@@ -119,6 +129,11 @@
     <loc>https://jbiglion22.github.io/apps/resistorcalculator/</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/posts/spaced-repetition-review/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jbiglion22.github.io/apps/mathnote/</loc>
