@@ -61,19 +61,67 @@ if (langMenu) {
 }
 
 // Blog: topic buttons above a post list (category pages, all posts). Without JavaScript every post is shown.
+// A list with data-per-page is also split into pages (all posts: 10 per page, ?page=2 in the address).
 document.querySelectorAll('.subtopics').forEach(box => {
   const list = box.parentElement.querySelector('[data-filterable]');
   if (!list) return;
   box.hidden = false;
   const buttons = [...box.querySelectorAll('.topic')];
+  const posts = [...list.querySelectorAll('.post')];
+  const pager = box.parentElement.querySelector('.pager');
+  const perPage = Number(list.dataset.perPage) || 0;
+  let topic = 'all';
+  let page = 1;
+
+  const readPage = () => Math.max(1, parseInt(new URLSearchParams(location.search).get('page'), 10) || 1);
+  const writePage = push => {
+    const url = new URL(location.href);
+    if (page > 1) url.searchParams.set('page', page); else url.searchParams.delete('page');
+    history[push ? 'pushState' : 'replaceState'](null, '', url);
+  };
+
+  function render() {
+    const shown = posts.filter(post => topic === 'all' || (topic === 'kind:app' ? post.dataset.kind === 'app' : post.dataset.topic === topic));
+    if (!perPage || !pager) {
+      posts.forEach(post => { post.hidden = !shown.includes(post); });
+      return;
+    }
+    const pages = Math.max(1, Math.ceil(shown.length / perPage));
+    page = Math.min(page, pages);
+    const start = (page - 1) * perPage;
+    const visible = shown.slice(start, start + perPage);
+    posts.forEach(post => { post.hidden = !visible.includes(post); });
+    pager.hidden = pages < 2;
+    if (pages < 2) { pager.textContent = ''; return; }
+    const button = (go, html, label, extra = '') =>
+      `<button type="button" data-go="${go}"${label ? ` aria-label="${label}"` : ''}${extra}>${html}</button>`;
+    let html = button(page - 1, `‹<span class="label"> ${pager.dataset.prev}</span>`, pager.dataset.prev, page === 1 ? ' disabled' : '');
+    for (let i = 1; i <= pages; i++) html += button(i, i, '', i === page ? ' aria-current="page"' : '');
+    html += button(page + 1, `<span class="label">${pager.dataset.next} </span>›`, pager.dataset.next, page === pages ? ' disabled' : '');
+    const note = pager.dataset.note.replace('{total}', shown.length).replace('{from}', start + 1).replace('{to}', start + visible.length);
+    pager.innerHTML = `<div class="pager-buttons">${html}</div><p class="pager-note">${note}</p>`;
+  }
+
   buttons.forEach(button => button.addEventListener('click', () => {
-    const value = button.dataset.topic;
+    topic = button.dataset.topic;
     buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-    list.querySelectorAll('.post').forEach(post => {
-      const match = value === 'all' || (value === 'kind:app' ? post.dataset.kind === 'app' : post.dataset.topic === value);
-      post.hidden = !match;
-    });
+    page = 1;
+    if (perPage) writePage(false);
+    render();
   }));
+  if (pager) {
+    pager.addEventListener('click', event => {
+      const target = event.target.closest('[data-go]');
+      if (!target || target.disabled) return;
+      page = Number(target.dataset.go);
+      writePage(true);
+      render();
+      box.parentElement.querySelector('h1').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    window.addEventListener('popstate', () => { page = readPage(); render(); });
+  }
+  if (perPage) page = readPage();
+  render();
 });
 
 const year = document.querySelector('.year');

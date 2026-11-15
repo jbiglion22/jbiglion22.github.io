@@ -333,17 +333,23 @@ class Blog:
         title = f'{cat["name"]} · {self.t["siteTitle"]}'
         return self.page(title, cat['desc'], f'/category/{cat["id"]}/', cat['id'], main, year)
 
+    def pager(self):
+        # Filled in by js/app.js. Without JavaScript it stays hidden and every post is shown.
+        esc = self.h.esc
+        c = self.cfg
+        return (f'    <nav class="pager" aria-label="{esc(c["pagerLabel"])}" data-prev="{esc(c["prevLabel"])}" '
+                f'data-next="{esc(c["nextLabel"])}" data-note="{esc(c["pagerNote"])}" hidden></nav>\n')
+
     def all_posts(self, year):
         esc = self.h.esc
         main = f'''<main id="main" class="wrap">
   <section class="list-page">
-    <div class="crumb"><a href="/">{esc(self.cfg["homeLabel"])}</a></div>
     <h1>{esc(self.cfg["allPostsLabel"])}</h1>
     <p class="list-intro">{esc(self.cfg["allPostsIntro"])}</p>
-{self.topic_filter(self.items).replace(' role="group"', ' role="group" data-wide')}    <div class="post-list" data-filterable>
+{self.topic_filter(self.items).replace(' role="group"', ' role="group" data-wide')}    <div class="post-list" data-filterable data-per-page="{int(self.cfg["postsPerPage"])}">
 {chr(10).join(self.row(i, 'h2') for i in self.items)}
     </div>
-  </section>
+{self.pager()}  </section>
 </main>'''
         title = f'{self.cfg["allPostsLabel"]} · {self.t["siteTitle"]}'
         return self.page(title, self.cfg['allPostsIntro'], '/posts/', None, main, year)

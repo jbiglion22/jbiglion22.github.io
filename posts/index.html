@@ -17,8 +17,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>전체 글 · J's 앱 소개</title>
   <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/css/styles.css?v=658081f9">
-  <script src="/js/app.js?v=b0dd17e6" defer></script>
+  <link rel="stylesheet" href="/css/styles.css?v=6609f4cc">
+  <script src="/js/app.js?v=84f9f4de" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로</a>
@@ -43,11 +43,10 @@
 </header>
 <main id="main" class="wrap">
   <section class="list-page">
-    <div class="crumb"><a href="/">홈</a></div>
     <h1>전체 글</h1>
     <p class="list-intro">이 사이트의 모든 글과 앱 소개 글을 최신순으로 모았습니다.</p>
     <div class="subtopics" role="group" data-wide aria-label="주제" hidden><button type="button" class="topic" data-topic="all" aria-pressed="true">전체</button><button type="button" class="topic" data-topic="kind:app" aria-pressed="false">앱 소개</button><button type="button" class="topic" data-topic="한국사" aria-pressed="false">한국사</button><button type="button" class="topic" data-topic="과학 상식" aria-pressed="false">과학 상식</button><button type="button" class="topic" data-topic="전자 회로" aria-pressed="false">전자 회로</button><button type="button" class="topic" data-topic="계산" aria-pressed="false">계산</button><button type="button" class="topic" data-topic="와이파이" aria-pressed="false">와이파이</button><button type="button" class="topic" data-topic="영어" aria-pressed="false">영어</button><button type="button" class="topic" data-topic="휴식" aria-pressed="false">휴식</button><button type="button" class="topic" data-topic="퍼즐" aria-pressed="false">퍼즐</button><button type="button" class="topic" data-topic="한국어" aria-pressed="false">한국어</button><button type="button" class="topic" data-topic="점검" aria-pressed="false">점검</button><button type="button" class="topic" data-topic="미술" aria-pressed="false">미술</button><button type="button" class="topic" data-topic="모의 투자" aria-pressed="false">모의 투자</button><button type="button" class="topic" data-topic="공부법" aria-pressed="false">공부법</button><button type="button" class="topic" data-topic="수학" aria-pressed="false">수학</button><button type="button" class="topic" data-topic="물리" aria-pressed="false">물리</button><button type="button" class="topic" data-topic="화학" aria-pressed="false">화학</button><button type="button" class="topic" data-topic="응원" aria-pressed="false">응원</button><button type="button" class="topic" data-topic="기종 비교" aria-pressed="false">기종 비교</button><button type="button" class="topic" data-topic="성경" aria-pressed="false">성경</button></div>
-    <div class="post-list" data-filterable>
+    <div class="post-list" data-filterable data-per-page="10">
   <a class="post" href="/posts/king-names-jo-jong-gun/" data-kind="post" data-topic="한국사">
     <div>
       <h2 class="post-title">세종은 '종', 세조는 '조', 연산군은 왜 '군'일까? 조선 왕 이름 읽는 법</h2>
@@ -313,6 +312,7 @@
     <img src="/images/posts/app-snapstudy_cbible.webp" alt="" loading="lazy">
   </a>
     </div>
+    <nav class="pager" aria-label="글 목록 쪽" data-prev="이전" data-next="다음" data-note="전체 {total}개 중 {from}–{to}번째 글" hidden></nav>
   </section>
 </main>
 <footer class="wrap blog-foot">

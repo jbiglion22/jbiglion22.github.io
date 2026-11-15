@@ -307,6 +307,15 @@ h1, h2, h3 { margin: 0; }
 .topic { padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--muted); font-size: 14px; font-weight: 550; cursor: pointer; }
 .topic:hover { color: var(--ink); }
 .topic[aria-pressed=true] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.pager { margin: 28px 0 8px; text-align: center; }
+.pager[hidden] { display: none; }
+.pager-buttons { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; }
+.pager button { min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); font: inherit; font-size: 15px; cursor: pointer; }
+.pager button:hover:not(:disabled) { border-color: var(--line-strong); }
+.pager button[aria-current=page] { background: var(--ink); border-color: var(--ink); color: var(--bg); font-weight: 700; }
+.pager button:disabled { opacity: .35; cursor: default; }
+.pager-note { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+@media (max-width: 480px) { .pager .label { display: none; } }
 .post-list { border-top: 1px solid var(--line); }
 .section-title + .post-list { border-top: 0; }
 

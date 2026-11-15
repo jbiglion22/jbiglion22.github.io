@@ -523,7 +523,12 @@
     "ctaButton": "앱 홈페이지",
     "updateNote": "앱 기능은 업데이트로 바뀔 수 있습니다. 최신 내용은 앱 홈페이지와 Google Play에서 확인해 주세요.",
     "homeCount": 10,
-    "aiImageLabel": "AI 생성 이미지"
+    "aiImageLabel": "AI 생성 이미지",
+    "pagerLabel": "글 목록 쪽",
+    "prevLabel": "이전",
+    "nextLabel": "다음",
+    "pagerNote": "전체 {total}개 중 {from}–{to}번째 글",
+    "postsPerPage": 10
   },
   "published": [
     "ko"
