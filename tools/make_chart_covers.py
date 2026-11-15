@@ -4,7 +4,8 @@ Run from the repository root: python tools/make_chart_covers.py
 Needs Pillow and the Malgun Gothic font (Windows). Writes images/posts/<slug>.webp (1280x720).
 Numbers come from the examples in each post; change both together.
 Posts: average-cost-calculation, loss-recovery-rate, compound-interest-rule-of-72,
-max-drawdown-mdd, spaced-repetition-review (concept chart, no numbers).
+max-drawdown-mdd, spaced-repetition-review (concept chart, no numbers),
+suneung-korean-history-timeline (era timeline).
 """
 import math, os
 from PIL import Image, ImageDraw, ImageFont
@@ -117,3 +118,20 @@ text(d,(950,Y(0.55)),'간격을 넓히며 복습',32,fg,'rm')
 text(d,(X(12),Y(0.12)),'복습하지 않으면',28,MUTED,'lm')
 text(d,(640,120),'망각 곡선과 간격 복습 (개념도)',30,MUTED,'mm',False)
 save(im,'spaced-repetition-review')
+
+# 6 suneung-korean-history-timeline: era timeline (years as written in the post)
+im,d,fg=canvas('learn')
+eras=[('고조선','기원전 2333'),('삼국','기원전 1세기'),('남북국','676'),('고려','918'),('조선','1392'),('개항기','1876'),('일제 강점기','1910'),('현대','1945')]
+x0,x1,yl=345,935,400
+d.line([(x0*S,yl*S),(x1*S,yl*S)],fill=hexa(INK,200),width=5*S)
+step=(x1-x0)/(len(eras)-1)
+for i,(era,yr) in enumerate(eras):
+    x=x0+i*step; up=i%2==0
+    c=fg if up else hexa(INK)
+    r=13; d.ellipse(((x-r)*S,(yl-r)*S,(x+r)*S,(yl+r)*S),fill=c)
+    ty=yl-70 if up else yl+70
+    d.line([(x*S,(yl-(16 if up else -16))*S),(x*S,(ty+(26 if up else -26))*S)],fill=c,width=3*S)
+    text(d,(x,ty),era,30,c)
+    if yr: text(d,(x,ty+(-36 if up else 36)),yr,24,MUTED,'mm',False)
+text(d,(640,120),'한국사 시대 흐름 (시대가 시작되는 연도)',30,MUTED,'mm',False)
+save(im,'suneung-korean-history-timeline')

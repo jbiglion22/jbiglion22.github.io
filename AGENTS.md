@@ -42,7 +42,7 @@
 - 출시일 출처: Google Play 페이지 데이터의 두 날짜 중 이른 날짜(다른 하나는 업데이트 날짜, 2026-11-13 확인). Play 화면의 "출시일" 표기를 직접 본 것은 아니므로 사용자가 정확한 날짜를 알려 주면 고친다. 수능 한국사 2026-09-16, 가톨릭 성경 퀴즈 2026-02-14, 폰스펙 비교 2026-08-25 등 18개 모두 `content/apps/*.html`의 date에 있다.
 - 글 그림(대표 그림): 모든 글과 앱 소개 글은 자기 대표 그림을 가진다(사용자 지시 2026-11-13: 앱 소개 글이 카테고리 그림을 쓰면 안 되고, 없으면 별도로 만들어 쓴다). 찾는 순서: 머리말 `image` → `images/posts/<slug>.*`(일반 글) 또는 `images/posts/app-<앱 id>.*`(앱 소개 글) → 없으면 임시로 카테고리 그림. 생성 스크립트가 카테고리 그림을 빌려 쓰는 글을 "Note:"로 알려 주므로, 보이면 이미지요청.md로 대표 그림을 요청한다. 대표 그림은 1280×720 WebP. 2026-11-14까지 쓴 일반 글 11편은 대표 그림과 본문 사진 반영 완료. 2026-11-15에 쓴 6편(뽀모도로·복리·조선 왕 이름·이차함수·사양표·최대 낙폭)도 대표 그림 6장과 본문 사진 5장을 같은 날 반영했다. 사양표 글의 카메라 사진은 처음 받은 그림이 특정 제조사 모델처럼 보여(대각선 렌즈 두 개) 다시 요청했고, 세로 렌즈 세 개의 단순한 그림으로 받아 반영했다. 실제 기기를 닮을 수 있는 그림은 원본 크기로 보고 확인한다. 이미지요청.md에 남은 요청 없음. 대표 그림을 16:9로 자를 때 내용이 잘리면, 가운데를 자르지 않고 높이 720으로 줄인 뒤 좌우 끝 배경을 늘려 1280 폭으로 채웠다(뽀모도로·조선 왕 이름·이차함수).
 - 2026-11-13 반영 완료: 앱 소개 글 대표 그림 18장(`images/posts/app-<id>.webp`, 1280×720, 그룹 색 배경 일러스트). 원본 PNG는 반영 후 삭제(커밋된 적 없음). 2026-11-15 추가한 한국사 노트의 대표 그림(`app-koreanhistorynote`)도 반영 완료(카드 상자·돋보기·왕관·사극 화면). 2026-11-15 추가한 꼬마 탱크(`app-tinytank`)도 같은 날 반영 완료(웃는 초록 장난감 탱크·모래시계·동전, 뒤로 모래 언덕과 눈 덮인 산). 20개 앱 소개 글은 모두 자기 대표 그림을 쓴다.
-- 그림 종류 원칙(사용자 요청 2026-11-13, 2026-11-15 수정): 사이트 그림(첫 화면·소개·그룹)과 앱 소개 글 대표 그림은 파스텔 3D 일러스트를 유지한다. **일반 글 대표 그림(목록 썸네일과 같은 파일)은 모두 같은 형식이면 인위적으로 보인다는 사용자 지적(2026-11-15)으로 다섯 형식을 섞는다**: 파스텔 3D, 실사 사진, 평면 일러스트, 수채화·손그림(스타일 문구는 이미지요청.md), 차트형(숫자·곡선이 핵심인 글은 AI가 `tools/make_chart_covers.py`로 직접 그림. Pillow+맑은 고딕, 글의 예시 숫자를 그대로 쓰므로 글 숫자를 바꾸면 함께 고친다. 목록 썸네일이 휴대폰에서 92px 정사각, PC에서 16:10으로 잘리므로 핵심은 가운데 x 330~950(그리기 좌표)에 둔다). 새 글을 쓸 때는 글 성격에 맞는 형식을 고르되, 전체 글 목록(최신순)에서 바로 앞뒤 글과 같은 형식이 연달아 나오지 않게 한다. 2026-11-15 배정: 차트형(반영 완료) average-cost-calculation·loss-recovery-rate·compound-interest-rule-of-72·max-drawdown-mdd·spaced-repetition-review / 실사 resistor-color-code·wifi-dead-zone-tips·used-phone-checklist / 평면 led-resistor-ohms-law·phone-spec-sheet-guide / 수채·손그림 king-names-jo-jong-gun·english-proverbs-15·pomodoro-study-method·hangul-principles·quadratic-graph-abc(색연필) / 3D 유지 prism-rainbow·why-rgb-makes-white. 차트형·3D를 뺀 10장도 같은 날 받아 반영했다(16:9로 가운데를 잘라 WebP, 공유기 사진만 아래쪽으로 옮겨 자름. 수채화·색연필은 종이 질감 때문에 용량이 커서 품질 74로 저장). 이미지요청.md에 남은 요청 없음. **글 본문에는 성격에 맞게 다양하게** 넣는다. 정확해야 하는 차트·도표·도해는 AI가 본문에 인라인 SVG/HTML로 직접 그린다(`<figure class="chart"><div class="frame"><svg>…</svg></div><figcaption>`; 글자 색은 `.t`·`.m`, 선은 `.grid`·`.axis`, 카테고리 색은 `.c-bg`·`.c-fg`, 단계 도해는 `<div class="steps">`). 현실감이 필요한 사진은 ChatGPT에 사진풍(포토리얼)으로 요청한다.
+- 그림 종류 원칙(사용자 요청 2026-11-13, 2026-11-15 수정): 사이트 그림(첫 화면·소개·그룹)과 앱 소개 글 대표 그림은 파스텔 3D 일러스트를 유지한다. **일반 글 대표 그림(목록 썸네일과 같은 파일)은 모두 같은 형식이면 인위적으로 보인다는 사용자 지적(2026-11-15)으로 다섯 형식을 섞는다**: 파스텔 3D, 실사 사진, 평면 일러스트, 수채화·손그림(스타일 문구는 이미지요청.md), 차트형(숫자·곡선이 핵심인 글은 AI가 `tools/make_chart_covers.py`로 직접 그림. Pillow+맑은 고딕, 글의 예시 숫자를 그대로 쓰므로 글 숫자를 바꾸면 함께 고친다. 목록 썸네일이 휴대폰에서 92px 정사각, PC에서 16:10으로 잘리므로 핵심은 가운데 x 330~950(그리기 좌표)에 둔다). 새 글을 쓸 때는 글 성격에 맞는 형식을 고르되, 전체 글 목록(최신순)에서 바로 앞뒤 글과 같은 형식이 연달아 나오지 않게 한다. 2026-11-15 배정: 차트형(반영 완료) average-cost-calculation·loss-recovery-rate·compound-interest-rule-of-72·max-drawdown-mdd·spaced-repetition-review·suneung-korean-history-timeline(연표, 2026-11-16) / 실사 resistor-color-code·wifi-dead-zone-tips·used-phone-checklist / 평면 led-resistor-ohms-law·phone-spec-sheet-guide / 수채·손그림 king-names-jo-jong-gun·english-proverbs-15·pomodoro-study-method·hangul-principles·quadratic-graph-abc(색연필) / 3D 유지 prism-rainbow·why-rgb-makes-white. 차트형·3D를 뺀 10장도 같은 날 받아 반영했다(16:9로 가운데를 잘라 WebP, 공유기 사진만 아래쪽으로 옮겨 자름. 수채화·색연필은 종이 질감 때문에 용량이 커서 품질 74로 저장). 2026-11-16 새 글 2편의 대표 그림(서킷브레이커 평면, 스미싱 실사)과 본문 사진 2장을 이미지요청.md에 요청 중. **글 본문에는 성격에 맞게 다양하게** 넣는다. 정확해야 하는 차트·도표·도해는 AI가 본문에 인라인 SVG/HTML로 직접 그린다(`<figure class="chart"><div class="frame"><svg>…</svg></div><figcaption>`; 글자 색은 `.t`·`.m`, 선은 `.grid`·`.axis`, 카테고리 색은 `.c-bg`·`.c-fg`, 단계 도해는 `<div class="steps">`). 현실감이 필요한 사진은 ChatGPT에 사진풍(포토리얼)으로 요청한다.
 - 본문 사진: `<figure class="photo" data-src="images/posts/<파일>.webp" data-alt="설명">캡션</figure>`로 넣으면 파일이 있을 때만 보이고("AI 생성 이미지" 표시 자동), 없으면 빠진다. 두 장을 나란히 두려면 `<div class="pair">`로 감싼다. 본문 사진은 1280×853(3:2) WebP.
 
 ## 새 글 쓰기 (다른 PC·다른 날 바로 이어서 하기)
@@ -82,7 +82,7 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 ### 그림을 받으면
 - 확인(글자·로고·실제 제품·사람 없음, 내용이 요청과 맞는지) → 대표 그림은 가운데를 16:9로 잘라 1280×720 WebP(품질 82) `images/posts/<slug>.webp`(머리말 수정 불필요, 이름으로 자동 사용) → 본문 사진은 1280×853 WebP(품질 80) `images/posts/<slug>-<이름>.webp` → 생성·링크 검사 → 이미지요청.md에서 해당 요청 삭제 → `자료실/`의 원본 PNG 삭제.
 
-### 지금까지 쓴 일반 글 (2026-11-15, 17편)
+### 지금까지 쓴 일반 글 (2026-11-16, 20편)
 | slug | 카테고리 | 주제 | 앱 | 작성일 | 글자(공백 제외) | 차트·도해 | 사진 |
 |---|---|---|---|---|---|---|---|
 | resistor-color-code | science | 전자 회로 | resistorcalculator | 2026-11-13 | 약 1,400 | 4색띠 읽기 도해 | 저항 접사 |
@@ -102,13 +102,18 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 | quadratic-graph-abc | science | 수학 | mathlab | 2026-10-22 | 약 1,500 | a값별 포물선, b값별 꼭짓점 이동(범례식), 그리는 순서 4단계 | 모눈종이 포물선 |
 | phone-spec-sheet-guide | phone | 기종 비교 | phonespec | 2026-10-25 | 약 1,420 | 주사율 0.1초 비교, RAM·저장 공간 표 | 카메라 근접 |
 | max-drawdown-mdd | money | 계산 | stocksimulation | 2026-10-27 | 약 1,430 | 고점·저점 낙폭 차트, 같은 수익률 다른 MDD 비교, 계산 4단계 | 공책 꺾은선 |
+| circuit-breaker-sidecar | money | 시장 상식 | stocksimulation | 2026-11-08 | 약 1,460 | 서킷브레이커 3단계 막대, 예시 계산 표 | 없음(대표 그림 평면, 요청 중) |
+| smishing-after-data-leak | phone | 보안 | (없음) | 2026-11-09 | 약 1,430 | 금융회사가 요구하지 않는 것 표, 대응 4단계 | 휴대폰·자물쇠(요청 중, 대표 그림 실사도 요청 중) |
+| suneung-korean-history-timeline | learn | 한국사 | snapstudy_koreanhistory, koreanhistorynote | 2026-11-16 | 약 1,370 | 시대 흐름 연표(세로), 시대별 한 줄 표, 복습 4단계 | 박물관 진열장(요청 중) |
 
-카테고리별 일반 글 수: science 3, learn 4, phone 3, money 4, play 3(앱 소개 글 20편은 따로). 다음에는 science·phone·play부터 고르게 제안한다. 2026-10-16~10-29 사이에 일반 글이 적으니 날짜를 정할 때 참고한다.
+카테고리별 일반 글 수: science 3, learn 5, phone 4, money 5, play 3(앱 소개 글 20편은 따로). 다음에는 science·play부터 고르게 제안한다.
+
+시사 주제(2026-11-16 사용자 요청: 요즘 뉴스·SNS·유튜브에서 많이 보는 화제로 주제 선정): 주제를 물을 때 웹 검색으로 최근 화제를 찾고, 앱·카테고리와 이어지며 사실 확인이 되는 것만 고른다. 뉴스 숫자는 보도 날짜와 함께 쓰고, 글 작성일은 그 보도 뒤로 둔다. 서킷브레이커 글(11-06 발동 보도)·스미싱 글(11-05 유출 규모 보도)·수능 한국사 글(수능 11-19 직전)이 그 예다. 유튜브 인기 급상승 탭은 사라져 날짜가 확인되는 순위를 찾기 어려웠다. 맞는 앱이 없으면 apps를 비워도 된다(스미싱 글). 2026-10-16~10-29 사이에 일반 글이 적으니 날짜를 정할 때 참고한다.
 
 차트 SVG 크기: 휴대폰(390px)에서 글자가 읽히도록 새 차트는 `viewBox="0 0 360 …"`처럼 좁게 그린다(2026-11-15, 640 폭은 휴대폰에서 글자가 9px 안팎으로 작아짐). 예전 글의 640 폭 차트는 그대로 두었다. 밝은 `card-fill` 칸에는 `stroke="#9aa0a6"` 테두리를 넣어 배경과 구분한다. 곡선이 여러 개인 그래프는 이름표를 곡선 옆에 두면 휴대폰에서 겹치므로 아래에 범례(선 견본+이름)를 둔다. 선 색은 `class="ink-stroke"`, `style="stroke:var(--c-fg)"`(카테고리 색), 회색 `#9aa0a6`(실선·점선).
 
 ### 카테고리별 주제 이름 (topic)
-- science: 전자 회로, 수학, 물리, 화학 / learn: 영어, 한국어, 한국사, 미술, 성경, 공부법 / phone: 와이파이, 점검, 기종 비교, 응원 / money: 계산, 모의 투자 / play: 과학 상식, 퍼즐, 휴식, 게임
+- science: 전자 회로, 수학, 물리, 화학 / learn: 영어, 한국어, 한국사, 미술, 성경, 공부법 / phone: 와이파이, 점검, 기종 비교, 응원, 보안 / money: 계산, 모의 투자, 시장 상식 / play: 과학 상식, 퍼즐, 휴식, 게임
 
 ### 주제 후보 (쓰면 이 목록에서 지운다)
 - science
@@ -119,7 +124,6 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
   - 지수·로그 법칙, 자주 헷갈리는 5가지 (mathnote)
 - learn
   - 인상주의 쉽게 보기, 모네와 르누아르의 빛 (arthistorynote; 작품 정보는 정확히)
-  - 수능 한국사 시대 흐름 한눈에 보기 (snapstudy_koreanhistory; 연표 도해)
   - 성경은 어떻게 구성되어 있을까, 구약·신약과 73권 (snapstudy_cbible; 가톨릭 기준)
 - phone
   - 스마트폰 배터리 오래 쓰는 습관 (phonecheck; 단정 대신 일반적 권장으로)
@@ -143,7 +147,7 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
 - `robots.txt`(2026-11-14 추가, 직접 쓴 파일이며 생성 스크립트와 무관): 모두 허용 + `Sitemap: https://jbiglion22.github.io/sitemap.xml`. 이 저장소가 도메인 루트라 같은 도메인의 앱 홈페이지(`/<id>_home/`)에도 적용되므로, 막는 줄을 넣을 때 앱 홈페이지가 막히지 않게 한다. noindex 연결 페이지(`index-en.html` 등)는 막지 않는다(막으면 noindex를 읽지 못함). 애드센스 크롤러(Mediapartners-Google)도 막지 않는다. 사이트맵 이름을 바꾸면 이 줄도 고친다.
 - `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
-- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 20개 (영어 숨김 상태, 앱 20개·일반 글 17편 기준 2026-11-15 66개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
+- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 20개 (영어 숨김 상태, 앱 20개·일반 글 20편 기준 2026-11-16 69개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
 
 ## 앱과 그룹 (20개, 5개 그룹)
 - learn 언어와 교양: koreanstudy 한국어 학습, englishproverbs 영어 속담 사전, snapstudy_koreanhistory 수능 한국사, koreanhistorynote 한국사 노트, arthistorynote 미술사노트, snapstudy_cbible 가톨릭 성경 퀴즈
