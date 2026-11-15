@@ -25,7 +25,10 @@ IMAGE_EXTENSIONS = ('webp', 'png', 'jpg', 'jpeg')
 
 def asset(path):
     """Root-relative address with a short content hash, so browsers fetch the new file after every change."""
-    digest = hashlib.md5((ROOT / path).read_bytes()).hexdigest()[:8]
+    # Line endings are unified first: Git may check files out with CRLF on some PCs
+    # (core.autocrlf), and the hash must be the same on every PC and match the LF file in the repo.
+    data = (ROOT / path).read_bytes().replace(b'\r\n', b'\n')
+    digest = hashlib.md5(data).hexdigest()[:8]
     return f'/{path}?v={digest}'
 
 

@@ -38,7 +38,7 @@
 - 글 원본: `content/posts/<slug>.html`(일반 글), `content/apps/<앱 id>.html`(앱 소개 글, 앱마다 1개). 맨 위 `<!-- -->` 머리말에 `key: value` 한 줄씩: 일반 글은 title·date(YYYY-MM-DD)·category·topic·apps(쉼표)·summary·image(선택)·featured(선택, yes), 앱 소개 글은 app·date·topic·title·summary·image(선택). 그 아래는 본문 HTML이며 `<h2>`가 자동으로 목차가 된다. 쓸 수 있는 꾸밈: `.tip`(색 상자), `.feature-grid`(기능 칸), `.table-wrap`+`table`, `.swatch`. 생성 코드는 `tools/blog.py`.
 - 주제(topic)는 카테고리 안의 작은 분류이며 카테고리 페이지에서 주제 버튼으로 거를 수 있다(JavaScript가 있을 때만 버튼 표시). "앱 소개" 버튼은 앱 소개 글만 보여 준다.
 - 출시일 출처: Google Play 페이지 데이터의 두 날짜 중 이른 날짜(다른 하나는 업데이트 날짜, 2026-11-13 확인). Play 화면의 "출시일" 표기를 직접 본 것은 아니므로 사용자가 정확한 날짜를 알려 주면 고친다. 수능 한국사 2026-09-16, 가톨릭 성경 퀴즈 2026-02-14, 폰스펙 비교 2026-08-25 등 18개 모두 `content/apps/*.html`의 date에 있다.
-- 글 그림(대표 그림): 모든 글과 앱 소개 글은 자기 대표 그림을 가진다(사용자 지시 2026-11-13: 앱 소개 글이 카테고리 그림을 쓰면 안 되고, 없으면 별도로 만들어 쓴다). 찾는 순서: 머리말 `image` → `images/posts/<slug>.*`(일반 글) 또는 `images/posts/app-<앱 id>.*`(앱 소개 글) → 없으면 임시로 카테고리 그림. 생성 스크립트가 카테고리 그림을 빌려 쓰는 글을 "Note:"로 알려 주므로, 보이면 이미지요청.md로 대표 그림을 요청한다. 대표 그림은 1280×720 WebP. 일반 글 5편은 반영 완료.
+- 글 그림(대표 그림): 모든 글과 앱 소개 글은 자기 대표 그림을 가진다(사용자 지시 2026-11-13: 앱 소개 글이 카테고리 그림을 쓰면 안 되고, 없으면 별도로 만들어 쓴다). 찾는 순서: 머리말 `image` → `images/posts/<slug>.*`(일반 글) 또는 `images/posts/app-<앱 id>.*`(앱 소개 글) → 없으면 임시로 카테고리 그림. 생성 스크립트가 카테고리 그림을 빌려 쓰는 글을 "Note:"로 알려 주므로, 보이면 이미지요청.md로 대표 그림을 요청한다. 대표 그림은 1280×720 WebP. 일반 글 11편 모두 대표 그림과 본문 사진 반영 완료(2026-11-14), 이미지요청.md에 남은 요청 없음.
 - 2026-11-13 반영 완료: 앱 소개 글 대표 그림 18장(`images/posts/app-<id>.webp`, 1280×720, 그룹 색 배경 일러스트). 이제 모든 글이 자기 대표 그림을 쓰며 생성 시 "Note:" 알림이 없다. 원본 PNG는 반영 후 삭제(커밋된 적 없음).
 - 그림 종류 원칙(사용자 요청 2026-11-13): 사이트 전체 그림(대표·그룹·글 대표 그림)은 파스텔 3D 일러스트를 유지하고, **글 본문에는 성격에 맞게 다양하게** 넣는다. 정확해야 하는 차트·도표·도해는 AI가 본문에 인라인 SVG/HTML로 직접 그린다(`<figure class="chart"><div class="frame"><svg>…</svg></div><figcaption>`; 글자 색은 `.t`·`.m`, 선은 `.grid`·`.axis`, 카테고리 색은 `.c-bg`·`.c-fg`, 단계 도해는 `<div class="steps">`). 현실감이 필요한 사진은 ChatGPT에 사진풍(포토리얼)으로 요청한다.
 - 본문 사진: `<figure class="photo" data-src="images/posts/<파일>.webp" data-alt="설명">캡션</figure>`로 넣으면 파일이 있을 때만 보이고("AI 생성 이미지" 표시 자동), 없으면 빠진다. 두 장을 나란히 두려면 `<div class="pair">`로 감싼다. 본문 사진은 1280×853(3:2) WebP.
@@ -66,7 +66,7 @@ apps: resistorcalculator
 summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 알려 주는 글인지 분명하게.
 -->
 ```
-   - date는 쓰는 날(기존 글과 같거나 늦게). category는 science·learn·phone·money·play 중 하나. topic은 아래 "카테고리별 주제 이름"을 재사용하고 새로 만들 때만 새 이름. apps는 관련 앱 id 1~2개. `featured: yes`는 블로그 홈 추천 글 하나에만(지금은 저항 색띠 글).
+   - date는 기본적으로 쓰는 날. 사용자가 날짜를 정해 주면 그 날짜를 쓴다(2026-11-14 사용자 요청으로 새 글들을 11-14·11-07·11-04·10-30·10-15로 나눔). 관련 글을 링크하는 글은 그 글보다 늦은 날짜로, 앱 관련 글은 앱 출시일보다 늦게 둔다. category는 science·learn·phone·money·play 중 하나. topic은 아래 "카테고리별 주제 이름"을 재사용하고 새로 만들 때만 새 이름. apps는 관련 앱 id 1~2개. `featured: yes`는 블로그 홈 추천 글 하나에만(지금은 저항 색띠 글).
 4. 본문 기준
    - 공백 제외 1,400~2,000자(지금 글들은 1,350~2,000자). 말투는 "~습니다/~입니다". 첫 문단 1~2개로 왜 읽을 만한지 → `<h2>` 소제목 3~5개 → 자주 하는 실수나 정리 → 마지막 문단에서 관련 앱을 한두 문장으로 자연스럽게(광고 문구·과장 금지).
    - 사실만 쓴다. 계산·표·차트의 숫자는 Python으로 검산한다. 일반적 기준이면 "대략", 가정이면 "예시"라고 밝힌다. 돈 관련 글은 첫머리에 `.tip`으로 "계산 방법 안내이며 투자 권유가 아님"을 넣는다. 다른 글을 베끼지 않는다.
@@ -80,7 +80,7 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 ### 그림을 받으면
 - 확인(글자·로고·실제 제품·사람 없음, 내용이 요청과 맞는지) → 대표 그림은 가운데를 16:9로 잘라 1280×720 WebP(품질 82) `images/posts/<slug>.webp`(머리말 수정 불필요, 이름으로 자동 사용) → 본문 사진은 1280×853 WebP(품질 80) `images/posts/<slug>-<이름>.webp` → 생성·링크 검사 → 이미지요청.md에서 해당 요청 삭제 → `자료실/`의 원본 PNG 삭제.
 
-### 지금까지 쓴 일반 글 (2026-11-13, 5편)
+### 지금까지 쓴 일반 글 (2026-11-14, 11편)
 | slug | 카테고리 | 주제 | 앱 | 작성일 | 글자(공백 제외) | 차트·도해 | 사진 |
 |---|---|---|---|---|---|---|---|
 | resistor-color-code | science | 전자 회로 | resistorcalculator | 2026-11-13 | 약 1,400 | 4색띠 읽기 도해 | 저항 접사 |
@@ -88,15 +88,20 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 | english-proverbs-15 | learn | 영어 | englishproverbs | 2026-11-11 | 약 2,000 | 카드 학습 4단계 | 공부 카드 |
 | average-cost-calculation | money | 계산 | stockcalculator, stocksimulation | 2026-11-13 | 약 1,850 | 평균 단가 차트 2개 | 책상 |
 | why-rgb-makes-white | play | 과학 상식 | chromaray | 2026-11-13 | 약 1,400 | 빛·잉크 색 섞기, 화면 화소 | RGB 조명, 화면 확대 |
+| loss-recovery-rate | money | 계산 | stockcalculator | 2026-11-07 | 약 1,450 | 회복 수익률 막대, ±20% 반복 선 차트 | 공책·계산기 |
+| used-phone-checklist | phone | 점검 | phonecheck | 2026-10-30 | 약 1,800 | 점검 5단계 도해 | 흠집 확인·유심 트레이 |
+| led-resistor-ohms-law | science | 전자 회로 | resistorcalculator | 2026-11-14 | 약 1,600 | LED 회로도 | 브레드보드 |
+| spaced-repetition-review | learn | 공부법 | snapstudy_koreanhistory | 2026-10-15 | 약 1,350 | 망각 곡선 개념도, 복습 간격 4단계 | 공부 카드 묶음 |
+| hangul-principles | learn | 한국어 | koreanstudy | 2026-11-04 | 약 1,390 | 모음 만들기 도해(자음 획 더하기는 표) | 붓·벼루 |
+| prism-rainbow | play | 과학 상식 | chromaray | 2026-11-14 | 약 1,370 | 프리즘 도해, 빗방울 속 빛의 길 | 창가 프리즘 |
 
-카테고리별 일반 글 수: science 1, learn 1, phone 1, money 1, play 1(앱 소개 글 18편은 따로).
+카테고리별 일반 글 수: science 2, learn 3, phone 2, money 2, play 2(앱 소개 글 18편은 따로). 다음에는 play·science·phone·money에서 고르게 제안한다.
 
 ### 카테고리별 주제 이름 (topic)
-- science: 전자 회로, 수학, 물리, 화학 / learn: 영어, 한국어, 한국사, 미술, 성경 / phone: 와이파이, 점검, 기종 비교, 응원 / money: 계산, 모의 투자 / play: 과학 상식, 퍼즐, 휴식
+- science: 전자 회로, 수학, 물리, 화학 / learn: 영어, 한국어, 한국사, 미술, 성경, 공부법 / phone: 와이파이, 점검, 기종 비교, 응원 / money: 계산, 모의 투자 / play: 과학 상식, 퍼즐, 휴식
 
 ### 주제 후보 (쓰면 이 목록에서 지운다)
 - science
-  - 옴의 법칙으로 LED 저항 값 구하기 (resistorcalculator; 계산 예시 검산, LED 순방향 전압은 "예시")
   - 직렬·병렬 저항 계산, 한 번에 이해하기 (resistorcalculator; 회로도 SVG)
   - 이차함수 그래프, a·b·c가 바뀌면 어떻게 움직일까 (mathlab; 그래프 SVG)
   - 몰 농도 계산, 공식 하나로 끝내기 (chemnote; 예제 검산)
@@ -104,13 +109,10 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
   - 등가속도 운동 공식 3개, 언제 무엇을 쓸까 (physicsnote)
   - 지수·로그 법칙, 자주 헷갈리는 5가지 (mathnote)
 - learn
-  - 한글은 어떻게 만들어졌을까, 자음·모음의 원리 (koreanstudy; 외국인에게 한글 알려 주기 관점)
   - 인상주의 쉽게 보기, 모네와 르누아르의 빛 (arthistorynote; 작품 정보는 정확히)
   - 수능 한국사 시대 흐름 한눈에 보기 (snapstudy_koreanhistory; 연표 도해)
-  - 잊어버리기 전에 복습하는 법, 간격 복습 (snapstudy_koreanhistory·englishproverbs)
   - 성경은 어떻게 구성되어 있을까, 구약·신약과 73권 (snapstudy_cbible; 가톨릭 기준)
 - phone
-  - 중고폰 사기 전 점검할 것 체크리스트 (phonecheck)
   - 스마트폰 배터리 오래 쓰는 습관 (phonecheck; 단정 대신 일반적 권장으로)
   - 스마트폰 사양표 읽는 법: RAM·주사율·화소 (phonespec)
   - 2.4GHz와 5GHz, 언제 무엇을 쓸까 (wifideadzone)
@@ -118,7 +120,6 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
   - 콘서트 응원 문구, 멀리서도 잘 보이게 만드는 법 (phonebanner)
   - 데드 픽셀·터치 불량 스스로 확인하는 법 (phonecheck)
 - money (모두 첫머리에 "투자 권유 아님" .tip)
-  - 50% 떨어지면 몇 % 올라야 본전일까, 손실 회복 수익률 (stockcalculator; 표·차트 검산)
   - 복리와 72의 법칙, 돈이 두 배 되는 시간 (stocksimulation; 근사식임을 밝힘)
   - 최대 낙폭(MDD)이란 무엇이고 어떻게 계산할까 (stocksimulation)
   - 적립식과 한 번에 투자, 계산으로 보는 차이 (stocksimulation; 결과 단정 금지, 가상 예시)
@@ -126,18 +127,18 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 - play
   - 25분 집중, 5분 휴식: 뽀모도로 공부법 (snowglobe)
   - 스노우볼 속 눈은 왜 천천히 떨어질까 (snowglobe)
-  - 프리즘과 무지개, 흰빛이 나뉘는 이유 (chromaray)
   - 보색이란 무엇일까, 빛과 물감의 보색 (chromaray)
 
 ## 파일 구조와 생성 방법
 - 원본 데이터: `data/site.json` — 앱(`apps`: id·group·icon), 그룹(`groups`), 언어별 문구(`text.<언어>`: 사이트 제목·소개·그룹 이름과 설명·앱 이름/분류/설명 등), 소개 페이지(`about`), 연결 페이지 목록(`redirects`).
-- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). 블로그 전체(`index.html`, `posts/`, `category/`, `apps/`), 공개 언어의 앱 목록·소개 페이지, 숨긴 주소의 연결 페이지(`index-ko.html`, `index-en.html`, `about-en.html`), `sitemap.xml`을 만든다. 생성 페이지는 `/css/…`처럼 사이트 루트 기준 주소를 쓴다(하위 폴더 페이지 때문). CSS·JS 주소에는 파일 내용으로 만든 버전(`?v=해시`, `asset()`)이 붙어, 고친 뒤 브라우저가 예전 파일을 쓰지 않는다. 본문 차트 SVG는 최소 너비 없이 글 칸 폭에 맞춰 줄어든다(2026-11-13 좁은 휴대폰에서 넘치던 문제 수정). **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다(기본 오늘). 스크립트가 누락·불일치를 검사한다.
+- 생성: `python tools/build_pages.py` (표준 라이브러리만 사용, Python 3.14 확인). 블로그 전체 (`index.html`, `posts/`, `category/`, `apps/`), 공개 언어의 앱 목록·소개 페이지, 숨긴 주소의 연결 페이지 (`index-ko.html`, `index-en.html`, `about-en.html`), `sitemap.xml`을 만든다. 생성 페이지는 `/css/…`처럼 사이트 루트 기준 주소를 쓴다 (하위 폴더 페이지 때문). CSS·JS 주소에는 파일 내용으로 만든 버전 (`?v=해시`, `asset()`)이 붙어, 고친 뒤 브라우저가 예전 파일을 쓰지 않는다. 해시는 줄바꿈을 LF로 맞춘 뒤 계산하므로 `core.autocrlf=true`인 PC에서도 같은 값이 나온다 (2026-11-14 수정, 그전에는 CRLF로 꺼내는 PC에서 값이 달라졌다). 그런 PC에서는 생성 후 내용이 같아도 `git status`에 생성 파일이 "M"으로 보일 수 있는데, 줄바꿈 차이일 뿐이다 (`git diff`가 비어 있으면 무시하거나 `git checkout -- <파일>`로 되돌린다). 본문 차트 SVG는 최소 너비 없이 글 칸 폭에 맞춰 줄어든다 (2026-11-13 좁은 휴대폰에서 넘치던 문제 수정). **생성된 HTML을 직접 고치지 말고** 데이터나 스크립트를 고친 뒤 다시 실행한다. `--lastmod YYYY-MM-DD`로 sitemap 날짜를 정한다 (기본 오늘). 스크립트가 누락·불일치를 검사한다.
 - 본문은 HTML에 직접 들어간다(JavaScript 없이도 읽힘, 애드센스·검색 대응). `js/app.js`는 앱 목록의 그룹 필터(`#learn`처럼 주소에 남음, 예전 `#calc`→money), 아이콘 판 클릭 이동, 블로그 주제 버튼, 언어 메뉴(`<details>` 링크), 저작권 연도만 담당한다. 
 - `css/styles.css`: 색 토큰과 그룹 색 5쌍(라이트·다크), 예비 색 1쌍. 1080px 초과 3열, 720px 초과 2열, 그 이하 1열. 720px 이하에서 헤더 메뉴는 필요하면 다음 줄로 내려간다.
 - `_config.yml`의 exclude: 내부 문서(AGENTS.md, README.md, 프로젝트.md, 공통지침.md, 프로젝트지침.md, 이미지요청.md), `data/`, `tools/`, `content/`, `자료실/` 등은 배포하지 않는다.
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
+- `robots.txt`(2026-11-14 추가, 직접 쓴 파일이며 생성 스크립트와 무관): 모두 허용 + `Sitemap: https://jbiglion22.github.io/sitemap.xml`. 이 저장소가 도메인 루트라 같은 도메인의 앱 홈페이지(`/<id>_home/`)에도 적용되므로, 막는 줄을 넣을 때 앱 홈페이지가 막히지 않게 한다. noindex 연결 페이지(`index-en.html` 등)는 막지 않는다(막으면 noindex를 읽지 못함). 애드센스 크롤러(Mediapartners-Google)도 막지 않는다. 사이트맵 이름을 바꾸면 이 줄도 고친다.
 - `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
-- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 18개(영어 숨김 상태 2026-11-13 기준 50개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다(프로젝트.md 요구).
+- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 18개 (영어 숨김 상태 2026-11-13 기준 50개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
 
 ## 앱과 그룹 (18개, 5개 그룹)
 - learn 언어와 교양: koreanstudy 한국어 학습, englishproverbs 영어 속담 사전, snapstudy_koreanhistory 수능 한국사, arthistorynote 미술사노트, snapstudy_cbible 가톨릭 성경 퀴즈
