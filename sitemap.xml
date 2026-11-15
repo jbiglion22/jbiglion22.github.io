@@ -136,14 +136,29 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jbiglion22.github.io/posts/max-drawdown-mdd/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jbiglion22.github.io/apps/stocksimulation/</loc>
     <lastmod>2026-11-15</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jbiglion22.github.io/posts/phone-spec-sheet-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jbiglion22.github.io/apps/englishproverbs/</loc>
     <lastmod>2026-11-15</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/posts/quadratic-graph-abc/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jbiglion22.github.io/apps/resistorcalculator/</loc>
