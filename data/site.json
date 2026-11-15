@@ -123,6 +123,11 @@
       "id": "snowglobe",
       "group": "play",
       "icon": "<circle cx=\"12\" cy=\"10\" r=\"7.5\"/><path d=\"M7 21h10l-1.4-3.6H8.4z\"/><path d=\"M12 7v6M9.4 8.5l5.2 3M14.6 8.5l-5.2 3\"/>"
+    },
+    {
+      "id": "tinytank",
+      "group": "play",
+      "icon": "<rect x=\"2.5\" y=\"12.5\" width=\"19\" height=\"6\" rx=\"3\"/><path d=\"M7.5 12.5V10a2 2 0 0 1 2-2h3.5a2 2 0 0 1 2 2v2.5M15 9.5h6.5\"/><path d=\"M7 15.5h.01M12 15.5h.01M17 15.5h.01\"/>"
     }
   ],
   "text": {
@@ -239,6 +244,11 @@
           "name": "Korean History Note",
           "tag": "Korean history · People, events & terms",
           "desc": "Look up people, events and terms from Korean history by name or initial consonants and read each as a short, easy card. App content is in Korean."
+        },
+        "tinytank": {
+          "name": "Tiny Tank",
+          "tag": "Arcade · Tank shooter",
+          "desc": "Steer one tiny tank with one thumb while the cannon aims for you. Win back four lands across 20 stages and 4 boss fights."
         }
       },
       "aboutLabel": "About",
@@ -247,7 +257,7 @@
         "science": "Math and physics formulas, chemistry calculations, hands-on function and shape experiments, and resistor calculations",
         "phone": "Check your phone, compare smartphone specs, show a cheering LED board and find Wi-Fi dead zones at home",
         "money": "Work out average cost and returns on stock trades, and compare investing methods in a virtual market",
-        "play": "A puzzle game about bending and mixing light, and a relaxing snow globe to watch"
+        "play": "A puzzle game about bending and mixing light, a relaxing snow globe to watch, and a one-thumb tank shooter"
       },
       "imageNote": "Illustrations set the mood and are not actual app screens."
     },
@@ -364,6 +374,11 @@
           "name": "한국사 노트",
           "tag": "한국사 · 인물·사건·용어 사전",
           "desc": "사극이나 여행지에서 궁금해진 한국사 인물·사건·용어를 이름이나 초성으로 찾아, 한 장의 카드로 쉽게 읽어 보세요."
+        },
+        "tinytank": {
+          "name": "꼬마 탱크",
+          "tag": "아케이드 · 탱크 슈팅",
+          "desc": "엄지 하나로 꼬마 탱크를 몰면 포는 알아서 쏴요. 20개 스테이지와 보스 4마리를 넘어 빼앗긴 네 땅을 되찾으세요."
         }
       },
       "aboutLabel": "사이트 소개",
@@ -372,7 +387,7 @@
         "science": "수학·물리 공식 정리, 화학 계산, 함수와 도형 실험, 전자 회로 저항 계산을 돕는 앱",
         "phone": "휴대폰 상태 점검, 스마트폰 사양 비교, 응원용 전광판, 집 안 와이파이 신호 확인 앱",
         "money": "주식 매매 단가와 수익률 계산, 가상 시장에서 투자 방법을 비교하는 모의 투자 앱",
-        "play": "빛을 꺾고 섞어 푸는 퍼즐 게임과 눈 내리는 스노우볼을 감상하는 힐링 앱"
+        "play": "빛을 꺾고 섞어 푸는 퍼즐 게임, 눈 내리는 스노우볼을 감상하는 힐링 앱, 엄지 하나로 즐기는 탱크 슈팅 게임"
       },
       "imageNote": "일러스트는 분위기를 전하기 위한 그림이며 실제 앱 화면이 아닙니다."
     }

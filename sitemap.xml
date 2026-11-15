@@ -56,6 +56,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jbiglion22.github.io/apps/tinytank/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jbiglion22.github.io/posts/average-cost-calculation/</loc>
     <lastmod>2026-11-15</lastmod>
     <priority>0.8</priority>
@@ -317,6 +322,11 @@
   </url>
   <url>
     <loc>https://jbiglion22.github.io/snowglobe_home/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jbiglion22.github.io/tinytank_home/</loc>
     <lastmod>2026-11-15</lastmod>
     <priority>0.7</priority>
   </url>

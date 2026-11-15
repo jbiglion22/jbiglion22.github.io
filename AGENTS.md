@@ -40,7 +40,7 @@
 - 주제(topic)는 카테고리 안의 작은 분류이며 카테고리 페이지에서 주제 버튼으로 거를 수 있다(JavaScript가 있을 때만 버튼 표시). "앱 소개" 버튼은 앱 소개 글만 보여 준다.
 - 출시일 출처: Google Play 페이지 데이터의 두 날짜 중 이른 날짜(다른 하나는 업데이트 날짜, 2026-11-13 확인). Play 화면의 "출시일" 표기를 직접 본 것은 아니므로 사용자가 정확한 날짜를 알려 주면 고친다. 수능 한국사 2026-09-16, 가톨릭 성경 퀴즈 2026-02-14, 폰스펙 비교 2026-08-25 등 18개 모두 `content/apps/*.html`의 date에 있다.
 - 글 그림(대표 그림): 모든 글과 앱 소개 글은 자기 대표 그림을 가진다(사용자 지시 2026-11-13: 앱 소개 글이 카테고리 그림을 쓰면 안 되고, 없으면 별도로 만들어 쓴다). 찾는 순서: 머리말 `image` → `images/posts/<slug>.*`(일반 글) 또는 `images/posts/app-<앱 id>.*`(앱 소개 글) → 없으면 임시로 카테고리 그림. 생성 스크립트가 카테고리 그림을 빌려 쓰는 글을 "Note:"로 알려 주므로, 보이면 이미지요청.md로 대표 그림을 요청한다. 대표 그림은 1280×720 WebP. 2026-11-14까지 쓴 일반 글 11편은 대표 그림과 본문 사진 반영 완료. 2026-11-15에 쓴 6편(뽀모도로·복리·조선 왕 이름·이차함수·사양표·최대 낙폭)도 대표 그림 6장과 본문 사진 5장을 같은 날 반영했다. 사양표 글의 카메라 사진은 처음 받은 그림이 특정 제조사 모델처럼 보여(대각선 렌즈 두 개) 다시 요청했고, 세로 렌즈 세 개의 단순한 그림으로 받아 반영했다. 실제 기기를 닮을 수 있는 그림은 원본 크기로 보고 확인한다. 이미지요청.md에 남은 요청 없음. 대표 그림을 16:9로 자를 때 내용이 잘리면, 가운데를 자르지 않고 높이 720으로 줄인 뒤 좌우 끝 배경을 늘려 1280 폭으로 채웠다(뽀모도로·조선 왕 이름·이차함수).
-- 2026-11-13 반영 완료: 앱 소개 글 대표 그림 18장(`images/posts/app-<id>.webp`, 1280×720, 그룹 색 배경 일러스트). 원본 PNG는 반영 후 삭제(커밋된 적 없음). 2026-11-15 추가한 한국사 노트의 대표 그림(`app-koreanhistorynote`)도 반영 완료(카드 상자·돋보기·왕관·사극 화면). 19개 앱 소개 글은 모두 자기 대표 그림을 쓴다.
+- 2026-11-13 반영 완료: 앱 소개 글 대표 그림 18장(`images/posts/app-<id>.webp`, 1280×720, 그룹 색 배경 일러스트). 원본 PNG는 반영 후 삭제(커밋된 적 없음). 2026-11-15 추가한 한국사 노트의 대표 그림(`app-koreanhistorynote`)도 반영 완료(카드 상자·돋보기·왕관·사극 화면). 2026-11-15 추가한 꼬마 탱크(`app-tinytank`)는 이미지요청.md로 대표 그림을 요청해 둔 상태라, 받기 전까지 카테고리 그림을 쓴다(생성 시 "Note:" 표시). 나머지 19개 앱 소개 글은 자기 대표 그림을 쓴다.
 - 그림 종류 원칙(사용자 요청 2026-11-13, 2026-11-15 수정): 사이트 그림(첫 화면·소개·그룹)과 앱 소개 글 대표 그림은 파스텔 3D 일러스트를 유지한다. **일반 글 대표 그림(목록 썸네일과 같은 파일)은 모두 같은 형식이면 인위적으로 보인다는 사용자 지적(2026-11-15)으로 다섯 형식을 섞는다**: 파스텔 3D, 실사 사진, 평면 일러스트, 수채화·손그림(스타일 문구는 이미지요청.md), 차트형(숫자·곡선이 핵심인 글은 AI가 `tools/make_chart_covers.py`로 직접 그림. Pillow+맑은 고딕, 글의 예시 숫자를 그대로 쓰므로 글 숫자를 바꾸면 함께 고친다. 목록 썸네일이 휴대폰에서 92px 정사각, PC에서 16:10으로 잘리므로 핵심은 가운데 x 330~950(그리기 좌표)에 둔다). 새 글을 쓸 때는 글 성격에 맞는 형식을 고르되, 전체 글 목록(최신순)에서 바로 앞뒤 글과 같은 형식이 연달아 나오지 않게 한다. 2026-11-15 배정: 차트형(반영 완료) average-cost-calculation·loss-recovery-rate·compound-interest-rule-of-72·max-drawdown-mdd·spaced-repetition-review / 실사 resistor-color-code·wifi-dead-zone-tips·used-phone-checklist / 평면 led-resistor-ohms-law·phone-spec-sheet-guide / 수채·손그림 king-names-jo-jong-gun·english-proverbs-15·pomodoro-study-method·hangul-principles·quadratic-graph-abc(색연필) / 3D 유지 prism-rainbow·why-rgb-makes-white. 차트형·3D를 뺀 10장도 같은 날 받아 반영했다(16:9로 가운데를 잘라 WebP, 공유기 사진만 아래쪽으로 옮겨 자름. 수채화·색연필은 종이 질감 때문에 용량이 커서 품질 74로 저장). 이미지요청.md에 남은 요청 없음. **글 본문에는 성격에 맞게 다양하게** 넣는다. 정확해야 하는 차트·도표·도해는 AI가 본문에 인라인 SVG/HTML로 직접 그린다(`<figure class="chart"><div class="frame"><svg>…</svg></div><figcaption>`; 글자 색은 `.t`·`.m`, 선은 `.grid`·`.axis`, 카테고리 색은 `.c-bg`·`.c-fg`, 단계 도해는 `<div class="steps">`). 현실감이 필요한 사진은 ChatGPT에 사진풍(포토리얼)으로 요청한다.
 - 본문 사진: `<figure class="photo" data-src="images/posts/<파일>.webp" data-alt="설명">캡션</figure>`로 넣으면 파일이 있을 때만 보이고("AI 생성 이미지" 표시 자동), 없으면 빠진다. 두 장을 나란히 두려면 `<div class="pair">`로 감싼다. 본문 사진은 1280×853(3:2) WebP.
 
@@ -102,12 +102,12 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 | phone-spec-sheet-guide | phone | 기종 비교 | phonespec | 2026-10-25 | 약 1,420 | 주사율 0.1초 비교, RAM·저장 공간 표 | 카메라 근접 |
 | max-drawdown-mdd | money | 계산 | stocksimulation | 2026-10-27 | 약 1,430 | 고점·저점 낙폭 차트, 같은 수익률 다른 MDD 비교, 계산 4단계 | 공책 꺾은선 |
 
-카테고리별 일반 글 수: science 3, learn 4, phone 3, money 4, play 3(앱 소개 글 19편은 따로). 다음에는 science·phone·play부터 고르게 제안한다. 2026-10-16~10-29 사이에 일반 글이 적으니 날짜를 정할 때 참고한다.
+카테고리별 일반 글 수: science 3, learn 4, phone 3, money 4, play 3(앱 소개 글 20편은 따로). 다음에는 science·phone·play부터 고르게 제안한다. 2026-10-16~10-29 사이에 일반 글이 적으니 날짜를 정할 때 참고한다.
 
 차트 SVG 크기: 휴대폰(390px)에서 글자가 읽히도록 새 차트는 `viewBox="0 0 360 …"`처럼 좁게 그린다(2026-11-15, 640 폭은 휴대폰에서 글자가 9px 안팎으로 작아짐). 예전 글의 640 폭 차트는 그대로 두었다. 밝은 `card-fill` 칸에는 `stroke="#9aa0a6"` 테두리를 넣어 배경과 구분한다. 곡선이 여러 개인 그래프는 이름표를 곡선 옆에 두면 휴대폰에서 겹치므로 아래에 범례(선 견본+이름)를 둔다. 선 색은 `class="ink-stroke"`, `style="stroke:var(--c-fg)"`(카테고리 색), 회색 `#9aa0a6`(실선·점선).
 
 ### 카테고리별 주제 이름 (topic)
-- science: 전자 회로, 수학, 물리, 화학 / learn: 영어, 한국어, 한국사, 미술, 성경, 공부법 / phone: 와이파이, 점검, 기종 비교, 응원 / money: 계산, 모의 투자 / play: 과학 상식, 퍼즐, 휴식
+- science: 전자 회로, 수학, 물리, 화학 / learn: 영어, 한국어, 한국사, 미술, 성경, 공부법 / phone: 와이파이, 점검, 기종 비교, 응원 / money: 계산, 모의 투자 / play: 과학 상식, 퍼즐, 휴식, 게임
 
 ### 주제 후보 (쓰면 이 목록에서 지운다)
 - science
@@ -142,19 +142,20 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
 - `robots.txt`(2026-11-14 추가, 직접 쓴 파일이며 생성 스크립트와 무관): 모두 허용 + `Sitemap: https://jbiglion22.github.io/sitemap.xml`. 이 저장소가 도메인 루트라 같은 도메인의 앱 홈페이지(`/<id>_home/`)에도 적용되므로, 막는 줄을 넣을 때 앱 홈페이지가 막히지 않게 한다. noindex 연결 페이지(`index-en.html` 등)는 막지 않는다(막으면 noindex를 읽지 못함). 애드센스 크롤러(Mediapartners-Google)도 막지 않는다. 사이트맵 이름을 바꾸면 이 줄도 고친다.
 - `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
-- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 19개 (영어 숨김 상태, 앱 19개·일반 글 17편 기준 2026-11-15 64개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
+- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 20개 (영어 숨김 상태, 앱 20개·일반 글 17편 기준 2026-11-15 66개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
 
-## 앱과 그룹 (19개, 5개 그룹)
+## 앱과 그룹 (20개, 5개 그룹)
 - learn 언어와 교양: koreanstudy 한국어 학습, englishproverbs 영어 속담 사전, snapstudy_koreanhistory 수능 한국사, koreanhistorynote 한국사 노트, arthistorynote 미술사노트, snapstudy_cbible 가톨릭 성경 퀴즈
 - science 수학과 과학: mathnote 수학공식노트, mathlab 수학 실험실, physicsnote 수능 물리 공식 노트, chemnote 화학노트, resistorcalculator 저항계산기
 - phone 휴대폰: phonecheck 폰체크, phonespec 폰스펙 비교, phonebanner 폰전광판, wifideadzone 와이파이 사각지대 찾기(영어 WiFi DeadZone)
 - money 주식과 투자: stockcalculator 주식 매매 계산기, stocksimulation 주식 시뮬레이터
-- play 휴식과 놀이: chromaray 크로마 레이, snowglobe 스노우 볼
+- play 휴식과 놀이: chromaray 크로마 레이, snowglobe 스노우 볼, tinytank 꼬마 탱크(영어 Tiny Tank)
 - 앱 `id`는 홈페이지 폴더 이름(`<id>_home`)과 같아야 한다. 패키지 ID와 다를 수 있다(수능 한국사: `com.phonensoft.snapstudykoreanhistory`, 폴더 `snapstudy_koreanhistory_home`).
 - 프로젝트.md의 `Korean Study`는 한국어 학습과 같은 앱이라 따로 넣지 않는다.
 - 한국사 노트(`com.phonensoft.koreanhistorynote`, 2026-11-15 추가): 프로젝트.md 19번. 홈페이지와 Google Play(개발자 J.Biglion, 출시일 2026-11-10로 보임)를 직접 확인했다. 인물·사건·용어 각 100여 개 카드, 이름·별칭·초성·연도 검색, 사극·영화 20여 편의 실제 역사, 일곱 시대 타임라인, "오늘의 한 장"이 있고 앱 내용은 한국어. **수능 한국사(시험 대비 암기 앱)와 다른 앱**이므로 설명에서 구분한다(앱 소개 글 첫 부분에 용도 차이를 적었다). 사이트용 아이콘은 카드+돋보기.
+- 꼬마 탱크(`com.phonensoft.tinytank`, 2026-11-15 추가): 프로젝트.md 20번(이름은 Tiny Tank). 홈페이지(한국어 `index-ko.html`)와 Google Play(한국어 이름 "꼬마 탱크: 귀여운 탱크 슈팅", 페이지 데이터 날짜 2026-11-14·11-15 중 이른 날짜를 출시일로)를 직접 확인했다. 조이스틱 이동·자동 조준 탱크 슈팅, 4개 구역 20개 스테이지, 보스 4마리, 상점 부품 9종, 보상형 광고, 한국어·영어. 그룹은 play, 앱 소개 글 topic은 새로 만든 "게임". 사이트용 아이콘은 선으로 그린 탱크.
 - 참고: 폰체크·크로마 레이 홈페이지에는 "Coming soon" 문구가 남아 있으나 Google Play에 등록되어 있다. 수학 실험실·가톨릭 성경 퀴즈는 Play 설명이 더 최신이라 Play를 따랐다. 물리·한국사·수학공식은 한국 수능 대상이라 영어 설명에 CSAT를 밝혔다.
-- 앱 추가: `apps`에 `{id, group, icon}`(icon은 24×24 선 아이콘 내부 SVG), `text.en/ko.apps`에 `{name, tag, desc}`, `content/apps/<id>.html` 앱 소개 글(작성일 = 출시일), 앱 소개 글 대표 그림(이미지요청.md로 요청 → `images/posts/app-<id>.webp`), 필요하면 그룹 조정(`groups`, 각 언어 `groups`·`groupDesc`, CSS 색). 앱이 늘면 그룹 수와 구성을 다시 검토한다(주식·놀이는 2개뿐, 언어와 교양은 6개). 앱이 30개를 넘어 찾기 어려워지면 검색을 검토한다.
+- 앱 추가: `apps`에 `{id, group, icon}`(icon은 24×24 선 아이콘 내부 SVG), `text.en/ko.apps`에 `{name, tag, desc}`, `content/apps/<id>.html` 앱 소개 글(작성일 = 출시일), 앱 소개 글 대표 그림(이미지요청.md로 요청 → `images/posts/app-<id>.webp`), 필요하면 그룹 조정(`groups`, 각 언어 `groups`·`groupDesc`, CSS 색). 앱이 늘면 그룹 수와 구성을 다시 검토한다(주식은 2개뿐, 언어와 교양은 6개). 앱이 30개를 넘어 찾기 어려워지면 검색을 검토한다.
 
 ## 이미지
 - 그림은 선택 사항이다. 생성 스크립트는 `images/` 안에 아래 이름의 파일(`.webp`, `.png`, `.jpg` 순서로 찾음)이 있을 때만 넣고, 없으면 그림 없는 디자인 그대로 만든다.
