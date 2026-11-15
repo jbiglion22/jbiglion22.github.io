@@ -123,5 +123,39 @@ document.querySelectorAll('.subtopics').forEach(box => {
   render();
 });
 
+// Blog home: today's featured post. Same rule as tools/blog.py (home): days since the start date in
+// Korean time, taken in turn from the rotation list, so it changes at midnight KST and is the same for everyone.
+// The HTML already shows the pick for the build day; this only switches it when the day has changed.
+const rotationEl = document.getElementById('featured-rotation');
+if (rotationEl) {
+  try {
+    const data = JSON.parse(rotationEl.textContent);
+    const day = ms => Math.floor(ms / 86400000);
+    const kstDay = day(Date.now() + 9 * 3600000);
+    const startDay = day(Date.parse(data.start + 'T00:00:00Z'));
+    const n = data.posts.length;
+    const pick = data.posts[(((kstDay - startDay) % n) + n) % n];
+    const box = rotationEl.parentElement;
+    const link = box.querySelector('h1 a');
+    if (pick && link && link.getAttribute('href') !== pick.url) {
+      const img = box.querySelector(':scope > img');
+      if (img && pick.img) img.src = pick.img;
+      box.querySelector('.kicker .dot').className = 'dot c-' + pick.cat;
+      box.querySelector('.feature-cat').textContent = pick.catName;
+      link.href = pick.url;
+      link.textContent = pick.title;
+      box.querySelector('p').textContent = pick.summary;
+      const time = box.querySelector('time');
+      time.dateTime = pick.date;
+      time.textContent = pick.nice;
+      box.querySelector('.btn').href = pick.url;
+    }
+    // Latest posts: hide today's featured post if it is in the list, otherwise the extra last row.
+    const rows = [...document.querySelectorAll('[data-home-latest] .post')];
+    const same = rows.find(row => row.getAttribute('href') === pick.url);
+    rows.forEach(row => { row.hidden = row === (same || rows[rows.length - 1]); });
+  } catch (e) { /* keep the build-day pick */ }
+}
+
 const year = document.querySelector('.year');
 if (year) year.textContent = new Date().getFullYear();

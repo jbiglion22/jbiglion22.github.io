@@ -17,7 +17,9 @@ Pictures inside a post (photo-like images made on request) are written as
 The figure is shown only when the file exists, so a requested picture can be placed before it arrives.
 Charts and diagrams are drawn directly as inline SVG/HTML inside <figure class="chart">.
 """
+import json
 import re
+from datetime import date, datetime, timedelta, timezone
 
 CONTENT_POST_KEYS = {'title', 'date', 'category', 'topic', 'apps', 'summary', 'image', 'featured'}
 CONTENT_APP_KEYS = {'app', 'date', 'topic', 'title', 'summary', 'image'}
@@ -39,6 +41,13 @@ def parse_source(path, allowed):
     meta['body'] = text[m.end():].strip()
     assert re.fullmatch(r'\d{4}-\d{2}-\d{2}', meta.get('date', '')), f'{path}: date must be YYYY-MM-DD'
     return meta
+
+
+# Home "featured" post: one article per day, the same for everyone (Korean time), cycling through every
+# article before repeating. A post with "featured: yes" pins it instead. js/app.js does the same pick in the
+# browser so the home page changes every day without a rebuild; the HTML holds the pick for the build day.
+ROTATION_START = date(2026, 1, 1)
+KST = timezone(timedelta(hours=9))
 
 
 def nice_date(iso):
@@ -227,13 +236,42 @@ class Blog:
         app = self.apps[app_id]
         return f'<span class="icon g-{app["group"]}">{self.h.icon_markup(app, size)}</span>'
 
+    def rotation(self):
+        """Daily featured order: articles taken in turn from each category (category order of the blog),
+        oldest first within a category, so neighbouring days show different categories."""
+        queues = [sorted((i for i in self.items if i['kind'] == 'post' and i['category'] == c['id']),
+                         key=lambda x: (x['date'], x['slug'])) for c in self.cfg['categories']]
+        order = []
+        while any(queues):
+            for q in queues:
+                if q:
+                    order.append(q.pop(0))
+        return order
+
     # ---------- pages ----------
     def home(self, year):
         esc, h = self.h.esc, self.h
         articles = [i for i in self.items if i['kind'] == 'post']
-        featured = next((i for i in articles if i.get('featured') == 'yes'), articles[0] if articles else self.items[0])
+        pinned = next((i for i in articles if i.get('featured') == 'yes'), None)
+        order = [] if pinned else self.rotation()
+        if pinned or not order:
+            featured = pinned or (articles[0] if articles else self.items[0])
+        else:
+            featured = order[(datetime.now(KST).date() - ROTATION_START).days % len(order)]
         img = self.image_for(featured)
-        latest = [i for i in self.items if i is not featured][: self.cfg.get('homeCount', 10)]
+        # One extra row: the browser hides whichever row is today's featured post (or the extra one).
+        count = self.cfg.get('homeCount', 10)
+        latest = self.items[: count + 1]
+        hide = featured if featured in latest else latest[-1]
+        latest_rows = '\n'.join(self.row(i).replace('<a class="post"', '<a class="post" hidden', 1) if i is hide else self.row(i)
+                                for i in latest)
+        rotation_data = ''
+        if order:
+            data = {'start': ROTATION_START.isoformat(), 'posts': [
+                {'url': i['url'], 'title': i['title'], 'summary': i['summary'], 'date': i['date'], 'nice': nice_date(i['date']),
+                 'cat': i['category'], 'catName': self.cats[i['category']]['name'], 'img': self.image_for(i) or ''} for i in order]}
+            rotation_data = ('\n    <script type="application/json" id="featured-rotation">'
+                             + json.dumps(data, ensure_ascii=False).replace('</', '<\\/') + '</script>')
         side_cats = '\n'.join(f'        <li><a href="/category/{c["id"]}/"><span class="dot c-{c["id"]}"></span>{esc(c["name"])}</a></li>'
                               for c in self.cfg['categories'])
         minis = ''.join(f'<a href="{self.app_link(a["id"])}" class="mini g-{a["group"]}" title="{esc(h.app_text(self.site, "ko", a["id"])["name"])}">{h.icon_markup(a, 16)}</a>'
@@ -244,10 +282,10 @@ class Blog:
             + f'<div><strong>{esc(c["name"])}</strong><span>{esc(c["short"])}</span></div></a>'
             for c in self.cfg['categories'])
         main = f'''<main id="main" class="wrap">
-  <section class="feature">
+  <section class="feature">{rotation_data}
     {f'<img src="{img}" alt="">' if img else ''}
     <div>
-      <span class="kicker"><span class="dot c-{featured["category"]}"></span>{esc(self.cats[featured["category"]]["name"])} · {esc(self.cfg["featuredLabel"])}</span>
+      <span class="kicker"><span class="dot c-{featured["category"]}"></span><span class="feature-cat">{esc(self.cats[featured["category"]]["name"])}</span> · {esc(self.cfg["featuredLabel"])}</span>
       <h1><a href="{featured["url"]}">{esc(featured["title"])}</a></h1>
       <p>{esc(featured["summary"])}</p>
       <div class="meta"><time datetime="{featured["date"]}">{nice_date(featured["date"])}</time></div>
@@ -270,8 +308,8 @@ class Blog:
     </aside>
     <div>
       <h2 class="section-title">{esc(self.cfg["latestLabel"])}</h2>
-      <div class="post-list">
-{chr(10).join(self.row(i) for i in latest)}
+      <div class="post-list" data-home-latest>
+{latest_rows}
       </div>
       <a class="more" href="/posts/">{esc(self.cfg["allPostsLabel"])} →</a>
     </div>
