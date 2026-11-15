@@ -39,7 +39,7 @@
 - 주제(topic)는 카테고리 안의 작은 분류이며 카테고리 페이지에서 주제 버튼으로 거를 수 있다(JavaScript가 있을 때만 버튼 표시). "앱 소개" 버튼은 앱 소개 글만 보여 준다.
 - 출시일 출처: Google Play 페이지 데이터의 두 날짜 중 이른 날짜(다른 하나는 업데이트 날짜, 2026-11-13 확인). Play 화면의 "출시일" 표기를 직접 본 것은 아니므로 사용자가 정확한 날짜를 알려 주면 고친다. 수능 한국사 2026-09-16, 가톨릭 성경 퀴즈 2026-02-14, 폰스펙 비교 2026-08-25 등 18개 모두 `content/apps/*.html`의 date에 있다.
 - 글 그림(대표 그림): 모든 글과 앱 소개 글은 자기 대표 그림을 가진다(사용자 지시 2026-11-13: 앱 소개 글이 카테고리 그림을 쓰면 안 되고, 없으면 별도로 만들어 쓴다). 찾는 순서: 머리말 `image` → `images/posts/<slug>.*`(일반 글) 또는 `images/posts/app-<앱 id>.*`(앱 소개 글) → 없으면 임시로 카테고리 그림. 생성 스크립트가 카테고리 그림을 빌려 쓰는 글을 "Note:"로 알려 주므로, 보이면 이미지요청.md로 대표 그림을 요청한다. 대표 그림은 1280×720 WebP. 일반 글 11편 모두 대표 그림과 본문 사진 반영 완료(2026-11-14), 이미지요청.md에 남은 요청 없음.
-- 2026-11-13 반영 완료: 앱 소개 글 대표 그림 18장(`images/posts/app-<id>.webp`, 1280×720, 그룹 색 배경 일러스트). 이제 모든 글이 자기 대표 그림을 쓰며 생성 시 "Note:" 알림이 없다. 원본 PNG는 반영 후 삭제(커밋된 적 없음).
+- 2026-11-13 반영 완료: 앱 소개 글 대표 그림 18장(`images/posts/app-<id>.webp`, 1280×720, 그룹 색 배경 일러스트). 원본 PNG는 반영 후 삭제(커밋된 적 없음). 2026-11-15 추가한 한국사 노트의 대표 그림(`app-koreanhistorynote`)은 이미지요청.md에 요청 중이며, 받기 전까지 "Note: 1 post(s)…" 알림이 나오고 언어·교양 그룹 그림이 임시로 쓰인다.
 - 그림 종류 원칙(사용자 요청 2026-11-13): 사이트 전체 그림(대표·그룹·글 대표 그림)은 파스텔 3D 일러스트를 유지하고, **글 본문에는 성격에 맞게 다양하게** 넣는다. 정확해야 하는 차트·도표·도해는 AI가 본문에 인라인 SVG/HTML로 직접 그린다(`<figure class="chart"><div class="frame"><svg>…</svg></div><figcaption>`; 글자 색은 `.t`·`.m`, 선은 `.grid`·`.axis`, 카테고리 색은 `.c-bg`·`.c-fg`, 단계 도해는 `<div class="steps">`). 현실감이 필요한 사진은 ChatGPT에 사진풍(포토리얼)으로 요청한다.
 - 본문 사진: `<figure class="photo" data-src="images/posts/<파일>.webp" data-alt="설명">캡션</figure>`로 넣으면 파일이 있을 때만 보이고("AI 생성 이미지" 표시 자동), 없으면 빠진다. 두 장을 나란히 두려면 `<div class="pair">`로 감싼다. 본문 사진은 1280×853(3:2) WebP.
 
@@ -138,18 +138,19 @@ summary: 목록·검색 결과에 보일 두 문장 안팎의 요약. 무엇을 
 - `app-ads.txt`, `ads.txt`, `google686730568d4bc83f.html`(Search Console 확인 파일)은 건드리지 않는다.
 - `robots.txt`(2026-11-14 추가, 직접 쓴 파일이며 생성 스크립트와 무관): 모두 허용 + `Sitemap: https://jbiglion22.github.io/sitemap.xml`. 이 저장소가 도메인 루트라 같은 도메인의 앱 홈페이지(`/<id>_home/`)에도 적용되므로, 막는 줄을 넣을 때 앱 홈페이지가 막히지 않게 한다. noindex 연결 페이지(`index-en.html` 등)는 막지 않는다(막으면 noindex를 읽지 못함). 애드센스 크롤러(Mediapartners-Google)도 막지 않는다. 사이트맵 이름을 바꾸면 이 줄도 고친다.
 - `.idea/`(IDE 설정)는 Git에서 뺐다(`.gitignore`). PC에는 그대로 있다.
-- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 18개 (영어 숨김 상태 2026-11-13 기준 50개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
+- `sitemap.xml`: `/`, `/apps/`, 전체 글, 카테고리 5개, 글과 앱 소개 글, 한국어 소개 페이지, 앱 홈페이지 19개 (영어 숨김 상태, 앱 19개·일반 글 11편 기준 2026-11-15 58개). 영어를 다시 켜면 `index-en.html`·`about-en.html`이 추가되고 소개 페이지끼리만 hreflang으로 묶인다. 홈페이지가 바뀔 때마다 생성 스크립트로 갱신한다 (프로젝트.md 요구).
 
-## 앱과 그룹 (18개, 5개 그룹)
-- learn 언어와 교양: koreanstudy 한국어 학습, englishproverbs 영어 속담 사전, snapstudy_koreanhistory 수능 한국사, arthistorynote 미술사노트, snapstudy_cbible 가톨릭 성경 퀴즈
+## 앱과 그룹 (19개, 5개 그룹)
+- learn 언어와 교양: koreanstudy 한국어 학습, englishproverbs 영어 속담 사전, snapstudy_koreanhistory 수능 한국사, koreanhistorynote 한국사 노트, arthistorynote 미술사노트, snapstudy_cbible 가톨릭 성경 퀴즈
 - science 수학과 과학: mathnote 수학공식노트, mathlab 수학 실험실, physicsnote 수능 물리 공식 노트, chemnote 화학노트, resistorcalculator 저항계산기
 - phone 휴대폰: phonecheck 폰체크, phonespec 폰스펙 비교, phonebanner 폰전광판, wifideadzone 와이파이 사각지대 찾기(영어 WiFi DeadZone)
 - money 주식과 투자: stockcalculator 주식 매매 계산기, stocksimulation 주식 시뮬레이터
 - play 휴식과 놀이: chromaray 크로마 레이, snowglobe 스노우 볼
 - 앱 `id`는 홈페이지 폴더 이름(`<id>_home`)과 같아야 한다. 패키지 ID와 다를 수 있다(수능 한국사: `com.phonensoft.snapstudykoreanhistory`, 폴더 `snapstudy_koreanhistory_home`).
 - 프로젝트.md의 `Korean Study`는 한국어 학습과 같은 앱이라 따로 넣지 않는다.
+- 한국사 노트(`com.phonensoft.koreanhistorynote`, 2026-11-15 추가): 프로젝트.md 19번. 홈페이지와 Google Play(개발자 J.Biglion, 출시일 2026-11-10로 보임)를 직접 확인했다. 인물·사건·용어 각 100여 개 카드, 이름·별칭·초성·연도 검색, 사극·영화 20여 편의 실제 역사, 일곱 시대 타임라인, "오늘의 한 장"이 있고 앱 내용은 한국어. **수능 한국사(시험 대비 암기 앱)와 다른 앱**이므로 설명에서 구분한다(앱 소개 글 첫 부분에 용도 차이를 적었다). 사이트용 아이콘은 카드+돋보기.
 - 참고: 폰체크·크로마 레이 홈페이지에는 "Coming soon" 문구가 남아 있으나 Google Play에 등록되어 있다. 수학 실험실·가톨릭 성경 퀴즈는 Play 설명이 더 최신이라 Play를 따랐다. 물리·한국사·수학공식은 한국 수능 대상이라 영어 설명에 CSAT를 밝혔다.
-- 앱 추가: `apps`에 `{id, group, icon}`(icon은 24×24 선 아이콘 내부 SVG), `text.en/ko.apps`에 `{name, tag, desc}`, `content/apps/<id>.html` 앱 소개 글(작성일 = 출시일), 앱 소개 글 대표 그림(이미지요청.md로 요청 → `images/posts/app-<id>.webp`), 필요하면 그룹 조정(`groups`, 각 언어 `groups`·`groupDesc`, CSS 색). 앱이 늘면 그룹 수와 구성을 다시 검토한다(주식·놀이는 2개뿐). 앱이 30개를 넘어 찾기 어려워지면 검색을 검토한다.
+- 앱 추가: `apps`에 `{id, group, icon}`(icon은 24×24 선 아이콘 내부 SVG), `text.en/ko.apps`에 `{name, tag, desc}`, `content/apps/<id>.html` 앱 소개 글(작성일 = 출시일), 앱 소개 글 대표 그림(이미지요청.md로 요청 → `images/posts/app-<id>.webp`), 필요하면 그룹 조정(`groups`, 각 언어 `groups`·`groupDesc`, CSS 색). 앱이 늘면 그룹 수와 구성을 다시 검토한다(주식·놀이는 2개뿐, 언어와 교양은 6개). 앱이 30개를 넘어 찾기 어려워지면 검색을 검토한다.
 
 ## 이미지
 - 그림은 선택 사항이다. 생성 스크립트는 `images/` 안에 아래 이름의 파일(`.webp`, `.png`, `.jpg` 순서로 찾음)이 있을 때만 넣고, 없으면 그림 없는 디자인 그대로 만든다.

@@ -45,6 +45,11 @@
       "icon": "<path d=\"M7 4h11a2 2 0 0 1 0 4H7\"/><path d=\"M7 4a2 2 0 0 0 0 4v10a2 2 0 0 0 2 2h9V8\"/><path d=\"M11 12h4M11 15.5h4\"/>"
     },
     {
+      "id": "koreanhistorynote",
+      "group": "learn",
+      "icon": "<rect x=\"3.5\" y=\"4\" width=\"12\" height=\"16\" rx=\"2\"/><path d=\"M7 8.5h5M7 12h3\"/><circle cx=\"16.5\" cy=\"15\" r=\"3.5\"/><path d=\"M19 17.5l2.5 2.5\"/>"
+    },
+    {
       "id": "arthistorynote",
       "group": "learn",
       "icon": "<path d=\"M4 5h16v14H4z\"/><path d=\"M4 16l5-5 4 4 3-3 4 4\"/><circle cx=\"15\" cy=\"9\" r=\"1.4\"/>"
@@ -229,11 +234,16 @@
           "name": "Snow Globe",
           "tag": "Relaxing · Snow globe",
           "desc": "Watch snow fall in a little winter world. Shake it, decorate your own globe and use focus and rest timers."
+        },
+        "koreanhistorynote": {
+          "name": "Korean History Note",
+          "tag": "Korean history · People, events & terms",
+          "desc": "Look up people, events and terms from Korean history by name or initial consonants and read each as a short, easy card. App content is in Korean."
         }
       },
       "aboutLabel": "About",
       "groupDesc": {
-        "learn": "Learn Korean and English expressions, Korean history for the CSAT, Western art history and the Catholic Bible with cards, quizzes and notes",
+        "learn": "Learn Korean and English expressions, Korean history, Western art history and the Catholic Bible with cards, quizzes and notes",
         "science": "Math and physics formulas, chemistry calculations, hands-on function and shape experiments, and resistor calculations",
         "phone": "Check your phone, compare smartphone specs, show a cheering LED board and find Wi-Fi dead zones at home",
         "money": "Work out average cost and returns on stock trades, and compare investing methods in a virtual market",
@@ -349,11 +359,16 @@
           "name": "스노우 볼",
           "tag": "힐링 · 스노우볼",
           "desc": "유리볼 속 겨울 마을에 눈이 내려요. 흔들어 눈보라를 일으키고, 직접 꾸미고, 집중·휴식 타이머도 써 보세요."
+        },
+        "koreanhistorynote": {
+          "name": "한국사 노트",
+          "tag": "한국사 · 인물·사건·용어 사전",
+          "desc": "사극이나 여행지에서 궁금해진 한국사 인물·사건·용어를 이름이나 초성으로 찾아, 한 장의 카드로 쉽게 읽어 보세요."
         }
       },
       "aboutLabel": "사이트 소개",
       "groupDesc": {
-        "learn": "한국어와 영어 표현, 수능 한국사, 서양 미술사, 가톨릭 성경을 카드·퀴즈·노트로 익히는 앱",
+        "learn": "한국어와 영어 표현, 한국사, 서양 미술사, 가톨릭 성경을 카드·퀴즈·노트로 익히고 찾아보는 앱",
         "science": "수학·물리 공식 정리, 화학 계산, 함수와 도형 실험, 전자 회로 저항 계산을 돕는 앱",
         "phone": "휴대폰 상태 점검, 스마트폰 사양 비교, 응원용 전광판, 집 안 와이파이 신호 확인 앱",
         "money": "주식 매매 단가와 수익률 계산, 가상 시장에서 투자 방법을 비교하는 모의 투자 앱",
