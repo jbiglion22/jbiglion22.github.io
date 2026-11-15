@@ -314,7 +314,6 @@ h1, h2, h3 { margin: 0; }
 .pager button:hover:not(:disabled) { border-color: var(--line-strong); }
 .pager button[aria-current=page] { background: var(--ink); border-color: var(--ink); color: var(--bg); font-weight: 700; }
 .pager button:disabled { opacity: .35; cursor: default; }
-.pager-note { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
 @media (max-width: 480px) { .pager .label { display: none; } }
 .post-list { border-top: 1px solid var(--line); }
 .section-title + .post-list { border-top: 0; }

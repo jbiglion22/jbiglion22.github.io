@@ -527,7 +527,6 @@
     "pagerLabel": "글 목록 쪽",
     "prevLabel": "이전",
     "nextLabel": "다음",
-    "pagerNote": "전체 {total}개 중 {from}–{to}번째 글",
     "postsPerPage": 10
   },
   "published": [

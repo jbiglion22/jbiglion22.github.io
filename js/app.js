@@ -98,8 +98,7 @@ document.querySelectorAll('.subtopics').forEach(box => {
     let html = button(page - 1, `‹<span class="label"> ${pager.dataset.prev}</span>`, pager.dataset.prev, page === 1 ? ' disabled' : '');
     for (let i = 1; i <= pages; i++) html += button(i, i, '', i === page ? ' aria-current="page"' : '');
     html += button(page + 1, `<span class="label">${pager.dataset.next} </span>›`, pager.dataset.next, page === pages ? ' disabled' : '');
-    const note = pager.dataset.note.replace('{total}', shown.length).replace('{from}', start + 1).replace('{to}', start + visible.length);
-    pager.innerHTML = `<div class="pager-buttons">${html}</div><p class="pager-note">${note}</p>`;
+    pager.innerHTML = `<div class="pager-buttons">${html}</div>`;
   }
 
   buttons.forEach(button => button.addEventListener('click', () => {

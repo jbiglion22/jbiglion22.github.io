@@ -338,7 +338,7 @@ class Blog:
         esc = self.h.esc
         c = self.cfg
         return (f'    <nav class="pager" aria-label="{esc(c["pagerLabel"])}" data-prev="{esc(c["prevLabel"])}" '
-                f'data-next="{esc(c["nextLabel"])}" data-note="{esc(c["pagerNote"])}" hidden></nav>\n')
+                f'data-next="{esc(c["nextLabel"])}" hidden></nav>\n')
 
     def all_posts(self, year):
         esc = self.h.esc
